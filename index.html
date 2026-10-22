@@ -351,11 +351,14 @@ button,summary,.railrow,select,label{touch-action:manipulation}
 
   <div class="panel" id="controls" hidden>
     <div class="row">
-      <div class="visually-hidden">
+      <!-- Still the source of truth for pool(); the rail sets their values.
+           Hidden from the tab order and the a11y tree because the rail rows
+           already offer the same two choices with real labels. -->
+      <div class="visually-hidden" aria-hidden="true">
         <label for="topic">Topic</label>
-        <select id="topic"></select>
+        <select id="topic" tabindex="-1"></select>
         <label for="mode">Mode</label>
-        <select id="mode">
+        <select id="mode" tabindex="-1">
           <option value="all">All questions</option>
           <option value="missed">Missed only</option>
           <option value="unseen">Not yet seen</option>
