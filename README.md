@@ -37,6 +37,12 @@ python3 -m http.server 8777
 
 then open http://localhost:8777/
 
+### Always-on copy
+
+The quiz is also served continuously at <http://localhost:4181/> by the launchd job
+`com.bjepp.acct-midterm`. Nothing to start. Run `./build.sh` after editing `questions.json`
+so the served copy picks the change up.
+
 The build exists because `file://` blocks `fetch`. The page tries `questions.json` first and
 falls back to `questions.js`.
 

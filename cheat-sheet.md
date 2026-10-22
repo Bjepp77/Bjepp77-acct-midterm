@@ -1,5 +1,8 @@
 # Cheat sheet — copy by hand onto one sheet, front and back
 
+Exam window: opens Thursday 2026-10-22 at 11:00 AM, after class. Closes midnight Saturday
+2026-10-31. (This line is a reminder, not part of what you copy.)
+
 Draft. Not final: Crispin is gathering the Canvas practice problems, solutions and quizzes,
 and this gets revised once they land.
 
