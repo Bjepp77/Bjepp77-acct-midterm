@@ -62,6 +62,7 @@ A Second Chance window of Nov 4 to 8 is on the sheet with a question mark beside
 | `questions.js` | Generated from `questions.json` by `build.sh`. Never edit it |
 | `equations.js` | Generated from `equations.json` by `build.sh`. Never edit it |
 | `build.sh` | Regenerates both `.js` files and validates the JSON |
+| `DESIGN.md` | Where every colour, size and spacing token comes from, cited to the BYU AI Foundry site by file and line, plus the departures |
 
 ## The bank
 
