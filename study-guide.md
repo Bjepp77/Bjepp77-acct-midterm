@@ -308,11 +308,14 @@ You use the regression's standard error ($27,771), **not** either coefficient's 
 |---|---|---:|
 | Point estimate | 49,701.29 + 687.43 × 400 | $324,675.14 |
 | Half-width | 2.447 × 27,771 | $67,955.6 |
-| Lower bound | 324,675.14 − 67,955.6 | $256,718.85 |
-| Upper bound | 324,675.14 + 67,955.6 | $392,631.42 |
+| Lower bound | 324,675.14 − 67,956.29 | $256,718.85 |
+| Upper bound | 324,675.14 + 67,956.28 | $392,631.42 |
 
-(Recomputing the point estimate from the rounded coefficients gives $324,673.29. The $1.85 gap
-is the unrounded coefficients in Excel. The professor's bounds confirm the method.)
+(Both bounds are his own numbers off the Excel output. Reproducing them by hand needs the
+unrounded standard error, around 27,771.3, not the printed 27,771, so the half-width is about
+$67,956.3 rather than $67,955.6. Recomputing the point estimate from the rounded coefficients
+gives $324,673.29, a $1.85 gap for the same reason. Method is right; the last dollar is Excel's
+extra decimals. On the exam, read the bounds straight off the output.)
 
 That interval is enormous, and the professor's point is that a CEO will say so. The only two
 fixes: accept lower confidence, or get more data.
@@ -572,7 +575,7 @@ but they don't." Compute MoS first, then pick the denominator from the question.
 |---|---|---:|
 | Break-even units | 180,000 / 3.80 | 47,369 |
 | MoS units | 60,000 − 47,369 | **12,631** |
-| MoS dollars | 12,631 × 8.00 | **$101,053** |
+| MoS dollars | 12,631.58 × 8.00 | **$101,053** |
 | MoS % of current sales | 12,631 / 60,000 | **21.05%** — how far it can fall |
 | MoS % of break-even | 12,631 / 47,369 | **26.7%** — how far above break-even |
 
@@ -811,7 +814,7 @@ is whether direct labor is treated as variable or fixed.
 | DOL | 6,290 / 15.75 = **399.37** | 35,040 / 15.75 = **2,224.76** |
 
 Identical profit. The professor's line: "it didn't matter at all how she treats direct labor."
-He rounds $15.75 to "exactly $16" in class.
+In class he calls the $15.75 "16 bucks" and treats it as a rounding.
 
 ### Why identical profit is not the end of the analysis
 
@@ -880,7 +883,7 @@ the class, I hope you get this. What are we trying to answer?"
 |---|---|---:|
 | Revenue | 350 × $61 | $21,350 |
 | Direct materials | 350 × 10.44 | (3,654) |
-| Direct labor | 2 workers × $4,791.50 | (9,583) |
+| Direct labor | 2 workers × $4,791.50 † | (9,583) |
 | Supplies | 350 × 0.14 | (49) |
 | Variable power | 350 × 0.46 | (161) |
 | Fixed power | 864 / 12 | (72) |
@@ -894,6 +897,12 @@ the class, I hope you get this. What are we trying to answer?"
 (The transcript garbles the salary as "5,002 71." $5,270.83 is the figure that makes the
 professor's own totals close: 10,072 + 5,270.83 = $15,343, exactly his "everything in" fixed
 cost.)
+
+† He says "two workers at 4792 per month" and then "that's incremental 9583." The two do not
+multiply: 2 × 4,792 = 9,584. The $9,583 total is the one he carries forward, so the per-worker
+figure behind it is $4,791.50. Use 9,583.
+
+
 
 ### 11b. Three break-evens, three answers
 
@@ -1001,9 +1010,9 @@ Mix is 12 pitons to 1 hammer, so 350 baskets per month: 4,200 pitons and 350 ham
 
 | Step | Value |
 |---|---:|
-| VC ratio | 18% (he also says 17.6%) |
+| VC ratio | 18% |
 | CM ratio | 82.4% |
-| Break-even revenue | 45,096 / 0.824 = **$54,731** |
+| Break-even revenue | 45,096 / 0.8240 = **$54,731** |
 | Piton revenue share | 67% |
 | Hammer revenue share | 33% |
 | MoS dollars | 65,450 − 54,731 = $10,719 |
