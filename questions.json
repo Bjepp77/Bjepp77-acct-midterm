@@ -271,9 +271,9 @@
     {
       "id": "reg-005", "topic": "Regression", "session": 4, "style": "computational MC", "type": "mc",
       "stem": "Slope $687.43, its standard error 87.06, df 6, t at 95% = 2.447. What is the 95% confidence interval for the variable cost rate?",
-      "choices": ["$600.37 to $774.49", "$474.50 to $900.36", "$687.43 to $900.36", "$659.66 to $715.20"],
+      "choices": ["$600.37 to $774.49", "$474.39 to $900.47", "$687.43 to $900.47", "$659.66 to $715.20"],
       "answer": 1,
-      "solution": "<ol><li>Interval = estimate &plusmn; (its own standard error &times; t)</li><li>Half-width = 87.06 &times; 2.447 = <strong>212.93</strong></li><li>Lower = 687.43 &minus; 212.93 = <strong>$474.50</strong></li><li>Upper = 687.43 + 212.93 = <strong>$900.36</strong></li></ol><p>Zero is well outside this interval, which is the same conclusion the tiny P value gave.</p><p>t for 6 df: <strong>2.447</strong> at 95%, <strong>1.943</strong> at 90%. Lower confidence gives a narrower interval.</p>",
+      "solution": "<ol><li>Interval = estimate &plusmn; (its own standard error &times; t)</li><li>Half-width = 87.06 &times; 2.447 = <strong>213.04</strong></li><li>Lower = 687.43 &minus; 213.04 = <strong>$474.39</strong></li><li>Upper = 687.43 + 213.04 = <strong>$900.47</strong></li></ol><p>Zero is well outside this interval, which is the same conclusion the tiny P value gave.</p><p>t for 6 df: <strong>2.447</strong> at 95%, <strong>1.943</strong> at 90%. Lower confidence gives a narrower interval.</p>",
       "source": "Session 4, 2026-10-01"
     },
     {

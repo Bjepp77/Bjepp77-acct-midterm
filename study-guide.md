@@ -289,7 +289,7 @@ Estimate  +/-  (its own standard error  x  t)
 
 t for 6 df: **2.447** at 95%, **1.943** at 90%. Lower confidence gives a narrower interval.
 
-Slope at 95%: 687.43 ± (87.06 × 2.447) = 687.43 ± 212.93 → **$474.50 to $900.36**
+Slope at 95%: 687.43 ± (87.06 × 2.447) = 687.43 ± 213.04 → **$474.39 to $900.47**
 
 **Confidence interval on a total-cost prediction — different standard error**
 
