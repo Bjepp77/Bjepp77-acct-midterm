@@ -119,8 +119,23 @@ and a Practice tools group for the three modes, the timed mock and Reset progres
 collapses to an icon strip, remembers that choice, and has a keyboard toggle on the backslash
 key. Below 768px it becomes a slide-in drawer behind a Topics button. A three-node stepper
 (Topic, Quiz, Results) shows where you are. Progress bars use a plain label-left,
-value-right pattern: mastery per topic in the rail, position in the current pool on each
-question, answered-so-far during the mock, and the score at the end.
+value-right pattern: mastery per topic in the rail, answered-so-far during the mock, and the
+score at the end.
+
+The page title sits on one line, with the long exam logistics folded into an "Exam details"
+disclosure. While a session is running, a study header above the question carries the topic,
+your position in the pool, how much of this session you have got right, an End session button
+and a thin progress rule; the practice controls hide themselves until you are between
+questions, so the question is the first thing on screen at any width. On the picker, three
+counts (Not yet seen, Missed, Seen) say what is left before you choose anything.
+
+On a multiple-choice question the number keys 1 to 9 and the letters A to I pick a choice, and
+Enter moves to the next question. Keys are ignored while you are typing in a field, and the
+whole shortcut set is off during the timed mock. The hint line is hidden on touch devices.
+
+The rail bars and the stats table carry a plain level instead of a bare percentage: Not
+started, Attempted, Familiar, Proficient, Mastered. The thresholds are set in `levelFor` in
+`index.html` and are this app's own, not copied from any product.
 
 A right-hand panel mirrors the rail and carries the equations for whatever topic you are in.
 It pins the home equation at the top, then lists the other equations for that topic with every

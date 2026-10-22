@@ -82,7 +82,33 @@ body{
   padding:var(--s3) var(--s2) 80px;
 }
 .wrap{max-width:1340px;margin:0 auto}
-h1{font-size:1.75rem;line-height:1.25;margin:0 0 var(--s1);letter-spacing:-.02em;max-width:62ch}
+h1{font-size:1.25rem;line-height:1.3;margin:0;letter-spacing:-.02em;max-width:62ch}
+.topbar{display:flex;align-items:baseline;gap:var(--s2);flex-wrap:wrap;margin:0 0 var(--s2)}
+#metawrap{min-width:0}
+#metawrap>summary{font-size:.875rem;color:var(--muted);cursor:pointer;list-style:none;
+  display:inline-flex;align-items:center;gap:6px;padding:4px 0}
+#metawrap>summary::-webkit-details-marker{display:none}
+#metawrap>summary::after{content:"";width:6px;height:6px;border-right:1.5px solid currentColor;
+  border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-bottom:3px}
+#metawrap[open]>summary::after{transform:rotate(-135deg);margin-bottom:-3px}
+#metawrap .sub{margin:var(--s1) 0 0}
+/* study header: what you are doing, how far in, how you are doing */
+#studyhead{margin:0 0 var(--s2);padding:0 0 var(--s1);border-bottom:1px solid var(--line)}
+.shrow{display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s1)}
+.sht{font-size:.75rem;line-height:1.5;text-transform:uppercase;letter-spacing:.1em;font-weight:600}
+.shstat{font-size:.875rem;color:var(--muted);font-variant-numeric:tabular-nums}
+#shend{margin-left:auto}
+.shtrack{height:4px;background:var(--code);overflow:hidden}
+.shfill{height:100%;background:var(--fill);width:0;transition:width 300ms ease}
+button.ghost{border-color:transparent;background:none;padding:6px 10px;font-size:.875rem;color:var(--muted)}
+button.ghost:hover{border-color:var(--line);color:var(--ink)}
+/* three counts on the picker: what is left, what hurt, what is done */
+.counts{display:flex;gap:var(--s3);flex-wrap:wrap}
+.cnt3{display:flex;flex-direction:column;gap:2px;min-width:84px}
+.cnum{font-size:1.5rem;font-weight:700;line-height:1.2;font-variant-numeric:tabular-nums}
+.clab{font-size:.75rem;line-height:1.5;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600}
+.keys{margin:var(--s1) 0 0}
+@media (pointer:coarse){ .keys{display:none} }   /* no keyboard, no hint */
 .sub{color:var(--muted);font-size:1rem;margin:0 0 var(--s3);max-width:68ch}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s2);margin-bottom:var(--s2)}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
@@ -341,6 +367,10 @@ button,summary,.railrow,select,label{touch-action:manipulation}
   .itemjump button{min-width:44px;min-height:44px}
   #eqp details.eqmore summary{padding:12px 10px}
   #timerbar{gap:8px}
+  .counts{gap:var(--s2)}
+  .sht{flex:1 1 100%}        /* topic takes its own line, stats and End session share the next */
+  #metawrap>summary{min-height:44px}
+  .cnt3{min-width:72px}
   .stepper{font-size:.875rem}
   .steprule{width:14px;margin:0 6px}
   /* the equations panel becomes a right-hand drawer */
@@ -367,8 +397,12 @@ button,summary,.railrow,select,label{touch-action:manipulation}
 <body>
 <a class="skip" href="#content">Skip to the questions</a>
 <div class="wrap">
-  <h1>Managerial Accounting: Exam 1 Practice</h1>
-  <p class="sub" id="meta">Loading question bank…</p>
+  <header class="topbar">
+    <h1>Managerial Accounting: Exam 1 Practice</h1>
+    <details id="metawrap"><summary>Exam details</summary>
+      <p class="sub" id="meta">Loading question bank…</p>
+    </details>
+  </header>
 
 <div class="app" id="app">
   <button id="backdrop" aria-label="Close the menu" tabindex="-1"></button>
@@ -434,6 +468,8 @@ button,summary,.railrow,select,label{touch-action:manipulation}
     <button id="mocksubmit" class="primary">Submit exam</button>
     <button id="mockquit">Abandon</button>
   </div>
+
+  <div id="studyhead" hidden></div>
 
   <div class="panel" id="card" hidden></div>
 
@@ -533,6 +569,18 @@ function wireShell(){
         setEqp(!document.getElementById("app").classList.contains("eq-collapsed"), true);
       }
     }
+    var typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+    if(!typing && !MOCK && current && current.type === "mc" && !answered){
+      var k = e.key.length === 1 ? e.key.toLowerCase() : "";
+      var idx = -1;
+      if(k >= "1" && k <= "9")      idx = k.charCodeAt(0) - 49;
+      else if(k >= "a" && k <= "i") idx = k.charCodeAt(0) - 97;
+      if(idx >= 0 && idx < (current.choices || []).length){ e.preventDefault(); answerMC(idx); return; }
+    }
+    if(!typing && e.key === "Enter"){
+      var nx = document.getElementById("next");
+      if(nx){ e.preventDefault(); nx.click(); return; }
+    }
     if(e.key === "Escape"){ openDrawer(false); openEqDrawer(false); }
   });
   document.getElementById("topic").addEventListener("change", function(){ buildRail(); renderEqp(); });
@@ -571,6 +619,7 @@ function bankLine(b){
 
 /* ---------- pool / session ---------- */
 var queue = [], current = null, answered = false, sessionTotal = 0;
+var sessRight = 0, sessWrong = 0;   // this run only, not saved
 
 function allTopics(){
   // only topics you can actually practise: mock-exam items are served in mock mode alone,
@@ -605,10 +654,19 @@ function pool(){
 }
 function updatePoolInfo(){
   if(!BANK) return;
+  var t = document.getElementById("topic").value || "*";
   var n = pool().length;
-  document.getElementById("poolinfo").textContent =
+  var all = countFor(t, "all"), unseen = countFor(t, "unseen"), missed = countFor(t, "missed");
+  function c3(label, v){
+    return "<div class='cnt3'><span class='cnum'>" + v + "</span>" +
+           "<span class='clab'>" + esc(label) + "</span></div>";
+  }
+  document.getElementById("poolinfo").innerHTML =
+    "<div class='counts'>" + c3("Not yet seen", unseen) + c3("Missed", missed) +
+    c3("Seen", all - unseen) + "</div>" +
+    "<p class='hint' style='margin:var(--s1) 0 0'>" +
     n + (n === 1 ? " question" : " questions") + " in this pool." +
-    (n === 0 ? " Change the topic or mode." : "");
+    (n === 0 ? " Change the topic or mode." : "") + "</p>";
 }
 ["topic","mode"].forEach(function(id){
   document.getElementById(id).addEventListener("change", updatePoolInfo);
@@ -622,6 +680,7 @@ function shuffle(a){
 function startSession(){
   queue = shuffle(pool().slice());
   sessionTotal = queue.length;
+  sessRight = 0; sessWrong = 0;
   if(!queue.length){ updatePoolInfo(); renderEmptyIfNeeded(); return; }
   setStep("quiz");
   nextQuestion();
@@ -642,6 +701,7 @@ function nextQuestion(){
 }
 function finish(){
   current = null;
+  document.getElementById("studyhead").hidden = true;
   var c = document.getElementById("card");
   c.hidden = false;
   var t = document.getElementById("topic").value || "*";
@@ -650,6 +710,10 @@ function finish(){
   var missed = qs.filter(function(q){ var r = prog[q.id]; return r && r.wrong > 0 && r.streak < 2; }).length;
   c.innerHTML = "<div class='eyebrow'>Pool finished</div>" +
     bar(t === "*" ? "Mastered, all topics" : "Mastered in " + t, mastered, qs.length) +
+    "<p class='hint' style='margin:4px 0 0'>Level: " +
+      levelFor(mastered, qs.length, qs.reduce(function(a,q){
+        var r = prog[q.id]; return a + (r ? (r.right||0) + (r.wrong||0) : 0);
+      }, 0)) + "</p>" +
     "<p class='hint'>A question counts as mastered after two correct answers in a row.</p>" +
     "<div class='row' style='margin-top:12px'>" +
     (missed ? "<button class='primary' id='gomissed'>Drill the " + missed + " you missed</button>" : "") +
@@ -672,13 +736,11 @@ function esc(s){
 function renderCard(){
   var q = current, c = document.getElementById("card");
   c.hidden = false;
+  // the topic is in the study header above, so it is not repeated here
   var h = "<div class='badges'>" +
-    "<span class='badge'>" + esc(q.topic) + "</span>" +
     (q.session ? "<span class='badge'>Session " + esc(q.session) + "</span>" : "") +
     (q.style ? "<span class='badge'>" + esc(q.style) + "</span>" : "") +
-    "<span class='badge'>" + (sessionTotal - queue.length) + " of " + sessionTotal + "</span>" +
     "</div>";
-  h += bar("This pool", sessionTotal - queue.length, sessionTotal);
   renderEqp();
   h += "<div class='stem'>" + q.stem + "</div>";   /* trusted: authored in questions.json */
   if(q.table) h += q.table;           // trusted: authored in questions.json, not user input
@@ -689,6 +751,8 @@ function renderCard(){
            "ABCDEFGH".charAt(i) + ".</span><span>" + esc(ch) + "</span></button>";
     });
     h += "</div>";
+    h += "<p class='keys hint'>Keys: 1 to " + q.choices.length +
+         " to answer, Enter for the next question.</p>";
   } else {
     if(q.type === "short" || q.type === "essay"){
       h += "<textarea class='essay' id='numin' placeholder='your answer'></textarea>";
@@ -712,6 +776,7 @@ function renderCard(){
     Array.prototype.forEach.call(c.querySelectorAll(".choice"), function(b){
       b.addEventListener("click", function(){ answerMC(parseInt(b.getAttribute("data-i"),10)); });
     });
+    renderStudyHead();
   } else {
     var inp = document.getElementById("numin");
     document.getElementById("submit").addEventListener("click", answerTyped);
@@ -722,6 +787,7 @@ function renderCard(){
     }
     inp.focus();
   }
+  renderStudyHead();
 }
 
 function parseNum(s){
@@ -765,9 +831,50 @@ function answerTyped(){
 function score(ok){
   var r = rec(current.id);
   r.seen++;
-  if(ok === true){ r.right++; r.streak = (r.streak||0)+1; }
-  else if(ok === false){ r.wrong++; r.streak = 0; }
+  if(ok === true){ r.right++; r.streak = (r.streak||0)+1; sessRight++; }
+  else if(ok === false){ r.wrong++; r.streak = 0; sessWrong++; }
   saveProg(prog);
+}
+// The question card used to carry its own progress bar and an "n of N" badge.
+// Both moved up here so the card holds the question and nothing else.
+function renderStudyHead(){
+  var el = document.getElementById("studyhead");
+  if(!el) return;
+  if(!current || MOCK){ el.hidden = true; return; }
+  var pos = sessionTotal - queue.length;
+  var att = sessRight + sessWrong;
+  var acc = att ? Math.round(100 * sessRight / att) : null;
+  var pct = sessionTotal ? Math.round(100 * (pos - 1) / sessionTotal) : 0;
+  el.innerHTML =
+    "<div class='shrow'>" +
+      "<span class='sht'>" + esc(current.topic) + "</span>" +
+      "<span class='shstat'>" + pos + " of " + sessionTotal + "</span>" +
+      (acc === null ? "" : "<span class='shstat'>" + acc + "% right this session</span>") +
+      "<button id='shend' class='ghost'>End session</button>" +
+    "</div>" +
+    "<div class='shtrack' role='progressbar' aria-valuemin='0' aria-valuemax='" + sessionTotal +
+      "' aria-valuenow='" + (pos - 1) + "' aria-label='Session progress'>" +
+      "<div class='shfill' style='width:" + pct + "%'></div></div>";
+  el.hidden = false;
+  document.getElementById("shend").addEventListener("click", endSession);
+}
+function endSession(){
+  queue = []; current = null; answered = false;
+  document.getElementById("card").hidden = true;
+  document.getElementById("studyhead").hidden = true;
+  setStep("topic");
+  renderEqp(); renderStats(); updatePoolInfo(); buildRail();
+  window.scrollTo(0, 0);
+}
+// Five plain labels beat a bare percentage: they say what to do next.
+// Thresholds are mine, not copied from anyone.
+function levelFor(mastered, total, attempts){
+  if(!attempts) return "Not started";
+  var p = total ? mastered / total : 0;
+  if(p === 0)    return "Attempted";
+  if(p < 0.5)    return "Familiar";
+  if(p < 0.85)   return "Proficient";
+  return "Mastered";
 }
 
 function showSolution(ok, typed){
@@ -790,14 +897,15 @@ function showSolution(ok, typed){
     h += "<div class='row' style='margin-top:14px'><button class='primary' id='next'>Next</button></div>";
   }
   a.innerHTML = h;
+  renderStudyHead();
 
   if(ok === false) queue.splice(Math.min(3, queue.length), 0, q);   // re-ask it soon
   if(ok === null){
     document.getElementById("selfok").addEventListener("click", function(){
-      var r = rec(q.id); r.right++; r.streak = (r.streak||0)+1; saveProg(prog); nextQuestion();
+      var r = rec(q.id); r.right++; r.streak = (r.streak||0)+1; sessRight++; saveProg(prog); nextQuestion();
     });
     document.getElementById("selfbad").addEventListener("click", function(){
-      var r = rec(q.id); r.wrong++; r.streak = 0; saveProg(prog);
+      var r = rec(q.id); r.wrong++; r.streak = 0; sessWrong++; saveProg(prog);
       queue.splice(Math.min(3, queue.length), 0, q);
       nextQuestion();
     });
@@ -853,6 +961,7 @@ function startMock(){
   MOCK = { id:id, items:items, idx:0, answers:{}, deadline: Date.now() + MOCK_MS, tick:null };
   queue = []; current = null;
   document.getElementById("controls").hidden = true;
+  document.getElementById("studyhead").hidden = true;
   document.getElementById("stats").hidden = true;
   document.getElementById("timerbar").hidden = false;
   document.getElementById("stepper").hidden = true;
@@ -1257,28 +1366,32 @@ function masteryRows(){
   allTopics().forEach(function(t){
     var qs = BANK.questions.filter(function(q){ return !q.exam && q.topic === t; });
     var right = qs.filter(function(q){ var r = prog[q.id]; return r && r.streak >= 2; }).length;
-    if(qs.length) rows.push({topic:t, right:right, total:qs.length});
+    var att = 0;
+    qs.forEach(function(q){ var r = prog[q.id]; if(r) att += (r.right || 0) + (r.wrong || 0); });
+    if(qs.length) rows.push({topic:t, right:right, total:qs.length, attempts:att});
   });
   rows.sort(function(a,b){ return (b.right/b.total) - (a.right/a.total); });
   return rows;
 }
-function bar(label, value, max, cls){
+function bar(label, value, max, cls, valText){
   var pct = max ? Math.round((value / max) * 100) : 0;
   return "<div class='bar'><span class='barlab'>" + esc(label) + "</span>" +
          "<div class='track' role='progressbar' aria-valuenow='" + value + "' aria-valuemin='0' " +
          "aria-valuemax='" + max + "' aria-label='" + esc(label) + ", " + value + " of " + max + "'>" +
          "<div class='fill" + (cls ? " " + cls : "") + "' style='width:" + pct + "%'></div></div>" +
-         "<span class='barval'>" + value + " / " + max + "</span></div>";
+         "<span class='barval'>" + esc(valText || (value + " / " + max)) + "</span></div>";
 }
 function buildRailBars(){
-  var rows = masteryRows().filter(function(r){ return r.right > 0; }).slice(0, 8);
+  var rows = masteryRows().filter(function(r){ return r.attempts > 0; }).slice(0, 8);
   var el = document.getElementById("railbars");
   if(!rows.length){
-    el.innerHTML = "<p class='hint' style='margin:4px 6px'>Nothing mastered yet. " +
-                   "A question counts once you answer it right twice in a row.</p>";
+    el.innerHTML = "<p class='hint' style='margin:4px 6px'>Nothing attempted yet. " +
+                   "A question counts as mastered once you answer it right twice in a row.</p>";
     return;
   }
-  el.innerHTML = rows.map(function(r){ return bar(r.topic, r.right, r.total); }).join("");
+  el.innerHTML = rows.map(function(r){
+    return bar(r.topic, r.right, r.total, null, levelFor(r.right, r.total, r.attempts));
+  }).join("");
 }
 
 /* ---------- stepper: Topic > Quiz > Results ---------- */
@@ -1296,6 +1409,8 @@ function setStep(which){            // "topic" | "quiz" | "results" | null
   });
   el.innerHTML = h;
   el.hidden = false;
+  var ctl = document.getElementById("controls");
+  if(ctl && BANK) ctl.hidden = !!MOCK || which === "quiz";
 }
 
 /* ---------- empty state ---------- */
@@ -1452,17 +1567,23 @@ function renderStats(){
   var rows = Object.keys(byTopic).sort().filter(function(t){ return byTopic[t].seen > 0; }).map(function(t){
     var b = byTopic[t], att = b.right + b.wrong;
     var pct = att ? Math.round(100 * b.right / att) : 0;
+    var mast = BANK.questions.filter(function(q){
+      var r = prog[q.id]; return !q.exam && q.topic === t && r && r.streak >= 2;
+    }).length;
+    var inbank = BANK.questions.filter(function(q){ return !q.exam && q.topic === t; }).length;
     return "<tr><td>" + esc(t) + "</td><td class='num'>" + b.n + "</td><td class='num'>" +
-           att + "</td><td class='num'>" + b.wrong + "</td><td class='num'>" + pct + "%</td></tr>";
+           att + "</td><td class='num'>" + b.wrong + "</td><td class='num'>" + pct + "%</td>" +
+           "<td>" + levelFor(mast, inbank, att) + "</td></tr>";
   }).join("");
   var att = tot.right + tot.wrong;
   s.innerHTML = "<h3 style='font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-weight:600;margin:0 0 10px'>Progress</h3>" +
     "<table class='stats'><thead><tr><th>Topic</th><th class='num'>In bank</th>" +
-    "<th class='num'>Attempts</th><th class='num'>Misses</th><th class='num'>Accuracy</th></tr></thead>" +
+    "<th class='num'>Attempts</th><th class='num'>Misses</th><th class='num'>Accuracy</th>" +
+    "<th>Level</th></tr></thead>" +
     "<tbody>" + rows + "</tbody>" +
     "<tfoot><tr><th>Total</th><th class='num'>" + BANK.questions.length + "</th><th class='num'>" + att +
     "</th><th class='num'>" + tot.wrong + "</th><th class='num'>" +
-    (att ? Math.round(100*tot.right/att) : 0) + "%</th></tr></tfoot></table>";
+    (att ? Math.round(100*tot.right/att) : 0) + "%</th><th></th></tr></tfoot></table>";
 }
 </script>
 </body>

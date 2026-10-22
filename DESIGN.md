@@ -86,7 +86,8 @@ Scale from SITE `SPEC.md:177-197`.
 |---|---|---|---|
 | Body, question stems, nav, buttons | 16px | 1.63 | `SPEC.md:186` |
 | Eyebrows and labels, uppercase, 600, tracked 0.1em | 12px | 1.5 | `SPEC.md:184`, SITE `globals.css:210-218` |
-| Page heading `h1`, tracked -0.02em | 28px | 1.25 | `SPEC.md:188` (20 to 30px, 1.2 to 1.4) and the site's `tracking-[-0.02em]` on headings |
+| Page heading `h1`, tracked -0.02em | 20px | 1.3 | `SPEC.md:188` (20 to 30px, 1.2 to 1.4) and the site's `tracking-[-0.02em]` on headings |
+| Big counts on the picker | 24px | 1.2 | `SPEC.md:188`, same band |
 | Measure cap | 62-68ch | | `SPEC.md:196-198` gives 65 to 75 characters as the band |
 
 Font stack is `Inter, ui-sans-serif, -apple-system, "Segoe UI", Roboto, Helvetica, Arial,
@@ -109,6 +110,24 @@ loading.
 The ember bar appears twice: on the active rail row (`box-shadow: inset 3px 0 0`) and down
 the left edge of the home-equation box. Both are painted in `--fill`, not orange, so the
 orange budget stays with the primary action.
+
+## The 2026-10-22 layout pass
+
+Five changes went in after the skin. They added no colour tokens: the study header, the
+three counts and the mastery labels all read existing semantic tokens (`--fill`, `--code`,
+`--line`, `--muted`, `--ink`).
+
+| Piece | What it is | Type |
+|---|---|---|
+| Top bar | `h1` on one line, with the long exam metadata folded into an `Exam details` disclosure | 20px heading, 14px summary |
+| Study header | Shown only while a session is running: topic, position, accuracy this session, End session, and a 4px progress rule in `--fill` | 12px eyebrow, 14px stats |
+| Picker counts | Not yet seen, Missed, Seen for the chosen topic | 24px numbers, 12px labels |
+| Keyboard answering | 1 to 9 or A to I pick a choice, Enter goes to the next question. Hidden on touch pointers | 14px hint |
+| Mastery levels | Not started, Attempted, Familiar, Proficient, Mastered, on the rail bars and in the stats table | 14px |
+
+The practice controls panel now hides itself while a question is on screen (`setStep`
+owns that). Before this pass, at 375px the header plus that panel filled the whole
+812px viewport and the question began below the fold.
 
 ## What was deliberately not followed
 
@@ -136,6 +155,8 @@ orange budget stays with the primary action.
   Not Safari, not Firefox, not a real iPhone.
 - Inter is not installed on this machine, so every screenshot shows the system fallback.
   The Inter rendering was never seen.
-- The `prefers-color-scheme` block and the `data-theme` block hold the same values. Only
-  the `data-theme` path was exercised; the media-query path was not tested by changing the
-  OS appearance.
+- The app is pinned to the light theme at `index.html:2` (`data-theme="light"`, commit
+  3d7ee90, the owner's decision on 2026-10-22). The dark tokens are still in the file and
+  still measured, but nothing reaches them, so dark was not re-verified after that commit.
+- The `prefers-color-scheme` block and the `data-theme` block hold the same values. Neither
+  was exercised after the theme was pinned.
