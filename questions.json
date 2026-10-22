@@ -1,0 +1,622 @@
+{
+  "meta": {
+    "exam": "Exam 1 — Managerial Accounting",
+    "window": "Opens Thu 2026-10-22 11:00 AM, closes midnight Sat 2026-10-31",
+    "format": "19 questions · mostly MC computational + short essay on cases · 2h15m · 1 handwritten sheet · blank Excel",
+    "scope": "Sessions 1-7 (2026-09-03 through 2026-10-22)",
+    "built": "2026-10-22",
+    "note": "All figures traced to class transcripts. No quiz screenshots were available when this bank was built."
+  },
+  "questions": [
+    {
+      "id": "cvp-001", "topic": "CVP basics", "session": 3, "style": "computational MC", "type": "mc",
+      "stem": "A company sells 60,000 calculators for $480,000. Variable costs are $252,000 and fixed costs are $180,000. What is the contribution margin ratio?",
+      "choices": ["52.5%", "47.5%", "37.5%", "62.5%"],
+      "answer": 1,
+      "solution": "<ol><li>Contribution margin = 480,000 &minus; 252,000 = <strong>$228,000</strong></li><li>CM ratio = 228,000 / 480,000 = <strong>47.5%</strong></li></ol><p>Per-unit route gives the same answer: price $8.00, VC $4.20, CM $3.80, and 3.80 / 8.00 = 47.5%.</p><p><strong>Trap:</strong> 52.5% is the <em>variable cost</em> ratio. CM ratio + VC ratio = 100%.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "cvp-002", "topic": "CVP basics", "session": 3, "style": "computational MC", "type": "numeric",
+      "stem": "Same company: price $8.00 per unit, variable cost $4.20 per unit, fixed costs $180,000. How many units must it sell to break even? (Round up to whole units.)",
+      "answer": 47369, "tolerance": 1, "answerLabel": "47,369 units",
+      "solution": "<ol><li>CM per unit = 8.00 &minus; 4.20 = <strong>$3.80</strong></li><li>Home equation: 8.00x &minus; 4.20x &minus; 180,000 = 0</li><li>3.80x = 180,000</li><li>x = 47,368.42, round up to <strong>47,369 units</strong></li></ol><p>You cannot sell a partial calculator, so unit break-even rounds up.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "cvp-003", "topic": "CVP basics", "session": 3, "style": "computational MC", "type": "mc",
+      "stem": "Same company. What is break-even in SALES DOLLARS?",
+      "choices": ["$378,947", "$180,000", "$342,857", "$466,667"],
+      "answer": 0,
+      "solution": "<p>Dividing fixed cost by a <strong>percentage</strong> gives a <strong>dollar</strong> answer.</p><table><tr><th>Route</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Ratio</td><td>180,000 / 0.475</td><td class='num'>$378,947</td></tr><tr><td>Percent form</td><td>x &minus; 0.525x &minus; 180,000 = 0</td><td class='num'>$378,947</td></tr><tr><td>Units &times; price</td><td>47,368.42 &times; 8.00</td><td class='num'>$378,947</td></tr></table><p><strong>Trap:</strong> when the answer is revenue dollars, X <em>is</em> revenue and the variable term is 0.525X. It is not $8 &times; volume.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "cvp-004", "topic": "CVP basics", "session": 3, "style": "computational MC", "type": "numeric",
+      "stem": "Same company (price $8.00, VC $4.20, fixed $180,000). How many units are needed to earn operating income of $120,000?",
+      "answer": 78948, "tolerance": 1, "answerLabel": "78,948 units",
+      "solution": "<ol><li>Put the target on the right side instead of zero: 8.00x &minus; 4.20x &minus; 180,000 = 120,000</li><li>3.80x = 300,000</li><li>x = 78,947.37, round up to <strong>78,948 units</strong></li></ol><p>Shortcut: (FC + target) / CM per unit = 300,000 / 3.80.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "cvp-005", "topic": "CVP basics", "session": 3, "style": "concept MC", "type": "mc",
+      "stem": "In the home equation, how is fixed cost handled?",
+      "choices": ["Divided by units to get fixed cost per unit", "Left alone in full", "Multiplied by the CM ratio", "Subtracted from the variable cost rate"],
+      "answer": 1,
+      "solution": "<p><strong>Left alone in full.</strong> Fixed cost per unit is a \"spready\" number: it changes with volume, which is the one thing fixed cost is not supposed to do. There is no step in the home equation where you unitize fixed cost.</p><p>This also appears in multi-product CVP: \"$210,000 total fixed cost left alone. Don't unitize.\"</p>",
+      "source": "Sessions 3 and 6"
+    },
+    {
+      "id": "cvp-006", "topic": "CVP basics", "session": 3, "style": "computational MC", "type": "numeric",
+      "stem": "Tom Flannery's father-in-law will invest $500,000 if the restaurant earns pre-tax profit of at least 20% of sales. Fixed expenses are $24,000 per year and variable expenses run about 40% of sales. What annual sales level meets the 20% target?",
+      "answer": 60000, "tolerance": 1, "answerLabel": "$60,000",
+      "solution": "<ol><li>Let x = sales dollars. The target is on both sides, and that is fine.</li><li>x &minus; 0.4x &minus; 24,000 = 0.2x</li><li>0.6x &minus; 24,000 = 0.2x</li><li>0.4x = 24,000</li><li>x = <strong>$60,000</strong></li></ol><p>A target stated as a percent of sales puts X on both sides. Collect terms.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "cvp-007", "topic": "CVP basics", "session": 3, "style": "concept MC", "type": "mc",
+      "stem": "On a break-even chart, which line starts at the origin (zero)?",
+      "choices": ["Total cost", "Fixed cost", "Revenue", "Contribution margin per unit"],
+      "answer": 2,
+      "solution": "<table><tr><th>Line</th><th>Starts at</th></tr><tr><td>Revenue</td><td>zero (origin)</td></tr><tr><td>Total cost</td><td>the fixed cost level (y-intercept)</td></tr><tr><td>Fixed cost</td><td>flat, at its own level</td></tr></table><p>They cross at break-even, where operating income = 0.</p><p><strong>Trap:</strong> a line starting at the y-intercept is <em>total</em> cost, not variable cost. A variable-cost line starts at zero.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "cvp-008", "topic": "CVP basics", "session": 3, "style": "concept MC", "type": "mc",
+      "stem": "Why do accountants' straight-line 'variable' and 'fixed' labels work at all, given that economists object to them?",
+      "choices": ["Because costs are genuinely linear at all activity levels", "Because they hold inside the relevant range", "Because GAAP requires linear cost functions", "Because regression forces a straight line"],
+      "answer": 1,
+      "solution": "<p>The <strong>relevant range</strong> is the limited band of activity over which the cost relationships are assumed constant. Inside it, the linear simplification is good enough to decide with. Push volume far outside the observed data and the labels stop holding.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "dol-001", "topic": "Operating leverage", "session": 3, "style": "computational MC", "type": "numeric",
+      "stem": "Total contribution margin is $228,000 and operating income is $48,000. What is the degree of operating leverage?",
+      "answer": 4.75, "tolerance": 0.02, "answerLabel": "4.75",
+      "solution": "<ol><li>DOL = total CM dollars / operating income</li><li>228,000 / 48,000 = <strong>4.75</strong></li></ol><p><strong>Trap:</strong> DOL uses total contribution margin in <em>dollars</em>, never the CM ratio and never a percentage.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "dol-002", "topic": "Operating leverage", "session": 3, "style": "computational MC", "type": "mc",
+      "stem": "DOL is 4.75. Sales rise 20%. By how much does operating income change?",
+      "choices": ["+20%", "+23.75%", "+95%", "+4.75%"],
+      "answer": 2,
+      "solution": "<ol><li>% change in operating income = DOL &times; % change in sales</li><li>4.75 &times; 20% = <strong>+95%</strong></li></ol><p><strong>Check it longhand:</strong></p><table><tr><th>Step</th><th class='num'>Amount</th></tr><tr><td>CM grows 20%: 228,000 &times; 1.20</td><td class='num'>$273,600</td></tr><tr><td>Less fixed cost (unchanged)</td><td class='num'>(180,000)</td></tr><tr><td>New operating income</td><td class='num'>$93,600</td></tr><tr><td>Change: (93,600 &minus; 48,000) / 48,000</td><td class='num'>+95%</td></tr></table>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "dol-003", "topic": "Operating leverage", "session": 3, "style": "computational MC", "type": "mc",
+      "stem": "Same firm, DOL 4.75. Sales FALL 20%. What happens to operating income?",
+      "choices": ["Falls 20%", "Falls 95%", "Falls 4.75%", "Falls 23.75%"],
+      "answer": 1,
+      "solution": "<p>Operating income falls <strong>95%</strong>. Leverage is symmetric: the same multiplier works in both directions. \"Leverage giveth and leverage taketh away.\"</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "dol-004", "topic": "Operating leverage", "session": 3, "style": "concept MC", "type": "mc",
+      "stem": "Why is DOL a poor stand-alone measure of a firm's cost structure?",
+      "choices": ["It ignores fixed costs entirely", "It conflates fixed-cost intensity with proximity to break-even", "It can only be computed after year-end", "It requires a regression to estimate"],
+      "answer": 1,
+      "solution": "<p>DOL mixes two unrelated drivers:</p><table><tr><th>Driver of a high DOL</th><th>What it tells you</th></tr><tr><td>Heavy fixed-cost intensity</td><td>genuine structural leverage</td></tr><tr><td>Sitting close to break-even</td><td>a small denominator, nothing about structure</td></tr></table><p>DOL is largest near break-even and shrinks as you move away, with cost structure held completely constant. So DOL alone is not interpretable; its value is the sensitivity statement it produces.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "dol-005", "topic": "Operating leverage", "session": 3, "style": "concept MC", "type": "mc",
+      "stem": "Firm A has VC of $4.20/unit and fixed cost of $180,000. Firm B has VC of $1.20/unit and fixed cost of $322,100. Both sell at $8.00 and both break even at 47,369 units. What distinguishes them?",
+      "choices": ["Nothing — identical break-even means identical risk", "B loses more below break-even and earns more above it", "A has higher operating leverage", "B can never reach profitability"],
+      "answer": 1,
+      "solution": "<p>Identical break-even, completely different risk. B is the high-leverage structure.</p><ul><li>Raising fixed cost lifts the total-cost line's intercept and flattens its slope.</li><li>Both the loss wedge below break-even and the profit wedge above it get bigger.</li></ul><p>Operating leverage is the fixed-to-variable mix. Do not confuse it with <strong>financial</strong> leverage, which is debt versus equity.</p>",
+      "source": "Session 3, 2026-09-17"
+    },
+    {
+      "id": "mos-001", "topic": "Margin of safety", "session": 6, "style": "computational MC", "type": "numeric",
+      "stem": "PVC company: current volume 60,000 units, price $8.00, VC $4.20 per unit, fixed cost $180,000. What is the margin of safety in UNITS?",
+      "answer": 12631, "tolerance": 2, "answerLabel": "12,631 units",
+      "solution": "<ol><li>CM per unit = 8.00 &minus; 4.20 = $3.80</li><li>Break-even units = 180,000 / 3.80 = 47,369</li><li>MoS units = 60,000 &minus; 47,369 = <strong>12,631 units</strong></li></ol><p>Margin of safety is just one subtraction: what you sell minus what you need to sell.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mos-002", "topic": "Margin of safety", "session": 6, "style": "computational MC", "type": "mc",
+      "stem": "Same PVC company. The question is: 'How far can sales decline before we reach break-even?' Which calculation answers it?",
+      "choices": ["12,631 / 47,369 = 26.7%", "12,631 / 60,000 = 21.05%", "47,369 / 60,000 = 78.95%", "12,631 × $8.00 = $101,053"],
+      "answer": 1,
+      "solution": "<p>Divide margin of safety by <strong>current sales</strong>: 12,631 / 60,000 = <strong>21.05%</strong>.</p><table><tr><th>Divide MoS by</th><th>Question answered</th></tr><tr><td>Break-even</td><td>How far <em>above</em> break-even are we?</td></tr><tr><td>Current sales</td><td>How far can sales <em>decline</em> before break-even?</td></tr></table><p>Same numerator both times. Only the denominator changes. \"Might be nice if these had different names, but they don't.\"</p><p>The professor said he would ask one of these two on the exam.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mos-003", "topic": "Margin of safety", "session": 6, "style": "computational MC", "type": "mc",
+      "stem": "Same PVC company. The question is: 'How far ABOVE break-even are we?' What is the answer?",
+      "choices": ["21.05%", "26.7%", "47.5%", "78.95%"],
+      "answer": 1,
+      "solution": "<p>Divide margin of safety by <strong>break-even</strong>: 12,631 / 47,369 = <strong>26.7%</strong>.</p><p>Read the question wording carefully. \"Above break-even\" puts break-even in the denominator; \"can decline\" puts current sales there.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mos-004", "topic": "Margin of safety", "session": 6, "style": "computational MC", "type": "numeric",
+      "stem": "Same PVC company (MoS of 12,631 units, price $8.00). What is the margin of safety in sales DOLLARS?",
+      "answer": 101053, "tolerance": 60, "answerLabel": "$101,053",
+      "solution": "<ol><li>MoS dollars = MoS units &times; price = 12,631 &times; 8.00 = <strong>$101,053</strong></li></ol><p>Equivalently: current revenue $480,000 &minus; break-even revenue $378,947 = $101,053.</p><p>The dollar value of MoS is the same regardless of which percentage version you later compute.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mos-005", "topic": "Margin of safety", "session": 6, "style": "concept MC", "type": "mc",
+      "stem": "A firm has HIGH structural operating leverage and a LOW margin of safety. Which description and examples match?",
+      "choices": ["Powerful but risky — data centers, software platforms", "Precarious leverage — airlines, hotels, auto manufacturers", "Fragile but flexible — restaurants, local retailers", "The sweet spot — insurance agencies, asset-light service firms"],
+      "answer": 1,
+      "solution": "<table><tr><th>Leverage</th><th>MoS</th><th>Label</th><th>Examples</th></tr><tr><td>High</td><td>Low</td><td>Precarious leverage</td><td>airlines, hotels, auto manufacturers</td></tr><tr><td>High</td><td>High</td><td>Powerful but risky</td><td>data centers, software platforms, streaming post-scale</td></tr><tr><td>Low</td><td>Low</td><td>Fragile but flexible</td><td>restaurants, local retailers, freelance operators</td></tr><tr><td>Low</td><td>High</td><td>The sweet spot</td><td>insurance agencies, asset-light service firms</td></tr></table><p>Leverage is about <em>sensitivity</em> of income to volume. Margin of safety is about <em>distance</em> from break-even. The professor warns that slotting industries into cells is \"always a little dangerous.\"</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "tax-001", "topic": "Taxes and target return", "session": 6, "style": "computational MC", "type": "numeric",
+      "stem": "A company targets after-tax net income of $500,000. Its tax rate is 30%. What operating income must it earn?",
+      "answer": 714286, "tolerance": 2, "answerLabel": "$714,286",
+      "solution": "<ol><li>Operating income in the home equation is a <strong>pre-tax</strong> number, so gross the target up.</li><li>Operating income target = after-tax NI / (1 &minus; tax rate)</li><li>500,000 / (1 &minus; 0.30) = 500,000 / 0.70 = <strong>$714,286</strong></li></ol><p>This is as far as the course goes with taxes.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "tax-002", "topic": "Taxes and target return", "session": 6, "style": "computational MC", "type": "mc",
+      "stem": "Investors want a 25% return on equity. Equity is $300,000 and the tax rate is 30%. What operating income is required?",
+      "choices": ["$75,000", "$97,500", "$107,143", "$300,000"],
+      "answer": 2,
+      "solution": "<ol><li>Return target &times; base: 0.25 &times; 300,000 = $75,000. <strong>This is an after-tax number.</strong></li><li>Gross up: 75,000 / (1 &minus; 0.30) = <strong>$107,143</strong></li></ol><p><strong>Trap:</strong> $75,000 is the most common wrong answer. A return target is after tax; you must gross it up before it goes on the right side of the home equation.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "tax-003", "topic": "Taxes and target return", "session": 6, "style": "computational MC", "type": "numeric",
+      "stem": "Video game problem. Volume 25,000 units, variable cost $40 per unit, fixed cost $120,000, equity $300,000, target ROE 30%, tax rate 40%. What SELLING PRICE is required? (Enter dollars per unit.)",
+      "answer": 50.80, "tolerance": 0.05, "answerLabel": "$50.80",
+      "solution": "<p>The unknown here is <strong>price</strong>, not volume. Identify X first.</p><table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>1. After-tax target</td><td>0.30 &times; 300,000</td><td class='num'>$90,000</td></tr><tr><td>2. Gross up for taxes</td><td>90,000 / (1 &minus; 0.40)</td><td class='num'>$150,000</td></tr><tr><td>3. Home equation</td><td>25,000P &minus; (40 &times; 25,000) &minus; 120,000 = 150,000</td><td class='num'></td></tr><tr><td>4. Collect</td><td>25,000P = 150,000 + 120,000 + 1,000,000</td><td class='num'>$1,270,000</td></tr><tr><td>5. Solve</td><td>1,270,000 / 25,000</td><td class='num'><strong>$50.80</strong></td></tr></table><p>The $120,000 of fixed cost \"including depreciation and interest\" is a throwaway detail: it is still just fixed cost.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-001", "topic": "Multi-product CVP", "session": 6, "style": "computational MC", "type": "mc",
+      "stem": "Calculators sell at $8.00 with VC of $4.20. Abacuses sell at $4.00 with VC of $2.80. The volume mix is 3 calculators to 1 abacus. What is the contribution margin per BASKET?",
+      "choices": ["$12.00", "$12.60", "$28.00", "$5.00"],
+      "answer": 1,
+      "solution": "<table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Basket revenue</td><td>3 &times; 8.00 + 1 &times; 4.00</td><td class='num'>$28.00</td></tr><tr><td>Basket variable cost</td><td>3 &times; 4.20 + 1 &times; 2.80</td><td class='num'>$15.40</td></tr><tr><td>Basket CM</td><td>28.00 &minus; 15.40</td><td class='num'><strong>$12.60</strong></td></tr></table><p>Equivalently: 3 &times; $3.80 + 1 &times; $1.20 = $12.60.</p><p>In class the professor said \"$12\" out loud, but his own break-even of 16,666.67 baskets only works with $12.60 (210,000 / 12.60).</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-002", "topic": "Multi-product CVP", "session": 6, "style": "computational MC", "type": "mc",
+      "stem": "Fixed costs are $210,000 and basket CM is $12.60 (3 calculators to 1 abacus). How many of each product does the firm sell at break-even?",
+      "choices": ["50,000 calculators and 16,667 abacuses", "16,667 calculators and 50,000 abacuses", "50,000 calculators and 16,666 abacuses", "66,667 calculators and 22,222 abacuses"],
+      "answer": 0,
+      "solution": "<ol><li>Break-even baskets = 210,000 / 12.60 = <strong>16,666.67</strong> &mdash; do <strong>not</strong> round this</li><li>Calculators = 16,666.67 &times; 3 = <strong>50,000</strong></li><li>Abacuses = 16,666.67 &times; 1 = 16,666.67, round up to <strong>16,667</strong></li></ol><p><strong>Why not round the baskets?</strong> \"Baskets are not a thing.\" They exist only as a mathematical tool. Rounding is legitimate only once you are back in real units, and then you round <em>up</em>.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-003", "topic": "Multi-product CVP", "session": 6, "style": "computational MC", "type": "numeric",
+      "stem": "Calculators: 60,000 units, $480,000 revenue, $252,000 variable cost. Abacuses: 20,000 units, $80,000 revenue, $56,000 variable cost. Fixed cost $210,000. Using the weighted-average method, what is break-even in TOTAL units?",
+      "answer": 66667, "tolerance": 2, "answerLabel": "66,667 total units",
+      "solution": "<table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>WA price</td><td>560,000 / 80,000</td><td class='num'>$7.00</td></tr><tr><td>WA variable cost</td><td>308,000 / 80,000</td><td class='num'>$3.85</td></tr><tr><td>WA CM per unit</td><td>7.00 &minus; 3.85</td><td class='num'>$3.15</td></tr><tr><td>Break-even total units</td><td>210,000 / 3.15</td><td class='num'><strong>66,667</strong></td></tr></table><p>Nobody charges $7.00 and nobody charges $3.85. They are weighted averages, and that is fine.</p><p>Split by the <strong>volume</strong> mix: 75% &rarr; 50,000 calculators, 25% &rarr; 16,667 abacuses. Same as the basket answer.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-004", "topic": "Multi-product CVP", "session": 6, "style": "computational MC", "type": "numeric",
+      "stem": "Same two products (total revenue $560,000, total variable cost $308,000, fixed cost $210,000). What is COMBINED break-even REVENUE?",
+      "answer": 466667, "tolerance": 3, "answerLabel": "$466,666.67",
+      "solution": "<table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>VC ratio</td><td>308,000 / 560,000</td><td class='num'>55%</td></tr><tr><td>CM ratio</td><td>1 &minus; 0.55</td><td class='num'>45%</td></tr><tr><td>Break-even revenue</td><td>210,000 / 0.45</td><td class='num'><strong>$466,666.67</strong></td></tr></table><p>Full form: X &minus; 0.55X &minus; 210,000 = 0, which collapses to 0.45X = 210,000. X is revenue dollars.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-005", "topic": "Multi-product CVP", "session": 6, "style": "computational MC", "type": "mc",
+      "stem": "Combined break-even revenue is $466,666.67. Calculators generated $480,000 of the $560,000 total revenue; the volume mix is 3 to 1. What is CALCULATOR revenue at break-even?",
+      "choices": ["$350,000", "$400,000", "$466,667", "$280,000"],
+      "answer": 1,
+      "solution": "<p>Split a <strong>revenue</strong> answer by the <strong>revenue</strong> mix, not the volume mix.</p><table><tr><th>Mix type</th><th class='num'>Calculators</th><th class='num'>Abacuses</th></tr><tr><td>Volume (60,000 : 20,000)</td><td class='num'>75%</td><td class='num'>25%</td></tr><tr><td>Revenue (480,000 : 80,000)</td><td class='num'>85.71%</td><td class='num'>14.29%</td></tr></table><ol><li>466,666.67 &times; 85.71% = <strong>$400,000</strong></li></ol><p>Cross-check: 50,000 break-even calculators &times; $8.00 = $400,000. Everything ties.</p><p><strong>Trap:</strong> $350,000 is what you get by wrongly applying the 75% volume mix. \"That's the volume mix. The revenue mix is different.\"</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-006", "topic": "Multi-product CVP", "session": 6, "style": "concept MC", "type": "mc",
+      "stem": "A multi-product question asks for break-even REVENUE by product. Which approach fits?",
+      "choices": ["Basket method, then multiply baskets by price", "Weighted-average units, then split by volume mix", "Revenue approach (FC / CM ratio), then split by revenue mix", "Any of them — the split ratio does not matter"],
+      "answer": 2,
+      "solution": "<table><tr><th>Question asks for</th><th>Use</th></tr><tr><td>Units, by product</td><td>Basket, or weighted average then split by <strong>volume</strong> mix</td></tr><tr><td>Total revenue, or revenue by product</td><td>Revenue approach, then split by <strong>revenue</strong> mix</td></tr></table><p>All three methods agree on the underlying answer, but the split ratio is method-specific. Pick the approach by reading what is asked.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-007", "topic": "Multi-product CVP", "session": 6, "style": "computational MC", "type": "numeric",
+      "stem": "Golden Company: total contribution margin $1.5 million on 200,000 units, fixed costs $1.2 million, sales mix 3 standard to 1 deluxe. What is break-even in total units?",
+      "answer": 160000, "tolerance": 1, "answerLabel": "160,000 total units",
+      "solution": "<ol><li>WA CM per unit = 1,500,000 / 200,000 = <strong>$7.50</strong></li><li>Break-even total units = 1,200,000 / 7.50 = <strong>160,000</strong></li><li>Standard (75%) = 120,000; Deluxe (25%) = 40,000</li></ol><p>Do not recompute per-unit data the problem already hands you.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-008", "topic": "Multi-product CVP", "session": 6, "style": "computational MC", "type": "mc",
+      "stem": "Golden Company, revised mix. Still 200,000 units, but only 20,000 are deluxe, so the mix is 9 to 1. Standard: price $20, VC $14. Deluxe: price $30, VC $18. Fixed costs $1.2 million. What is break-even in total units?",
+      "choices": ["160,000", "181,819", "200,000", "150,000"],
+      "answer": 1,
+      "solution": "<table><tr><th></th><th class='num'>Standard</th><th class='num'>Deluxe</th></tr><tr><td>Price</td><td class='num'>$20</td><td class='num'>$30</td></tr><tr><td>VC per unit</td><td class='num'>$14</td><td class='num'>$18</td></tr><tr><td>CM per unit</td><td class='num'>$6</td><td class='num'>$12</td></tr></table><table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Basket CM</td><td>9 &times; 6 + 1 &times; 12</td><td class='num'>$66</td></tr><tr><td>Break-even baskets</td><td>1,200,000 / 66</td><td class='num'>18,181.8181&hellip;</td></tr><tr><td>Standard</td><td>&times; 9, round up</td><td class='num'>163,637</td></tr><tr><td>Deluxe</td><td>&times; 1, round up</td><td class='num'>18,182</td></tr><tr><td><strong>Total</strong></td><td></td><td class='num'><strong>181,819</strong></td></tr></table><p>Break-even rose from 160,000 to 181,819 with <em>no change</em> in prices, costs or fixed costs. The mix tilted toward the $6 product and away from the $12 one. \"Behold the power of sales mix.\"</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "mp-009", "topic": "Multi-product CVP", "session": 6, "style": "concept MC", "type": "mc",
+      "stem": "What assumption do all three multi-product CVP methods require?",
+      "choices": ["Fixed costs are zero", "The sales mix is known and constant", "All products have the same contribution margin", "Production equals sales"],
+      "answer": 1,
+      "solution": "<p><strong>The sales mix is known and constant.</strong> State it if asked, and then immediately ask the follow-up question: how do these numbers flex if the mix changes?</p><p>Build sensitivity cells. Then ask whether the products are <strong>complements</strong> (mix moves together) or <strong>substitutes</strong> (mix moves in opposite directions), because that governs how the mix is likely to shift.</p>",
+      "source": "Sessions 6 and 7"
+    },
+    {
+      "id": "reg-001", "topic": "Regression", "session": 4, "style": "interpret output MC", "type": "mc",
+      "stem": "Regression of total cost on boats produced gives: intercept $49,701.29, slope $687.43. What do these two numbers represent?",
+      "choices": ["Intercept = variable rate; slope = fixed cost", "Intercept = fixed cost; slope = variable cost rate", "Both are variable cost estimates", "Intercept = total cost; slope = margin"],
+      "answer": 1,
+      "solution": "<p>The fitted line is <code>Total cost = $49,701.29 + $687.43 per boat</code>.</p><table><tr><th>Output</th><th>Means</th></tr><tr><td>Y-intercept</td><td>fixed cost</td></tr><tr><td>Slope</td><td>variable cost rate</td></tr></table><p>Same structure as high-low: y = mx + b.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-002", "topic": "Regression", "session": 4, "style": "interpret output MC", "type": "mc",
+      "stem": "The intercept's P value is 0.0974. What do you conclude?",
+      "choices": ["Fixed cost is definitely zero", "You cannot reject the null that fixed cost is zero", "Fixed cost is statistically significant at 0.05", "The regression is invalid"],
+      "answer": 1,
+      "solution": "<ol><li>Start from the null hypothesis: the relationship is zero.</li><li>0.0974 is <strong>above</strong> the 0.05 threshold.</li><li>So you <strong>cannot reject</strong> the null of zero fixed cost.</li></ol><p>That is not the same as proving fixed cost is zero. It means this data cannot rule zero out.</p><p>In practice it matters less here, because the firm never operates at zero volume.</p><p>Contrast the slope: t stat 7.9 and a tiny P value, so you <em>do</em> reject the null there. The rate is not zero.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-003", "topic": "Regression", "session": 4, "style": "computational MC", "type": "numeric",
+      "stem": "Slope coefficient is $687.43 and its standard error is 87.06. What is the t stat?",
+      "answer": 7.9, "tolerance": 0.1, "answerLabel": "7.9",
+      "solution": "<ol><li>t stat = coefficient / its own standard error</li><li>687.43 / 87.06 = <strong>7.90</strong></li></ol><p>A t stat is a count of standard errors away from zero. <strong>It is not a percentage.</strong></p><p>Related: the model's F value equals the slope's t stat squared.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-004", "topic": "Regression", "session": 4, "style": "computational MC", "type": "mc",
+      "stem": "The regression has 8 observations and one independent variable. How many degrees of freedom?",
+      "choices": ["8", "7", "6", "2"],
+      "answer": 2,
+      "solution": "<ol><li>df = n &minus; (number of parameters estimated)</li><li>Simple linear regression estimates two parameters (intercept and slope), so df = n &minus; 2</li><li>8 &minus; 2 = <strong>6</strong></li></ol><p>Multiple regression goes to n &minus; 3, n &minus; 4 and so on. Do not memorize \"6\"; memorize n minus the parameter count.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-005", "topic": "Regression", "session": 4, "style": "computational MC", "type": "mc",
+      "stem": "Slope $687.43, its standard error 87.06, df 6, t at 95% = 2.447. What is the 95% confidence interval for the variable cost rate?",
+      "choices": ["$600.37 to $774.49", "$474.50 to $900.36", "$687.43 to $900.36", "$659.66 to $715.20"],
+      "answer": 1,
+      "solution": "<ol><li>Interval = estimate &plusmn; (its own standard error &times; t)</li><li>Half-width = 87.06 &times; 2.447 = <strong>212.93</strong></li><li>Lower = 687.43 &minus; 212.93 = <strong>$474.50</strong></li><li>Upper = 687.43 + 212.93 = <strong>$900.36</strong></li></ol><p>Zero is well outside this interval, which is the same conclusion the tiny P value gave.</p><p>t for 6 df: <strong>2.447</strong> at 95%, <strong>1.943</strong> at 90%. Lower confidence gives a narrower interval.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-006", "topic": "Regression", "session": 4, "style": "computational MC", "type": "mc",
+      "stem": "You need a 95% confidence interval for TOTAL COST at 400 boats. Which standard error do you use?",
+      "choices": ["The intercept's standard error (25,357)", "The slope's standard error (87.06)", "The regression's standard error (27,771)", "The sum of both coefficient standard errors"],
+      "answer": 2,
+      "solution": "<p>Use <strong>the standard error of the regression</strong> ($27,771). The professor was explicit: \"I don't use either [coefficient SE]. I use the standard error for the regression as a whole.\"</p><table><tr><th>Interval for</th><th>Standard error to use</th></tr><tr><td>A single coefficient</td><td>that coefficient's own SE</td></tr><tr><td>A total-cost prediction</td><td>the regression's SE</td></tr></table><p>This distinction is the most likely regression trap on the exam.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-007", "topic": "Regression", "session": 4, "style": "computational MC", "type": "numeric",
+      "stem": "Total cost = $49,701.29 + $687.43 per boat. What is the point estimate of total cost at 400 boats? (Use the rounded coefficients.)",
+      "answer": 324673.29, "tolerance": 3, "answerLabel": "$324,673.29 (Excel's unrounded coefficients give $324,675.14)",
+      "solution": "<ol><li>Total cost = intercept + (slope &times; volume)</li><li>49,701.29 + (687.43 &times; 400)</li><li>49,701.29 + 274,972.00 = <strong>$324,673.29</strong></li></ol><p>In class the figure was $324,675.14, because Excel carries more decimals on the coefficients than the printed $687.43. The $1.85 gap is rounding, not a method error.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-008", "topic": "Regression", "session": 4, "style": "computational MC", "type": "mc",
+      "stem": "Point estimate $324,675.14 at 400 boats, regression standard error $27,771, t at 95% (6 df) = 2.447. What is the 95% interval for total cost?",
+      "choices": ["$296,904 to $352,446", "$256,719 to $392,631", "$324,675 to $392,631", "$311,908 to $337,442"],
+      "answer": 1,
+      "solution": "<table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Half-width</td><td>2.447 &times; 27,771</td><td class='num'>$67,955.6</td></tr><tr><td>Lower</td><td>324,675.14 &minus; 67,955.6</td><td class='num'>$256,719</td></tr><tr><td>Upper</td><td>324,675.14 + 67,955.6</td><td class='num'>$392,631</td></tr></table><p>That interval is enormous, and the professor's point is that a CEO will say so. The only two fixes: accept lower confidence, or get more data.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-009", "topic": "Regression", "session": 4, "style": "interpret output MC", "type": "mc",
+      "stem": "Which R measure should you report, and what is its range?",
+      "choices": ["Multiple R, range 0 to 1", "Adjusted R squared, range 0 to 1", "Multiple R, range 0 to 100", "R squared, range −1 to 1"],
+      "answer": 1,
+      "solution": "<p><strong>Always use adjusted R squared.</strong></p><table><tr><th>Measure</th><th>Range</th><th>Reads as</th></tr><tr><td>Multiple R (correlation)</td><td>&minus;1 to 1</td><td>direction and strength</td></tr><tr><td>R&sup2; / adjusted R&sup2; (determination)</td><td>0 to 1</td><td>share of variation in Y explained by X</td></tr></table><p>The professor corrected himself on this in class: correlation runs &minus;1 to 1; R squared runs 0 to 1.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-010", "topic": "Regression", "session": 4, "style": "concept MC", "type": "mc",
+      "stem": "What is the probability that the true variable cost rate is exactly $687.43?",
+      "choices": ["95%", "About 89.8%", "Zero", "Cannot be determined"],
+      "answer": 2,
+      "solution": "<p><strong>Zero.</strong> The rate is a continuous distribution, and the probability of any single exact point under a continuous distribution is zero.</p><p>Which is the professor's larger point: every coefficient is an estimate and is \"inherently and by definition wrong.\" That is why you work with intervals, not point estimates, and why uncertainty has to enter the decision.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "reg-011", "topic": "Regression", "session": 4, "style": "concept MC", "type": "mc",
+      "stem": "A regression of factory cost on the number of sunspots returns a high adjusted R squared. What is the problem?",
+      "choices": ["Degrees of freedom are too low", "Spurious correlation — the relationship makes no sense", "The standard error is understated", "Adjusted R squared cannot be high with one variable"],
+      "answer": 1,
+      "solution": "<p><strong>Spurious correlation.</strong> \"Statistical tools like regression are just tools. Does it make sense?\"</p><p>Regression will not tell you which costs are fixed and which are variable, and it will not tell you whether the driver is causal. That judgment is yours. Compare the session 1 lesson about a driver that is not \"correlated or causally related\" to the cost.</p><p>Also on the Excel mechanics: leaving the <strong>Labels</strong> box ticked when the top row is data corrupts the whole output.</p>",
+      "source": "Session 4, 2026-10-01"
+    },
+    {
+      "id": "hl-001", "topic": "High-low and mixed costs", "session": 5, "style": "computational MC", "type": "numeric",
+      "stem": "A power bill is $1,962 at 1,300 units and $1,908 at 1,000 units. Using high-low, what is the variable rate per unit? (Enter dollars.)",
+      "answer": 0.18, "tolerance": 0.005, "answerLabel": "$0.18 per unit",
+      "solution": "<ol><li>Rise = 1,962 &minus; 1,908 = <strong>$54</strong></li><li>Run = 1,300 &minus; 1,000 = <strong>300 units</strong></li><li>Variable rate = 54 / 300 = <strong>$0.18 per unit</strong></li></ol><p>High-low fits a line through exactly two data points. A <strong>mixed cost</strong> has a fixed piece and a variable piece, and two points are enough to split it.</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "hl-002", "topic": "High-low and mixed costs", "session": 5, "style": "computational MC", "type": "numeric",
+      "stem": "Same power bill: variable rate $0.18 per unit, total bill $1,908 at 1,000 units. What is the FIXED portion of the monthly power cost?",
+      "answer": 1728, "tolerance": 2, "answerLabel": "$1,728",
+      "solution": "<ol><li>Fixed = total cost at a point &minus; (variable rate &times; activity at that point)</li><li>1,908 &minus; (0.18 &times; 1,000)</li><li>1,908 &minus; 180 = <strong>$1,728</strong></li></ol><p>\"Once I have estimated M and I have a Y and an X, then I can get B.\"</p><p>Either data point works: 1,962 &minus; (0.18 &times; 1,300) = 1,962 &minus; 234 = $1,728.</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "hl-003", "topic": "High-low and mixed costs", "session": 5, "style": "computational MC", "type": "numeric",
+      "stem": "Stanley's monthly fixed costs: labor $345,000/yr, fixed power $1,728/mo, occupancy $33,000/yr, administrative $600/mo, depreciation $14,355/yr. What is TOTAL monthly fixed cost?",
+      "answer": 35024.25, "tolerance": 1, "answerLabel": "$35,024.25",
+      "solution": "<table><tr><th>Item</th><th>Derivation</th><th class='num'>Monthly</th></tr><tr><td>Labor</td><td>345,000 / 12</td><td class='num'>$28,750.00</td></tr><tr><td>Power (fixed part)</td><td>high-low</td><td class='num'>$1,728.00</td></tr><tr><td>Occupancy</td><td>33,000 / 12</td><td class='num'>$2,750.00</td></tr><tr><td>Administrative</td><td>given</td><td class='num'>$600.00</td></tr><tr><td>Depreciation</td><td>14,355 / 12</td><td class='num'>$1,196.25</td></tr><tr><td><strong>Total</strong></td><td></td><td class='num'><strong>$35,024.25</strong></td></tr></table><p>Annual amounts must be divided by 12 before they join a monthly analysis. Watch for mixed periods in the data you are given.</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "hl-004", "topic": "High-low and mixed costs", "session": 5, "style": "computational MC", "type": "mc",
+      "stem": "Stanley: revenue $9.00/unit, supplies $0.11/unit, variable power $0.18/unit, total monthly fixed cost $35,024.25. What is break-even in units?",
+      "choices": ["4,021 units", "4,022 units", "3,893 units", "4,000 units"],
+      "answer": 1,
+      "solution": "<ol><li>CM per unit = 9.00 &minus; 0.11 &minus; 0.18 = <strong>$8.71</strong></li><li>Break-even = 35,024.25 / 8.71 = 4,021.15</li><li>Round <strong>up</strong>: <strong>4,022 units</strong></li></ol><p>Excel showed 4,021 because it did not round. \"We did 4,022 because we rounded up. Didn't matter.\"</p><p>Context: capacity is 4,000 units and actual demand is 1,000, so Stanley is deeply underwater.</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "hl-005", "topic": "High-low and mixed costs", "session": 5, "style": "concept MC", "type": "mc",
+      "stem": "Should depreciation be included in the cost analysis? The class argued about it. What was the professor's position?",
+      "choices": ["Exclude it — it is a non-cash accounting fiction", "Include it — it is an accounting fiction that captures a real economic effect", "Exclude it from break-even but include it in payback", "It makes no difference either way"],
+      "answer": 1,
+      "solution": "<p><strong>Include it.</strong> Depreciation is \"an accounting fiction\" in the sense that no cash moves, but it captures something real: the asset is being used up and will need replacing.</p><p>The professor's framing: it works as a <strong>sinking fund</strong>, or a reminder to save for replacement.</p><p>In session 7 he applies this consistently: for the hammer line he prefers <strong>depreciation in, salary out</strong>. He does add it back for a <em>cash</em> payback calculation, because there it is the only non-cash item.</p>",
+      "source": "Sessions 5 and 7"
+    },
+    {
+      "id": "julia-001", "topic": "Case 1 — Julia and Stanley", "session": 5, "style": "computational MC", "type": "mc",
+      "stem": "Julia sells pitons at $11.00 with variable cost of $10.45 and no fixed costs, at 1,000 units/month. What is her break-even volume and monthly operating income?",
+      "choices": ["1,000 units; $0", "0 units; $550", "19,000 units; $550", "0 units; $11,000"],
+      "answer": 1,
+      "solution": "<ol><li>CM per unit = 11.00 &minus; 10.45 = <strong>$0.55</strong></li><li>Break-even = FC / CM = 0 / 0.55 = <strong>0 units</strong></li><li>Operating income = 1,000 &times; 0.55 = <strong>$550</strong></li></ol><p>Zero fixed cost means break-even is zero. Check that against intuition rather than assuming you made an error: with no fixed cost to cover, the first unit sold is profitable.</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "julia-002", "topic": "Case 1 — Julia and Stanley", "session": 5, "style": "concept MC", "type": "mc",
+      "stem": "Scenario 3 treats labor as variable (CM $1.5725/unit, fixed $6,274.25). Scenario 4 treats the same labor as fixed (CM $8.76/unit, fixed $35,024.25). At 4,000 units both give operating income of $15.75. What is the correct conclusion?",
+      "choices": ["The labor treatment is irrelevant to the analysis", "Profit is identical, but the risk profiles are completely different", "Scenario 4 is wrong because fixed costs are too high", "The scenarios must contain an arithmetic error"],
+      "answer": 1,
+      "solution": "<p>Profit is identical. Risk is not.</p><table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>Total CM</td><td class='num'>$6,290</td><td class='num'>$35,040</td></tr><tr><td>Fixed cost</td><td class='num'>$6,274.25</td><td class='num'>$35,024.25</td></tr><tr><td>Operating income</td><td class='num'>$15.75</td><td class='num'>$15.75</td></tr><tr><td>Break-even units</td><td class='num'>3,990</td><td class='num'>3,998</td></tr><tr><td><strong>DOL</strong></td><td class='num'><strong>399.37</strong></td><td class='num'><strong>2,224.76</strong></td></tr></table><p>\"Who cares if the outcome is the same? Well, it matters\" &mdash; because the moment volume moves, the two structures behave nothing alike. See the next question.</p><p>In class he rounds $15.75 to \"exactly $16.\"</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "julia-003", "topic": "Case 1 — Julia and Stanley", "session": 5, "style": "computational MC", "type": "mc",
+      "stem": "Volume rises 10%, from 4,000 to 4,400 units. Operating income was $15.75 in both scenarios. What are the new operating incomes?",
+      "choices": ["$645 (labor variable) and $3,520 (labor fixed)", "$3,520 (labor variable) and $645 (labor fixed)", "$17.33 in both", "$645 in both"],
+      "answer": 0,
+      "solution": "<table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>New operating income</td><td class='num'>4,400 &times; 1.5725 &minus; 6,274.25 = <strong>$644.75</strong></td><td class='num'>4,400 &times; 8.76 &minus; 35,024.25 = <strong>$3,519.75</strong></td></tr><tr><td>Change in dollars</td><td class='num'>$629</td><td class='num'>$3,504</td></tr><tr><td>Change in percent</td><td class='num'>3,994%</td><td class='num'>22,248%</td></tr><tr><td>DOL check</td><td class='num'>399.37 &times; 10%</td><td class='num'>2,224.76 &times; 10%</td></tr></table><p>The DOL cross-check ties exactly. $3,520/month instead of $645 is \"no longer trivial\" &mdash; and it cuts just as hard on the downside.</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "julia-004", "topic": "Case 1 — Julia and Stanley", "session": 5, "style": "short essay", "type": "short",
+      "stem": "Students objected to the 4,400-unit scenario. What was their objection, and was it valid?",
+      "solution": "<p><strong>Valid objection.</strong> The scenario holds labor cost constant while raising volume 10%.</p><ol><li>The workers are already full-time at 4,000 units, which is capacity.</li><li>So 4,400 units implicitly requires <strong>10% more productivity from an unchanged labor force</strong>.</li><li>If that productivity gain is not available, the $7.19 per-unit labor cost multiplies by 4,400 instead, and the economics change.</li></ol><p>The broader lesson: <strong>cost behavior is not fate.</strong> \"In some cases you can bring skills.\" Management choices shape whether a cost behaves as fixed or variable. Related possibility the class raised: <strong>step-fixed</strong> labor, where beyond capacity she hires temps (variable-ish) or adds salaried staff (a discrete step up in fixed cost).</p><p>Also worth naming: the case ignores financing and the forge's purchase price. The professor called that \"the biggest fantasy land of all.\" And the contract caps her at 4,000 units plus 10%, for two years.</p>",
+      "source": "Session 5, 2026-10-08"
+    },
+    {
+      "id": "eu-001", "topic": "Equivalent units", "session": 2, "style": "quiz-style computational", "type": "mc",
+      "stem": "A run starts 15 units. 11 are completed and sold; 4 remain in process. Materials on the unfinished 4 are 100% complete; labor and overhead are 25% complete. What are the equivalent units for DIRECT LABOR?",
+      "choices": ["15", "12", "11", "14"],
+      "answer": 1,
+      "solution": "<ol><li>EU = (units sold &times; 100%) + (ending units &times; % complete)</li><li>11 + (4 &times; 25%) = 11 + 1 = <strong>12 equivalent units</strong></li></ol><table><tr><th>Category</th><th>Calculation</th><th class='num'>EU</th></tr><tr><td>Direct materials</td><td>11 + (4 &times; 100%)</td><td class='num'>15</td></tr><tr><td>Direct labor</td><td>11 + (4 &times; 25%)</td><td class='num'>12</td></tr><tr><td>Overhead</td><td>11 + (4 &times; 25%)</td><td class='num'>12</td></tr></table><p>Materials equal physical units here only because all material goes in at the start.</p>",
+      "source": "Session 2, 2026-09-10"
+    },
+    {
+      "id": "eu-002", "topic": "Equivalent units", "session": 2, "style": "quiz-style computational", "type": "numeric",
+      "stem": "Direct labor spend is $30 and direct-labor equivalent units are 12. What is the DIRECT LABOR cost charged to the income statement, if 11 units were sold? (Enter dollars.)",
+      "answer": 27.50, "tolerance": 0.02, "answerLabel": "$27.50",
+      "solution": "<ol><li>Rate = category spend / category EU = 30 / 12 = <strong>$2.50 per unit</strong></li><li>To income statement = rate &times; units <strong>sold</strong> = 2.50 &times; 11 = <strong>$27.50</strong></li><li>To balance sheet = 2.50 &times; 1 EU in WIP = $2.50</li><li>Check: 27.50 + 2.50 = $30 spent. Every dollar accounted for.</li></ol><p>This is exactly the quiz format the professor described: \"What's direct labor on the income statement? What's the value of any inventory?\"</p>",
+      "source": "Session 2, 2026-09-10"
+    },
+    {
+      "id": "eu-003", "topic": "Equivalent units", "session": 2, "style": "quiz-style computational", "type": "numeric",
+      "stem": "Spend: materials $15, labor $30, overhead $120. EU: materials 15, labor 12, overhead 12. 11 units sold, so WIP holds 4 EU of materials and 1 EU each of labor and overhead. What is the VALUE OF ENDING INVENTORY? (Enter dollars.)",
+      "answer": 16.50, "tolerance": 0.02, "answerLabel": "$16.50",
+      "solution": "<table><tr><th>Category</th><th class='num'>Rate</th><th class='num'>EU in WIP</th><th class='num'>To balance sheet</th></tr><tr><td>Direct materials</td><td class='num'>$1.00</td><td class='num'>4</td><td class='num'>$4.00</td></tr><tr><td>Direct labor</td><td class='num'>$2.50</td><td class='num'>1</td><td class='num'>$2.50</td></tr><tr><td>Overhead</td><td class='num'>$10.00</td><td class='num'>1</td><td class='num'>$10.00</td></tr><tr><td><strong>Ending WIP</strong></td><td class='num'></td><td class='num'></td><td class='num'><strong>$16.50</strong></td></tr></table><p><strong>The check that catches everything:</strong> $148.50 expensed + $16.50 in WIP = $165.00 spent.</p>",
+      "source": "Session 2, 2026-09-10"
+    },
+    {
+      "id": "eu-004", "topic": "Equivalent units", "session": 2, "style": "quiz-style computational", "type": "mc",
+      "stem": "Same run: revenue is $10 per unit, 11 units sold, and cost of goods sold is $148.50. What is operating income?",
+      "choices": ["A loss of $38.50", "A loss of $55.00", "Income of $11.50", "A loss of $21.50"],
+      "answer": 0,
+      "solution": "<table><tr><th></th><th class='num'>Amount</th></tr><tr><td>Revenue (11 &times; $10)</td><td class='num'>$110.00</td></tr><tr><td>Cost of goods sold</td><td class='num'>(148.50)</td></tr><tr><td><strong>Operating loss</strong></td><td class='num'><strong>($38.50)</strong></td></tr></table><p>COGS is the three categories added together: materials $11.00 + labor $27.50 + overhead $110.00 = $148.50. There is no SG&amp;A in this exercise, so gross margin and operating income are the same line.</p>",
+      "source": "Session 2, 2026-09-10"
+    },
+    {
+      "id": "eu-005", "topic": "Equivalent units", "session": 2, "style": "concept MC", "type": "mc",
+      "stem": "A group charged ALL 21 planes they worked on to the income statement, though only 18 were sold. What is wrong?",
+      "choices": ["Nothing — all production cost is expensed when incurred", "The 3 unsold planes belong on the balance sheet as inventory", "They should have used physical units as the denominator", "They should have used a single blended rate"],
+      "answer": 1,
+      "solution": "<p>The 3 unsold planes are <strong>capitalized cost</strong>: unexpired cost attached to units, sitting on the balance sheet as inventory (here, WIP).</p><table><tr><th>Term</th><th>Definition</th></tr><tr><td>Cost</td><td>a spend</td></tr><tr><td>Expense</td><td>an <em>expired</em> cost, on the income statement</td></tr><tr><td>Capitalized</td><td>cost attached to unexpired units; an asset</td></tr></table><p>Expense only the spend attached to units <strong>sold</strong>. \"Only that.\" Use sold, not everything that was finished.</p>",
+      "source": "Session 2, 2026-09-10"
+    },
+    {
+      "id": "eu-006", "topic": "Equivalent units", "session": 2, "style": "concept MC", "type": "mc",
+      "stem": "Why compute three separate rates (materials, labor, overhead) rather than one blended rate per unit?",
+      "choices": ["GAAP requires exactly three rates", "Because the categories are consumed at different rates and reach different completion percentages", "To make the T-account balance", "Because overhead must always use labor as its driver"],
+      "answer": 1,
+      "solution": "<p>The categories \"arise at different rates.\" In this run, materials are 100% complete on the unfinished units while labor and overhead are only 25% complete. One blended rate would misstate both the income statement and inventory.</p><p>The professor's instruction: do not \"conglomerate the rates.\" Compute materials, labor and overhead one at a time.</p><p>Note also that the overhead driver does not have to be labor. Machine time is another option; labor is just the one used here.</p>",
+      "source": "Session 2, 2026-09-10"
+    },
+    {
+      "id": "eu-007", "topic": "Equivalent units", "session": 2, "style": "short essay", "type": "short",
+      "stem": "Under absorption costing, how can a manager raise reported income without selling a single additional unit? Why does it matter?",
+      "solution": "<p><strong>Overproduce.</strong></p><ol><li>Absorption costing attaches labor and overhead to units.</li><li>Units not sold stay in inventory on the balance sheet, carrying their share of that cost with them.</li><li>So producing more than you can sell moves cost out of this period's expense and into inventory.</li><li>Cost of goods sold falls, reported income rises, and nothing about the business improved.</li></ol><p><strong>Why it matters:</strong> current-period incentive pay layered on top of absorption costing \"can cause all kinds of behaviors that ignore the downstream consequences.\" Two assigned papers documented it:</p><table><tr><th>Paper</th><th>Finding</th></tr><tr><td>Contemporary Accounting Research, 2011</td><td>Interviews at an automaker. Managers overproduced to drive per-vehicle fixed cost down, because operating margin under absorption costing drove their performance pay. A quarter of 2004 vehicles sat over 60 days, and a $5M loss followed in 2005</td></tr><tr><td>Journal of Management Accounting Research</td><td>Firms raise production relative to sales to shift fixed cost into inventory. Markets reward inventory growth, but discount the signal for repeat manipulators</td></tr></table><p><strong>State the limit:</strong> this is not a claim that absorption costing is bad. It is correct and required for external reporting. The problem is using it for a purpose it was not built for.</p>",
+      "source": "Session 2, 2026-09-10"
+    },
+    {
+      "id": "alloc-001", "topic": "Allocation", "session": 1, "style": "concept MC", "type": "mc",
+      "stem": "Overhead is allocated to clients on student hours. The firm drops a client, removing its revenue and its student hours. Overhead in total does not change. What happens to firm-wide profit and to the remaining clients?",
+      "choices": ["Profit rises; remaining clients are unaffected", "Profit is unchanged; remaining clients each absorb more overhead", "Profit falls by the dropped client's allocated overhead", "Profit is unchanged and allocated overhead per client is unchanged"],
+      "answer": 1,
+      "solution": "<p>Firm profit is <strong>unchanged</strong>, and the remaining clients each absorb more overhead.</p><ol><li>Allocation <strong>moves</strong> cost between cost objects. It does not change the firm's total.</li><li>Total overhead stayed the same, but the denominator (total student hours) shrank, so the rate rose.</li><li>Every client then looked profitable while firm profit had not moved an inch.</li></ol><p>The professor's verdict on that rosier-looking column: \"just as misleading as the other.\" It is \"an artifact of the way that we calculated the overhead charges.\"</p><p>Students objected that overhead is rent and electricity, which \"aren't just going to change\" &mdash; exactly right, and exactly the point.</p>",
+      "source": "Session 1, 2026-09-03"
+    },
+    {
+      "id": "alloc-002", "topic": "Allocation", "session": 1, "style": "concept MC", "type": "mc",
+      "stem": "When the professor removed a client and its student hours, total overhead went UP rather than down. What does that tell you about the driver?",
+      "choices": ["The allocation rate was computed incorrectly", "Student hours is a poor driver — it is not correlated with or causing the cost", "Overhead is entirely variable", "The cost object was defined wrongly"],
+      "answer": 1,
+      "solution": "<p>The cost \"doesn't appear to be student hours.\"</p><table><tr><th>Term</th><th>Definition</th></tr><tr><td>Cost object</td><td>the thing you are asking \"what does this cost me?\" about &mdash; here, a client</td></tr><tr><td>Driver</td><td>the activity base used to spread costs that are not directly traceable</td></tr><tr><td>Distortion</td><td>what you get when the driver is not correlated with or causing the cost</td></tr></table><p>A driver that fails this test produces distortion \"as egregious or more\" than the one you started with. Switching drivers is not automatically an improvement.</p>",
+      "source": "Session 1, 2026-09-03"
+    },
+    {
+      "id": "alloc-003", "topic": "Allocation", "session": 1, "style": "short essay", "type": "short",
+      "stem": "A colleague says the allocated-cost numbers justify holding firm on price in tomorrow's negotiation. How do you respond?",
+      "solution": "<p><strong>Resist that call.</strong> This was the professor's most pointed warning of the semester.</p><ol><li>Allocation \"just distorted the map.\" The allocated figure is an artifact of the driver you chose, not a fact about this client.</li><li>It \"might even make us behave in a negotiation in exactly the opposite way that would be the best for our business.\" A client that looks unprofitable under allocation may be contributing real margin.</li><li>The relevant question in a negotiation is incremental: what do we gain or give up <em>as a result of this deal</em>? Allocated overhead does not move with the decision.</li></ol><p><strong>The sibling argument to resist:</strong> \"we need more clients so as to spread that overhead.\" That is the denominator effect dressed up as strategy. Spreading a fixed amount over more units lowers cost per unit without changing any cash flow.</p><p><strong>State the limit:</strong> \"Doesn't mean we have to allocate.\" Full absorption is right for external GAAP reporting and for long-run pricing and product mix. It is wrong for a specific short-term decision.</p>",
+      "source": "Session 1, 2026-09-03"
+    },
+    {
+      "id": "alloc-004", "topic": "Allocation", "session": 1, "style": "concept MC", "type": "mc",
+      "stem": "A Reuters piece reported GM losing 'as much as $49,000' per Chevy Volt, built by spreading roughly $1.2B of development and tooling over 21,500 cars sold (about $56,000 each) and adding $20,000 to $32,000 of build cost. What is the analytical error?",
+      "choices": ["The development cost estimate was too high", "Sunk investment and operating cost were combined in one numerator", "Volume was understated", "Depreciation should have been excluded"],
+      "answer": 1,
+      "solution": "<p><strong>Combining sunk investment with operating cost in a single per-unit number.</strong></p><ol><li>The $1.2B is sunk. It is \"not rising and falling as I make more and fewer cars.\"</li><li>The $20,000 to $32,000 of build cost is genuinely per-car.</li><li>Dividing the first by cumulative volume and adding it to the second produces a number that describes nothing: not cash, not margin, not a decision.</li></ol><p><strong>Investment has its own metrics:</strong> ROI and payback. Use those for the $1.2B.</p><p>This is the <strong>denominator effect</strong>. The same fiction appears in the BYU example: cutting average credits at graduation from about 153 to 135 produces a headline saving of \"over $100,000 per student\" that will never show up as cash.</p>",
+      "source": "Session 1, 2026-09-03"
+    },
+    {
+      "id": "alloc-005", "topic": "Allocation", "session": 1, "style": "concept MC", "type": "mc",
+      "stem": "A paralegal bills $150/hour, is paid $60,000/year, and brought in almost $300,000. A partner concludes she is enormously profitable. What is missing, and what is the better question?",
+      "choices": ["Nothing is missing — revenue minus direct labor is the right measure", "Overhead is ignored; the better question is 'if you quit, where would we be?'", "Her billing rate should be allocated across clients", "Her salary should be capitalized into inventory"],
+      "answer": 1,
+      "solution": "<p>Revenue minus direct labor ignores overhead entirely. She consumes office space, support, systems and partner time.</p><p><strong>The better question is counterfactual:</strong> \"If you quit, where would we be?\" That reframes it as an incremental question, which is the only form that has a decidable answer.</p><p>This is the same move as the Volt and the dropped client: ask what actually changes as a result of the decision, not what an allocation routine assigns.</p>",
+      "source": "Session 1, 2026-09-03"
+    },
+    {
+      "id": "alloc-006", "topic": "Allocation", "session": 1, "style": "concept MC", "type": "mc",
+      "stem": "For which purpose is full absorption costing the RIGHT approach?",
+      "choices": ["Deciding whether to drop a client next quarter", "Setting a price in tomorrow's negotiation", "External GAAP reporting and long-run pricing or product mix", "Deciding whether to accept a one-off special order"],
+      "answer": 2,
+      "solution": "<table><tr><th>Use</th><th>Full absorption?</th></tr><tr><td>External GAAP reporting</td><td>Yes, required</td></tr><tr><td>Long-run pricing and product mix</td><td>Yes</td></tr><tr><td>A specific short-term decision</td><td>No &mdash; use incremental</td></tr></table><p>Accounting software and the general ledger default to allocating everything, which answers a different question than the one you are usually asking. Do not lift a QuickBooks P&amp;L into a decision.</p><p>The professor's recurring question: <strong>\"Why do you want to know?\"</strong> The right calculation depends on the answer. Management accounting is \"run the business accounting, not report the business,\" and is not bound by GAAP, the IRS or FASB.</p>",
+      "source": "Session 1, 2026-09-03"
+    },
+    {
+      "id": "alloc-007", "topic": "Allocation", "session": 1, "style": "computational MC", "type": "mc",
+      "stem": "A firm pools overhead and allocates it on student hours, producing a rate of $114.02 per student hour. A client consumed 500 student hours. What overhead is allocated to that client, and what happens to firm-wide overhead?",
+      "choices": ["$57,010 allocated; firm overhead falls by $57,010", "$57,010 allocated; firm overhead is unchanged", "$114.02 allocated; firm overhead is unchanged", "Cannot be determined without the driver total"],
+      "answer": 1,
+      "solution": "<ol><li>Allocation rate = total indirect cost pool / total driver units = <strong>$114.02 per student hour</strong></li><li>Allocated to the client = 114.02 &times; 500 = <strong>$57,010</strong></li><li>Firm-wide overhead: <strong>unchanged</strong></li></ol><p>Allocation is a distribution exercise. The pool is what it is; the rate decides who carries which slice of it. Nothing about the total moves.</p>",
+      "source": "Session 1, 2026-09-03"
+    },
+    {
+      "id": "ham-001", "topic": "Case 2 — hammer line", "session": 7, "style": "computational MC", "type": "numeric",
+      "stem": "Hammer variable costs per unit: direct materials $10.44, supplies $0.14, variable power $0.46, freight $1.00. Price is $61.00. What is contribution margin per hammer? (Enter dollars.)",
+      "answer": 48.96, "tolerance": 0.02, "answerLabel": "$48.96",
+      "solution": "<table><tr><th>Item</th><th class='num'>Per unit</th></tr><tr><td>Direct materials</td><td class='num'>$10.44</td></tr><tr><td>Supplies</td><td class='num'>$0.14</td></tr><tr><td>Variable power</td><td class='num'>$0.46</td></tr><tr><td>Freight</td><td class='num'>$1.00</td></tr><tr><td><strong>Total variable cost</strong></td><td class='num'><strong>$12.04</strong></td></tr></table><p>CM per unit = 61.00 &minus; 12.04 = <strong>$48.96</strong></p><p><strong>Watch freight.</strong> It sits <em>below</em> gross margin on the income statement, but it is variable, so it belongs in the CM calculation. Fixed power and depreciation sit above gross margin but are fixed, so they stay out.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-002", "topic": "Case 2 — hammer line", "session": 7, "style": "computational MC", "type": "numeric",
+      "stem": "At 350 hammers/month: revenue $21,350; materials $3,654; direct labor $9,583; supplies $49; variable power $161; fixed power $72; depreciation $417; freight $350. What is incremental monthly operating income, EXCLUDING her salary? (Enter dollars.)",
+      "answer": 7064, "tolerance": 2, "answerLabel": "$7,064",
+      "solution": "<table><tr><th>Line</th><th class='num'>Amount</th></tr><tr><td>Revenue (350 &times; $61)</td><td class='num'>$21,350</td></tr><tr><td>Direct materials</td><td class='num'>(3,654)</td></tr><tr><td>Direct labor (2 &times; $4,791.50)</td><td class='num'>(9,583)</td></tr><tr><td>Supplies</td><td class='num'>(49)</td></tr><tr><td>Variable power</td><td class='num'>(161)</td></tr><tr><td>Fixed power (864 / 12)</td><td class='num'>(72)</td></tr><tr><td>Depreciation (35,000 / 7 / 12)</td><td class='num'>(417)</td></tr><tr><td><strong>Gross margin</strong></td><td class='num'><strong>$7,414</strong></td></tr><tr><td>Freight</td><td class='num'>(350)</td></tr><tr><td><strong>Operating income, salary excluded</strong></td><td class='num'><strong>$7,064</strong></td></tr></table><p>With her salary of $5,270.83 included, operating income drops to <strong>$1,793</strong>.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-003", "topic": "Case 2 — hammer line", "session": 7, "style": "computational MC", "type": "mc",
+      "stem": "CM per hammer is $48.96. Fixed costs excluding her salary are $10,072. Expected volume is 350/month. What are break-even units and margin of safety?",
+      "choices": ["206 units; 144 units", "314 units; 36 units", "198 units; 152 units", "206 units; 206 units"],
+      "answer": 0,
+      "solution": "<ol><li>Break-even = 10,072 / 48.96 = 205.7, round up to <strong>206 units</strong></li><li>MoS = 350 &minus; 206 = <strong>144 units</strong></li></ol><p>All three fixed-cost treatments, same $48.96 CM:</p><table><tr><th>Treatment</th><th class='num'>Fixed cost</th><th class='num'>Break-even</th><th class='num'>MoS at 350</th></tr><tr><td>Everything in, salary included</td><td class='num'>$15,342.83</td><td class='num'>314</td><td class='num'>36</td></tr><tr><td><strong>Salary excluded (his preference)</strong></td><td class='num'>$10,072</td><td class='num'>206</td><td class='num'>144</td></tr><tr><td>Salary and depreciation excluded (cash)</td><td class='num'>$9,655</td><td class='num'>198</td><td class='num'>152</td></tr></table><p>He prefers the middle case: <strong>depreciation in, salary out.</strong></p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-004", "topic": "Case 2 — hammer line", "session": 7, "style": "short essay", "type": "short",
+      "stem": "Why does the professor leave her salary OUT of the decision analysis, and what does he say about including it?",
+      "solution": "<p>The distinguishing feature is <strong>discretion</strong>.</p><table><tr><th>Point</th><th>Reasoning</th></tr><tr><td>It is discretionary</td><td>She does not <em>have</em> to pay it. That is what separates it from materials, labor and power</td></tr><tr><td>It can flip the decision</td><td>A negative number with the salary included could wrongly say \"don't add hammers\"</td></tr><tr><td>It narrows the lens</td><td>Treating the salary as the only use of the income hides the alternatives: reinvest, pay down the machine, repay debt, fund a new product</td></tr></table><p><strong>What he says about including it:</strong> it is <em>not</em> penalized. \"You have to care about\" it; he simply leaves it out of the decision analysis. Notice the asymmetry with depreciation, which he keeps in. Depreciation is not discretionary &mdash; the machine wears out whether or not she chooses to acknowledge it.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-005", "topic": "Case 2 — hammer line", "session": 7, "style": "computational MC", "type": "mc",
+      "stem": "The machine costs $35,000. Incremental operating income is $7,064/month and depreciation is $417/month. What is payback on an operating-income basis and on a cash basis?",
+      "choices": ["5.0 months and 4.7 months", "4.7 months and 5.0 months", "7 years and 5 months", "5.0 months and 5.0 months"],
+      "answer": 0,
+      "solution": "<table><tr><th>Basis</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Operating income</td><td>35,000 / 7,064</td><td class='num'>~5.0 months</td></tr><tr><td>Cash flow (add depreciation back)</td><td>35,000 / 7,481</td><td class='num'>4.7 months</td></tr></table><p>Depreciation is the only non-cash item in the analysis, so it is the only add-back. (Taxes would also matter for cash and are out of scope.)</p><p>The analysis assumes all hammer income goes to paying back the machine.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-006", "topic": "Case 2 — hammer line", "session": 7, "style": "short essay", "type": "short",
+      "stem": "Name payback's limitations.",
+      "solution": "<table><tr><th>Limitation</th><th>Note or fix</th></tr><tr><td>Ignores the time value of money</td><td>Use discounted payback</td></tr><tr><td>Assumes constant cash flows</td><td>Real cash flows ramp and fluctuate</td></tr><tr><td>Says nothing about value <em>after</em> payback</td><td>It is blind to the whole rest of the asset's life. Two projects with identical payback can differ enormously in total value</td></tr><tr><td>It is a time measure, not dollars</td><td>Not a value metric at all. It cannot rank projects by worth</td></tr></table><p><strong>State the limit the other way too:</strong> it is still useful to her. For an owner-operator financing a machine out of a single product line's cash flow, \"how many months until I have my money back\" is a question she genuinely needs answered.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-007", "topic": "Case 2 — hammer line", "session": 7, "style": "short essay", "type": "short",
+      "stem": "Under the allocated GAAP view, hammer gross margin is 3%. Under the incremental view it is 35%. The allocation (by productive labor time) looks arbitrary. Why does the professor say she must care about the 3% anyway?",
+      "solution": "<p>Because the two numbers answer <strong>different questions at different points in time</strong>.</p><table><tr><th>View</th><th>Hammer gross margin</th><th>Question it answers</th></tr><tr><td>Incremental</td><td>35%</td><td>Should she add hammers? (the <strong>decision</strong> point)</td></tr><tr><td>Allocated GAAP</td><td>3%</td><td>What is this business worth? (the <strong>valuation</strong> point)</td></tr></table><ol><li><strong>The decision is already made.</strong> By the time valuation matters, hammers are integrated and cannot be unwound, so the incremental question is no longer the one being asked.</li><li><strong>Capital markets run on comparability.</strong> GAAP-style allocated statements are \"the currency\" of that conversation.</li><li><strong>A buyer's integration differs from hers.</strong> However cleverly she reorganizes her own operation, a buyer folds the line into <em>theirs</em>. So what the buyer wants is comparability against the other product lines they might buy, in a \"GAAP compliant, auditable way.\" An investor's view: it does not matter how you spread it in your operation, because I have it integrated into mine.</li><li><strong>Performance is not appearance.</strong> \"I need to care about both how my firm performs, but also how it appears.\"</li></ol><p><strong>State the limits:</strong> the 3% does <em>not</em> mean she shouldn't add hammers. And a serious buyer will still do due diligence on contribution margin. The caution runs the other way too: \"You can't anchor on this [incremental view] and say this is hammers now.\"</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-008", "topic": "Case 2 — hammer line", "session": 7, "style": "computational MC", "type": "mc",
+      "stem": "Pitons and hammers sell 12 to 1. Basket revenue is $187.00, basket variable cost is $32.92, and total fixed costs are $45,096. What is break-even in TOTAL units?",
+      "choices": ["292.68 units", "3,806 units", "4,550 units", "3,513 units"],
+      "answer": 1,
+      "solution": "<table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Basket CM</td><td>187.00 &minus; 32.92</td><td class='num'>$154.08</td></tr><tr><td>Break-even baskets</td><td>45,096 / 154.08</td><td class='num'>292.68 &mdash; <strong>do not round</strong></td></tr><tr><td>Pitons</td><td>292.68 &times; 12, round up</td><td class='num'>3,513</td></tr><tr><td>Hammers</td><td>292.68 &times; 1, round up</td><td class='num'>293</td></tr><tr><td><strong>Total units</strong></td><td>3,513 + 293</td><td class='num'><strong>3,806</strong></td></tr></table><p>Round only after unpacking the baskets into real units, and round up.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-009", "topic": "Case 2 — hammer line", "session": 7, "style": "computational MC", "type": "mc",
+      "stem": "Total volume is 4,550 units and break-even is 3,806 units. The question asks how much sales could DROP before hitting break-even. What is the answer?",
+      "choices": ["19.55%", "16.35%", "744 units", "83.65%"],
+      "answer": 1,
+      "solution": "<ol><li>MoS units = 4,550 &minus; 3,806 = <strong>744</strong></li><li>\"How far can sales drop\" &rarr; divide by <strong>current sales volume</strong></li><li>744 / 4,550 = <strong>16.35%</strong></li></ol><p>The other version: 744 / 3,806 = 19.55% (he says \"20%\"), which answers \"how far <em>above</em> break-even are we.\"</p><p><strong>Two further points:</strong> margin of safety in a multi-product CVP is computed on <strong>total</strong> units, not per product. And the 16.35% versus 16.38% gap between the unit and revenue routes is purely the effect of rounding units up.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-010", "topic": "Case 2 — hammer line", "session": 7, "style": "computational MC", "type": "mc",
+      "stem": "Pitons and hammers sell 12 to 1 by UNITS. Total revenue is $65,450, of which hammers are $21,350 (350 × $61). Break-even revenue is $54,731. What is HAMMER revenue at break-even?",
+      "choices": ["$4,210", "$18,061", "$36,670", "$54,731"],
+      "answer": 1,
+      "solution": "<p>Split a revenue answer by the <strong>revenue</strong> mix, not the 12-to-1 unit mix.</p><ol><li>Hammer revenue share = 21,350 / 65,450 = <strong>33%</strong> (pitons 67%)</li><li>54,731 &times; 33% = <strong>$18,061</strong></li></ol><p><strong>The trap:</strong> the unit mix is 12 to 1, but the revenue mix is roughly 2 to 1, because a hammer sells for $61 and a piton for about $10.50. Using 1/13 of revenue for hammers would be badly wrong.</p><p>Supporting figures: VC ratio 17.6%, CM ratio 82.4%, so break-even revenue = 45,096 / 0.824 = $54,731.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-011", "topic": "Case 2 — hammer line", "session": 7, "style": "short essay", "type": "short",
+      "stem": "What is 'the question' in the hammer case, and why does the professor keep returning to it?",
+      "solution": "<p><strong>\"Should she add hammers?\"</strong></p><p>He calls this the one thing to take from the course: \"Remember, if you got nothing else out of the class, I hope you get this. What are we trying to answer?\"</p><ol><li>It is a <strong>decision</strong> between two competing futures: add the line, or don't.</li><li>A decision question makes the <strong>incremental</strong> analysis the relevant one: what is <em>added</em>?</li><li>Every analytical choice follows from that. The salary comes out because it is discretionary. The GAAP allocation comes out because it answers a valuation question, not a decision question. Depreciation stays in because the asset really is consumed.</li></ol><p>And the generalization, from session 1: <strong>\"Why do you want to know?\"</strong> The right calculation depends on the answer. Full absorption, incremental, cash &mdash; none of them is <em>the</em> correct view. Each is correct for a particular question.</p><p><strong>Her final read:</strong> she should add the line. Positive incremental income, 206 units to break even against 350 expected, and a five-month payback. Family financing makes the downside less risky.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-012", "topic": "Case 2 — hammer line", "session": 7, "style": "short essay", "type": "short",
+      "stem": "You have just finished a multi-product CVP analysis assuming a 12-to-1 mix. What should you do next, and what should you ask about the two products?",
+      "solution": "<p><strong>Flex the assumptions.</strong> \"The minute I have this down in Excel, I know it's wrong\" &mdash; so the next step is sensitivity.</p><ol><li>Build cells that flex the <strong>mix</strong>: what if it is not 12 to 1?</li><li>Flex the other inputs too: price, volume, salary. \"You can change just about anything in there, see how it rolls through.\"</li><li>That is what makes the decision analysis \"more rich.\"</li></ol><p><strong>The question to ask about the products:</strong> are they <strong>complements</strong> or <strong>substitutes</strong>?</p><table><tr><th>Relationship</th><th>Implication for the mix</th></tr><tr><td>Complements</td><td>Volumes move <em>together</em>, up and down</td></tr><tr><td>Substitutes</td><td>Volumes move in <em>opposite</em> directions &mdash; one is sold instead of the other</td></tr></table><p>That relationship governs how the mix is likely to shift, and the Golden example shows how violently break-even responds to a mix shift: 160,000 units to 181,819 with no change in any price or cost.</p><p>(The transcript is garbled at this exact point &mdash; it reads \"Complementary. Right. They're going to substitute one for the other.\" The distinction and its consequence are the substance; the label on this particular product pair is not recoverable from the recording.)</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "ham-013", "topic": "Case 2 — hammer line", "session": 7, "style": "short essay", "type": "short",
+      "stem": "What are her short-term and long-term goals in adding the hammer line, and why does naming them matter?",
+      "solution": "<table><tr><th>Horizon</th><th>Goals named in class</th></tr><tr><td>Short term</td><td>Pay off the machine; pay herself a salary; build supplier relationships; diversify the product line; proof of concept</td></tr><tr><td>Long term</td><td>Revenue; profitability; an exit or spin-off; selling a product line; access to capital markets</td></tr></table><p><strong>Why naming them matters:</strong> the goal determines which analysis is relevant.</p><ul><li>\"Pay off the machine\" makes <strong>payback</strong> the right metric, which is why a crude, time-value-ignoring measure is defensible here.</li><li>\"Exit, spin-off, capital markets\" is what makes the <strong>allocated GAAP view</strong> matter despite looking arbitrary. A buyer needs comparability.</li><li>\"Pay herself a salary\" is precisely the item he pulls <em>out</em> of the decision analysis, because treating it as the only use of the income hides the alternatives.</li></ul><p>This is the case-level version of \"why do you want to know?\"</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "exam-001", "topic": "Exam logistics", "session": 7, "style": "logistics", "type": "mc",
+      "stem": "What may you bring to Exam 1?",
+      "choices": ["Typed notes and a pre-built Excel template", "One sheet of handwritten notes, front and back, plus a blank Excel file", "The case files and your group memo", "Nothing"],
+      "answer": 1,
+      "solution": "<table><tr><th>Item</th><th>Allowed?</th></tr><tr><td>One sheet of <strong>handwritten</strong> notes, front and back</td><td>Yes</td></tr><tr><td>Excel</td><td>Yes, but it <strong>must begin blank</strong></td></tr><tr><td>Prefab templates, or notes typed into Excel</td><td>No</td></tr><tr><td>The case files</td><td>No &mdash; he considered it and said \"I have to say no to that\"</td></tr></table><p>On the handwriting requirement: \"A lot of the learning that you haven't had so far will take place in that handwriting notes and I support that.\" Writing the sheet is part of the preparation, not an administrative hoop.</p>",
+      "source": "Sessions 6 and 7"
+    },
+    {
+      "id": "exam-002", "topic": "Exam logistics", "session": 6, "style": "logistics", "type": "mc",
+      "stem": "What is the structure of Exam 1?",
+      "choices": ["19 questions, 2h15m, mostly computational MC plus some short essay on the cases", "10 multiple choice, 60 minutes, open book", "Comprehensive, covering all 11 sessions", "30 questions, 3 hours, essay only"],
+      "answer": 0,
+      "solution": "<table><tr><th>Item</th><th>Detail</th></tr><tr><td>Questions</td><td>19</td></tr><tr><td>Mix</td><td>Mostly multiple-choice computational; some short essay, primarily about the cases</td></tr><tr><td>Time</td><td>2 hours 15 minutes</td></tr><tr><td>Window</td><td>Opens Thu 2026-10-22 11:00 AM, closes midnight Sat 2026-10-31</td></tr><tr><td>Proctoring</td><td>Proctorio, light settings; on campus or the testing center</td></tr><tr><td>Last question</td><td>Conceptual, from the session 7 hammer-line discussion</td></tr></table><p>The <strong>final</strong> exam covers sessions 8 through 11 only. It is not comprehensive.</p><p>The 10-question, 60-minute, open-book format is the <em>post-class quiz</em> pattern, not the exam.</p>",
+      "source": "Session 6, 2026-10-15"
+    },
+    {
+      "id": "exam-003", "topic": "Exam logistics", "session": 7, "style": "logistics", "type": "mc",
+      "stem": "How should you approach the short essay questions?",
+      "choices": ["Write everything you know about the concept so something lands", "Answer the specific question asked, within the tight word limit", "Quote the case verbatim", "Show the full computation for each one"],
+      "answer": 1,
+      "solution": "<p><strong>Answer the specific question asked.</strong> The professor was explicit about both halves of this:</p><ol><li>Word limits are <strong>constrained by design</strong>. \"You just don't have enough words to just kind of splash it all out there and hope the right answer is in there somewhere.\"</li><li>The questions are <strong>asked specifically</strong>. \"Read them carefully and make sure you're answering the right question and not just doing sort of a brain dump.\"</li></ol><p>Also: the case questions are <strong>not computational</strong> and do not require recalling case details. They are about the conclusions the class reached in discussion &mdash; the \"pastures we visited.\"</p><p>This is the same instruction as the computational trap: identify the question before you start producing.</p>",
+      "source": "Session 7, 2026-10-22"
+    },
+    {
+      "id": "exam-004", "topic": "Exam logistics", "session": 6, "style": "logistics", "type": "mc",
+      "stem": "A break-even calculation gives 47,368.42 units. You round to 47,369 but the posted solution shows 47,368. How much should you worry?",
+      "choices": ["A great deal — rounding errors are penalized", "Not at all — he said you would never lose points for rounding errors", "Only on multi-product problems", "You should always truncate instead"],
+      "answer": 1,
+      "solution": "<p>\"You would never lose points for rounding errors. Rounding issues like that would be silly, and so as to avoid them, my hope is that the questions I would put in front of you do not lend themselves to those sorts of issues.\"</p><p>He designs the questions to avoid rounding traps. Do not burn exam time on it.</p><p><strong>Two places rounding does carry meaning, though:</strong></p><table><tr><th>Situation</th><th>Rule</th></tr><tr><td>Unit break-even</td><td>Round <strong>up</strong> &mdash; you cannot sell a partial unit</td></tr><tr><td>Baskets in multi-product CVP</td><td><strong>Do not round.</strong> \"Baskets are not a thing.\" Round only after unpacking into real units</td></tr></table>",
+      "source": "Session 6, 2026-10-15"
+    }
+  ]
+}
