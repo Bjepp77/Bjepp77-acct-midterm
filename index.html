@@ -9,21 +9,21 @@
   --bg:#faf8f5; --panel:#ffffff; --ink:#1c1b19; --muted:#6b6660;
   --line:#e2ddd6; --accent:#2f5d50; --accent-ink:#ffffff;
   --ok:#1f6f43; --ok-bg:#e6f3ea; --bad:#9c2a2a; --bad-bg:#fbeaea;
-  --code:#f1ede7;
+  --warn:#8a5600; --code:#f1ede7;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#15171a; --panel:#1d2024; --ink:#e8e6e3; --muted:#9a948c;
     --line:#2e3238; --accent:#6fae9a; --accent-ink:#10231d;
     --ok:#7ec89b; --ok-bg:#16291f; --bad:#e08a8a; --bad-bg:#2a1818;
-    --code:#23272c;
+    --warn:#f0b429; --code:#23272c;
   }
 }
 :root[data-theme="dark"]{
   --bg:#15171a; --panel:#1d2024; --ink:#e8e6e3; --muted:#9a948c;
   --line:#2e3238; --accent:#6fae9a; --accent-ink:#10231d;
   --ok:#7ec89b; --ok-bg:#16291f; --bad:#e08a8a; --bad-bg:#2a1818;
-  --code:#23272c;
+  --warn:#f0b429; --code:#23272c;
 }
 *{box-sizing:border-box}
 body{
@@ -55,7 +55,7 @@ select,input[type=text]{
 .stem p{margin:0 0 10px}
 .stem p:last-child{margin-bottom:0}
 .stem table{border-collapse:collapse;margin:10px 0}
-.stem th,.stem td{border:1px solid #243041;padding:4px 10px;text-align:left}
+.stem th,.stem td{border:1px solid var(--line);padding:4px 10px;text-align:left}
 .stem td.num,.stem th.num{text-align:right}
 .choices{display:flex;flex-direction:column;gap:8px}
 .choice{text-align:left;display:flex;gap:10px;align-items:flex-start;padding:10px 12px;white-space:pre-wrap}
@@ -84,26 +84,26 @@ table.stats td.num,table.stats th.num{text-align:right;font-variant-numeric:tabu
 .answerline{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 /* mock exam */
 #timerbar{position:sticky;top:0;z-index:5;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
-  padding:10px 14px;margin:0 0 14px;border-radius:10px;background:#11161d;border:1px solid #243041}
+  padding:10px 14px;margin:0 0 14px;border-radius:10px;background:var(--code);border:1px solid var(--line)}
 #clock{font-variant-numeric:tabular-nums;font-size:1.25rem;font-weight:600;letter-spacing:.02em}
-#clock.warn8{color:#f0b429}
-#clock.warn2{color:#ef5350}
+#clock.warn8{color:var(--warn)}
+#clock.warn2{color:var(--bad)}
 #timerbar .lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
 .wc{font-size:.8rem;color:var(--muted);margin-top:6px}
-.wc.over{color:#ef5350;font-weight:600}
-textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;border:1px solid #243041;
+.wc.over{color:var(--bad);font-weight:600}
+textarea.essay{width:100%;min-height:120px;background:var(--code);color:inherit;border:1px solid var(--line);
   border-radius:8px;padding:10px;font:inherit;line-height:1.5}
 .navrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:14px}
 .navrow .spacer{flex:1}
 .gradegrid{width:100%;border-collapse:collapse;font-size:.9rem}
-.gradegrid th,.gradegrid td{border-bottom:1px solid #243041;padding:7px 8px;text-align:left}
+.gradegrid th,.gradegrid td{border-bottom:1px solid var(--line);padding:7px 8px;text-align:left}
 .gradegrid td.num,.gradegrid th.num{text-align:right;font-variant-numeric:tabular-nums}
-.gradegrid tr.miss td{background:#2a1416}
+.gradegrid tr.miss td{background:var(--bad-bg)}
 .bigscore{font-size:2rem;font-weight:700;margin:4px 0 2px}
 .itemjump{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
 .itemjump button{min-width:34px;padding:5px 7px;font-size:.8rem}
-.itemjump button.done{border-color:#2e7d32;color:#a5d6a7}
-.itemjump button.cur{background:var(--accent);color:#06210f;border-color:var(--accent)}
+.itemjump button.done{border-color:var(--ok);color:var(--ok)}
+.itemjump button.cur{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
 
 /* ---------- app shell: rail + content ---------- */
 .app{display:flex;gap:0;max-width:1340px;margin:0 auto;align-items:flex-start}
@@ -365,7 +365,7 @@ button,summary,.railrow,select,label{touch-action:manipulation}
       <button id="reset">Reset progress</button>
     </div>
     <div class="hint" id="poolinfo" style="margin-top:8px"></div>
-    <div class="row" id="mockrow" style="margin-top:14px;padding-top:14px;border-top:1px solid #243041">
+    <div class="row" id="mockrow" style="margin-top:14px;padding-top:14px;border-top:1px solid var(--line)">
       <label for="mockpick">Mock exam</label>
       <select id="mockpick"></select>
       <button id="startmock">Start timed mock</button>
@@ -1036,7 +1036,7 @@ function reviewMock(g){
     } else {
       shown = (r.a == null || String(r.a).trim() === "") ? "(blank)" : String(r.a);
     }
-    h += "<div style='border-top:1px solid #243041;padding:14px 0'>";
+    h += "<div style='border-top:1px solid var(--line);padding:14px 0'>";
     h += "<div class='badges'><span class='badge'>Item " + esc(q.item) + "</span>" +
          "<span class='badge'>" + esc(q.points) + " pts</span>" +
          "<span class='badge'>" + esc(q.topic) + "</span>" +
