@@ -104,12 +104,154 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 .itemjump button{min-width:34px;padding:5px 7px;font-size:.8rem}
 .itemjump button.done{border-color:#2e7d32;color:#a5d6a7}
 .itemjump button.cur{background:var(--accent);color:#06210f;border-color:var(--accent)}
+
+/* ---------- app shell: rail + content ---------- */
+.app{display:flex;gap:0;max-width:1180px;margin:0 auto;align-items:flex-start}
+#rail{
+  flex:0 0 232px;position:sticky;top:24px;align-self:flex-start;
+  border:1px solid var(--line);border-radius:10px;background:var(--panel);
+  padding:10px 8px;transition:flex-basis 150ms ease;overflow:hidden;
+}
+.app.rail-collapsed #rail{flex-basis:52px}
+#rail .railhead{display:flex;align-items:center;gap:8px;padding:2px 4px 8px}
+#rail .railhead .eyebrow{flex:1;min-width:0;white-space:nowrap;overflow:hidden}
+.eyebrow{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.railrow{
+  display:flex;align-items:center;gap:8px;width:100%;height:32px;padding:0 6px;
+  border:0;background:none;border-radius:6px;text-align:left;color:var(--ink);
+  font-size:.86rem;cursor:pointer;position:relative;
+}
+.railrow:hover{background:var(--code)}
+.railrow[aria-current="true"]{background:var(--code);font-weight:600}
+.railrow .ico{flex:0 0 20px;width:20px;height:20px;display:grid;place-items:center;color:var(--muted)}
+.railrow[aria-current="true"] .ico{color:var(--accent)}
+.railrow .lbl2{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.railrow .cnt{
+  flex:0 0 auto;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;
+  border:1px solid var(--line);border-radius:999px;padding:0 6px;line-height:1.5;
+}
+.visually-hidden{position:absolute !important;left:-9999px;top:auto;width:1px;height:1px;
+  overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+.icobtn{padding:4px 6px;line-height:0;border-radius:6px;transition:transform 150ms ease}
+.railsec{height:28px;display:flex;align-items:center;padding:0 6px;margin-top:6px;border-top:1px solid var(--line)}
+.app.rail-collapsed .lbl2,.app.rail-collapsed .cnt,
+.app.rail-collapsed .eyebrow,.app.rail-collapsed .railbars,
+.app.rail-collapsed .railsec .eyebrow{display:none}
+.app.rail-collapsed .railrow{justify-content:center;padding:0}
+/* tooltip for the collapsed rail, drawn outside the row so it is never clipped */
+.app.rail-collapsed .railrow::after{
+  content:attr(data-tip);position:absolute;left:46px;top:4px;z-index:40;
+  background:var(--ink);color:var(--bg);font-size:.75rem;padding:3px 8px;border-radius:5px;
+  white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 150ms ease;
+}
+.app.rail-collapsed .railrow:hover::after,
+.app.rail-collapsed .railrow:focus-visible::after{opacity:1}
+#content{flex:1;min-width:0;padding-left:18px}
+#hamburger{display:none}
+#backdrop{display:none}
+
+/* ---------- stepper ---------- */
+.stepper{display:flex;align-items:center;gap:0;margin:0 0 14px;flex-wrap:wrap}
+.step{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--muted)}
+.step .node{
+  width:18px;height:18px;border-radius:999px;border:1.5px solid var(--line);
+  display:grid;place-items:center;font-size:.64rem;font-variant-numeric:tabular-nums;
+}
+.step.done .node{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.step.cur{color:var(--ink);font-weight:600}
+.step.cur .node{border-color:var(--accent);box-shadow:0 0 0 3px var(--code)}
+.steprule{width:26px;height:1px;background:var(--line);margin:0 9px}
+
+/* ---------- progress bar ---------- */
+.bar{display:flex;align-items:center;gap:10px;margin:8px 0}
+.bar .barlab{font-size:.74rem;color:var(--muted);flex:0 0 auto}
+.bar .track{flex:1;height:6px;border-radius:999px;background:var(--code);overflow:hidden}
+.bar .fill{height:100%;background:var(--accent);width:0;transition:width 300ms ease}
+.bar .barval{font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.railbars{padding:6px 6px 2px}
+.railbars .bar{margin:5px 0}
+.railbars .barlab{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.railbars .track{flex:0 0 54px}
+
+/* ---------- empty state ---------- */
+.empty{border:1px solid var(--line);border-radius:10px;padding:26px 18px;text-align:center}
+.empty .eyebrow{margin-bottom:8px}
+.empty p{margin:0 0 14px;color:var(--muted);font-size:.92rem}
+
+/* ---------- citation block ---------- */
+.cite{
+  margin-top:14px;border-top:1px solid var(--line);padding-top:10px;
+  font-size:.78rem;color:var(--muted)
+}
+.cite .src{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.72rem}
+.cite blockquote{margin:6px 0 0;padding-left:10px;border-left:2px solid var(--line);font-style:italic}
+p.cls{
+  background:var(--code);border-radius:6px;padding:8px 10px;font-size:.82rem;color:var(--muted);
+  margin:0 0 12px
+}
+
+/* ---------- press feedback, motion, focus ---------- */
+button:active{transform:translateY(1px)}
+button:focus-visible,.railrow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.dot{width:7px;height:7px;border-radius:999px;background:var(--accent);display:inline-block;
+  animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
+@media (prefers-reduced-motion: reduce){
+  *{transition:none !important;animation:none !important}
+}
+
+/* ---------- phone: the rail becomes a drawer ---------- */
+@media (max-width: 767px){
+  body{padding:16px 12px 72px;overflow-x:hidden}
+  #stats,.sol,.stem,.gradegrid{overflow-x:auto;-webkit-overflow-scrolling:touch}
+  table.stats,.gradegrid{min-width:420px}
+  #backdrop{width:100vw;max-width:100%}
+  .app{display:block}
+  #content{padding-left:0}
+  #hamburger{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
+  #rail{
+    position:fixed;top:0;left:0;bottom:0;z-index:50;width:272px;flex-basis:272px;
+    border-radius:0;border-left:0;border-top:0;border-bottom:0;overflow:auto;
+    transform:translateX(-100%);transition:transform 150ms ease;
+  }
+  .app.drawer-open #rail{transform:translateX(0)}
+  .app.rail-collapsed #rail{flex-basis:272px;width:272px}
+  .app.rail-collapsed .lbl2,.app.rail-collapsed .cnt,
+  .app.rail-collapsed .eyebrow,.app.rail-collapsed .railbars{display:revert}
+  .app.rail-collapsed .railrow{justify-content:flex-start;padding:0 6px}
+  .app.rail-collapsed .railrow::after{content:none}
+  #backdrop{display:block;position:fixed;inset:0;z-index:49;background:#0009;
+    opacity:0;pointer-events:none;transition:opacity 150ms ease}
+  .app.drawer-open #backdrop{opacity:1;pointer-events:auto}
+  #timerbar{gap:8px}
+  .stepper{font-size:.72rem}
+  .steprule{width:14px;margin:0 6px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Managerial Accounting: Exam 1 Practice</h1>
   <p class="sub" id="meta">Loading question bank…</p>
+
+<div class="app" id="app">
+  <button id="backdrop" aria-label="Close the menu" tabindex="-1"></button>
+  <aside id="rail" aria-label="Topics and practice tools">
+    <div class="railhead">
+      <span class="eyebrow">Managerial Accounting</span>
+      <button id="railtoggle" class="icobtn" aria-label="Collapse the sidebar"
+              aria-expanded="true" title="Toggle sidebar (press \\)"></button>
+    </div>
+    <div id="railtopics"></div>
+    <div class="railsec"><span class="eyebrow">Practice tools</span></div>
+    <div id="railtools"></div>
+    <div class="railsec"><span class="eyebrow">Mastery</span></div>
+    <div class="railbars" id="railbars"></div>
+  </aside>
+
+  <main id="content">
+  <button id="hamburger" aria-label="Open the menu" aria-expanded="false"></button>
+  <div class="stepper" id="stepper" hidden></div>
 
   <div id="loaderr" class="warn" hidden>
     <strong>Question bank did not load.</strong>
@@ -122,14 +264,16 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 
   <div class="panel" id="controls" hidden>
     <div class="row">
-      <label for="topic">Topic</label>
-      <select id="topic"></select>
-      <label for="mode">Mode</label>
-      <select id="mode">
-        <option value="all">All questions</option>
-        <option value="missed">Missed only</option>
-        <option value="unseen">Not yet seen</option>
-      </select>
+      <div class="visually-hidden">
+        <label for="topic">Topic</label>
+        <select id="topic"></select>
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="all">All questions</option>
+          <option value="missed">Missed only</option>
+          <option value="unseen">Not yet seen</option>
+        </select>
+      </div>
       <button id="start" class="primary">Start</button>
       <button id="reset">Reset progress</button>
     </div>
@@ -143,9 +287,10 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
   </div>
 
   <div id="timerbar" hidden>
+    <span class="dot" aria-hidden="true"></span>
     <span class="lbl">Time left</span><span id="clock">2:15:00</span>
     <span class="lbl" id="mockpos"></span>
-    <div style="flex:1"></div>
+    <div id="mockdone" style="flex:1;min-width:140px"></div>
     <button id="mocksubmit" class="primary">Submit exam</button>
     <button id="mockquit">Abandon</button>
   </div>
@@ -153,6 +298,8 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
   <div class="panel" id="card" hidden></div>
 
   <div class="panel" id="stats" hidden></div>
+  </main>
+</div>
 </div>
 
 <script>
@@ -166,7 +313,10 @@ function loadProg(){
     return (o && typeof o === "object") ? o : {};
   }catch(e){ return {}; }
 }
-function saveProg(p){ try{ localStorage.setItem(KEY, JSON.stringify(p)); }catch(e){} }
+function saveProg(p){
+  try{ localStorage.setItem(KEY, JSON.stringify(p)); }catch(e){}
+  if(BANK && document.getElementById("railtopics")) buildRail();
+}
 var prog = loadProg();   // id -> {seen, right, wrong, streak}
 
 function rec(id){
@@ -184,8 +334,37 @@ function boot(bank){
   buildTopics();
   buildMockPicker();
   document.getElementById("controls").hidden = false;
+  document.getElementById("hamburger").innerHTML = svg("menu") + "<span>Topics</span>";
+  setRail(loadRail(), false);
+  buildRail();
   renderStats();
   updatePoolInfo();
+  setStep("topic");
+  wireShell();
+}
+
+function wireShell(){
+  document.getElementById("railtoggle").addEventListener("click", function(){
+    var now = document.getElementById("app").classList.contains("rail-collapsed");
+    setRail(!now, true);
+  });
+  document.getElementById("hamburger").addEventListener("click", function(){
+    openDrawer(!document.getElementById("app").classList.contains("drawer-open"));
+  });
+  document.getElementById("backdrop").addEventListener("click", function(){ openDrawer(false); });
+  document.addEventListener("keydown", function(e){
+    if(e.key === "\\" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
+      e.preventDefault();
+      if(window.innerWidth < 768){
+        openDrawer(!document.getElementById("app").classList.contains("drawer-open"));
+      } else {
+        setRail(!document.getElementById("app").classList.contains("rail-collapsed"), true);
+      }
+    }
+    if(e.key === "Escape") openDrawer(false);
+  });
+  document.getElementById("topic").addEventListener("change", function(){ buildRail(); });
+  document.getElementById("mode").addEventListener("change", function(){ buildRail(); });
 }
 function showLoadError(){
   document.getElementById("loaderr").hidden = false;
@@ -219,11 +398,16 @@ function bankLine(b){
 })();
 
 /* ---------- pool / session ---------- */
-var queue = [], current = null, answered = false;
+var queue = [], current = null, answered = false, sessionTotal = 0;
 
 function allTopics(){
+  // only topics you can actually practise: mock-exam items are served in mock mode alone,
+  // so a topic that exists only there would be a row that always reads zero
   var seen = {}, out = [];
-  BANK.questions.forEach(function(q){ if(!seen[q.topic]){ seen[q.topic]=1; out.push(q.topic); } });
+  BANK.questions.forEach(function(q){
+    if(q.exam) return;
+    if(!seen[q.topic]){ seen[q.topic]=1; out.push(q.topic); }
+  });
   out.sort();
   return out;
 }
@@ -265,11 +449,14 @@ function shuffle(a){
 /* Missed questions come back: each wrong answer re-inserts the question later in the queue. */
 function startSession(){
   queue = shuffle(pool().slice());
-  if(!queue.length){ updatePoolInfo(); return; }
+  sessionTotal = queue.length;
+  if(!queue.length){ updatePoolInfo(); renderEmptyIfNeeded(); return; }
+  setStep("quiz");
   nextQuestion();
 }
 document.getElementById("start").addEventListener("click", startSession);
 document.getElementById("reset").addEventListener("click", function(){
+  if(!confirm("Reset all progress? Every attempt, miss and streak is erased. This cannot be undone.")) return;
   prog = {}; saveProg(prog); queue = []; current = null;
   document.getElementById("card").hidden = true;
   renderStats(); updatePoolInfo();
@@ -285,11 +472,25 @@ function finish(){
   current = null;
   var c = document.getElementById("card");
   c.hidden = false;
-  c.innerHTML = "<p class='verdict ok'>Pool finished.</p>" +
-    "<p class='hint'>Switch mode to <strong>Missed only</strong> to drill what you got wrong, " +
-    "or pick another topic above.</p>";
+  var t = document.getElementById("topic").value || "*";
+  var qs = BANK.questions.filter(function(q){ return !q.exam && (t === "*" || q.topic === t); });
+  var mastered = qs.filter(function(q){ var r = prog[q.id]; return r && r.streak >= 2; }).length;
+  var missed = qs.filter(function(q){ var r = prog[q.id]; return r && r.wrong > 0 && r.streak < 2; }).length;
+  c.innerHTML = "<div class='eyebrow'>Pool finished</div>" +
+    bar(t === "*" ? "Mastered, all topics" : "Mastered in " + t, mastered, qs.length) +
+    "<p class='hint'>A question counts as mastered after two correct answers in a row.</p>" +
+    "<div class='row' style='margin-top:12px'>" +
+    (missed ? "<button class='primary' id='gomissed'>Drill the " + missed + " you missed</button>" : "") +
+    "<button id='goagain'>Run this pool again</button></div>";
+  setStep("results");
+  if(missed) document.getElementById("gomissed").addEventListener("click", function(){
+    document.getElementById("mode").value = "missed";
+    buildRail(); updatePoolInfo(); startSession();
+  });
+  document.getElementById("goagain").addEventListener("click", startSession);
   renderStats();
   updatePoolInfo();
+  buildRail();
 }
 
 /* ---------- rendering ---------- */
@@ -303,8 +504,9 @@ function renderCard(){
     "<span class='badge'>" + esc(q.topic) + "</span>" +
     (q.session ? "<span class='badge'>Session " + esc(q.session) + "</span>" : "") +
     (q.style ? "<span class='badge'>" + esc(q.style) + "</span>" : "") +
-    "<span class='badge'>" + queue.length + " left</span>" +
+    "<span class='badge'>" + (sessionTotal - queue.length) + " of " + sessionTotal + "</span>" +
     "</div>";
+  h += bar("This pool", sessionTotal - queue.length, sessionTotal);
   h += "<div class='stem'>" + q.stem + "</div>";   /* trusted: authored in questions.json */
   if(q.table) h += q.table;           // trusted: authored in questions.json, not user input
   if(q.type === "mc"){
@@ -404,6 +606,7 @@ function showSolution(ok, typed){
 
   h += "<div class='sol'><h3>Worked solution</h3>" + q.solution + "</div>";
   if(q.source) h += "<p class='src'>Source: " + esc(q.source) + "</p>";
+  h += citeBlock(q);
 
   if(ok === null){
     h += "<div class='row' style='margin-top:12px'>" +
@@ -478,6 +681,10 @@ function startMock(){
   document.getElementById("controls").hidden = true;
   document.getElementById("stats").hidden = true;
   document.getElementById("timerbar").hidden = false;
+  document.getElementById("stepper").hidden = true;
+  railForced = !document.getElementById("app").classList.contains("rail-collapsed");
+  if(railForced) setRail(true, false);          // focus screen: collapse, never remember
+  openDrawer(false);
   MOCK.tick = setInterval(mockClock, 1000);
   mockClock();
   renderMockItem();
@@ -520,6 +727,7 @@ function renderMockItem(){
   c.hidden = false;
   document.getElementById("mockpos").textContent =
     "Item " + (MOCK.idx+1) + " of " + MOCK.items.length;
+  updateMockBar();
 
   var h = "<div class='badges'>" +
     "<span class='badge'>Item " + esc(q.item) + "</span>" +
@@ -595,7 +803,16 @@ function updateWC(q){
   el.textContent = n + " / " + q.wordLimit + " words" +
     (over ? "  OVER THE LIMIT by " + (n - q.wordLimit) : "");
 }
+function updateMockBar(){
+  if(!MOCK) return;
+  var done = MOCK.items.filter(function(x){
+    var a = MOCK.answers[x.id];
+    return a !== undefined && a !== null && String(a).trim() !== "";
+  }).length;
+  document.getElementById("mockdone").innerHTML = bar("Answered", done, MOCK.items.length);
+}
 function renderJump(){
+  updateMockBar();
   var j = document.getElementById("jump");
   if(!j) return;
   var h = "";
@@ -709,6 +926,7 @@ function reviewMock(g){
          (q.type === "mc" && r.verdict === "wrong"
             ? "  -  correct: " + esc(q.choices[q.answer]) : "") + "</p>";
     h += "<div class='sol'><h3>Worked solution</h3>" + q.solution + "</div>";
+    h += citeBlock(q);
     h += "</div>";
   });
   h += "<div class='navrow'><button class='primary' id='done2'>Back to practice</button></div>";
@@ -722,7 +940,9 @@ function exitMock(){
   MOCK = null; current = null; queue = [];
   document.getElementById("card").hidden = true;
   document.getElementById("controls").hidden = false;
-  renderStats(); updatePoolInfo();
+  if(railForced){ setRail(false, false); railForced = false; }
+  setStep("topic");
+  renderStats(); updatePoolInfo(); buildRail();
   window.scrollTo(0,0);
 }
 document.getElementById("startmock").addEventListener("click", startMock);
@@ -732,6 +952,204 @@ document.getElementById("mockquit").addEventListener("click", function(){
   exitMock();
 });
 
+
+/* =======================================================================
+   SHELL: left rail, stepper, progress bars, icons
+   The <select id="topic"> is still the source of truth for pool();
+   the rail just sets its value, so none of the quiz logic had to change.
+   ======================================================================= */
+var RAILKEY = "acct-midterm-rail-v1";
+var ICON = {
+  book:  '<path d="M4 3h9a3 3 0 0 1 3 3v11H7a3 3 0 0 0-3 3z"/><path d="M4 17a3 3 0 0 1 3-3h9"/>',
+  all:   '<circle cx="10" cy="10" r="7"/>',
+  miss:  '<path d="M6 6l8 8M14 6l-8 8"/>',
+  unseen:'<path d="M2 10s3-5 8-5 8 5 8 5-3 5-8 5-8-5-8-5z"/><circle cx="10" cy="10" r="2"/>',
+  clock: '<circle cx="10" cy="10" r="7.5"/><path d="M10 5.5V10l3 2"/>',
+  reset: '<path d="M4 10a6 6 0 1 1 1.8 4.2"/><path d="M4 6v4h4"/>',
+  menu:  '<path d="M3 6h14M3 10h14M3 14h14"/>',
+  chev:  '<path d="M12 5l-5 5 5 5"/>',
+  tick:  '<path d="M4 10.5l4 4 8-9"/>',
+  cross: '<path d="M5 5l10 10M15 5L5 15"/>'
+};
+function svg(name, cls){
+  return "<svg viewBox='0 0 20 20' width='16' height='16' fill='none' stroke='currentColor' " +
+         "stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round' aria-hidden='true'" +
+         (cls ? " class='" + cls + "'" : "") + ">" + ICON[name] + "</svg>";
+}
+function loadRail(){
+  try{ return localStorage.getItem(RAILKEY) === "collapsed"; }catch(e){ return false; }
+}
+function saveRail(collapsed){
+  try{ localStorage.setItem(RAILKEY, collapsed ? "collapsed" : "open"); }catch(e){}
+}
+var railForced = false;        // true while the mock exam holds it shut
+function setRail(collapsed, remember){
+  document.getElementById("app").classList.toggle("rail-collapsed", collapsed);
+  var b = document.getElementById("railtoggle");
+  b.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  b.setAttribute("aria-label", collapsed ? "Expand the sidebar" : "Collapse the sidebar");
+  b.innerHTML = svg("chev") ;
+  b.style.transform = collapsed ? "rotate(180deg)" : "";
+  if(remember) saveRail(collapsed);
+}
+function openDrawer(open){
+  document.getElementById("app").classList.toggle("drawer-open", open);
+  document.getElementById("hamburger").setAttribute("aria-expanded", open ? "true" : "false");
+}
+function countFor(topic, mode){
+  return BANK.questions.filter(function(q){
+    if(q.exam) return false;
+    if(topic !== "*" && q.topic !== topic) return false;
+    var r = prog[q.id];
+    if(mode === "missed") return !!r && r.wrong > 0 && r.streak < 2;
+    if(mode === "unseen") return !r || r.seen === 0;
+    return true;
+  }).length;
+}
+function buildRail(){
+  var tsel = document.getElementById("topic"), msel = document.getElementById("mode");
+  var h = "";
+  h += railRow("all", "All topics", "*", countFor("*", msel.value));
+  allTopics().forEach(function(t){
+    h += railRow("book", t, t, countFor(t, msel.value));
+  });
+  document.getElementById("railtopics").innerHTML = h;
+
+  var tools = "";
+  [["all","All questions","all"],["miss","Missed only","missed"],["unseen","Not yet seen","unseen"]]
+    .forEach(function(m){
+      tools += "<button class='railrow' data-mode='" + m[2] + "' data-tip='" + m[1] + "' " +
+               "aria-current='" + (msel.value === m[2]) + "'>" +
+               "<span class='ico'>" + svg(m[0]) + "</span><span class='lbl2'>" + m[1] + "</span>" +
+               "<span class='cnt'>" + countFor(tsel.value || "*", m[2]) + "</span></button>";
+    });
+  tools += "<button class='railrow' id='railmock' data-tip='Timed mock exam'>" +
+           "<span class='ico'>" + svg("clock") + "</span><span class='lbl2'>Timed mock exam</span></button>";
+  tools += "<button class='railrow' id='railreset' data-tip='Reset progress'>" +
+           "<span class='ico'>" + svg("reset") + "</span><span class='lbl2'>Reset progress</span></button>";
+  document.getElementById("railtools").innerHTML = tools;
+
+  wireRail();
+  buildRailBars();
+}
+function railRow(icon, label, val, count){
+  var cur = (document.getElementById("topic").value || "*") === val;
+  return "<button class='railrow' data-topic=\"" + esc(val) + "\" data-tip=\"" + esc(label) + "\" " +
+         "aria-current='" + cur + "'><span class='ico'>" + svg(icon) + "</span>" +
+         "<span class='lbl2'>" + esc(label) + "</span>" +
+         "<span class='cnt'>" + count + "</span></button>";
+}
+function wireRail(){
+  Array.prototype.forEach.call(document.querySelectorAll("#railtopics .railrow"), function(b){
+    b.addEventListener("click", function(){
+      document.getElementById("topic").value = b.getAttribute("data-topic");
+      afterRailPick();
+    });
+  });
+  Array.prototype.forEach.call(document.querySelectorAll("#railtools [data-mode]"), function(b){
+    b.addEventListener("click", function(){
+      document.getElementById("mode").value = b.getAttribute("data-mode");
+      afterRailPick();
+    });
+  });
+  var rm = document.getElementById("railmock");
+  if(rm) rm.addEventListener("click", function(){
+    openDrawer(false);
+    document.getElementById("startmock").dispatchEvent(new MouseEvent("click", {bubbles:true}));
+  });
+  var rr = document.getElementById("railreset");
+  if(rr) rr.addEventListener("click", function(){
+    document.getElementById("reset").dispatchEvent(new MouseEvent("click", {bubbles:true}));
+  });
+}
+function afterRailPick(){
+  buildRail();
+  updatePoolInfo();
+  if(window.innerWidth < 768) openDrawer(false);
+  if(queue.length || current){ startSession(); }   // re-start on the new filter
+  else renderEmptyIfNeeded();
+}
+function masteryRows(){
+  var rows = [];
+  allTopics().forEach(function(t){
+    var qs = BANK.questions.filter(function(q){ return !q.exam && q.topic === t; });
+    var right = qs.filter(function(q){ var r = prog[q.id]; return r && r.streak >= 2; }).length;
+    if(qs.length) rows.push({topic:t, right:right, total:qs.length});
+  });
+  rows.sort(function(a,b){ return (b.right/b.total) - (a.right/a.total); });
+  return rows;
+}
+function bar(label, value, max, cls){
+  var pct = max ? Math.round((value / max) * 100) : 0;
+  return "<div class='bar'><span class='barlab'>" + esc(label) + "</span>" +
+         "<div class='track' role='progressbar' aria-valuenow='" + value + "' aria-valuemin='0' " +
+         "aria-valuemax='" + max + "' aria-label='" + esc(label) + ", " + value + " of " + max + "'>" +
+         "<div class='fill" + (cls ? " " + cls : "") + "' style='width:" + pct + "%'></div></div>" +
+         "<span class='barval'>" + value + " / " + max + "</span></div>";
+}
+function buildRailBars(){
+  var rows = masteryRows().filter(function(r){ return r.right > 0; }).slice(0, 8);
+  var el = document.getElementById("railbars");
+  if(!rows.length){
+    el.innerHTML = "<p class='hint' style='margin:4px 6px'>Nothing mastered yet. " +
+                   "A question counts once you answer it right twice in a row.</p>";
+    return;
+  }
+  el.innerHTML = rows.map(function(r){ return bar(r.topic, r.right, r.total); }).join("");
+}
+
+/* ---------- stepper: Topic > Quiz > Results ---------- */
+function setStep(which){            // "topic" | "quiz" | "results" | null
+  var el = document.getElementById("stepper");
+  if(!which){ el.hidden = true; return; }
+  var steps = [["topic","Topic"],["quiz","Quiz"],["results","Results"]];
+  var at = steps.map(function(s){ return s[0]; }).indexOf(which);
+  var h = "";
+  steps.forEach(function(s, i){
+    if(i) h += "<span class='steprule'></span>";
+    var cls = i < at ? "step done" : (i === at ? "step cur" : "step");
+    h += "<span class='" + cls + "'><span class='node'>" +
+         (i < at ? svg("tick") : (i + 1)) + "</span>" + s[1] + "</span>";
+  });
+  el.innerHTML = h;
+  el.hidden = false;
+}
+
+/* ---------- empty state ---------- */
+function renderEmptyIfNeeded(){
+  var n = pool().length;
+  if(n) return false;
+  var m = document.getElementById("mode").value;
+  var c = document.getElementById("card");
+  var line = m === "missed"
+    ? "Nothing missed in this topic. Misses appear here until you answer them right twice in a row."
+    : (m === "unseen"
+       ? "You have seen every question in this topic at least once."
+       : "This topic has no questions.");
+  c.innerHTML = "<div class='empty'><div class='eyebrow'>Empty pool</div><p>" + esc(line) + "</p>" +
+                "<button class='primary' id='emptyall'>Show all questions in this topic</button></div>";
+  c.hidden = false;
+  document.getElementById("emptyall").addEventListener("click", function(){
+    document.getElementById("mode").value = "all";
+    afterRailPick();
+    startSession();
+  });
+  setStep("topic");
+  return true;
+}
+
+/* ---------- citation block, for the TenAlpina items ---------- */
+function citeBlock(q){
+  var cs = [q.cite, q.cite2].filter(Boolean);
+  if(!cs.length) return "";
+  var h = "<div class='cite'><div class='eyebrow'>From class discussion only</div>";
+  cs.forEach(function(c){
+    h += "<div style='margin-top:6px'><span class='src'>" + esc(c.transcript) +
+         ":" + esc(c.line) + "</span><blockquote>" + esc(c.quote) + "</blockquote></div>";
+  });
+  h += "</div>";
+  return h;
+}
 
 function renderStats(){
   if(!BANK) return;

@@ -56,6 +56,7 @@ A Second Chance window of Nov 4 to 8 is on the sheet with a question mark beside
 | `cheat-sheet.md` | A Click Note for the one handwritten sheet: twelve items, nothing obvious. Opens with the AI-policy caution, which is unresolved and needs a question to the professor |
 | `excel-recipes.md` | Twelve cell-by-cell recipes mapped to blueprint items, all solvable on a blank sheet with no GoalSeek and no Solver |
 | `questions.json` | Question bank, 181 questions. Single source of truth |
+| | TenAlpina items carry a `cite` block: transcript file, line, and the quote |
 | `index.html` | Local practice quiz plus a timed mock-exam mode. No external libraries |
 | `questions.js` | Generated from `questions.json` by `build.sh`. Never edit it |
 | `build.sh` | Regenerates `questions.js` and validates the JSON |
@@ -108,6 +109,16 @@ To run it standalone instead:
 The build exists because `file://` blocks `fetch`. The page tries `questions.json` first and
 falls back to `questions.js`.
 
+## The interface
+
+One page, no libraries, works offline. A left rail carries the topics, each with a live count,
+and a Practice tools group for the three modes, the timed mock and Reset progress. The rail
+collapses to an icon strip, remembers that choice, and has a keyboard toggle on the backslash
+key. Below 768px it becomes a slide-in drawer behind a Topics button. A three-node stepper
+(Topic, Quiz, Results) shows where you are. Progress bars use a plain label-left,
+value-right pattern: mastery per topic in the rail, position in the current pool on each
+question, answered-so-far during the mock, and the score at the end.
+
 ## Practice mode
 
 - Filter by topic. Modes: all questions, missed only, not yet seen.
@@ -119,6 +130,9 @@ falls back to `questions.js`.
   mark yourself.
 - The progress table shows attempts, misses and accuracy per topic.
 - Mock-exam items never appear in practice mode. They are held back so the mock stays unseen.
+- An empty pool says so plainly and offers a way out, rather than doing nothing.
+- TenAlpina questions carry their source under the solution: the transcript file, the line, and
+  the professor's own words, under the heading "From class discussion only".
 
 ## Mock exam mode
 
@@ -140,11 +154,13 @@ answers in the review screen.
 
 ## Known gaps
 
-- **The two TenAlpina cases, 20 of the 100 points, are not in this pack as cases.** The
-  instructor's AI policy bars using AI resources on the exam, and the case files are his.
-  So the pack teaches the analysis method for each case and invents no case facts. Mock items
-  17 and 18 are labelled "Method rehearsal, not the real case" and use generic firms.
-  The case files themselves have to be read directly.
+- **The two TenAlpina cases are built from the class recordings only.** The case documents,
+  question sheets and Excel templates were never opened, and nothing here is derived from them.
+  Every TenAlpina fact traces to one of two recorded sessions, and each question shows the
+  transcript file, the line number and the quote it rests on. The transcripts carry no
+  per-minute timestamps, so the citation is file and line, which is exact and checkable.
+  Case 1 is the 2026-10-08 session; Case 2 is the 2026-10-22 session. Reading the case
+  documents themselves is still on you.
 - **Whether AI-derived content may go on the handwritten sheet is unresolved.** The syllabus
   language is quoted at the top of `cheat-sheet.md`. This needs a direct question to
   Prof. Smith before the sheet is written out.

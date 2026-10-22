@@ -481,7 +481,7 @@
     "66,667 calculators and 22,222 abacuses"
    ],
    "answer": 0,
-   "solution": "<ol><li>Break-even baskets = 210,000 / 12.60 = <strong>16,666.67</strong> &mdash; do <strong>not</strong> round this</li><li>Calculators = 16,666.67 &times; 3 = <strong>50,000</strong></li><li>Abacuses = 16,666.67 &times; 1 = 16,666.67, round up to <strong>16,667</strong></li></ol><p><strong>Why not round the baskets?</strong> \"Baskets are not a thing.\" They exist only as a mathematical tool. Rounding is legitimate only once you are back in real units, and then you round <em>up</em>.</p><p><strong>His slide uses a 6 : 2 basket, not 3 : 1.</strong> Both describe the same mix. With a 6 : 2 basket the basket contribution margin is $25.20 and break-even is $210,000 / $25.20 = 8,333.33 baskets, each holding 6 calculators and 2 abacuses. With a 3 : 1 basket it is $12.60 and 16,666.67 baskets of 3 and 1. Unpack either and you get the same product volumes, because 8,333.33 &times; 6 = 16,666.67 &times; 3. Reduce the mix or do not; the unpacked answer is unchanged.</p>",
+   "solution": "<ol><li>Break-even baskets = 210,000 / 12.60 = <strong>16,666.67</strong> : do <strong>not</strong> round this</li><li>Calculators = 16,666.67 &times; 3 = <strong>50,000</strong></li><li>Abacuses = 16,666.67 &times; 1 = 16,666.67, round up to <strong>16,667</strong></li></ol><p><strong>Why not round the baskets?</strong> \"Baskets are not a thing.\" They exist only as a mathematical tool. Rounding is legitimate only once you are back in real units, and then you round <em>up</em>.</p><p><strong>His slide uses a 6 : 2 basket, not 3 : 1.</strong> Both describe the same mix. With a 6 : 2 basket the basket contribution margin is $25.20 and break-even is $210,000 / $25.20 = 8,333.33 baskets, each holding 6 calculators and 2 abacuses. With a 3 : 1 basket it is $12.60 and 16,666.67 baskets of 3 and 1. Unpack either and you get the same product volumes, because 8,333.33 &times; 6 = 16,666.67 &times; 3. Reduce the mix or do not; the unpacked answer is unchanged.</p>",
    "blueprint": "10-11",
    "source_detail": "Session 6, 2026-10-15",
    "source": "class transcript",
@@ -941,7 +941,7 @@
   },
   {
    "id": "julia-001",
-   "topic": "TenAlpina Case 1 (Giulia)",
+   "topic": "TenAlpina Case 1 (Giulia and Stanley)",
    "session": 5,
    "style": "computational MC",
    "type": "mc",
@@ -958,15 +958,20 @@
    "source_detail": "Session 5, 2026-10-08",
    "source": "class transcript",
    "bpGroup": "17",
-   "bpOrder": 9
+   "bpOrder": 9,
+   "cite": {
+    "transcript": "2026-10-08_0819_break-even-analysis-for-julia.txt",
+    "line": 8,
+    "quote": "here's revenue minus Variable Cost equals $0.55 Contribution Margin per unit"
+   }
   },
   {
    "id": "julia-002",
-   "topic": "TenAlpina Case 1 (Giulia)",
+   "topic": "TenAlpina Case 1 (Giulia and Stanley)",
    "session": 5,
    "style": "concept MC",
    "type": "mc",
-   "stem": "Scenario 3 treats labor as variable (CM $1.5725/unit, fixed $6,274.25). Scenario 4 treats the same labor as fixed (CM $8.76/unit, fixed $35,024.25). At 4,000 units both give operating income of $15.75. What is the correct conclusion?",
+   "stem": "Scenario 3 treats labor as variable (CM $1.5725/unit, fixed $6,274.25). Scenario 4 treats the same labor as fixed (CM $8.76/unit, fixed $35,024.25; he also said $8.71 aloud, see the solution). At 4,000 units both give operating income of $15.75. What is the correct conclusion?",
    "choices": [
     "The labor treatment is irrelevant to the analysis",
     "Profit is identical, but the risk profiles are completely different",
@@ -974,16 +979,21 @@
     "The scenarios must contain an arithmetic error"
    ],
    "answer": 1,
-   "solution": "<p>Profit is identical. Risk is not.</p><table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>Total CM</td><td class='num'>$6,290</td><td class='num'>$35,040</td></tr><tr><td>Fixed cost</td><td class='num'>$6,274.25</td><td class='num'>$35,024.25</td></tr><tr><td>Operating income</td><td class='num'>$15.75</td><td class='num'>$15.75</td></tr><tr><td>Break-even units</td><td class='num'>3,990</td><td class='num'>3,998</td></tr><tr><td><strong>DOL</strong></td><td class='num'><strong>399.37</strong></td><td class='num'><strong>2,224.76</strong></td></tr></table><p>\"Who cares if the outcome is the same? Well, it matters\" &mdash; because the moment volume moves, the two structures behave nothing alike. See the next question.</p><p>In class he calls the $15.75 \"16 bucks\" and treats it as a rounding. The DOLs only close on $15.75: 6,290 / 15.75 = 399.37 and 35,040 / 15.75 = 2,224.76. At $16 they would be 393.1 and 2,190.</p>",
+   "solution": "<p>Profit is identical. Risk is not.</p><table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>Total CM</td><td class='num'>$6,290</td><td class='num'>$35,040</td></tr><tr><td>Fixed cost</td><td class='num'>$6,274.25</td><td class='num'>$35,024.25</td></tr><tr><td>Operating income</td><td class='num'>$15.75</td><td class='num'>$15.75</td></tr><tr><td>Break-even units</td><td class='num'>3,990</td><td class='num'>3,998</td></tr><tr><td><strong>DOL</strong></td><td class='num'><strong>399.37</strong></td><td class='num'><strong>2,224.76</strong></td></tr></table><p>\"Who cares if the outcome is the same? Well, it matters\": because the moment volume moves, the two structures behave nothing alike. See the next question.</p><p>In class he calls the $15.75 \"16 bucks\" and treats it as a rounding. The DOLs only close on $15.75: 6,290 / 15.75 = 399.37 and 35,040 / 15.75 = 2,224.76. At $16 they would be 393.1 and 2,190.</p><p><strong>One number of his does not reconcile, and it is left unreconciled here on purpose.</strong> Working the labor-fixed break even aloud he says the contribution margin per unit is <strong>$8.71</strong> and that 35,024.25 / 8.71 gives <strong>4,022 units</strong>, which it does (4,021.2, rounded up). But $8.71 at 4,000 units gives a loss of $184.25, not the $15.75 his own percentages require. The $15.75 needs <strong>$8.76</strong>, which in turn gives a break even of 3,998, not 4,022.</p><p>So $8.71 and 4,022 are one consistent pair, and $8.76 and $15.75 and the 22,248% change are another. Both pairs are his, from the same class. If an answer choice turns on this, look at which of the two figures the question hands you and stay inside that pair. Do not mix them.</p>",
    "blueprint": "17",
    "source_detail": "Session 5, 2026-10-08",
    "source": "class transcript",
    "bpGroup": "17",
-   "bpOrder": 9
+   "bpOrder": 9,
+   "cite": {
+    "transcript": "2026-10-08_0819_break-even-analysis-for-julia.txt",
+    "line": 37,
+    "quote": "that's total fixed cost of 35,000 24 and 25 cents"
+   }
   },
   {
    "id": "julia-003",
-   "topic": "TenAlpina Case 1 (Giulia)",
+   "topic": "TenAlpina Case 1 (Giulia and Stanley)",
    "session": 5,
    "style": "computational MC",
    "type": "mc",
@@ -995,16 +1005,21 @@
     "$645 in both"
    ],
    "answer": 0,
-   "solution": "<table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>New operating income</td><td class='num'>4,400 &times; 1.5725 &minus; 6,274.25 = <strong>$644.75</strong></td><td class='num'>4,400 &times; 8.76 &minus; 35,024.25 = <strong>$3,519.75</strong></td></tr><tr><td>Change in dollars</td><td class='num'>$629</td><td class='num'>$3,504</td></tr><tr><td>Change in percent</td><td class='num'>3,994%</td><td class='num'>22,248%</td></tr><tr><td>DOL check</td><td class='num'>399.37 &times; 10%</td><td class='num'>2,224.76 &times; 10%</td></tr></table><p>The DOL cross-check ties exactly. $3,520/month instead of $645 is \"no longer trivial\" &mdash; and it cuts just as hard on the downside.</p>",
+   "solution": "<table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>New operating income</td><td class='num'>4,400 &times; 1.5725 &minus; 6,274.25 = <strong>$644.75</strong></td><td class='num'>4,400 &times; 8.76 &minus; 35,024.25 = <strong>$3,519.75</strong></td></tr><tr><td>Change in dollars</td><td class='num'>$629</td><td class='num'>$3,504</td></tr><tr><td>Change in percent</td><td class='num'>3,994%</td><td class='num'>22,248%</td></tr><tr><td>DOL check</td><td class='num'>399.37 &times; 10%</td><td class='num'>2,224.76 &times; 10%</td></tr></table><p>The DOL cross-check ties exactly. $3,520/month instead of $645 is \"no longer trivial\": and it cuts just as hard on the downside.</p>",
    "blueprint": "17",
    "source_detail": "Session 5, 2026-10-08",
    "source": "class transcript",
    "bpGroup": "17",
-   "bpOrder": 9
+   "bpOrder": 9,
+   "cite": {
+    "transcript": "2026-10-08_0819_break-even-analysis-for-julia.txt",
+    "line": 83,
+    "quote": "Operating profit jumps to 3520"
+   }
   },
   {
    "id": "julia-004",
-   "topic": "TenAlpina Case 1 (Giulia)",
+   "topic": "TenAlpina Case 1 (Giulia and Stanley)",
    "session": 5,
    "style": "short essay",
    "type": "short",
@@ -1014,7 +1029,12 @@
    "source_detail": "Session 5, 2026-10-08",
    "source": "class transcript",
    "bpGroup": "17",
-   "bpOrder": 9
+   "bpOrder": 9,
+   "cite": {
+    "transcript": "2026-10-08_0819_break-even-analysis-for-julia.txt",
+    "line": 107,
+    "quote": "This is also sort of a fantasy land"
+   }
   },
   {
    "id": "eu-001",
@@ -1162,7 +1182,7 @@
     "Profit is unchanged and allocated overhead per client is unchanged"
    ],
    "answer": 1,
-   "solution": "<p>Firm profit is <strong>unchanged</strong>, and the remaining clients each absorb more overhead.</p><ol><li>Allocation <strong>moves</strong> cost between cost objects. It does not change the firm's total.</li><li>Total overhead stayed the same, but the denominator (total student hours) shrank, so the rate rose.</li><li>Every client then looked profitable while firm profit had not moved an inch.</li></ol><p>The professor's verdict on that rosier-looking column: \"just as misleading as the other.\" It is \"an artifact of the way that we calculated the overhead charges.\"</p><p>Students objected that overhead is rent and electricity, which \"aren't just going to change\" &mdash; exactly right, and exactly the point.</p>",
+   "solution": "<p>Firm profit is <strong>unchanged</strong>, and the remaining clients each absorb more overhead.</p><ol><li>Allocation <strong>moves</strong> cost between cost objects. It does not change the firm's total.</li><li>Total overhead stayed the same, but the denominator (total student hours) shrank, so the rate rose.</li><li>Every client then looked profitable while firm profit had not moved an inch.</li></ol><p>The professor's verdict on that rosier-looking column: \"just as misleading as the other.\" It is \"an artifact of the way that we calculated the overhead charges.\"</p><p>Students objected that overhead is rent and electricity, which \"aren't just going to change\": exactly right, and exactly the point.</p>",
    "blueprint": "14-15",
    "source_detail": "Session 1, 2026-09-03",
    "source": "class transcript",
@@ -1183,7 +1203,7 @@
     "The cost object was defined wrongly"
    ],
    "answer": 1,
-   "solution": "<p>The cost \"doesn't appear to be student hours.\"</p><table><tr><th>Term</th><th>Definition</th></tr><tr><td>Cost object</td><td>the thing you are asking \"what does this cost me?\" about &mdash; here, a client</td></tr><tr><td>Driver</td><td>the activity base used to spread costs that are not directly traceable</td></tr><tr><td>Distortion</td><td>what you get when the driver is not correlated with or causing the cost</td></tr></table><p>A driver that fails this test produces distortion \"as egregious or more\" than the one you started with. Switching drivers is not automatically an improvement.</p>",
+   "solution": "<p>The cost \"doesn't appear to be student hours.\"</p><table><tr><th>Term</th><th>Definition</th></tr><tr><td>Cost object</td><td>the thing you are asking \"what does this cost me?\" about: here, a client</td></tr><tr><td>Driver</td><td>the activity base used to spread costs that are not directly traceable</td></tr><tr><td>Distortion</td><td>what you get when the driver is not correlated with or causing the cost</td></tr></table><p>A driver that fails this test produces distortion \"as egregious or more\" than the one you started with. Switching drivers is not automatically an improvement.</p>",
    "blueprint": "14-15",
    "source_detail": "Session 1, 2026-09-03",
    "source": "class transcript",
@@ -1260,7 +1280,7 @@
     "Deciding whether to accept a one-off special order"
    ],
    "answer": 2,
-   "solution": "<table><tr><th>Use</th><th>Full absorption?</th></tr><tr><td>External GAAP reporting</td><td>Yes, required</td></tr><tr><td>Long-run pricing and product mix</td><td>Yes</td></tr><tr><td>A specific short-term decision</td><td>No &mdash; use incremental</td></tr></table><p>Accounting software and the general ledger default to allocating everything, which answers a different question than the one you are usually asking. Do not lift a QuickBooks P&amp;L into a decision.</p><p>The professor's recurring question: <strong>\"Why do you want to know?\"</strong> The right calculation depends on the answer. Management accounting is \"run the business accounting, not report the business,\" and is not bound by GAAP, the IRS or FASB.</p>",
+   "solution": "<table><tr><th>Use</th><th>Full absorption?</th></tr><tr><td>External GAAP reporting</td><td>Yes, required</td></tr><tr><td>Long-run pricing and product mix</td><td>Yes</td></tr><tr><td>A specific short-term decision</td><td>No: use incremental</td></tr></table><p>Accounting software and the general ledger default to allocating everything, which answers a different question than the one you are usually asking. Do not lift a QuickBooks P&amp;L into a decision.</p><p>The professor's recurring question: <strong>\"Why do you want to know?\"</strong> The right calculation depends on the answer. Management accounting is \"run the business accounting, not report the business,\" and is not bound by GAAP, the IRS or FASB.</p>",
    "blueprint": "14-15",
    "source_detail": "Session 1, 2026-09-03",
    "source": "class transcript",
@@ -1290,7 +1310,7 @@
   },
   {
    "id": "ham-001",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "computational MC",
    "type": "numeric",
@@ -1303,11 +1323,16 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 13,
+    "quote": "giving me contribution margin per unit of $48.96"
+   }
   },
   {
    "id": "ham-002",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "computational MC",
    "type": "numeric",
@@ -1320,11 +1345,16 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 13,
+    "quote": "land here at 7064 as the incremental monthly operating income"
+   }
   },
   {
    "id": "ham-003",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "computational MC",
    "type": "mc",
@@ -1341,25 +1371,35 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 13,
+    "quote": "all of a sudden what margin of safety of 144"
+   }
   },
   {
    "id": "ham-004",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "short essay",
    "type": "short",
    "stem": "Why does the professor leave her salary OUT of the decision analysis, and what does he say about including it?",
-   "solution": "<p>The distinguishing feature is <strong>discretion</strong>.</p><table><tr><th>Point</th><th>Reasoning</th></tr><tr><td>It is discretionary</td><td>She does not <em>have</em> to pay it. That is what separates it from materials, labor and power</td></tr><tr><td>It can flip the decision</td><td>A negative number with the salary included could wrongly say \"don't add hammers\"</td></tr><tr><td>It narrows the lens</td><td>Treating the salary as the only use of the income hides the alternatives: reinvest, pay down the machine, repay debt, fund a new product</td></tr></table><p><strong>What he says about including it:</strong> it is <em>not</em> penalized. \"You have to care about\" it; he simply leaves it out of the decision analysis. Notice the asymmetry with depreciation, which he keeps in. Depreciation is not discretionary &mdash; the machine wears out whether or not she chooses to acknowledge it.</p>",
+   "solution": "<p>The distinguishing feature is <strong>discretion</strong>.</p><table><tr><th>Point</th><th>Reasoning</th></tr><tr><td>It is discretionary</td><td>She does not <em>have</em> to pay it. That is what separates it from materials, labor and power</td></tr><tr><td>It can flip the decision</td><td>A negative number with the salary included could wrongly say \"don't add hammers\"</td></tr><tr><td>It narrows the lens</td><td>Treating the salary as the only use of the income hides the alternatives: reinvest, pay down the machine, repay debt, fund a new product</td></tr></table><p><strong>What he says about including it:</strong> it is <em>not</em> penalized. \"You have to care about\" it; he simply leaves it out of the decision analysis. Notice the asymmetry with depreciation, which he keeps in. Depreciation is not discretionary: the machine wears out whether or not she chooses to acknowledge it.</p>",
    "blueprint": "18",
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 13,
+    "quote": "The choice to pay or sell a salary or not is distinct from the decision analysis"
+   }
   },
   {
    "id": "ham-005",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "computational MC",
    "type": "mc",
@@ -1376,11 +1416,16 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 13,
+    "quote": "then that's five months"
+   }
   },
   {
    "id": "ham-006",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "short essay",
    "type": "short",
@@ -1390,11 +1435,16 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 13,
+    "quote": "It ignores the time value of money"
+   }
   },
   {
    "id": "ham-007",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "short essay",
    "type": "short",
@@ -1404,11 +1454,16 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 35,
+    "quote": "she needs to care about this, even if this seems sort of wacky to us"
+   }
   },
   {
    "id": "ham-008",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "computational MC",
    "type": "mc",
@@ -1420,16 +1475,21 @@
     "3,513 units"
    ],
    "answer": 1,
-   "solution": "<table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Basket CM</td><td>187.00 &minus; 32.92</td><td class='num'>$154.08</td></tr><tr><td>Break-even baskets</td><td>45,096 / 154.08</td><td class='num'>292.68 &mdash; <strong>do not round</strong></td></tr><tr><td>Pitons</td><td>292.68 &times; 12, round up</td><td class='num'>3,513</td></tr><tr><td>Hammers</td><td>292.68 &times; 1, round up</td><td class='num'>293</td></tr><tr><td><strong>Total units</strong></td><td>3,513 + 293</td><td class='num'><strong>3,806</strong></td></tr></table><p>Round only after unpacking the baskets into real units, and round up.</p>",
+   "solution": "<table><tr><th>Step</th><th>Calculation</th><th class='num'>Result</th></tr><tr><td>Basket CM</td><td>187.00 &minus; 32.92</td><td class='num'>$154.08</td></tr><tr><td>Break-even baskets</td><td>45,096 / 154.08</td><td class='num'>292.68 : <strong>do not round</strong></td></tr><tr><td>Pitons</td><td>292.68 &times; 12, round up</td><td class='num'>3,513</td></tr><tr><td>Hammers</td><td>292.68 &times; 1, round up</td><td class='num'>293</td></tr><tr><td><strong>Total units</strong></td><td>3,513 + 293</td><td class='num'><strong>3,806</strong></td></tr></table><p>Round only after unpacking the baskets into real units, and round up.</p>",
    "blueprint": "18",
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 35,
+    "quote": "that goes to 293 total units, 3806"
+   }
   },
   {
    "id": "ham-009",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "computational MC",
    "type": "mc",
@@ -1446,11 +1506,16 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 35,
+    "quote": "How much could sales drop before I hit break even? And the answer is 16.35%"
+   }
   },
   {
    "id": "ham-010",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "computational MC",
    "type": "mc",
@@ -1467,39 +1532,54 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 35,
+    "quote": "Multiply the 54,731 by 33% to get Hammer revenue"
+   }
   },
   {
    "id": "ham-011",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "short essay",
    "type": "short",
    "stem": "What is 'the question' in the hammer case, and why does the professor keep returning to it?",
-   "solution": "<p><strong>\"Should she add hammers?\"</strong></p><p>He calls this the one thing to take from the course: \"Remember, if you got nothing else out of the class, I hope you get this. What are we trying to answer?\"</p><ol><li>It is a <strong>decision</strong> between two competing futures: add the line, or don't.</li><li>A decision question makes the <strong>incremental</strong> analysis the relevant one: what is <em>added</em>?</li><li>Every analytical choice follows from that. The salary comes out because it is discretionary. The GAAP allocation comes out because it answers a valuation question, not a decision question. Depreciation stays in because the asset really is consumed.</li></ol><p>And the generalization, from session 1: <strong>\"Why do you want to know?\"</strong> The right calculation depends on the answer. Full absorption, incremental, cash &mdash; none of them is <em>the</em> correct view. Each is correct for a particular question.</p><p><strong>Her final read:</strong> she should add the line. Positive incremental income, 206 units to break even against 350 expected, and a five-month payback. Family financing makes the downside less risky.</p>",
+   "solution": "<p><strong>\"Should she add hammers?\"</strong></p><p>He calls this the one thing to take from the course: \"Remember, if you got nothing else out of the class, I hope you get this. What are we trying to answer?\"</p><ol><li>It is a <strong>decision</strong> between two competing futures: add the line, or don't.</li><li>A decision question makes the <strong>incremental</strong> analysis the relevant one: what is <em>added</em>?</li><li>Every analytical choice follows from that. The salary comes out because it is discretionary. The GAAP allocation comes out because it answers a valuation question, not a decision question. Depreciation stays in because the asset really is consumed.</li></ol><p>And the generalization, from session 1: <strong>\"Why do you want to know?\"</strong> The right calculation depends on the answer. Full absorption, incremental, cash: none of them is <em>the</em> correct view. Each is correct for a particular question.</p><p><strong>Her final read:</strong> she should add the line. Positive incremental income, 206 units to break even against 350 expected, and a five-month payback. Family financing makes the downside less risky.</p>",
    "blueprint": "18",
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 5,
+    "quote": "What is the question we're trying to answer?"
+   }
   },
   {
    "id": "ham-012",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "short essay",
    "type": "short",
    "stem": "You have just finished a multi-product CVP analysis assuming a 12-to-1 mix. What should you do next, and what should you ask about the two products?",
-   "solution": "<p><strong>Flex the assumptions.</strong> \"The minute I have this down in Excel, I know it's wrong\" &mdash; so the next step is sensitivity.</p><ol><li>Build cells that flex the <strong>mix</strong>: what if it is not 12 to 1?</li><li>Flex the other inputs too: price, volume, salary. \"You can change just about anything in there, see how it rolls through.\"</li><li>That is what makes the decision analysis \"more rich.\"</li></ol><p><strong>The question to ask about the products:</strong> are they <strong>complements</strong> or <strong>substitutes</strong>?</p><table><tr><th>Relationship</th><th>Implication for the mix</th></tr><tr><td>Complements</td><td>Volumes move <em>together</em>, up and down</td></tr><tr><td>Substitutes</td><td>Volumes move in <em>opposite</em> directions &mdash; one is sold instead of the other</td></tr></table><p>That relationship governs how the mix is likely to shift, and the Goldman example shows how violently break-even responds to a mix shift: 160,000 units to 181,819 with no change in any price or cost.</p><p>(The transcript is garbled at this exact point &mdash; it reads \"Complementary. Right. They're going to substitute one for the other.\" The distinction and its consequence are the substance; the label on this particular product pair is not recoverable from the recording.)</p>",
+   "solution": "<p><strong>Flex the assumptions.</strong> \"The minute I have this down in Excel, I know it's wrong\": so the next step is sensitivity.</p><ol><li>Build cells that flex the <strong>mix</strong>: what if it is not 12 to 1?</li><li>Flex the other inputs too: price, volume, salary. \"You can change just about anything in there, see how it rolls through.\"</li><li>That is what makes the decision analysis \"more rich.\"</li></ol><p><strong>The question to ask about the products:</strong> are they <strong>complements</strong> or <strong>substitutes</strong>?</p><table><tr><th>Relationship</th><th>Implication for the mix</th></tr><tr><td>Complements</td><td>Volumes move <em>together</em>, up and down</td></tr><tr><td>Substitutes</td><td>Volumes move in <em>opposite</em> directions: one is sold instead of the other</td></tr></table><p>That relationship governs how the mix is likely to shift, and the Goldman example shows how violently break-even responds to a mix shift: 160,000 units to 181,819 with no change in any price or cost.</p><p>(The transcript is garbled at this exact point: it reads \"Complementary. Right. They're going to substitute one for the other.\" The distinction and its consequence are the substance; the label on this particular product pair is not recoverable from the recording.)</p>",
    "blueprint": "18",
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 35,
+    "quote": "Are these complementary or substitutive products?"
+   }
   },
   {
    "id": "ham-013",
-   "topic": "Case 2 - hammer line",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "session": 7,
    "style": "short essay",
    "type": "short",
@@ -1509,7 +1589,12 @@
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 9,
+    "quote": "what might some of her long term goals be?"
+   }
   },
   {
    "id": "exam-001",
@@ -1525,7 +1610,7 @@
     "Nothing"
    ],
    "answer": 1,
-   "solution": "<table><tr><th>Item</th><th>Allowed?</th></tr><tr><td>One sheet of <strong>handwritten</strong> notes, front and back</td><td>Yes</td></tr><tr><td>Excel</td><td>Yes, but it <strong>must begin blank</strong></td></tr><tr><td>Prefab templates, or notes typed into Excel</td><td>No</td></tr><tr><td>The case files</td><td>No &mdash; he considered it and said \"I have to say no to that\"</td></tr></table><p>On the handwriting requirement: \"A lot of the learning that you haven't had so far will take place in that handwriting notes and I support that.\" Writing the sheet is part of the preparation, not an administrative hoop.</p>",
+   "solution": "<table><tr><th>Item</th><th>Allowed?</th></tr><tr><td>One sheet of <strong>handwritten</strong> notes, front and back</td><td>Yes</td></tr><tr><td>Excel</td><td>Yes, but it <strong>must begin blank</strong></td></tr><tr><td>Prefab templates, or notes typed into Excel</td><td>No</td></tr><tr><td>The case files</td><td>No: he considered it and said \"I have to say no to that\"</td></tr></table><p>On the handwriting requirement: \"A lot of the learning that you haven't had so far will take place in that handwriting notes and I support that.\" Writing the sheet is part of the preparation, not an administrative hoop.</p>",
    "blueprint": "logistics",
    "source_detail": "Sessions 6 and 7",
    "source": "class transcript",
@@ -1567,7 +1652,7 @@
     "Show the full computation for each one"
    ],
    "answer": 1,
-   "solution": "<p><strong>Answer the specific question asked.</strong> The professor was explicit about both halves of this:</p><ol><li>Word limits are <strong>constrained by design</strong>. \"You just don't have enough words to just kind of splash it all out there and hope the right answer is in there somewhere.\"</li><li>The questions are <strong>asked specifically</strong>. \"Read them carefully and make sure you're answering the right question and not just doing sort of a brain dump.\"</li></ol><p>Also: the case questions are <strong>not computational</strong> and do not require recalling case details. They are about the conclusions the class reached in discussion &mdash; the \"pastures we visited.\"</p><p>This is the same instruction as the computational trap: identify the question before you start producing.</p>",
+   "solution": "<p><strong>Answer the specific question asked.</strong> The professor was explicit about both halves of this:</p><ol><li>Word limits are <strong>constrained by design</strong>. \"You just don't have enough words to just kind of splash it all out there and hope the right answer is in there somewhere.\"</li><li>The questions are <strong>asked specifically</strong>. \"Read them carefully and make sure you're answering the right question and not just doing sort of a brain dump.\"</li></ol><p>Also: the case questions are <strong>not computational</strong> and do not require recalling case details. They are about the conclusions the class reached in discussion: the \"pastures we visited.\"</p><p>This is the same instruction as the computational trap: identify the question before you start producing.</p>",
    "blueprint": "logistics",
    "source_detail": "Session 7, 2026-10-22",
    "source": "class transcript",
@@ -1588,7 +1673,7 @@
     "You should always truncate instead"
    ],
    "answer": 1,
-   "solution": "<p>\"You would never lose points for rounding errors. Rounding issues like that would be silly, and so as to avoid them, my hope is that the questions I would put in front of you do not lend themselves to those sorts of issues.\"</p><p>He designs the questions to avoid rounding traps. Do not burn exam time on it.</p><p><strong>Two places rounding does carry meaning, though:</strong></p><table><tr><th>Situation</th><th>Rule</th></tr><tr><td>Unit break-even</td><td>Round <strong>up</strong> &mdash; you cannot sell a partial unit</td></tr><tr><td>Baskets in multi-product CVP</td><td><strong>Do not round.</strong> \"Baskets are not a thing.\" Round only after unpacking into real units</td></tr></table>",
+   "solution": "<p>\"You would never lose points for rounding errors. Rounding issues like that would be silly, and so as to avoid them, my hope is that the questions I would put in front of you do not lend themselves to those sorts of issues.\"</p><p>He designs the questions to avoid rounding traps. Do not burn exam time on it.</p><p><strong>Two places rounding does carry meaning, though:</strong></p><table><tr><th>Situation</th><th>Rule</th></tr><tr><td>Unit break-even</td><td>Round <strong>up</strong> : you cannot sell a partial unit</td></tr><tr><td>Baskets in multi-product CVP</td><td><strong>Do not round.</strong> \"Baskets are not a thing.\" Round only after unpacking into real units</td></tr></table>",
    "blueprint": "logistics",
    "source_detail": "Session 6, 2026-10-15",
    "source": "class transcript",
@@ -1701,7 +1786,7 @@
    "blueprint": "7-9",
    "type": "mc",
    "source": "instructor practice",
-   "stem": "Zeffer Corporation wholesales ice cream by the carton. The pro forma income statement for the current year is:<br><br>Sales $1,100,000<br>Cost of sales: Direct materials $100,000; Direct labor $50,000; Variable overhead $140,000; Fixed overhead $100,000 &mdash; total (390,000)<br>Gross profit $710,000<br>Selling and G&amp;A: Variable $150,000; Fixed $150,000 &mdash; total (300,000)<br>Operating income $410,000<br><br>What is Zeffer's budgeted breakeven point for the upcoming year? (Round to the nearest dollar.)",
+   "stem": "Zeffer Corporation wholesales ice cream by the carton. The pro forma income statement for the current year is:<br><br>Sales $1,100,000<br>Cost of sales: Direct materials $100,000; Direct labor $50,000; Variable overhead $140,000; Fixed overhead $100,000 : total (390,000)<br>Gross profit $710,000<br>Selling and G&amp;A: Variable $150,000; Fixed $150,000 : total (300,000)<br>Operating income $410,000<br><br>What is Zeffer's budgeted breakeven point for the upcoming year? (Round to the nearest dollar.)",
    "choices": [
     "$416,667",
     "$464,789",
@@ -1745,7 +1830,7 @@
     "The target profit for the organization"
    ],
    "answer": 0,
-   "solution": "<p><strong>The activity level.</strong> In the instructor's own statement of the formula &mdash; Sales Price &times; Activity &minus; VC Rate &times; Activity &minus; Total Fixed Cost = Profit &mdash; the term that units fill is 'Activity'.</p>",
+   "solution": "<p><strong>The activity level.</strong> In the instructor's own statement of the formula: Sales Price &times; Activity &minus; VC Rate &times; Activity &minus; Total Fixed Cost = Profit: the term that units fill is 'Activity'.</p>",
    "bpGroup": "3",
    "bpOrder": 2
   },
@@ -1889,7 +1974,7 @@
     "9,375 units to breakeven and $1,035,000 in operating profit"
    ],
    "answer": 3,
-   "solution": "<p>The $75 is fixed cost <em>per unit at last year's volume</em>. Convert it to a total before using it.</p><ol><li>Total fixed cost = $75 &times; 15,000 = $1,125,000</li><li>CM per unit = $185 &minus; $65 = $120</li><li>Break-even = $1,125,000 / $120 = <strong>9,375 units</strong></li><li>Operating income at 18,000 = ($120 &times; 18,000) &minus; $1,125,000 = <strong>$1,035,000</strong></li></ol><p><strong>The trap, and it is the single most common one.</strong> If you treat $75 as a per-unit cost at the new volume you get CM of $45 and break-even of 17,308 &mdash; which is sitting right there as a wrong answer. Fixed cost per unit is only valid at the volume where it was computed.</p>",
+   "solution": "<p>The $75 is fixed cost <em>per unit at last year's volume</em>. Convert it to a total before using it.</p><ol><li>Total fixed cost = $75 &times; 15,000 = $1,125,000</li><li>CM per unit = $185 &minus; $65 = $120</li><li>Break-even = $1,125,000 / $120 = <strong>9,375 units</strong></li><li>Operating income at 18,000 = ($120 &times; 18,000) &minus; $1,125,000 = <strong>$1,035,000</strong></li></ol><p><strong>The trap, and it is the single most common one.</strong> If you treat $75 as a per-unit cost at the new volume you get CM of $45 and break-even of 17,308 : which is sitting right there as a wrong answer. Fixed cost per unit is only valid at the volume where it was computed.</p>",
    "bpGroup": "7-9",
    "bpOrder": 4
   },
@@ -3148,30 +3233,50 @@
    "exam": "mock-1",
    "item": 17,
    "points": 10,
-   "topic": "TenAlpina Case 1",
+   "topic": "TenAlpina Case 1 (Giulia and Stanley)",
    "blueprint": "17",
    "type": "essay",
    "source": "mock exam",
-   "stem": "<p><strong>Method rehearsal, not the real case.</strong> The real item 17 asks about the TenAlpina Tools Case 1 decision and gives you the case facts. This version drills the same reasoning on a generic firm so you can practise the format under the word limit.</p><p>A manufacturer can keep making a component in-house or buy it from a vendor. The vendor's price per unit is above the firm's current variable cost per unit, but buying would eliminate a block of fixed cost tied to that component.</p><p><strong>In 50 words or fewer</strong>, recommend a decision rule: state the two totals you would compare, name the volume at which the answer flips, and say what qualitative factor could override the numbers.</p>",
-   "solution": "<p><strong>A 50-word answer that would earn the marks:</strong></p><blockquote><p>Compare total relevant cost of each option at the expected volume: in-house equals variable cost times volume plus avoidable fixed cost; outsourced equals vendor price times volume. They flip where avoidable fixed cost divided by the per-unit price gap equals volume. Capacity, quality and supply reliability can override.</p></blockquote><p>That is 48 words. <strong>Count them before you submit.</strong></p><p><strong>How to hit a 50-word limit.</strong> One sentence for the rule, one for the indifference point, one for the override. No restating the question, no preamble such as 'In my opinion', no listing what you are about to say. Under this limit a wasted clause is a lost mark.</p><p><strong>Structure the real answer the same way:</strong> recommendation first, the two numbers that drive it, then the one caveat. Use the case's own figures.</p><p><strong>Not provided here:</strong> no TenAlpina facts, names or figures. Work the real case from the case documents themselves.</p>",
+   "stem": "<p class='cls'><strong>From class discussion only.</strong> Every fact in this item comes from the recorded class session named below. No case document, question sheet or Excel template was opened to build it, and nothing here is derived from one.</p><p>In class he compared Giulia's two futures. Today she outsources: $11.00 price, $10.45 variable cost, <strong>no fixed cost at all</strong>, 1,000 units a month, and so an operating income of $550 and a break even of zero. If she signs with Stanley and takes on the forge, her cost structure changes completely, and at 4,000 units the labor-variable and labor-fixed treatments both land on roughly the same operating income.</p><p><strong>In 50 words or fewer</strong>, tell Giulia what she is actually choosing between. Name what the outsourced structure costs her as well as what it protects, and name what the forge exposes her to. Do not recompute anything.</p>",
+   "solution": "<p><strong>A 49-word answer that would earn the marks:</strong></p><blockquote><p>She is choosing a cost structure, not a profit. Outsourcing has no fixed cost: she cannot lose, breaks even at zero, but is capped near $550. The forge adds fixed cost and leverage: far more upside per unit, real losses below break even. It turns on her volume confidence.</p></blockquote><p>That is 49 words. <strong>Count them before you submit.</strong></p><p><strong>What the class actually landed on.</strong> He put the outsourced world up first and called it safe: revenue minus variable cost of $0.55 a unit, zero fixed cost, so break even is zero units and nothing can go wrong. His own words on the result were that $550 is \"not all that inspiring, right? Safe, but not all that inspiring\". That pairing, safe and uninspiring, is the whole point of the item.</p><p><strong>The three things worth 10 points here.</strong></p><ol><li>No fixed cost means no break even and no downside. It also means no leverage, so the upside is capped at $0.55 a unit however well she sells.</li><li>Taking the forge converts that into a fixed-cost structure. He said of the outsourced position: \"No leverage, no risk, and therefore sort of very little upside down.\"</li><li>So the decision is a judgement about volume confidence, not about which option shows the better number at one volume. At 4,000 units the two treatments of labor look almost identical and behave nothing alike the moment volume moves.</li></ol><p><strong>Under 50 words, say the thing and stop.</strong> No preamble, no restating the facts he gave you, no \"in my opinion\". One clause per idea.</p>",
    "wordLimit": 50,
    "bpGroup": "17",
-   "bpOrder": 9
+   "bpOrder": 9,
+   "cite": {
+    "transcript": "2026-10-08_0819_break-even-analysis-for-julia.txt",
+    "line": 39,
+    "quote": "Safe, but not all that inspiring"
+   },
+   "cite2": {
+    "transcript": "2026-10-08_0819_break-even-analysis-for-julia.txt",
+    "line": 119,
+    "quote": "No leverage, no risk, and therefore sort of very little upside down."
+   }
   },
   {
    "id": "mock-1-18",
    "exam": "mock-1",
    "item": 18,
    "points": 10,
-   "topic": "TenAlpina Case 2",
+   "topic": "TenAlpina Case 2 (hammer line)",
    "blueprint": "18",
    "type": "essay",
    "source": "mock exam",
-   "stem": "<p><strong>Method rehearsal, not the real case.</strong> The real item 18 asks about TenAlpina Tools Case 2 and gives you the case facts. This version drills the same reasoning and the 90-word format.</p><p>A firm sells two product lines through one shared facility. A large block of cost supports both lines and is currently assigned to them on one basis; management is considering a different basis, which would move a material share of that cost from one line to the other. One line would then appear unprofitable.</p><p><strong>In 90 words or fewer</strong>, advise management: say what the allocation change does and does not change, state what should drive the allocation basis, identify the decision this reported profitability might wrongly trigger, and name the figure you would look at instead.</p>",
-   "solution": "<p><strong>An 88-word answer that would earn the marks:</strong></p><blockquote><p>Reallocating shared cost changes reported profit by line; it changes neither total company profit nor any cash flow. The basis should follow what actually drives the shared cost, so the numbers reflect consumption rather than convenience. The risk is dropping the line that now looks unprofitable: if its revenue exceeds its own variable and avoidable fixed costs, dropping it leaves the shared cost behind and total profit falls. Judge the line on its contribution margin less its avoidable fixed costs, not on its allocated share.</p></blockquote><p><strong>The four marks.</strong> Allocation moves reported profit and nothing real; basis follows the cost driver; the trap is dropping a line that still contributes; the right figure is contribution margin less avoidable fixed cost, which is sometimes called segment margin.</p><p><strong>Using 90 words well.</strong> That is roughly four or five sentences, one per requirement. Write the four-part answer and then cut adjectives, not content. Finish with the recommendation, since a truncated answer loses its conclusion.</p><p><strong>Not provided here:</strong> no TenAlpina facts, names, allocation bases or figures. Work the real case from the case documents themselves.</p>",
+   "stem": "<p class='cls'><strong>From class discussion only.</strong> Every fact in this item comes from the recorded class session named below. No case document, question sheet or Excel template was opened to build it, and nothing here is derived from one.</p><p>In class he worked the hammer line two ways. Incrementally, hammers add $7,064 of monthly operating income and show a gross margin of 35%. Then he applied Giulia's own estimate of productive labor time to allocate the costs other than materials, and the same hammer line showed a gross margin of <strong>3%</strong>.</p><p><strong>In 90 words or fewer</strong>, answer the question he put to the room: should the 3% change the decision to add hammers? Say what the allocation does and does not change, say why she must still care about the 3%, and name the view you would decide on.</p>",
+   "solution": "<p><strong>A 77-word answer that would earn the marks:</strong></p><blockquote><p>No. The allocation moves reported margin between lines; it changes no cash flow and no incremental profit. The decision question is whether hammers add, and incrementally they add $7,064 a month at a 35% margin, so the answer stands. But she must still care about the 3%, because that is how the line will appear to outsiders: lenders, buyers and investors read allocated, GAAP-style statements. Decide on the incremental view; manage the appearance of the allocated one.</p></blockquote><p>That is 77 words. <strong>Count them before you submit.</strong></p><p><strong>This is his own structure, almost his words.</strong> He asked the room directly whether the very different appearance \"should have implications for the decision? Should I add Hammers?\" and answered it himself: \"Maybe, maybe. You have to care about performance but also appearance.\" Then he closed the loop: it \"doesn't mean she shouldn't do it. But it does mean, yes, she needs to care about this, even if this seems sort of wacky to us.\"</p><p><strong>The four things worth 10 points here.</strong></p><ol><li>Allocation redistributes; it creates and destroys nothing. Total firm profit is identical either way.</li><li>The decision question is incremental, so it is answered on the incremental numbers.</li><li>Appearance is still real. Performance and appearance are two different things she has to manage, and he said so in those words.</li><li>Saying \"the allocation is arbitrary so ignore it\" is the trap. He never says ignore it.</li></ol><p><strong>Watch the allocation percentage.</strong> In the same session he says 37% of productive labor time goes to hammers and later says 63% goes to hammers and 37% to pitons. Both are on the recording. If a question hands you one of them, use the one you are handed and do not reconcile them.</p>",
    "wordLimit": 90,
    "bpGroup": "18",
-   "bpOrder": 10
+   "bpOrder": 10,
+   "cite": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 35,
+    "quote": "You have to care about performance but also appearance."
+   },
+   "cite2": {
+    "transcript": "2026-10-22_0809_hammer-line-profitability-analysis.txt",
+    "line": 35,
+    "quote": "she needs to care about this, even if this seems sort of wacky to us"
+   }
   },
   {
    "id": "dr-ol-001",
