@@ -1,1143 +1,771 @@
-# Managerial Accounting — Exam 1 Study Guide
+# Exam 1 Study Guide - Managerial Accounting (MBA 502-001, Prof. Steve Smith)
 
-Built from the seven class transcripts, sessions 1 through 7 (2026-09-03 to 2026-10-22).
-Every number below is traced to a session. Where the auto-transcript garbled a figure, the
-guide gives the figure that makes the professor's own arithmetic close, and says so.
+**Exam window:** opens Thursday 2026-10-22 at 11:00 AM MDT, closes Saturday 2026-10-31 at 11:59 PM MDT.
+**Format:** 18 numbered items, 100 points, 2 hours 15 minutes, individual, Proctorio.
+**Allowed:** one 8.5x11 sheet of handwritten notes; Excel, which must be blank when you start.
+**Not allowed:** GoalSeek, Solver, and any AI resources during the exam.
+**Coverage:** sessions 1-7. Blocher, *Cost Management*, chapters 3, 8 and 9.
+
+This guide is ordered by **points on the exam**, heaviest first. Study top to bottom and you are
+spending your time where the marks are.
+
+| Blueprint item | Topic | Points | Section below |
+|---|---|---|---|
+| 7-9 | Single-product CVP, 3 computations | 15 | [1](#1-single-product-cvp-items-7-9-15-points) |
+| 10-11 | Multi-product CVP, 2 computations | 15 | [2](#2-multi-product-cvp-items-10-11-15-points) |
+| 2, 4, 16 | Cost behavior, 3 computations | 15 | [3](#3-cost-behavior-items-2-4-and-16-15-points) |
+| 5-6 | Regression, 2 computations | 10 | [4](#4-regression-items-5-6-10-points) |
+| 14-15 | Cost accounting, planes, 2 computations | 10 | [5](#5-cost-accounting-the-planes-problem-items-14-15-10-points) |
+| 17 | TenAlpina Case 1, 50 words or fewer | 10 | [6](#6-tenalpina-case-1-item-17-10-points) |
+| 18 | TenAlpina Case 2, 90 words or fewer | 10 | [7](#7-tenalpina-case-2-item-18-10-points) |
+| 3 | CVP, 1 short question | 5 | [8](#8-cvp-short-question-item-3-5-points) |
+| 12 | DOL, 1 computation | 5 | [9](#9-degree-of-operating-leverage-item-12-5-points) |
+| 13 | Operating leverage, 1 short question | 5 | [10](#10-operating-leverage-short-question-item-13-5-points) |
+| 1 | Integrity statement | 0 | read it and answer yes |
+
+**Where the computations are:** 13 of the 18 items are computations worth 65 points. Two are short
+written answers worth 10. Two are the case answers worth 20. One is the integrity statement.
 
 ---
 
-## 0. Exam logistics
+## The one formula everything comes from
+
+He calls this the **"One" Formula**, or the **Home Equation**. Every CVP question on this exam is this
+equation with a different unknown.
+
+```
+Revenue  -  Variable Cost  -  Fixed Cost  =  Profit
+```
+
+Four forms of the same equation. Pick the one whose inputs you were given.
+
+| You were given | Use this form |
+|---|---|
+| Price and variable cost per unit | `Sale Price(Volume) - VC Rate(Volume) - Total FC = Profit` |
+| Contribution margin per unit | `CM/unit(Volume) - Total FC = Profit` |
+| Variable cost as a percentage of sales | `Revenue - VC%(Revenue) - Total FC = Profit` |
+| Total cost, and you want to split it | `TC = VC Rate(Volume) + Total FC` |
+
+**Method, every single time:**
+
+1. Write the equation.
+2. Fill in the three things you know.
+3. Solve for the fourth.
+
+That is the whole subject. If a question looks unfamiliar, it is because the unknown moved, not
+because the equation changed.
+
+### The rule he marks hardest
+
+> **Never unitize fixed cost. Never unitize profit.**
+
+His income statement slide has red "NO" symbols on four lines: fixed cost per unit, fixed cost as a
+percentage, profit per unit, and profit as a percentage. Those four numbers are only true at the one
+volume where they were computed, and a CVP question always moves the volume.
+
+| Quantity | Per unit? | Why |
+|---|---|---|
+| Revenue | yes | the price |
+| Variable cost | yes | constant per unit by definition |
+| Contribution margin | yes | price minus variable cost |
+| **Fixed cost** | **no** | total is constant, so per unit changes with volume |
+| **Profit** | **no** | it is what is left after a fixed lump |
+
+When a problem *hands* you a fixed cost per unit, that is the trap. Multiply it back out to a total
+first, then work in totals. See item 16 below and question `ip-cm-008`.
+
+---
+
+## 1. Single-product CVP (items 7-9, 15 points)
+
+Three computations, the largest single block on the exam. Expect break-even, a target-profit volume
+with tax, and a margin of safety.
+
+### 1a. Break-even
+
+Set profit to zero.
+
+```
+Sale Price(Volume) - VC Rate(Volume) - Total FC = 0
+CM/unit(Volume) = Total FC
+Volume = Total FC / CM per unit
+```
+
+**Worked:** price $8.00, variable cost $4.20, fixed cost $180,000.
+
+| Step | Calculation | Result |
+|---|---|---|
+| CM per unit | $8.00 - $4.20 | $3.80 |
+| Break-even units | $180,000 / $3.80 | 47,368.42 |
+| Round | always up | **47,369 units** |
+| Break-even revenue | 47,368.42 x $8.00 | **$378,947** |
+
+**Round break-even up, always.** You cannot sell 0.42 of a unit, and 47,368 units still loses money.
+
+For a revenue answer when you were given percentages rather than per-unit figures:
+
+```
+Break-even Revenue = Total FC / CM ratio          where CM ratio = 1 - VC ratio
+```
+
+**Worked:** variable costs are 62% of revenue, fixed costs $148,800.
+CM ratio = 38%. Break-even revenue = $148,800 / 0.38 = **$391,578.95**.
+
+### 1b. Target profit
+
+The target sits beside fixed cost in the numerator. Nothing else changes.
+
+```
+Volume = (Total FC + Target Profit) / CM per unit
+```
+
+**Worked:** price $8.00, variable cost $4.20, fixed cost $180,000, target operating income $120,000.
+($180,000 + $120,000) / $3.80 = 78,947.37 -> **78,948 units**.
+
+### 1c. Taxes: gross up first
+
+Tax turns up constantly in this block. The exam gives you an **after-tax** target and the home
+equation works in **pretax** dollars, so convert before you do anything else.
+
+```
+Operating Income (pretax) = After-tax Net Income / (1 - tax rate)
+```
+
+**Divide, never multiply.** You must earn *more* than $500,000 pretax to keep $500,000 after tax.
+$500,000 / (1 - 0.30) = **$714,286**. Multiplying by 0.70 gives $350,000 and is the single most
+common error on this topic.
+
+**Return targets.** When the target is a return on something, do it in three steps:
+
+| Step | What | Example: 30% ROE on $300,000 equity, 40% tax |
+|---|---|---|
+| 1 | Return target to after-tax dollars | $300,000 x 30% = $90,000 |
+| 2 | Gross up to pretax | $90,000 / 0.60 = $150,000 |
+| 3 | Put into the home equation | solve for the unknown |
+
+**Watch the denominator.** ROE uses **equity**. ROA uses **total assets**. The problem will hand you
+a balance sheet with current assets, plant, payables, debt and equity, and almost all of it is a
+decoy. Read which two letters the question used.
+
+**Worked (`tax-003`):** volume 25,000, variable cost $40, fixed cost $120,000, equity $300,000, ROE
+target 30%, tax 40%. Pretax target $150,000.
+Price(25,000) = $40(25,000) + $120,000 + $150,000 = $1,270,000, so price = **$50.80**.
+
+### 1d. Margin of safety: the denominator decides the answer
+
+Margin of safety in units or dollars is a simple difference:
+
+```
+Margin of Safety = Current Volume - Break-even Volume
+```
+
+The **percentage** has two versions and he asks for both. The words in the question tell you which.
+
+| He asks | Denominator | Reads as |
+|---|---|---|
+| "How far **above break-even** are we?" | **break-even** | we are X% above the break-even point |
+| "How far can sales **fall** / decline?" | **current sales** | we can lose X% of current sales |
+
+**Worked:** current 60,000 units, break-even 47,369 units. Margin of safety 12,631 units, or
+12,631.58 x $8.00 = **$101,053** in revenue.
+
+| Question asked | Calculation | Answer |
+|---|---|---|
+| How far above break-even? | 12,631 / 47,369 | **26.7%** |
+| How far can sales fall? | 12,631 / 60,000 | **21.05%** |
+
+Same company, same margin of safety, two different percentages. Both are correct answers to
+different questions. Getting the right arithmetic against the wrong question scores zero.
+
+### Thin spot
+Nothing here is thin. This block has the most practice material of any topic: 50 questions tagged
+7-9 in the bank.
+
+---
+
+## 2. Multi-product CVP (items 10-11, 15 points)
+
+Two computations. Tied with single-product CVP and cost behavior for the heaviest block.
+
+### 2a. Three methods, one answer
+
+| Method | Build the mix from | Use when the answer wanted is |
+|---|---|---|
+| **Basket** | unit ratio | units of each product |
+| **Weighted average** | unit ratio | total units |
+| **Revenue** | revenue ratio | dollars |
+
+They always agree. They differ only in what the answer is denominated in.
+
+### 2b. Basket method, step by step
+
+1. Reduce the unit volumes to a whole-number ratio. 16,000 and 6,000 becomes **8 : 3**.
+2. Basket price = sum of (units in basket x each price).
+3. Basket variable cost = sum of (units in basket x each variable cost).
+4. Basket CM = basket price minus basket variable cost.
+5. Baskets needed = (Total FC + Target Profit) / basket CM.
+6. **Unpack first, then round each product up.**
+
+**Worked (`mock-1-10`):** Trail $85 price / $49 variable cost / 16,000 units. Summit $140 / $76 /
+6,000 units. Fixed costs $1,045,000.
+
+| Step | Calculation | Result |
+|---|---|---|
+| Unit mix | 16,000 : 6,000 | 8 : 3 |
+| Basket price | 8($85) + 3($140) | $1,100 |
+| Basket variable cost | 8($49) + 3($76) | $620 |
+| Basket CM | $1,100 - $620 | $480 |
+| Baskets | $1,045,000 / $480 | 2,177.0833 |
+| Trail | 2,177.0833 x 8 = 17,416.67 | **17,417** |
+| Summit | 2,177.0833 x 3 = 6,531.25 | **6,532** |
+
+**"Baskets are not a thing."** His words. Do not round the basket count, because a basket is an
+arithmetic device, not a product. Round only the real product volumes, and round them up.
+
+**Any proportional basket works.** His Goldman slide uses a 6 : 2 basket where the lecture used
+3 : 1. The basket CM differs ($25.20 against $12.60) and the basket count differs (8,333.33 against
+16,666.67), but 8,333.33 x 6 equals 16,666.67 x 3, so the unpacked product volumes are identical.
+Reduce the ratio or do not; it cannot change your answer.
+
+### 2c. Weighted average method
+
+Weight each product's CM per unit by its share of **unit** volume.
+
+**Worked:** calculators CM $3.80, abacuses CM $1.20, mix 3 : 1.
+Weighted average CM per unit = 0.75($3.80) + 0.25($1.20) = $3.15.
+Total break-even units = $210,000 / $3.15 = 66,666.67 -> **66,667 units**.
+
+Weight by **unit** volume here. Revenue weights belong to the next method. Mixing the two is the
+classic error.
+
+### 2d. Revenue method
+
+```
+VC ratio = Total Variable Cost / Total Revenue
+Break-even Revenue = (Total FC + Target Profit) / (1 - VC ratio)
+```
+
+**Worked (`ip-mp-006`, Noosh):** revenues $140,000 + $320,000 + $180,000 = $640,000; variable costs
+$56,000 + $160,000 + $90,000 = $306,000. VC ratio 0.478125. Fixed $150,000.
+Break-even revenue = $150,000 / 0.521875 = **$287,425.15**.
+
+To split a revenue answer by product, use each product's **share of revenue**, not its share of
+units.
+
+### 2e. Mix is an assumption, and it dominates
+
+> **There is no single multi-product break-even.** Every answer is conditional on an assumed mix.
+
+Goldman, same 200,000 units and same $1.2 million of fixed cost, two mixes:
+
+| Mix | Break-even total units |
+|---|---|
+| 3 standard : 1 deluxe | 160,000 |
+| 9 standard : 1 deluxe | 181,819 |
+
+A 21,819-unit swing from the mix alone. If a question changes the mix, you must recompute from
+scratch; you cannot adjust the old answer.
+
+### 2f. Unresolved in his own materials: rounding order
+
+Two of his files handle the Goldman 9 : 1 rounding differently and land one unit apart.
+
+| Source | Order | Answer |
+|---|---|---|
+| CVP Part 2 handout | unpack unrounded baskets, round each product up | 181,819 |
+| Homework 9-36 | round the total up, then apply mix % to the rounded total | 181,820 |
+
+**What to do:** use the handout's order, which is the one his lecture follows. Unpack, then round
+each product up. If a multiple-choice option sits one unit from your answer, the other order is why;
+take the nearer option and move on. He said you will **never** lose points for rounding.
+
+---
+
+## 3. Cost behavior (items 2, 4 and 16, 15 points)
+
+Three separate computations, spread across the exam. Three distinct skills.
+
+### 3a. Cost function versus cost behavior
+
+These are two different cuts through the same costs, and the exam tests whether you can convert.
+
+| Cut | Splits costs into | Used for |
+|---|---|---|
+| **Cost function** (GAAP) | core, meaning cost of sales, versus run-the-business, meaning operating expenses | external reporting |
+| **Cost behavior** | variable versus fixed | CVP, every decision |
+
+A GAAP income statement **cannot** be used for CVP as it stands. Cost of goods sold is not the
+variable cost and selling and administrative is not the fixed cost. Both lines are mixtures.
+
+**Rebuilding the split (`mock-1-04`):** 24,000 cabinets. Cost of goods sold $1,018,000, selling and
+admin $274,000. Per cabinet: materials $17.00, labor $11.50, variable overhead $4.00, variable
+selling $2.50.
+
+| Step | Calculation | Result |
+|---|---|---|
+| Variable cost per unit | $17.00 + $11.50 + $4.00 + $2.50 | $35.00 |
+| Total variable cost | $35.00 x 24,000 | $840,000 |
+| Total cost | $1,018,000 + $274,000 | $1,292,000 |
+| **Total fixed cost** | $1,292,000 - $840,000 | **$452,000** |
+
+### 3b. High-low method
+
+```
+b  =  variable rate  =  (High cost - Low cost) / (High activity - Low activity)
+a  =  total fixed    =  High cost - b(High activity)
+```
+
+His notation: **a is fixed, b is variable.** Same letters as the regression output.
+
+> **Pick the high and low points by ACTIVITY, not by cost.**
+
+This is the trap he plants most often. In the Dana problem November has the highest cost ($36,920)
+but only 54 listings, while October has 56 listings at $36,020. Sorting by cost gives $706.29 per
+listing; sorting by activity gives the correct $610.
+
+**Worked (`mock-1-02`):** Q3 is the low at 2,800 units / $159,600. Q4 is the high at 5,600 units /
+$212,800.
+
+| Step | Calculation | Result |
+|---|---|---|
+| b | ($212,800 - $159,600) / (5,600 - 2,800) = $53,200 / 2,800 | $19.00 per unit |
+| a | $212,800 - $19.00(5,600) = $212,800 - $106,400 | **$106,400** |
+| Check at the low point | $159,600 - $19.00(2,800) = $159,600 - $53,200 | $106,400 OK |
+
+**Always run the check at the other point.** If the two intercepts disagree by more than rounding,
+your slope is wrong. It costs five seconds and catches nearly every arithmetic slip.
+
+### 3c. Step costs
+
+A cost that is fixed within a band and jumps at the boundary. You cannot hire 0.6 of a technician.
+
+**Worked (`mock-1-16`):** technicians $7,400 each, capacity 500 visits, other fixed $46,000,
+supplies $19 per visit, volume 1,640 visits.
+
+| Step | Calculation | Result |
+|---|---|---|
+| Technicians | 1,640 / 500 = 3.28, round **up** | 4 |
+| Technician cost | 4 x $7,400 | $29,600 |
+| Other fixed | | $46,000 |
+| Supplies | $19 x 1,640 | $31,160 |
+| **Total cost** | | **$106,760** |
+
+Averaging the technician cost to $14.80 per visit gives $101,320 and understates the total, because
+the fourth technician is only 28% used. The relevant range here is 1,501 to 2,000 visits.
+
+### 3d. Relevant range
+
+Every cost function is only valid over the range you observed. Inside it you interpolate with
+confidence. Outside it the linear assumption fails: fixed costs step, volume discounts kick in,
+overtime starts. If a question pushes you far outside the data, say so.
+
+### 3e. High-low versus regression
+
+| | High-low | Regression |
+|---|---|---|
+| Data used | **two points only** | **all points** |
+| That is a | weakness | strength |
+| Speed | instant, by hand | needs Excel |
+
+His framing: high-low "essentially ignores the rest of the data"; regression "plots a line of best
+fit between all data points" where the slope is the variable cost and the y-intercept is the total
+fixed cost. High-low survives because it is fast, which is also why it is on the exam.
+
+---
+
+## 4. Regression (items 5-6, 10 points)
+
+Two computations. This block is pure pattern recognition: pick the right standard error, multiply by
+the right t value.
+
+### 4a. Reading his output
+
+The Excel Regression output has **three different standard errors**, and choosing between them is
+the whole topic.
+
+| Standard error | Where it sits | Use it for |
+|---|---|---|
+| **Standard Error of the regression** | top block, Regression Statistics | an interval around a **total cost estimate** |
+| **Intercept's standard error** | coefficient table, Intercept row | an interval around **fixed cost** |
+| **Slope's standard error** | coefficient table, driver row | an interval around **variable cost** |
+
+> A **coefficient** interval uses that coefficient's own standard error.
+> A **total cost** interval uses the regression's standard error.
+
+His words on the total-cost case: "I don't use either. I use the standard error for the regression as
+a whole." This is the most likely regression trap on the exam.
+
+### 4b. Confidence intervals
+
+```
+Interval  =  Point Estimate  +/-  ( t  x  the appropriate standard error )
+```
+
+Degrees of freedom = **n - 2**. With 8 observations, df = 6.
+
+t values at 6 df, which he provides:
+
+| Confidence | 70% | 80% | 90% | 95% |
+|---|---|---|---|---|
+| t | 1.134 | 1.440 | 1.943 | 2.447 |
+
+Lower confidence gives a narrower interval. Being less sure lets you make a tighter claim.
+
+**Sailmaster, his worked examples.** Intercept $49,701.29 (SE 25,332.98), slope $687.43 (SE 87.06),
+regression SE 27,771.27, n = 8.
+
+| Question | Standard error used | Calculation | Interval |
+|---|---|---|---|
+| 80% CI on variable cost | slope, 87.06 | $687.43 +/- 1.440(87.06) = +/- $125.37 | **$562.06 to $812.80** |
+| 70% CI on fixed cost | intercept, 25,332.98 | $49,701.29 +/- 1.134(25,332.98) = +/- $28,727.60 | **$20,973.70 to $78,428.89** |
+| 95% CI on total cost at 325 boats | regression, 27,771.27 | point $273,116.04 +/- 2.447(27,771.27) = +/- $67,956.30 | **$205,159.74 to $341,072.34** |
+
+For that last one the point estimate comes first:
+$49,701.29 + $687.43(325) = $49,701.29 + $223,414.75 = $273,116.04.
+
+**Build point estimates from the printed, rounded coefficients.** Use 687.43 and 49,701.29 exactly as
+shown. Excel's own Lower 95% and Upper 95% columns are computed from unrounded standard errors, so
+they can sit a few cents off your hand calculation. On the slope at 95% the ToolPak prints 474.42 and
+900.45 where hand arithmetic gives 474.39 and 900.47. Either is accepted; do not chase cents.
+
+He says "confidence interval around this estimate". He never uses the phrase "prediction interval".
+
+### 4c. t stats and p-values
+
+```
+t  =  coefficient / its own standard error
+```
+
+| t stat | His reading |
+|---|---|
+| 2 or more | the coefficient is useful |
+| more than 3 | essentially no chance the true coefficient is zero |
+
+He reads a **p-value** as the probability that the true coefficient is zero, and wants it below 0.05.
+
+**Sailmaster intercept:** t = 1.96, p = 0.0974. His own interpretation, verbatim: "There is a 9.74
+percent chance that the true fixed cost at Sailmaster is 0." So the fixed cost is only marginally
+supported. The slope, at t = 7.90 and p = 0.0002, is solid.
+
+A wide confidence interval and a weak p-value are two views of the same fact. The 90% interval on
+that intercept runs from $479.31 to $98,923.27, which very nearly includes zero.
+
+### 4d. Which R to report
+
+Report **adjusted R squared**, range 0 to 1. It penalizes added variables, so it does not improve
+just because you threw another column at the model.
+
+---
+
+## 5. Cost accounting, the planes problem (items 14-15, 10 points)
+
+Two computations, from the session 2 paper airplanes exercise. Expect operating profit and the value
+of ending inventory.
+
+### 5a. The core idea
+
+Manufacturing costs **attach to units** and follow them. They leave the balance sheet only when the
+unit is sold. Selling and administrative costs are **period costs** and are expensed now, whatever
+happens to inventory.
+
+| Cost | Attaches to units? | Where unsold units' share sits |
+|---|---|---|
+| Direct materials | yes | inventory |
+| Direct labor | yes | inventory |
+| Variable overhead | yes | inventory |
+| **Fixed** manufacturing overhead | **yes** | inventory |
+| Selling and administrative | no | expensed in full |
+
+Fixed manufacturing overhead going into inventory is the part people get wrong.
+
+### 5b. Units of production
+
+His term is **units of production**. He never says "equivalent units". Same idea: partially finished
+work counted as a fraction of a whole unit.
+
+**You need separate denominators for materials and for conversion**, because materials usually go in
+at the start and labor goes in gradually.
+
+**Worked (`ip-plane-001` and `ip-plane-002`):** 23 planes started, 18 completed and sold, 5 in
+ending work-in-process at 60% complete for labor and overhead, materials 100% complete. Price $30,
+materials $2.50 per sheet, labor $16 x 4 folders = $64, overhead $16 x 2 staffers + $175 = $207.
+
+| Step | Calculation | Result |
+|---|---|---|
+| Units of production, materials | 18 + 5 | 23 units |
+| Units of production, labor and overhead | 18 + (5 x 60%) | 21 units |
+| Materials rate | $2.50 per sheet | $2.50 |
+| Labor rate | $64 / 21 | $3.0476 |
+| Overhead rate | $207 / 21 | $9.8571 |
+
+Operating profit, costing only the 18 sold:
+
+| Line | Calculation | Amount |
+|---|---|---|
+| Revenue | 18 x $30 | $540.00 |
+| Direct materials | 18 x $2.50 | (45.00) |
+| Direct labor | $3.0476 x 18 | (54.86) |
+| Overhead | $9.8571 x 18 | (177.43) |
+| **Operating profit** | | **$262.72** |
+
+Ending inventory, the 5 unfinished planes:
+
+| Line | Calculation | Amount |
+|---|---|---|
+| Materials | 5 x $2.50 | $12.50 |
+| Labor | $3.0476 x (5 x 60%) | 9.14 |
+| Overhead | $9.8571 x (5 x 60%) | 29.57 |
+| **Ending inventory** | | **$51.21** |
+
+**Always tie it out.** What was expensed plus what sits in inventory must equal what was spent:
+$277.29 + $51.21 = $328.50, which equals materials $57.50 (23 x $2.50) + labor $64 + overhead $207.
+If that does not tie, something is wrong.
+
+**The trap:** dividing everything by 23. Materials and conversion have different denominators, 23
+and 21. Using one rate for both gives the wrong profit.
+
+### 5c. Absorption costing lets you move profit with production
+
+A manager can raise reported income **without selling anything extra**, by producing more. The extra
+units absorb a share of fixed overhead, which moves from the income statement to the balance sheet.
+That is why production volume is a lever on reported profit, and why it matters.
+
+The matching error in the exercise: a group charged all 21 planes they worked on to the income
+statement though only 18 were sold. The 3 unsold planes belong on the balance sheet as inventory.
+
+### 5d. Why allocation misleads (session 1 background)
+
+Allocated cost is not avoidable cost. Three cases he used:
+
+| Case | The error |
+|---|---|
+| Chevy Volt "losing $49,000 per car" | spreading $1.2B of development over only the cars sold so far; the development cost is sunk and does not change per car sold |
+| Dropping a client | its allocated overhead does not leave with it; firm-wide overhead is unchanged and the remaining clients absorb more |
+| The profitable paralegal | billings minus salary ignores the support costs she consumes; the better question is incremental |
+
+**For decisions, use avoidable and incremental cost.** Full absorption costing is right for one
+purpose: external reporting under GAAP, that is, valuing inventory and cost of goods sold.
+
+### Thin spot
+This block is 10 points and rests on a single in-class exercise. The bank has 18 questions tagged
+14-15, but only two of them are the instructor's own worked planes computation. If you have time
+after the CVP blocks, redo `ip-plane-001` and `ip-plane-002` from a blank sheet until the two
+denominators are automatic.
+
+---
+
+## 6. TenAlpina Case 1 (item 17, 10 points)
+
+**50 words or fewer.** Not a computation. The case facts are supplied in the exam.
+
+### What he said about the case questions
+- They are **not computational** and do not require recalling case details.
+- Word limits are deliberate: "You just don't have enough words to just kind of splash it all out
+  there and hope the right answer is in there somewhere."
+- "Read them carefully and make sure you're answering the right question and not just doing sort of
+  a brain dump."
+
+### The analysis method
+Case 1 is a cost-structure question: the same labor cost treated as variable in one scenario and
+fixed in another, and what that does to risk and to profit as volume moves.
+
+| Treat labor as | CM per unit | Fixed cost | Consequence |
+|---|---|---|---|
+| Variable | low | low | low break-even, profit grows slowly with volume |
+| Fixed | high | high | high break-even, profit grows fast with volume |
+
+Identical profit at today's volume, completely different exposure if volume moves. That is operating
+leverage, and it is the point of the case.
+
+### How to write 50 words
+1. **Recommendation first.** One sentence.
+2. **The two numbers that drive it.** One sentence.
+3. **The one caveat.** One sentence.
+
+No preamble, no restating the question, no listing what you are about to say. Under this limit a
+wasted clause is a lost mark. Practise on `mock-1-17`, then count the words.
+
+### Thin spot, and an honest warning
+**This section contains no TenAlpina case facts, names or figures, by design.** The syllabus states
+that feeding case documents into an AI tool is not permitted for any purpose, so nothing in this pack
+was built from the case narratives. What you have here is the analysis method and the writing format.
+**Work the case itself from the case documents.** That is 10 points this pack cannot prepare for you.
+
+---
+
+## 7. TenAlpina Case 2 (item 18, 10 points)
+
+**90 words or fewer.** Not a computation.
+
+### The analysis method
+Case 2 is a shared-cost and product-line question. Four things to be able to say:
+
+| Point | The content |
+|---|---|
+| What allocation changes | reported profit by line, and nothing else |
+| What it does not change | total company profit, and any cash flow |
+| What should drive the basis | what actually causes the shared cost, not convenience |
+| The decision it can wrongly trigger | dropping a line that still contributes |
+
+**The figure to judge a line on:** contribution margin less that line's **avoidable** fixed costs.
+Not its allocated share. If a line's revenue covers its own variable and avoidable fixed costs,
+dropping it leaves the shared cost behind and total profit falls.
+
+### Multi-product CVP shows up here too
+The hammer-line material joins this case to section 2. Break-even across two products at a 12 : 1
+unit mix, and a revenue split at the break-even point.
+
+One worked detail worth carrying: at a 12 : 1 **unit** mix the **revenue** mix was about 2 : 1, and
+he multiplied break-even revenue of $54,731 by 33% to get hammer revenue of **$18,061**. The exact
+revenue share is 32.62%, which gives $17,853. His rounded 2 : 1 is the one he worked on the board.
+If two options sit about $200 apart, that is why.
+
+### How to write 90 words
+Roughly four or five sentences, one per requirement above. Write the four-part answer, then cut
+adjectives rather than content. **Finish with the recommendation**, because a truncated answer loses
+its conclusion. Practise on `mock-1-18`.
+
+### Thin spot
+Same warning as section 6. **No TenAlpina case facts are in this pack.** Method and format only.
+
+---
+
+## 8. CVP short question (item 3, 5 points)
+
+One short written answer. The likely subjects are the conceptual traps, not arithmetic.
+
+**Be able to state, in three or four sentences:**
+
+| Prompt | The answer |
+|---|---|
+| Why you cannot unitize fixed cost | total fixed cost does not change with volume, so fixed cost per unit falls as volume rises; it is valid only at the volume where it was computed |
+| Why a GAAP statement will not do for CVP | it splits core versus run-the-business, not variable versus fixed; cost of goods sold and selling and admin are both mixtures |
+| What contribution margin means | revenue less **all** variable costs, wherever they sit on the statement; what each unit contributes toward fixed cost and then profit |
+| What CVP is used for | pricing, fixed-for-variable technology swaps, outsourcing, target profit. **Not** quality control specifications |
+| Why margin of safety has two percentages | the denominator follows the question: above break-even divides by break-even, how far sales can fall divides by current sales |
+
+Work `mock-1-03`, which is the unitizing trap in a classmate's voice.
+
+---
+
+## 9. Degree of operating leverage (item 12, 5 points)
+
+One computation. Short and reliably worth all 5 marks.
+
+```
+DOL  =  Total Contribution Margin  /  Operating Profit
+```
+
+**Total contribution margin in dollars.** Never the CM ratio, never a percentage, never revenue.
+
+```
+DOL  x  % change in Revenue  =  % change in Operating Profit
+```
+
+**Worked (`mock-1-12`):** 19,000 units, price $96, variable cost $52, fixed cost $528,000.
+
+| Step | Calculation | Result |
+|---|---|---|
+| Total CM | $44 x 19,000 | $836,000 |
+| Operating profit | $836,000 - $528,000 | $308,000 |
+| **DOL** | $836,000 / $308,000 | **2.71** |
+
+A 10% revenue rise lifts operating profit 27.1%. A 10% fall cuts it 27.1%. **It cuts both ways**, and
+he asks it in the falling direction as often as the rising one.
+
+**DOL is a point-in-time number.** As soon as volume moves, DOL changes. Do not reuse one DOL for a
+second step.
+
+---
+
+## 10. Operating leverage, short question (item 13, 5 points)
+
+One short written answer, and the distinction below is almost certainly what it is testing.
+
+| Term | What it is |
+|---|---|
+| **Operating leverage** | a characteristic of the cost structure: how much of total cost is fixed. Stable |
+| **Degree of operating leverage** | a point-in-time sensitivity measured at today's volume. Changes as volume moves |
+
+**High operating leverage means:** more fixed cost, higher contribution margin per unit, higher
+break-even, smaller margin of safety, and profit that swings harder in **both** directions.
+
+**Worked comparison (`dr-dol-003`).** Two firms, 12,000 units at $200, identical profit today.
+
+| | Alpine | Basin |
+|---|---|---|
+| Variable cost per unit | $140 | $90 |
+| Fixed costs | $300,000 | $850,000 |
+| Operating profit at 12,000 | $420,000 | $470,000 |
+| DOL | 1.71 | 2.81 |
+| Break-even units | 5,000 | 7,728 |
+| Profit after a 20% revenue fall | $276,000 | **$206,000** |
+
+Basin trades variable cost for fixed cost. It earns more at volume and loses more when volume falls.
+
+**The fixed-for-variable swap is the standard question.** Buying equipment instead of paying a
+per-unit royalty, or replacing assembly-line labor with machinery, raises operating leverage. Note
+that it **raises** break-even even though unit cost falls: see `ip-mos-009`, where a $30 cut in unit
+labor plus $250,000 more fixed cost pushes break-even **up** by 293 units.
+
+### Thin spot
+**The thinnest block in the pack.** 5 points, and the bank holds only 2 questions tagged item 13
+against 9 for DOL. The table above and `mock-1-13` are the preparation. Make sure you can write the
+operating leverage versus DOL distinction cold.
+
+---
+
+## Rounding rules, collected
+
+| Situation | Rule |
+|---|---|
+| Break-even in units | **round up** |
+| Required volume for a target profit | **round up** |
+| Baskets in multi-product CVP | **do not round**, "baskets are not a thing" |
+| Product volumes unpacked from baskets | round each **up**, after unpacking |
+| Regression point estimates | build from the **printed rounded** coefficients |
+| Everything else | he said you will **never** lose points for rounding errors |
+
+---
+
+## Exam mechanics
 
 | Item | Detail |
 |---|---|
-| Window | Opens Thu 2026-10-22, 11:00 AM, after class. Closes midnight Sat 2026-10-31 |
-| Questions | 19 |
-| Mix | Mostly multiple-choice computational. Some short essay, primarily about the cases |
-| Time | 2 hours 15 minutes |
-| Proctoring | Proctorio, light settings. On campus or the testing center |
-| Notes | One sheet of **handwritten** notes. Front and back is fine |
-| Excel | Allowed, but **must begin blank**. No prefab templates, no notes typed in Excel |
-| Case files | **Not** allowed during the exam |
-| Last question | Conceptual, drawn from the session 7 (10-22) hammer-line discussion |
-| Practice | Problems plus a solution file are posted to Canvas |
-| No class | Thu 2026-10-29 |
+| Window | opens Thu 2026-10-22 11:00 AM, closes Sat 2026-10-31 11:59 PM MDT |
+| Time | 2 hours 15 minutes once started |
+| Items | 18 numbered, 100 points. In class he said 19; the blueprint slide shows 18 summing to 100 |
+| Proctoring | Proctorio |
+| Notes | one 8.5x11 sheet, **handwritten**, front and back |
+| Excel | allowed, must be **blank** at the start |
+| Banned | GoalSeek, Solver, any AI resource during the exam |
+| Second chance | a "Second Chance Exam 1" window is listed Nov 4-8, marked uncertain on the schedule |
 
-Two warnings the professor gave about the essay questions:
+**On the handwritten sheet,** his reasoning: "A lot of the learning that you haven't had so far will
+take place in that handwriting notes and I support that." Writing the sheet is part of the
+preparation. See `click-notes.md` for what to put on it, and read the caution at the top of that file
+first.
 
-1. Word limits are tight by design. Answer the specific question asked. Do not brain-dump
-   everything you know about a concept hoping something lands.
-2. The case questions are not computational and do not require you to recall case details.
-   They are about the conclusions the class reached in discussion.
-
-**Final exam** covers sessions 8 through 11 only. It is not comprehensive.
+**Budget your time.** 65 points of computation across 13 items, 2 hours 15 minutes. That is roughly
+6 minutes per computation with about 30 minutes left for the two case answers and the two short
+questions. The case answers are 20 points for maybe 140 words; do not leave them to the last five
+minutes.
 
 ---
 
-## 1. The one equation (the "home equation")
-
-The professor calls this "the one formula to rule them all." His advice when a problem looks
-unfamiliar: "when in doubt, just go home" — write the home equation, plug in what you know,
-solve for what you don't.
-
-```
-Revenue  -  Variable cost  -  Fixed cost  =  Operating income
-```
-
-Four interchangeable forms. Which one you use depends on what X is.
-
-| Form | Equation | X is |
-|---|---|---|
-| Unit | (Price × Q) − (VC/unit × Q) − FC = Profit | volume |
-| Contribution | (Price − VC/unit) × Q − FC = Profit | volume |
-| Percent | Rev − (Rev × VC%) − FC = Profit | revenue dollars |
-| Ratio | CM% × Rev − FC = Profit | revenue dollars |
-
-### Scaling rule (memorize this one)
-
-| You divide fixed cost by | You get |
-|---|---|
-| A **dollar** value (CM per unit) | A **volume** answer (units) |
-| A **percentage** (CM ratio) | A **dollar** answer (revenue) |
-
-### Never unitize fixed cost
-
-Fixed cost per unit is what the professor calls "a spready number." It changes with volume,
-which is the one thing it is not supposed to do. In the home equation, **fixed cost is left
-alone in full**. There is no step where you divide it by units.
-
-### Derived identities
-
-```
-CM per unit   = Price per unit - VC per unit
-CM ratio      = CM / Revenue        (also = CM per unit / Price)
-VC ratio      = VC / Revenue        (also = VC per unit / Price)
-CM ratio + VC ratio = 100%          "two sides of the revenue coin"
-```
-
-### Break-even and target profit
-
-```
-Break-even units    = FC / CM per unit
-Break-even revenue  = FC / CM ratio
-Target-profit units = (FC + target operating income) / CM per unit
-```
-
-For target profit, the honest method is to put the target on the right side of the home
-equation instead of zero. The shortcut above is the same thing after algebra.
-
-### Relevant range
-
-"Variable" and "fixed" are linear simplifications that hold only inside the relevant range.
-Economists object to the straight lines; accountants accept them inside a limited band of
-activity. If a problem pushes volume far outside the observed data, the labels stop holding.
-
----
-
-## 2. Worked example: the calculator problem (session 3)
-
-This one example reappears in sessions 3, 6 and in the practice set. Learn it cold.
-
-**Given**
-
-| Item | Total | Per unit |
-|---|---:|---:|
-| Volume | 60,000 units | |
-| Revenue | $480,000 | $8.00 |
-| Variable cost | $252,000 | $4.20 |
-| Contribution margin | $228,000 | $3.80 |
-| Fixed cost | $180,000 | leave alone |
-| Operating income | $48,000 | |
-
-**Step 1. Unitize the variable items only.**
-
-| | Calculation | Result |
-|---|---|---:|
-| Price | 480,000 / 60,000 | $8.00 |
-| VC per unit | 252,000 / 60,000 | $4.20 |
-| CM per unit | 8.00 − 4.20 | $3.80 |
-
-**Step 2. Ratios.**
-
-| | Calculation | Result |
-|---|---|---:|
-| VC ratio | 4.20 / 8.00 | 52.5% |
-| CM ratio | 3.80 / 8.00, or 228,000 / 480,000 | 47.5% |
-
-**Step 3. Break-even in units.**
-
-```
-8.00x - 4.20x - 180,000 = 0
-3.80x = 180,000
-x = 47,368.42  ->  47,369 units
-```
-
-**Step 4. Break-even in revenue.** Three routes, same answer.
-
-| Route | Calculation | Result |
-|---|---|---:|
-| Ratio | 180,000 / 0.475 | $378,947.37 |
-| Percent form | x − 0.525x − 180,000 = 0 | $378,947.37 |
-| Units × price | 47,368.42 × 8.00 | $378,947.37 |
-
-**Step 5. Target operating income of $120,000.**
-
-```
-3.80x = 180,000 + 120,000 = 300,000
-x = 78,947.37  ->  78,948 units
-```
-
-**Traps on this problem**
-
-- Asked for revenue dollars, X is revenue and the variable term is `0.525 × X`. It is **not**
-  `$8 × volume`. Getting this backwards is the single most common error here.
-- Rounding: the professor said flatly "you would never lose points for rounding errors," and
-  he designs questions to avoid rounding traps. Do not burn time on it.
-- You cannot sell a partial calculator, so unit break-even rounds **up**.
-
----
-
-## 3. Operating leverage and DOL
-
-**Operating leverage** is the mix of fixed to variable cost. It is a structural fact about how
-a firm is built. Do not confuse it with **financial leverage**, which is debt versus equity.
-
-```
-DOL = Total contribution margin (dollars) / Operating income (dollars)
-
-% change in operating income = DOL x % change in sales
-```
-
-Two things that cost points:
-
-1. DOL uses **total contribution margin in dollars**, not the CM ratio and not a percentage.
-2. DOL is symmetric. A DOL of 4.75 means a 20% sales drop cuts operating income by 95%, the
-   same magnitude as a 20% rise. "Leverage giveth and leverage taketh away."
-
-**Worked, continuing the calculator problem**
-
-| | Calculation | Result |
-|---|---|---:|
-| DOL | 228,000 / 48,000 | 4.75 |
-| Sales +20% | 4.75 × 20% | +95% income |
-| Check: new CM | 228,000 × 1.20 | $273,600 |
-| Check: new op income | 273,600 − 180,000 | $93,600 |
-| Check: % change | (93,600 − 48,000) / 48,000 | +95% |
-
-(The transcript says "93,000" and "1.95" here. Both are transcription noise; $93,600 and 95%
-are what the professor's own numbers produce.)
-
-### DOL is unstable — this is an exam-worthy concept
-
-DOL is not a clean measure of cost structure, because it conflates two different things:
-
-| Driver of a high DOL | What it means |
-|---|---|
-| Heavy fixed-cost intensity | genuine structural leverage |
-| Sitting close to break-even | small denominator, nothing about structure |
-
-DOL is largest near break-even and shrinks as you move away from it, even with the cost
-structure held completely constant. So DOL alone is not interpretable. Its value is in the
-sensitivity statement it produces.
-
-### Same break-even, different risk
-
-The professor's illustration: hold break-even at 47,369 units and change the cost structure.
-
-| | Original | High-leverage alternative |
-|---|---:|---:|
-| VC per unit | $4.20 | $1.20 |
-| Fixed cost | $180,000 | $322,100 |
-| Break-even | 47,369 | 47,369 |
-
-Identical break-even. The high-leverage version loses more below it and earns more above it.
-On the CVP graph, raising fixed cost lifts the total-cost intercept and flattens its slope, so
-both the loss wedge and the profit wedge get bigger.
-
----
-
-## 4. Cost estimation
-
-### 4a. High-low method (session 5)
-
-Fit a line through exactly two data points. The slope is the variable rate, and the intercept
-falls out of either point.
-
-```
-Variable rate (m) = (Cost at high - Cost at low) / (Activity at high - Activity at low)
-Fixed cost (b)    = Total cost at a point - (m x Activity at that point)
-```
-
-**Worked: Stanley's power bill**
-
-| | Value |
-|---|---:|
-| Cost at 1,300 units | $1,962 |
-| Cost at 1,000 units | $1,908 |
-| Rise | $54 |
-| Run | 300 units |
-| Variable rate | $0.18 per unit |
-| Fixed portion | 1,908 − (0.18 × 1,000) = **$1,728** |
-
-(The transcript wavers between 1,729 and 1,728. 1,728 is correct.)
-
-A **mixed cost** has a fixed piece and a variable piece. Two data points are enough to split it.
-
-### 4b. Regression (session 4)
-
-Same line, more data. Excel's Data Analysis ToolPak produces the output. The intercept is
-fixed cost; the slope is the variable rate.
-
-**Sail Master, 8 observations of total cost against boats**
-
-```
-Total cost = $49,701.29 + $687.43 per boat
-```
-
-| Output line | Value | How to read it |
-|---|---:|---|
-| Multiple R | 0.955 | Correlation. Range −1 to 1. Direction and strength |
-| Adjusted R² | 89.8% | Share of variation in Y explained by X. **Always use adjusted** |
-| Standard error (regression) | $27,771 | Average distance from point to line |
-| Observations | 8 | |
-| Significance F | very small | P value for the whole model |
-| Intercept coefficient | $49,701.29 | Fixed cost |
-| Intercept t stat | 1.96 | |
-| Intercept P value | 0.0974 | Above 0.05, so you **cannot** reject a zero fixed cost |
-| Slope coefficient | $687.43 | Variable cost rate |
-| Slope standard error | 87.06 | |
-| Slope t stat | 7.9 | 687.43 / 87.06 |
-| Slope P value | very small | Reject the null; the rate is not zero |
-
-**Relationships to know**
-
-```
-t stat = Coefficient / its Standard error
-F      = (t stat on the slope) squared
-Degrees of freedom = n - (number of parameters estimated)
-                   = n - 2 for simple regression   (here 8 - 2 = 6)
-                   = n - 3 or n - 4 for multiple regression
-```
-
-**Null hypothesis.** Start by assuming every relationship is zero. The P value is the
-probability of observing this coefficient if the truth were zero. Threshold 0.05.
-
-**Confidence interval on a coefficient**
-
-```
-Estimate  +/-  (its own standard error  x  t)
-```
-
-t for 6 df: **2.447** at 95%, **1.943** at 90%. Lower confidence gives a narrower interval.
-
-Slope at 95%: 687.43 ± (87.06 × 2.447) = 687.43 ± 213.04 → **$474.39 to $900.47**
-
-**Confidence interval on a total-cost prediction — different standard error**
-
-This is the distinction most likely to be tested.
-
-```
-Point estimate = Intercept + (Slope x Volume)
-Interval       = Point estimate  +/-  (t  x  standard error OF THE REGRESSION)
-```
-
-You use the regression's standard error ($27,771), **not** either coefficient's standard error.
-
-**Worked at 400 boats**
-
-| Step | Calculation | Result |
-|---|---|---:|
-| Point estimate | 49,701.29 + 687.43 × 400 | $324,675.14 |
-| Half-width | 2.447 × 27,771 | $67,955.6 |
-| Lower bound | 324,675.14 − 67,956.29 | $256,718.85 |
-| Upper bound | 324,675.14 + 67,956.28 | $392,631.42 |
-
-(Both bounds are his own numbers off the Excel output. Reproducing them by hand needs the
-unrounded standard error, around 27,771.3, not the printed 27,771, so the half-width is about
-$67,956.3 rather than $67,955.6. Recomputing the point estimate from the rounded coefficients
-gives $324,673.29, a $1.85 gap for the same reason. Method is right; the last dollar is Excel's
-extra decimals. On the exam, read the bounds straight off the output.)
-
-That interval is enormous, and the professor's point is that a CEO will say so. The only two
-fixes: accept lower confidence, or get more data.
-
-**Regression traps**
-
-- **Spurious correlation.** Regression is a tool, not a judgment. It will not tell you which
-  costs are fixed and which are variable. Ask whether the relationship makes sense.
-- Every coefficient is an estimate and is "inherently and by definition wrong." The
-  probability the true rate is exactly $687.43 is **zero** — it is a continuous distribution.
-- A t stat is a count of standard errors from zero. It is not a percentage.
-- Correlation ranges −1 to 1. R² ranges 0 to 1.
-- In Excel, leaving the **Labels** box ticked when the top row is data corrupts the output.
-- The intercept's P value being above 0.05 matters less in practice here, because the firm
-  never operates at zero volume.
-
----
-
-## 5. Allocation, and why it misleads (session 1)
-
-```
-Allocation rate = Total indirect cost pool / Total units of the driver
-```
-
-**Worked:** the consulting case allocated overhead at **$114.02 per student hour**. Each
-client's allocated overhead is that rate times the client's student hours.
-
-**Vocabulary**
-
-| Term | Definition as given |
-|---|---|
-| Cost object | The thing you are asking "what does this cost me?" about. Here, a client |
-| Driver | The activity base used to spread costs that are not directly traceable |
-| Distortion | What you get when the driver is not correlated with or causing the cost |
-| Management accounting | "Run the business accounting, not report the business." Not bound by GAAP, IRS or FASB |
-
-### The central lesson
-
-Allocation **moves** overhead between cost objects. It does not change the firm's total.
-
-When the class deleted the lost client and its student hours, firm-wide profit did not move.
-The overhead simply landed on the remaining clients. Every client then looked profitable while
-firm profit was unchanged. The professor's verdict on that rosier-looking column: "just as
-misleading as the other."
-
-**The test for a bad driver.** When the professor removed a different client, total overhead
-went *up*, not down. Conclusion: the cost "doesn't appear to be student hours." A driver that
-fails this test produces distortion "as egregious or more" than the one you started with.
-
-### Do not take allocated cost into a negotiation
-
-The professor's most pointed warning of the semester. On being told the allocated numbers
-justify a price position: "Resist that call." Allocation "just distorted the map," and it
-"might even make us behave in a negotiation in exactly the opposite way that would be the best
-for our business." The sibling argument to resist is "we need more clients to spread the
-overhead."
-
-### The denominator effect
-
-Spreading a fixed or sunk amount over more units lowers cost per unit without changing any
-cash flow. It is an accounting fiction.
-
-**The Chevy Volt (Reuters, 2012).** The reported "loss of as much as $49,000 per car" came from
-dividing roughly $1.2B of development and tooling over 21,500 cars sold, about $56,000 per car,
-and adding $20,000 to $32,000 of actual build cost. The error is combining sunk investment and
-operating cost in one numerator. Investment has its own metrics: **ROI** and **payback**.
-
-**The BYU credit-hour example.** Cutting average credits at graduation from about 153 to 135
-produces a headline saving of "over $100,000 per student" that will never show up as cash.
-
-### The paralegal fallacy
-
-A paralegal bills $150/hour, is paid $60,000/year, and brought in almost $300,000. Revenue
-minus direct labor says enormously profitable. That ignores overhead entirely. The better
-question is counterfactual: **"If you quit, where would we be?"**
-
-### When full allocation *is* right
-
-| Use | Full absorption appropriate? |
-|---|---|
-| External GAAP reporting | Yes, required |
-| Long-run pricing and product mix | Yes |
-| A specific short-term decision | No — use incremental |
-
-Accounting software and the general ledger default to allocating everything, which answers a
-different question than the one you are usually asking. Do not lift a QuickBooks P&L into a
-decision. The professor's recurring question: **"Why do you want to know?"** The right
-calculation depends on the answer.
-
----
-
-## 6. Cost versus expense, and equivalent units (session 2)
-
-| Term | Definition |
-|---|---|
-| Cost | A spend |
-| Expense | An expired cost, on the income statement |
-| Capitalized | A cost attached to unexpired units; sits on the balance sheet as inventory |
-| WIP | Work in process |
-| Equivalent units | "A fancy word for a measure of work done" |
-| Direct labor | Production labor traceable to the unit |
-| Indirect labor | Supervisor, accountant. Rolls into overhead |
-| Manufacturing overhead | Production-related cost not directly traceable to a unit |
-
-```
-Equivalent units  = (units completed and sold x 100%)  +  (ending units x % complete)
-Rate per category = Category spend / Equivalent units for THAT category
-To income statement = Rate x units sold
-To balance sheet    = Rate x equivalent units in ending inventory
-Check: income statement amount + balance sheet amount = total spend, per category
-```
-
-### Worked: the paper airplane run
-
-**Given.** Spend of $30 direct labor, $120 manufacturing overhead, $15 direct materials, total
-$165. Eleven planes completed and sold, four unfinished. Completion judgments: materials 100%,
-labor 25%, overhead 25% (overhead is applied on a labor basis).
-
-**Step 1. Equivalent units, one category at a time.**
-
-| Category | Calculation | EU |
-|---|---|---:|
-| Direct materials | 11 + (4 × 100%) | 15 |
-| Direct labor | 11 + (4 × 25%) | 12 |
-| Overhead | 11 + (4 × 25%) | 12 |
-
-**Step 2. Rates.**
-
-| Category | Calculation | Rate |
-|---|---|---:|
-| Direct materials | $15 / 15 | $1.00 |
-| Direct labor | $30 / 12 | $2.50 |
-| Overhead | $120 / 12 | $10.00 |
-
-**Step 3. Split the spend.**
-
-| Category | To income statement (× 11) | To balance sheet (× EU in WIP) | Total |
-|---|---:|---:|---:|
-| Direct materials | $11.00 | 4 × 1.00 = $4.00 | $15.00 |
-| Direct labor | $27.50 | 1 × 2.50 = $2.50 | $30.00 |
-| Overhead | $110.00 | 1 × 10.00 = $10.00 | $120.00 |
-| **Total** | **$148.50** | **$16.50** | **$165.00** |
-
-**Step 4. Income statement.**
-
-| | |
-|---|---:|
-| Revenue (11 × $10) | $110.00 |
-| Cost of goods sold | (148.50) |
-| **Operating loss** | **($38.50)** |
-
-**Step 5. The check that catches everything.** $148.50 expensed + $16.50 in ending WIP =
-$165.00 spent. Every dollar spent must be accounted for in one place or the other.
-
-**Traps**
-
-- Do not expense every plane you *worked on*. Only the ones **sold**. Unsold WIP is an asset.
-- Do not "conglomerate the rates." Materials, labor and overhead get separate rates because
-  they are consumed at different rates.
-- Use **equivalent** units in the denominator, not physical units. Materials happen to match,
-  because all material goes in at the start.
-- The overhead driver does not have to equal the labor driver. Machine time is another option.
-- The professor said he would **never** ask you to build a T-account.
-
-### The perverse incentive
-
-Because absorption costing parks labor and overhead in inventory, producing more than you can
-sell lowers expensed cost per unit and **raises** reported income, with no improvement in the
-business. Two papers were assigned on this:
-
-| Paper | Finding |
-|---|---|
-| Contemporary Accounting Research, 2011 | Interviews at an automaker; managers overproduced to drive down per-vehicle fixed cost, because operating margin under absorption costing drove their performance pay. A quarter of 2004 vehicles sat over 60 days, and a $5M loss followed in 2005 |
-| Journal of Management Accounting Research | Firms raise production relative to sales to shift fixed cost into inventory. Markets reward inventory growth, but discount the signal for repeat manipulators |
-
-The point is not that absorption costing is bad. It is correct for external reporting. The
-point is that current-period incentive pay layered on top of it "can cause all kinds of
-behaviors that ignore the downstream consequences."
-
----
-
-## 7. CVP with taxes and target returns (session 6)
-
-Operating income in the home equation is a **pre-tax** number. If the target is stated after
-tax, convert it up before you use it.
-
-```
-Grossing up:  Operating income target = After-tax net income target / (1 - tax rate)
-```
-
-**Worked.** After-tax target $500,000, tax rate 30%.
-`500,000 / (1 − 0.30) = $714,286`
-
-### When the target is a return, not a dollar
-
-```
-Step 1: Return % x base (equity or assets)  =  after-tax net income target
-Step 2: Gross up that target for taxes
-Step 3: Put the result on the right side of the home equation
-```
-
-**Worked.** ROE target 25% on equity of $300,000 → 0.25 × 300,000 = $75,000 after tax, then
-gross up.
-
-This is as far as the course goes with taxes.
-
-### Worked: the video game price problem
-
-**Given.** 25,000 units, VC $40/unit, fixed cost $120,000, equity $300,000, ROE target 30%,
-tax rate 40%. **The unknown is price, not volume.**
-
-| Step | Calculation | Result |
-|---|---|---:|
-| 1. After-tax target | 0.30 × 300,000 | $90,000 |
-| 2. Gross up | 90,000 / (1 − 0.40) | $150,000 |
-| 3. Home equation | 25,000P − (40 × 25,000) − 120,000 = 150,000 | |
-| 4. Collect | 25,000P = 150,000 + 120,000 + 1,000,000 | $1,270,000 |
-| 5. Solve | 1,270,000 / 25,000 | **$50.80** |
-
-**Traps**
-
-- Identify X first. Here X is price, so revenue is `25,000 × P`, not `$X`.
-- A return target is after tax. Gross it up. Forgetting this understates the needed price.
-- Do not recompute per-unit data the problem already gives you.
-- A target stated as a percent of sales (not of equity) puts X on both sides of the equation.
-  That is fine — collect terms. Example, the Tom Flannery restaurant: pre-tax profit of at
-  least 20% of sales, fixed $24,000/yr, variable about 40% of sales.
-  `x − 0.4x − 24,000 = 0.2x` → `0.4x = 24,000` → **$60,000 of sales**.
-
----
-
-## 8. Margin of safety (session 6)
-
-One subtraction, then a choice of denominator. The professor said he would ask one of the two
-percentage questions on the exam.
-
-```
-MoS in units   = Current sales volume - Break-even volume
-MoS in dollars = Current sales revenue - Break-even revenue
-```
-
-**The two percentages share a numerator. Only the denominator changes.**
-
-| Divide MoS by | Question it answers |
-|---|---|
-| **Break-even** | How far **above** break-even are we? |
-| **Current sales** | How far can sales **decline** before we hit break-even? |
-
-The dollar value of MoS is the same either way. "Might be nice if these had different names,
-but they don't." Compute MoS first, then pick the denominator from the question.
-
-### Worked: the PVC company
-
-**Given.** Volume 60,000, price $8.00, VC $4.20, CM $3.80, fixed cost $180,000.
-
-| Step | Calculation | Result |
-|---|---|---:|
-| Break-even units | 180,000 / 3.80 | 47,369 |
-| MoS units | 60,000 − 47,369 | **12,631** |
-| MoS dollars | 12,631.58 × 8.00 | **$101,053** |
-| MoS % of current sales | 12,631 / 60,000 | **21.05%** — how far it can fall |
-| MoS % of break-even | 12,631 / 47,369 | **26.7%** — how far above break-even |
-
-### Structural leverage and margin of safety together
-
-Structural operating leverage (fixed-cost intensity) is **not** the same thing as DOL. Crossed
-with margin of safety it gives four positions. The professor warns that slotting industries
-into cells is "always a little dangerous."
-
-| Leverage | Margin of safety | Label | Examples given |
-|---|---|---|---|
-| High | Low | Precarious leverage | airlines, hotels, auto manufacturers |
-| High | High | Powerful but risky | data centers, software platforms, streaming platforms post-scale |
-| Low | Low | Fragile but flexible | restaurants, local retailers, freelance operators |
-| Low | High | The sweet spot | insurance agencies, asset-light service firms |
-
-Low leverage means more ability to pull cost levers as revenue moves. High margin of safety
-means more distance from the cliff. Leverage is about **sensitivity** of income to volume;
-margin of safety is about **distance** from break-even.
-
----
-
-## 9. Multi-product CVP (sessions 6 and 7)
-
-Three methods. They always agree. **Pick the method from what the question asks for.**
-
-| Question asks for | Use |
-|---|---|
-| Units, by product | Basket, or weighted average then split by **volume** mix |
-| Total revenue, or revenue by product | Revenue approach, then split by **revenue** mix |
-
-Standing assumption in all three: **the sales mix is known and constant.** State it if asked.
-
-### 9a. Basket method
-
-```
-1. Set the mix in smallest whole terms (3 to 1, 12 to 1).
-2. Basket revenue       = sum over products of (units per basket x price)
-3. Basket variable cost = sum over products of (units per basket x VC per unit)
-4. Basket CM            = basket revenue - basket variable cost
-5. Break-even baskets   = Total fixed cost / Basket CM      <- DO NOT ROUND
-6. Unpack: multiply by units per basket, THEN round up.
-```
-
-Why you do not round baskets: "baskets are not a thing." They exist only as a mathematical
-tool. Rounding is legitimate only once you are back in real units.
-
-### 9b. Weighted-average method
-
-```
-1. Weighted-average price   = Total revenue / Total units
-2. Weighted-average VC      = Total variable cost / Total units
-3. Weighted-average CM      = (1) - (2)
-4. Break-even TOTAL units   = Total fixed cost / Weighted-average CM
-5. Split by the sales VOLUME mix.
-```
-
-### 9c. Revenue approach
-
-```
-1. VC ratio   = Total variable cost / Total revenue
-2. CM ratio   = 1 - VC ratio
-3. Break-even REVENUE = Total fixed cost / CM ratio
-4. Split by the sales REVENUE mix.
-```
-
-### Worked: calculators and abacuses, all three ways
-
-**Given**
-
-| | Calculators | Abacuses | Total |
-|---|---:|---:|---:|
-| Units | 60,000 | 20,000 | 80,000 |
-| Revenue | $480,000 | $80,000 | $560,000 |
-| Price | $8.00 | $4.00 | |
-| Variable cost | $252,000 | $56,000 | $308,000 |
-| VC per unit | $4.20 | $2.80 | |
-| CM per unit | $3.80 | $1.20 | |
-| Fixed cost | | | $210,000 |
-
-Volume mix 3 to 1. (6 to 2 or 60,000 to 20,000 all give the same answer; smallest form is the
-convention, not a requirement.)
-
-**Basket method**
-
-| Step | Calculation | Result |
-|---|---|---:|
-| Basket revenue | 3 × 8.00 + 1 × 4.00 | $28.00 |
-| Basket variable cost | 3 × 4.20 + 1 × 2.80 | $15.40 |
-| Basket CM | 28.00 − 15.40 | $12.60 |
-| Break-even baskets | 210,000 / 12.60 | 16,666.67 |
-| Calculators | 16,666.67 × 3 | **50,000** |
-| Abacuses | 16,666.67 × 1, round up | **16,667** |
-
-(The transcript says basket CM is "$12." It is $12.60 — which is what produces the professor's
-own 16,666.67.)
-
-Full home-equation form, with X as baskets:
-`28.00X − 15.40X − 210,000 = 0` → `12.60X = 210,000`
-
-**Weighted-average method**
-
-| Step | Calculation | Result |
-|---|---|---:|
-| WA price | 560,000 / 80,000 | $7.00 |
-| WA variable cost | 308,000 / 80,000 | $3.85 |
-| WA CM | 7.00 − 3.85 | $3.15 |
-| Break-even total units | 210,000 / 3.15 | 66,667 |
-| Calculator share, by volume | 60,000 / 80,000 | 75% |
-| Calculators | 66,667 × 75% | **50,000** |
-| Abacuses | 66,667 × 25% | **16,667** |
-
-Note $7.00 is a price nobody charges. It is a weighted average, and that is fine.
-
-**Revenue approach**
-
-| Step | Calculation | Result |
-|---|---|---:|
-| VC ratio | 308,000 / 560,000 | 55% |
-| CM ratio | 1 − 0.55 | 45% |
-| Break-even revenue | 210,000 / 0.45 | **$466,666.67** |
-| Calculator share, by **revenue** | 480,000 / 560,000 | 85.71% |
-| Calculator revenue at break-even | 466,666.67 × 85.71% | **$400,000** |
-
-Cross-check: 50,000 calculators × $8.00 = $400,000. Everything ties.
-
-### The trap that costs the most points here
-
-**Volume mix is not revenue mix.**
-
-| Mix type | Calculators | Abacuses |
-|---|---:|---:|
-| Volume (60,000 : 20,000) | 75% | 25% |
-| Revenue (480,000 : 80,000) | 85.71% | 14.29% |
-
-Use volume mix to split a **unit** answer. Use revenue mix to split a **revenue** answer.
-Splitting break-even revenue by 75% is wrong.
-
-### Worked: Golden, and why mix matters
-
-**Question 1.** Total CM $1.5M on 200,000 units; fixed cost $1.2M; mix 3 to 1.
-
-| Step | Calculation | Result |
-|---|---|---:|
-| WA CM per unit | 1,500,000 / 200,000 | $7.50 |
-| Break-even total units | 1,200,000 / 7.50 | 160,000 |
-| Standard (75%) | 160,000 × 0.75 | 120,000 |
-| Deluxe (25%) | 160,000 × 0.25 | 40,000 |
-
-**Question 2.** Same 200,000 units, but only 20,000 are deluxe, so the mix is 9 to 1.
-
-| | Standard | Deluxe |
-|---|---:|---:|
-| Price | $20 | $30 |
-| VC per unit | $14 | $18 |
-| CM per unit | $6 | $12 |
-
-| Step | Calculation | Result |
-|---|---|---:|
-| Basket CM | 9 × 6 + 1 × 12 | $66 |
-| Break-even baskets | 1,200,000 / 66 | 18,181.8181… |
-| Standard | × 9, round up | **163,637** |
-| Deluxe | × 1, round up | **18,182** |
-| Total units | | **181,819** |
-
-Break-even rose from 160,000 to 181,819 with no change in prices, costs or fixed costs. The mix
-tilted toward the $6 product and away from the $12 one. "Behold the power of sales mix."
-
-The moment you have a multi-product CVP answer, the next question is always: **how do these
-numbers flex if the mix changes?** Build sensitivity cells. Ask whether the products are
-complements (mix moves together) or substitutes (mix moves in opposite directions), because
-that governs how the mix is likely to shift.
-
----
-
-## 10. Case 1 — Julia and Stanley (session 5)
-
-Titanium pitons for climbing. Julia sells; Stanley forges. Four scenarios in an Excel template.
-
-### Julia's baseline: no contract, no purchase
-
-| | Value |
-|---|---:|
-| Volume | 1,000 units/month |
-| Price | $11.00 |
-| Variable cost | $10.45 |
-| CM per unit | **$0.55** |
-| Fixed cost | $0 |
-| Break-even | **0 units** |
-| Operating income | $550 |
-
-Zero fixed cost means break-even is zero. Check that against intuition rather than assuming
-an error.
-
-### Stanley's cost structure
-
-Revenue $9.00/unit. Capacity 4,000 units; actual demand 1,000.
-
-**Variable**
-
-| Item | Derivation | Per unit |
-|---|---|---:|
-| Supplies | $110/month ÷ 1,000 units | $0.11 |
-| Power (variable part) | high-low slope, section 4a | $0.18 |
-| **CM per unit** | 9.00 − 0.11 − 0.18 | **$8.71** |
-
-**Fixed**
-
-| Item | Derivation | Monthly |
-|---|---|---:|
-| Labor | 345,000 / 12 | $28,750.00 |
-| Power (fixed part) | 1,908 − (0.18 × 1,000) | $1,728.00 |
-| Occupancy | 33,000 / 12 | $2,750.00 |
-| Administrative | given | $600.00 |
-| Depreciation | 14,355 / 12 | $1,196.25 |
-| **Total fixed** | | **$35,024.25** |
-
-Break-even: 35,024.25 / 8.71 = 4,021.15 → **4,022 units**, rounded up. Excel shows 4,021.
-"Didn't matter."
-
-At demand of 1,000 against capacity of 4,000, Stanley is deeply underwater.
-
-### The scenario that matters: does labor treatment change the answer?
-
-Scenarios 3 and 4 both assume Julia buys the forge and sells 4,000 units. The only difference
-is whether direct labor is treated as variable or fixed.
-
-| | Scenario 3: labor variable | Scenario 4: labor fixed |
-|---|---:|---:|
-| Volume | 4,000 | 4,000 |
-| CM per unit | $1.5725 | $8.76 |
-| Total CM | $6,290 | $35,040 |
-| Fixed cost | $6,274.25 | $35,024.25 |
-| Break-even units | 3,990 | 3,998 |
-| **Operating income** | **$15.75** | **$15.75** |
-| DOL | 6,290 / 15.75 = **399.37** | 35,040 / 15.75 = **2,224.76** |
-
-Identical profit. The professor's line: "it didn't matter at all how she treats direct labor."
-In class he calls the $15.75 "16 bucks" and treats it as a rounding.
-
-### Why identical profit is not the end of the analysis
-
-Push volume up 10%, to 4,400 units, and the two scenarios diverge violently.
-
-| | Scenario 3 | Scenario 4 |
-|---|---:|---:|
-| New operating income | 4,400 × 1.5725 − 6,274.25 = **$644.75** | 4,400 × 8.76 − 35,024.25 = **$3,519.75** |
-| Change in dollars | $629 | $3,504 |
-| Change in percent | 629 / 15.75 = **3,994%** | 3,504 / 15.75 = **22,248%** |
-| Check against DOL | 399.37 × 10% = 3,994% | 2,224.76 × 10% = 22,248% |
-
-"Who cares if the outcome is the same? Well, it matters" — because the moment volume moves,
-the fixed-labor structure produces $3,520/month instead of $645. That is "no longer trivial."
-And it cuts both ways on the downside.
-
-### Judgment calls the class argued about
-
-| Issue | The argument |
-|---|---|
-| Is direct labor fixed or variable? | Stanley pays salary-like wages, so it behaves as fixed, even though the textbook definition ("no unit, no labor") says variable. Do not label it variable by reflex |
-| Step-fixed labor | Beyond capacity she could hire temps (variable-ish) or add salaried staff (a step up in fixed) |
-| Include depreciation? | Yes. It is "an accounting fiction" that captures a real economic effect — it works as a sinking fund, a reminder to save for replacement |
-| Is 4,400 units free? | **No.** Workers are already full-time at 4,000. Getting 4,400 requires 10% more productivity from an unchanged labor force. Otherwise the $7.19 labor cost multiplies by 4,400 |
-| Cost behavior is not fate | "In some cases you can bring skills." Management choices shape whether a cost is fixed or variable |
-| What the case ignores | Financing and the purchase price of the forge. The professor: "it's the biggest fantasy land of all" |
-| Contract downside | Capped at 4,000 units plus 10%, for two years |
-
----
-
-## 11. Case 2 — the hammer line (session 7, 10-22)
-
-**The last exam question is conceptual and comes from this session.** Learn the reasoning, not
-just the arithmetic.
-
-### The question, first
-
-"Should she add hammers?" That is a **decision** between two futures, so the relevant analysis
-is **incremental**: what is *added*. The professor: "Remember, if you got nothing else out of
-the class, I hope you get this. What are we trying to answer?"
-
-### Her goals
-
-| Horizon | Goals named |
-|---|---|
-| Short term | Pay off the machine, pay herself a salary, build supplier relationships, diversify the product line, proof of concept |
-| Long term | Revenue, profitability, an exit or spin-off, selling a product line, access to capital markets |
-
-### 11a. Incremental monthly analysis
-
-**Variable cost per hammer**
-
-| Item | Per unit |
-|---|---:|
-| Direct materials | $10.44 |
-| Supplies | $0.14 |
-| Variable power | $0.46 |
-| Freight | $1.00 |
-| **Total** | **$12.04** |
-
-`CM per unit = 61.00 − 12.04 = $48.96`
-
-**At 350 hammers per month**
-
-| Line | Derivation | Amount |
-|---|---|---:|
-| Revenue | 350 × $61 | $21,350 |
-| Direct materials | 350 × 10.44 | (3,654) |
-| Direct labor | 2 workers × $4,791.50 † | (9,583) |
-| Supplies | 350 × 0.14 | (49) |
-| Variable power | 350 × 0.46 | (161) |
-| Fixed power | 864 / 12 | (72) |
-| Depreciation | 35,000 / 7 / 12 | (417) |
-| **Gross margin** | | **$7,414** |
-| Freight | 350 × 1.00 | (350) |
-| **Operating income, salary excluded** | | **$7,064** |
-| Salary | 57,500 × 1.1 / 12 | (5,270.83) |
-| **Operating income, salary included** | | **$1,793** |
-
-(The transcript garbles the salary as "5,002 71." $5,270.83 is the figure that makes the
-professor's own totals close: 10,072 + 5,270.83 = $15,343, exactly his "everything in" fixed
-cost.)
-
-† He says "two workers at 4792 per month" and then "that's incremental 9583." The two do not
-multiply: 2 × 4,792 = 9,584. The $9,583 total is the one he carries forward, so the per-worker
-figure behind it is $4,791.50. Use 9,583.
-
-
-
-### 11b. Three break-evens, three answers
-
-CM per unit is $48.96 in all three. Only fixed cost changes.
-
-| Treatment | Fixed cost | Break-even units | Margin of safety at 350 |
-|---|---:|---:|---:|
-| Everything in, salary included | $15,342.83 | 314 | 36 |
-| **Salary excluded (his preference)** | **$10,072** | **206** | **144** |
-| Salary and depreciation excluded (cash) | $9,655 | 198 | 152 |
-
-He prefers the middle case: **depreciation in, salary out.**
-
-### 11c. Why leave the salary out — the discretion argument
-
-| Point | Reasoning |
-|---|---|
-| It is discretionary | She does not *have* to pay it. That is what separates it from the other costs |
-| It can flip the decision | A negative number with salary included could wrongly say "don't do it" |
-| It narrows the lens | Treating the salary as the only use of the income hides the alternatives: reinvest, pay down the machine, repay debt, fund a new product |
-| Including it is not wrong | He does not penalize it. He just leaves it out of the decision analysis |
-
-### 11d. Payback
-
-```
-Payback = Investment / Cash flow (or income) per period
-```
-
-| Basis | Calculation | Result |
-|---|---|---:|
-| On operating income | 35,000 / 7,064 | ~5 months |
-| On cash flow (add back depreciation) | 35,000 / 7,481 | 4.7 months |
-
-Depreciation is the only non-cash item in the analysis. (Taxes would also matter for cash and
-are out of scope.)
-
-**Payback's limits — likely essay material**
-
-| Limit | Fix or note |
-|---|---|
-| Ignores the time value of money | Use discounted payback |
-| Assumes constant cash flows | |
-| Says nothing about value *after* payback | It is blind to the whole rest of the asset's life |
-| It is a time measure, not dollars | Not a value metric at all |
-
-It is still useful to her, given her situation.
-
-### 11e. The allocated GAAP view, and why it is not a mistake
-
-Allocate everything above gross margin (other than materials) by productive labor time,
-**63% to hammers and 37% to pitons**.
-
-| View | Hammer gross margin |
-|---|---:|
-| Incremental | **35%** |
-| Allocated (GAAP) | **3%** |
-
-(L21 of the transcript says 37% hammers and L35 says 63%. The 63/37 split is the one tied to
-her stated assumption. Flagging the conflict.)
-
-The 3% looks absurd next to the 35%. **It is still the number that matters downstream**, and
-this is the argument the professor spent the most time on:
-
-| Reason | Detail |
-|---|---|
-| Different question, different point in time | Allocation belongs at the **valuation** point, not the **decision** point |
-| The decision is already made | By then hammers are integrated and cannot be unwound, so incremental analysis is no longer the relevant question |
-| Capital markets run on comparability | GAAP-style allocated statements are "the currency" of that conversation |
-| A buyer's integration differs from hers | However cleverly she reorganizes her own operation, a buyer folds the line into *theirs*. So what the buyer wants is comparability against the other product lines they might buy, in a "GAAP compliant, auditable way" |
-| Performance is not appearance | "I need to care about both how my firm performs, but also how it appears" |
-| It does not reverse the decision | A 3% allocated margin does not mean she shouldn't add hammers. It means she must care about both views |
-| Due diligence still happens | A serious buyer will look at contribution margin too |
-
-Direct labor is a common allocation driver.
-
-**The caution:** "You can't anchor on this [incremental view] and say this is hammers now."
-
-### 11f. Multi-product CVP on pitons and hammers
-
-Mix is 12 pitons to 1 hammer, so 350 baskets per month: 4,200 pitons and 350 hammers,
-4,550 total units and $65,450 total revenue.
-
-**Basket method**
-
-| Step | Value |
-|---|---:|
-| Basket revenue | $187.00 |
-| Basket variable cost | $32.92 |
-| Basket CM | $154.08 |
-| Total fixed cost | $45,096 |
-| Break-even baskets | 292.68 — **do not round** |
-| Pitons (× 12, round up) | 3,513 |
-| Hammers (× 1, round up) | 293 |
-| **Break-even total units** | **3,806** |
-
-**Margin of safety, and the two denominators again**
-
-| Measure | Calculation | Result |
-|---|---|---:|
-| MoS units | 4,550 − 3,806 | 744 |
-| ÷ sales volume | 744 / 4,550 | **16.35%** — how far sales could drop |
-| ÷ break-even units | 744 / 3,806 | **19.55%** (he says "20%") — how far above break-even |
-
-**Weighted-average / revenue method**
-
-| Step | Value |
-|---|---:|
-| VC ratio | 18% |
-| CM ratio | 82.4% |
-| Break-even revenue | 45,096 / 0.8240 = **$54,731** ‡ |
-| Piton revenue share | 67% |
-| Hammer revenue share | 33% |
-| MoS dollars | 65,450 − 54,731 = $10,719 |
-| MoS percent | 10,719 / 65,450 = **16.38%** |
-
-‡ 45,096 / 0.8240 is $54,728. His $54,731 needs a CM ratio of 82.3942%, so he is carrying
-decimals the slide does not print. A $3 gap on $54,731. Use his figure and do not try to
-rebuild it from 82.4%.
-
-16.35% versus 16.38% is purely the effect of rounding units up. "It's exactly the same."
-
-**Note:** the unit mix is 12 to 1, but the revenue mix is roughly 2 to 1. Same trap as section 9.
-
-**Also note:** margin of safety in a multi-product CVP is computed on **total** units, not
-per product.
-
----
-
-## 12. Recurring traps, one list
-
-| # | Trap | Guard |
-|---|---|---|
-| 1 | Answering the wrong question | Identify X first. Units or dollars? Which product? Above break-even or room to fall? |
-| 2 | Unitizing fixed cost | Fixed cost is left alone in full, always |
-| 3 | Rounding baskets | Baskets are not a thing. Round only after unpacking into real units, and round **up** |
-| 4 | Volume mix used on a revenue answer | Volume mix splits units. Revenue mix splits revenue |
-| 5 | Using a coefficient's standard error for a total-cost interval | Use the **regression's** standard error for predictions |
-| 6 | DOL from the CM ratio | DOL uses total CM **dollars** |
-| 7 | Reading DOL as a cost-structure measure | It also reflects distance from break-even, so it is unstable |
-| 8 | Expensing everything produced | Only what was **sold**. Unsold WIP is an asset |
-| 9 | Conglomerating equivalent-unit rates | One rate per cost category |
-| 10 | Treating allocated cost as decision-relevant | Allocation moves cost between objects; the firm total does not change |
-| 11 | Taking allocated cost into a negotiation | "Resist that call" |
-| 12 | Combining sunk investment with operating cost | That is the Volt error. Investment has ROI and payback |
-| 13 | Labor is variable by reflex | Check how it is actually paid |
-| 14 | Assuming extra volume is free | Check capacity and whether labor has to rise |
-| 15 | Forgetting to gross up an after-tax target | Return targets are after tax |
-| 16 | Brain-dumping on an essay | Word limits are tight and questions are specific |
-| 17 | Obsessing over rounding | "You would never lose points for rounding errors" |
-
----
-
-## 13. One-sheet formula list
-
-Ordered for copying onto the handwritten sheet.
-
-```
-HOME EQUATION
-  Revenue - Variable cost - Fixed cost = Operating income
-
-PER UNIT
-  CM/unit  = Price - VC/unit
-  CM ratio = CM / Revenue           VC ratio = VC / Revenue
-  CM ratio + VC ratio = 100%
-
-BREAK-EVEN AND TARGET
-  BE units       = FC / CM per unit
-  BE revenue     = FC / CM ratio
-  Target units   = (FC + target operating income) / CM per unit
-  divide by a dollar -> units       divide by a percent -> dollars
-
-TAXES
-  Operating income target = after-tax NI target / (1 - tax rate)
-  Return target: % x base = after-tax NI, then gross up
-
-MARGIN OF SAFETY
-  MoS units   = current units - BE units
-  MoS dollars = current revenue - BE revenue
-  / BE            -> how far ABOVE break-even
-  / current sales -> how far sales can FALL
-
-OPERATING LEVERAGE
-  DOL = total CM dollars / operating income
-  % change operating income = DOL x % change sales
-
-MULTI-PRODUCT
-  Basket CM        = basket revenue - basket VC
-  BE baskets       = FC / basket CM            (do not round)
-  WA CM/unit       = total CM / total units
-  BE total units   = FC / WA CM per unit       (split by VOLUME mix)
-  BE revenue       = FC / CM ratio             (split by REVENUE mix)
-
-HIGH-LOW
-  m = (cost high - cost low) / (activity high - activity low)
-  b = total cost at a point - (m x activity at that point)
-
-REGRESSION
-  Total cost = intercept + (slope x volume)
-  t stat = coefficient / its standard error
-  df = n - parameters      (n - 2 simple)
-  t at 6 df: 2.447 (95%), 1.943 (90%)
-  Coefficient CI = estimate +/- (its SE x t)
-  Prediction CI  = estimate +/- (t x REGRESSION standard error)
-
-EQUIVALENT UNITS
-  EU = (units sold x 100%) + (ending units x % complete)
-  Rate = category spend / category EU
-  To income statement = rate x units sold
-  To balance sheet    = rate x EU in ending inventory
-  Check: IS + BS = total spend
-
-ALLOCATION
-  Rate = total indirect cost pool / total driver units
-
-PAYBACK
-  Payback = investment / cash flow per period
-  (add depreciation back for a cash basis)
-```
-
----
-
-## 14. Source map
-
-| Session | Date | Topics | Transcript |
-|---|---|---|---|
-| 1 | 2026-09-03 | Overhead allocation, drivers, distortion, the Volt, negotiation | `2026-09-03_0801_management-accounting-for-client-negotiations-overhead-allocation-and-.txt` |
-| 2 | 2026-09-10 | Cost vs expense, equivalent units, absorption, overproduction incentive | `2026-09-10_0804_accounting-spe-10th-lecture.txt` |
-| 3 | 2026-09-17 | Contribution margin statement, CVP, break-even, target profit, DOL | `2026-09-17_0802_class-session-three-recap.txt` |
-| — | 2026-09-24 | **No class** (MBA trips) | — |
-| 4 | 2026-10-01 | Regression, confidence intervals, prediction intervals | `2026-10-01_0801_managerial-accounting-regression.txt` |
-| 5 | 2026-10-08 | Case 1: Julia and Stanley. High-low, mixed costs, four scenarios, DOL | `2026-10-08_0819_break-even-analysis-for-julia.txt` |
-| 6 | 2026-10-15 | Taxes, target return, margin of safety, multi-product CVP, exam logistics | `2026-10-15_0804_cbp-analysis-and-exam-prep.txt` |
-| 7 | 2026-10-22 | Case 2: the hammer line. Incremental vs allocated, payback, multi-product CVP | `2026-10-22_0809_hammer-line-profitability-analysis.txt` |
-
-All transcripts live in `~/MegaMind/Resources/raw/granola-transcripts/`.
-
-Names as the auto-transcript rendered them, so they may be wrong: the professor is given as
-Steve Smith. The TA's name is garbled in every mention.
+## What this pack does not cover
+
+Stated plainly, so you know where the gaps are.
+
+1. **TenAlpina case facts.** Nothing. By design, per the syllabus policy on feeding case documents to
+   AI tools. That is 20 of the 100 points. Work both cases from the case documents.
+2. **Item 13, operating leverage short answer.** 2 questions in the bank. Thin.
+3. **Whether the Excel Analysis ToolPak is permitted.** The logistics ban GoalSeek and Solver by
+   name and say nothing about the ToolPak on a blank workbook. **Unverified.** The regression items
+   are solvable from a printed output block without it, which is how this pack drills them. If you
+   would need it to run a regression from raw data, ask Prof. Smith first.
+4. **Whether AI-derived content may go on the handwritten sheet.** The syllabus bans AI tools *on*
+   the exam and bans feeding case documents to AI tools. It does not address transcribing
+   AI-assisted study notes onto the permitted sheet. **Ask before you rely on it.**
+5. **The 47,370 figure** on his high-leverage slide reconciles to neither 47,369 nor the $322,100 /
+   $6.80 = 47,367.65 the surrounding numbers imply. Minor, and unresolved.

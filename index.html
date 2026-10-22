@@ -76,6 +76,28 @@ table.stats td.num,table.stats th.num{text-align:right;font-variant-numeric:tabu
 .warn{background:var(--bad-bg);border:1px solid var(--bad);border-radius:8px;padding:12px;margin-bottom:14px}
 .hint{color:var(--muted);font-size:.84rem}
 .answerline{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+/* mock exam */
+#timerbar{position:sticky;top:0;z-index:5;display:flex;gap:14px;align-items:center;flex-wrap:wrap;
+  padding:10px 14px;margin:0 0 14px;border-radius:10px;background:#11161d;border:1px solid #243041}
+#clock{font-variant-numeric:tabular-nums;font-size:1.25rem;font-weight:600;letter-spacing:.02em}
+#clock.warn8{color:#f0b429}
+#clock.warn2{color:#ef5350}
+#timerbar .lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.wc{font-size:.8rem;color:var(--muted);margin-top:6px}
+.wc.over{color:#ef5350;font-weight:600}
+textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;border:1px solid #243041;
+  border-radius:8px;padding:10px;font:inherit;line-height:1.5}
+.navrow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-top:14px}
+.navrow .spacer{flex:1}
+.gradegrid{width:100%;border-collapse:collapse;font-size:.9rem}
+.gradegrid th,.gradegrid td{border-bottom:1px solid #243041;padding:7px 8px;text-align:left}
+.gradegrid td.num,.gradegrid th.num{text-align:right;font-variant-numeric:tabular-nums}
+.gradegrid tr.miss td{background:#2a1416}
+.bigscore{font-size:2rem;font-weight:700;margin:4px 0 2px}
+.itemjump{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px}
+.itemjump button{min-width:34px;padding:5px 7px;font-size:.8rem}
+.itemjump button.done{border-color:#2e7d32;color:#a5d6a7}
+.itemjump button.cur{background:var(--accent);color:#06210f;border-color:var(--accent)}
 </style>
 </head>
 <body>
@@ -106,6 +128,20 @@ table.stats td.num,table.stats th.num{text-align:right;font-variant-numeric:tabu
       <button id="reset">Reset progress</button>
     </div>
     <div class="hint" id="poolinfo" style="margin-top:8px"></div>
+    <div class="row" id="mockrow" style="margin-top:14px;padding-top:14px;border-top:1px solid #243041">
+      <label for="mockpick">Mock exam</label>
+      <select id="mockpick"></select>
+      <button id="startmock">Start timed mock</button>
+      <span class="hint">18 items, blueprint order, 100 points, 2h15m.</span>
+    </div>
+  </div>
+
+  <div id="timerbar" hidden>
+    <span class="lbl">Time left</span><span id="clock">2:15:00</span>
+    <span class="lbl" id="mockpos"></span>
+    <div style="flex:1"></div>
+    <button id="mocksubmit" class="primary">Submit exam</button>
+    <button id="mockquit">Abandon</button>
   </div>
 
   <div class="panel" id="card" hidden></div>
@@ -140,6 +176,7 @@ function boot(bank){
   BANK = bank;
   document.getElementById("meta").textContent = bankLine(bank);
   buildTopics();
+  buildMockPicker();
   document.getElementById("controls").hidden = false;
   renderStats();
   updatePoolInfo();
@@ -196,6 +233,7 @@ function pool(){
   var t = document.getElementById("topic").value;
   var m = document.getElementById("mode").value;
   return BANK.questions.filter(function(q){
+    if(q.exam) return false;              // mock-exam items are only served in mock mode
     if(t !== "*" && q.topic !== t) return false;
     var r = prog[q.id];
     if(m === "missed") return !!r && r.wrong > 0 && r.streak < 2;
@@ -374,6 +412,309 @@ function showSolution(ok, typed){
   }
   renderStats();
 }
+
+/* =======================================================================
+   MOCK EXAM MODE
+   18 items in blueprint order, 2h15m countdown, scored out of 100.
+   No feedback until the exam is submitted, which is the point of it.
+   ======================================================================= */
+var MOCK = null;                      // {id, items, idx, answers, deadline, tick}
+var MOCK_MS = (2*60 + 15) * 60 * 1000;
+
+function mockIds(){
+  var seen = {}, out = [];
+  BANK.questions.forEach(function(q){
+    if(q.exam && !seen[q.exam]){ seen[q.exam] = 1; out.push(q.exam); }
+  });
+  out.sort();
+  return out;
+}
+function buildMockPicker(){
+  var sel = document.getElementById("mockpick"), ids = mockIds();
+  sel.innerHTML = "";
+  if(!ids.length){
+    document.getElementById("mockrow").hidden = true;
+    return;
+  }
+  ids.forEach(function(id){
+    var n = BANK.questions.filter(function(q){ return q.exam === id; }).length;
+    var pts = BANK.questions.filter(function(q){ return q.exam === id; })
+                 .reduce(function(a,q){ return a + (q.points||0); }, 0);
+    var o = document.createElement("option");
+    o.value = id;
+    o.textContent = id + " (" + n + " items, " + pts + " pts)";
+    sel.appendChild(o);
+  });
+}
+function fmtClock(ms){
+  if(ms < 0) ms = 0;
+  var t = Math.floor(ms/1000), h = Math.floor(t/3600), m = Math.floor((t%3600)/60), sec = t%60;
+  return h + ":" + (m<10?"0":"") + m + ":" + (sec<10?"0":"") + sec;
+}
+function startMock(){
+  var id = document.getElementById("mockpick").value;
+  var items = BANK.questions.filter(function(q){ return q.exam === id; })
+                .slice().sort(function(a,b){ return (a.item||0) - (b.item||0); });
+  if(!items.length) return;
+  MOCK = { id:id, items:items, idx:0, answers:{}, deadline: Date.now() + MOCK_MS, tick:null };
+  queue = []; current = null;
+  document.getElementById("controls").hidden = true;
+  document.getElementById("stats").hidden = true;
+  document.getElementById("timerbar").hidden = false;
+  MOCK.tick = setInterval(mockClock, 1000);
+  mockClock();
+  renderMockItem();
+}
+function mockClock(){
+  if(!MOCK) return;
+  var left = MOCK.deadline - Date.now(), el = document.getElementById("clock");
+  el.textContent = fmtClock(left);
+  el.className = left <= 2*60*1000 ? "warn2" : (left <= 8*60*1000 ? "warn8" : "");
+  if(left <= 0) submitMock(true);
+}
+function endMockTimer(){
+  if(MOCK && MOCK.tick){ clearInterval(MOCK.tick); MOCK.tick = null; }
+  document.getElementById("timerbar").hidden = true;
+}
+function wordCount(t){
+  var m = String(t).trim().match(/[^\s]+/g);
+  return m ? m.length : 0;
+}
+function saveMockAnswer(){
+  if(!MOCK) return;
+  var q = MOCK.items[MOCK.idx];
+  if(!q) return;
+  if(q.type === "mc" || q.type === "ack"){
+    return;                                   // stored on click
+  }
+  var el = document.getElementById("numin");
+  if(el) MOCK.answers[q.id] = el.value;
+}
+function gotoItem(i){
+  saveMockAnswer();
+  if(i < 0) i = 0;
+  if(i > MOCK.items.length - 1) i = MOCK.items.length - 1;
+  MOCK.idx = i;
+  renderMockItem();
+}
+function renderMockItem(){
+  var q = MOCK.items[MOCK.idx], c = document.getElementById("card");
+  current = q; answered = false;
+  c.hidden = false;
+  document.getElementById("mockpos").textContent =
+    "Item " + (MOCK.idx+1) + " of " + MOCK.items.length;
+
+  var h = "<div class='badges'>" +
+    "<span class='badge'>Item " + esc(q.item) + "</span>" +
+    "<span class='badge'>" + esc(q.points) + " pts</span>" +
+    "<span class='badge'>" + esc(q.topic) + "</span>" +
+    (q.wordLimit ? "<span class='badge'>" + esc(q.wordLimit) + " words max</span>" : "") +
+    "</div>";
+  h += "<div class='stem'>" + q.stem + "</div>";   /* trusted: authored in questions.json */
+
+  var saved = MOCK.answers[q.id];
+  if(q.type === "mc" || q.type === "ack"){
+    h += "<div class='choices' id='choices'>";
+    (q.choices || ["Yes"]).forEach(function(ch,i){
+      var sel = (saved === i) ? " style='border-color:var(--accent)'" : "";
+      h += "<button class='choice' data-i='" + i + "'" + sel + "><span class='key'>" +
+           "ABCDEFGH".charAt(i) + ".</span><span>" + esc(ch) + "</span></button>";
+    });
+    h += "</div>";
+  } else if(q.type === "numeric"){
+    h += "<div class='answerline'><input type='text' id='numin' inputmode='decimal' " +
+         "placeholder='your number' size='22' value='" +
+         esc(saved == null ? "" : saved) + "'></div>" +
+         "<div class='hint' style='margin-top:6px'>Digits only is fine. $ and , are ignored.</div>";
+  } else {
+    h += "<textarea class='essay' id='numin' placeholder='your answer'>" +
+         esc(saved == null ? "" : saved) + "</textarea>" +
+         "<div class='wc' id='wc'></div>";
+  }
+
+  h += "<div class='navrow'>" +
+       "<button id='prev'" + (MOCK.idx === 0 ? " disabled" : "") + ">Back</button>" +
+       "<button class='primary' id='nxt'" +
+         (MOCK.idx === MOCK.items.length-1 ? " disabled" : "") + ">Next</button>" +
+       "<div class='spacer'></div>" +
+       "<span class='hint'>Nothing is graded until you submit.</span>" +
+       "</div>";
+
+  h += "<div class='itemjump' id='jump'></div>";
+  c.innerHTML = h;
+
+  if(q.type === "mc" || q.type === "ack"){
+    Array.prototype.forEach.call(c.querySelectorAll(".choice"), function(b){
+      b.addEventListener("click", function(){
+        MOCK.answers[q.id] = parseInt(b.getAttribute("data-i"),10);
+        Array.prototype.forEach.call(c.querySelectorAll(".choice"), function(o){
+          o.style.borderColor = "";
+        });
+        b.style.borderColor = "var(--accent)";
+        renderJump();
+      });
+    });
+  } else {
+    var inp = document.getElementById("numin");
+    inp.addEventListener("input", function(){
+      MOCK.answers[q.id] = inp.value;
+      if(q.wordLimit) updateWC(q);
+      renderJump();
+    });
+    if(q.wordLimit) updateWC(q);
+    inp.focus();
+  }
+  document.getElementById("prev").addEventListener("click", function(){ gotoItem(MOCK.idx-1); });
+  document.getElementById("nxt").addEventListener("click", function(){ gotoItem(MOCK.idx+1); });
+  renderJump();
+  window.scrollTo(0,0);
+}
+function updateWC(q){
+  var el = document.getElementById("wc");
+  if(!el) return;
+  var n = wordCount(document.getElementById("numin").value);
+  var over = n > q.wordLimit;
+  el.className = "wc" + (over ? " over" : "");
+  el.textContent = n + " / " + q.wordLimit + " words" +
+    (over ? "  OVER THE LIMIT by " + (n - q.wordLimit) : "");
+}
+function renderJump(){
+  var j = document.getElementById("jump");
+  if(!j) return;
+  var h = "";
+  MOCK.items.forEach(function(q,i){
+    var a = MOCK.answers[q.id];
+    var done = (a !== undefined && a !== null && String(a).trim() !== "");
+    h += "<button data-j='" + i + "' class='" +
+         (i === MOCK.idx ? "cur" : (done ? "done" : "")) + "'>" + q.item + "</button>";
+  });
+  j.innerHTML = h;
+  Array.prototype.forEach.call(j.querySelectorAll("button"), function(b){
+    b.addEventListener("click", function(){ gotoItem(parseInt(b.getAttribute("data-j"),10)); });
+  });
+}
+
+/* ---------- grading ---------- */
+function gradeMock(){
+  saveMockAnswer();
+  var rows = [], auto = 0, manualPts = 0;
+  MOCK.items.forEach(function(q){
+    var a = MOCK.answers[q.id], got = null, verdict = "";
+    if(q.type === "ack"){
+      got = (a !== undefined) ? q.points : 0; verdict = (a !== undefined) ? "answered" : "left blank";
+    } else if(q.type === "mc"){
+      if(a === undefined || a === null){ got = 0; verdict = "left blank"; }
+      else { got = (a === q.answer) ? q.points : 0; verdict = (a === q.answer) ? "correct" : "wrong"; }
+    } else if(q.type === "numeric"){
+      var v = parseNum(a == null ? "" : a);
+      if(isNaN(v)){ got = 0; verdict = "left blank"; }
+      else {
+        var tol = (typeof q.tolerance === "number") ? q.tolerance : 0.01;
+        var ok = Math.abs(v - q.answer) <= Math.max(tol, Math.abs(q.answer)*0.001);
+        got = ok ? q.points : 0; verdict = ok ? "correct" : "wrong";
+      }
+    } else {
+      got = null;                     // written answer: you grade it
+      manualPts += q.points;
+      verdict = "self-grade";
+    }
+    if(got !== null) auto += got;
+    rows.push({q:q, a:a, got:got, verdict:verdict});
+  });
+  return {rows:rows, auto:auto, manualPts:manualPts};
+}
+function submitMock(byTimer){
+  if(!MOCK) return;
+  var used = MOCK_MS - (MOCK.deadline - Date.now());
+  var g = gradeMock();
+  endMockTimer();
+  // record attempts against the normal progress store
+  g.rows.forEach(function(r){
+    if(r.got === null) return;
+    var rc = rec(r.q.id); rc.seen++;
+    if(r.got > 0){ rc.right++; rc.streak = (rc.streak||0)+1; } else { rc.wrong++; rc.streak = 0; }
+  });
+  saveProg(prog);
+
+  var autoPts = MOCK.items.reduce(function(a,q){
+    return a + ((q.type === "short" || q.type === "essay") ? 0 : (q.points||0));
+  }, 0);
+
+  var h = "";
+  if(byTimer) h += "<p class='verdict bad'>Time expired. The exam was submitted automatically.</p>";
+  h += "<p class='bigscore'>" + g.auto + " / " + autoPts + "</p>" +
+       "<p class='hint'>Auto-graded items only. " + g.manualPts +
+       " further points sit on the two written items plus the short questions, which you grade " +
+       "yourself against the model answers below. Full marks on everything would be 100.</p>" +
+       "<p class='hint'>Time used: " + fmtClock(used) + " of 2:15:00.</p>";
+
+  h += "<table class='gradegrid'><thead><tr><th class='num'>Item</th><th>Topic</th>" +
+       "<th class='num'>Pts</th><th class='num'>Got</th><th>Result</th></tr></thead><tbody>";
+  g.rows.forEach(function(r){
+    var miss = (r.got === 0 && r.q.points > 0);
+    h += "<tr" + (miss ? " class='miss'" : "") + "><td class='num'>" + r.q.item + "</td>" +
+         "<td>" + esc(r.q.topic) + "</td><td class='num'>" + r.q.points + "</td>" +
+         "<td class='num'>" + (r.got === null ? "-" : r.got) + "</td>" +
+         "<td>" + esc(r.verdict) + "</td></tr>";
+  });
+  h += "</tbody></table>";
+
+  h += "<div class='navrow'><button class='primary' id='review'>Review every item with solutions</button>" +
+       "<button id='done'>Back to practice</button></div>";
+
+  var c = document.getElementById("card");
+  c.innerHTML = h; c.hidden = false;
+  window.scrollTo(0,0);
+  var G = g;
+  document.getElementById("review").addEventListener("click", function(){ reviewMock(G); });
+  document.getElementById("done").addEventListener("click", exitMock);
+  renderStats();
+}
+function reviewMock(g){
+  var h = "<h3 style='margin:0 0 12px'>Mock exam review</h3>";
+  g.rows.forEach(function(r){
+    var q = r.q, shown;
+    if(q.type === "mc" || q.type === "ack"){
+      shown = (r.a == null) ? "(blank)" : ((q.choices || ["Yes"])[r.a] || "(blank)");
+    } else {
+      shown = (r.a == null || String(r.a).trim() === "") ? "(blank)" : String(r.a);
+    }
+    h += "<div style='border-top:1px solid #243041;padding:14px 0'>";
+    h += "<div class='badges'><span class='badge'>Item " + esc(q.item) + "</span>" +
+         "<span class='badge'>" + esc(q.points) + " pts</span>" +
+         "<span class='badge'>" + esc(q.topic) + "</span>" +
+         (q.wordLimit ? "<span class='badge'>" + wordCount(shown) + "/" +
+            esc(q.wordLimit) + " words</span>" : "") + "</div>";
+    h += "<div class='stem'>" + q.stem + "</div>";
+    h += "<p class='hint'>Your answer: <strong>" + esc(shown) + "</strong>" +
+         (q.type === "numeric" && r.verdict === "wrong"
+            ? "  -  correct: " + esc(q.answerLabel || q.answer) : "") +
+         (q.type === "mc" && r.verdict === "wrong"
+            ? "  -  correct: " + esc(q.choices[q.answer]) : "") + "</p>";
+    h += "<div class='sol'><h3>Worked solution</h3>" + q.solution + "</div>";
+    h += "</div>";
+  });
+  h += "<div class='navrow'><button class='primary' id='done2'>Back to practice</button></div>";
+  var c = document.getElementById("card");
+  c.innerHTML = h; c.hidden = false;
+  window.scrollTo(0,0);
+  document.getElementById("done2").addEventListener("click", exitMock);
+}
+function exitMock(){
+  endMockTimer();
+  MOCK = null; current = null; queue = [];
+  document.getElementById("card").hidden = true;
+  document.getElementById("controls").hidden = false;
+  renderStats(); updatePoolInfo();
+  window.scrollTo(0,0);
+}
+document.getElementById("startmock").addEventListener("click", startMock);
+document.getElementById("mocksubmit").addEventListener("click", function(){ submitMock(false); });
+document.getElementById("mockquit").addEventListener("click", function(){
+  if(MOCK && !confirm("Abandon this mock exam? Your answers are discarded.")) return;
+  exitMock();
+});
+
 
 function renderStats(){
   if(!BANK) return;

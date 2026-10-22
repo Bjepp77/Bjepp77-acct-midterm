@@ -1,271 +1,479 @@
-# Blank-Excel recipes
+# Blank-Excel Recipes
 
-The exam allows Excel but it must begin blank: no templates, no notes typed in it. So every
-recipe below is typed from scratch. Each is under 2 minutes if you know the layout.
+Excel is allowed but **must be blank when the exam starts**. GoalSeek and Solver are banned. So every
+recipe below is built from nothing, in under two minutes, using only arithmetic, `SUM`,
+`SUMPRODUCT`, `ROUND` and `ROUNDUP`.
 
-Conventions used throughout:
-- Labels go in column A, inputs in column B, computed cells in column B below them.
-- Type the inputs first, then the formulas. Never retype a number you already entered.
-- Every formula references a cell. If a number appears twice, you have made a mistake.
+**How to use this file:** each recipe is a small block of cells. Type the labels in column A, the
+inputs in column B, and the formulas exactly as shown. Then change an input and watch the answer
+move, which is how you check your own work.
 
-Keyboard: `Alt =` for AutoSum, `F4` to toggle `$` anchoring, `Ctrl ;` nothing useful here.
-Format as currency only at the end, if at all. It costs time and earns no points.
+**One habit that pays for itself:** put every input in its own cell and never type a number inside a
+formula. When the next part of the question changes one input, you retype one cell instead of
+rebuilding.
 
----
+**Coverage:** there is a recipe here for every computational item on the blueprint.
 
-## 1. CVP core — the one to memorize
-
-Covers break-even in units and dollars, target profit, and CM ratio. Everything else builds
-on this block.
-
-| Cell | Type this | Meaning |
+| Blueprint item | Topic | Recipe |
 |---|---|---|
-| A1:B1 | `Price` / your number | |
-| A2:B2 | `VC per unit` / your number | |
-| A3:B3 | `Fixed cost` / your number | |
-| A4:B4 | `Volume` / your number | |
-| A5:B5 | `Target OI` / your number or `0` | |
-| A7:B7 | `CM per unit` / `=B1-B2` | |
-| A8:B8 | `CM ratio` / `=B7/B1` | |
-| A9:B9 | `BE units` / `=ROUNDUP(B3/B7,0)` | round up |
-| A10:B10 | `BE revenue` / `=B3/B8` | do not round |
-| A11:B11 | `Target units` / `=ROUNDUP((B3+B5)/B7,0)` | |
-| A12:B12 | `Total CM` / `=B7*B4` | |
-| A13:B13 | `Operating income` / `=B12-B3` | |
-
-**If you are given totals instead of per-unit figures,** add these two above and point B1/B2 at
-them: `Price` = `=Revenue/Volume`, `VC per unit` = `=TotalVC/Volume`.
-
-**If the unknown is price, not volume** (the video game problem): leave B1 blank and type in
-B15 `=(B5+B3+B2*B4)/B4`. That is the home equation solved for price.
+| 2, 4, 16 | Cost behavior | 1, 2, 3 |
+| 5-6 | Regression | 4, 5 |
+| 7-9 | Single-product CVP | 6, 7, 8 |
+| 10-11 | Multi-product CVP | 9, 10 |
+| 12 | DOL | 11 |
+| 14-15 | Cost accounting, planes | 12 |
 
 ---
 
-## 2. Margin of safety
+## Read this about ROUNDUP
 
-Add to the block above. Both percentages share a numerator, so compute it once.
+`ROUNDUP` is unforgiving of floating-point noise. A division that should land exactly on a whole
+number can come back as 50000.000000000007, and `ROUNDUP` then returns **50,001**.
 
-| Cell | Type this |
+**Always wrap the division in `ROUND(...,6)` before rounding up:**
+
+```
+=ROUNDUP(ROUND(B5/B6,6),0)
+```
+
+The inner `ROUND` kills the noise at six decimals, far finer than any answer on this exam, and the
+outer `ROUNDUP` then does what you meant. Every recipe below uses this pattern.
+
+---
+
+## Recipe 1: High-low (items 2, 4, 16)
+
+Type the data, then let formulas find the high and low **by activity**. This is the whole point: the
+formula cannot be tempted to sort by cost.
+
+| Cell | Content |
 |---|---|
-| A15:B15 | `MoS units` / `=B4-B9` |
-| A16:B16 | `MoS dollars` / `=B15*B1` |
-| A17:B17 | `MoS % of sales` / `=B15/B4` |
-| A18:B18 | `MoS % of BE` / `=B15/B9` |
+| A1 | `Activity` |
+| B1 | `Cost` |
+| A2:B7 | your data pairs, one row each |
+| A9 | `Hi activity` |
+| B9 | `=MAX(A2:A7)` |
+| A10 | `Hi cost` |
+| B10 | `=INDEX(B2:B7,MATCH(B9,A2:A7,0))` |
+| A11 | `Lo activity` |
+| B11 | `=MIN(A2:A7)` |
+| A12 | `Lo cost` |
+| B12 | `=INDEX(B2:B7,MATCH(B11,A2:A7,0))` |
+| A14 | `b variable rate` |
+| B14 | `=(B10-B12)/(B9-B11)` |
+| A15 | `a fixed total` |
+| B15 | `=B10-B14*B9` |
+| A16 | `check at low point` |
+| B16 | `=B12-B14*B11` |
 
-**Read the question before you read a cell.** B17 answers "how far can sales fall." B18
-answers "how far above break-even are we."
+**B15 and B16 must match.** If they do not, you have a data entry error. That check is the reason to
+build this in Excel rather than on paper.
 
----
+To predict a cost at any volume, add:
 
-## 3. DOL and sensitivity
-
-| Cell | Type this |
+| Cell | Content |
 |---|---|
-| A20:B20 | `DOL` / `=B12/B13` |
-| A21:B21 | `% change in sales` / your number, e.g. `0.1` |
-| A22:B22 | `% change in OI` / `=B20*B21` |
-| A23:B23 | `New OI, check` / `=B7*B4*(1+B21)-B3` |
-
-B23 is the longhand check on B22. If `(B23-B13)/B13` does not equal B22, one of them is wrong.
-Note that B23 holds fixed cost constant, which is the whole point.
+| A18 | `volume` |
+| B18 | your volume |
+| A19 | `predicted TC` |
+| B19 | `=B14*B18+B15` |
 
 ---
 
-## 4. Gross-up for taxes and target returns
+## Recipe 2: Rebuild variable and fixed from a GAAP statement (items 4, 16)
 
-Put this ABOVE the CVP block so its output feeds `Target OI`.
+The statement gives you core versus run-the-business. You need variable versus fixed.
 
-| Cell | Type this |
+| Cell | Content |
 |---|---|
-| A1:B1 | `Return %` / your number, e.g. `0.3` |
-| A2:B2 | `Base (equity or assets)` / your number |
-| A3:B3 | `Tax rate` / your number |
-| A4:B4 | `After-tax NI target` / `=B1*B2` |
-| A5:B5 | `Pre-tax OI target` / `=B4/(1-B3)` |
+| A1 | `units` |
+| B1 | units sold |
+| A2 | `COGS` |
+| B2 | cost of goods sold |
+| A3 | `SGA` |
+| B3 | selling and admin |
+| A5 | `VC per unit components` |
+| B5:B8 | each per-unit variable cost, one per cell |
+| A10 | `VC per unit` |
+| B10 | `=SUM(B5:B8)` |
+| A11 | `total VC` |
+| B11 | `=B10*B1` |
+| A12 | `total cost` |
+| B12 | `=B2+B3` |
+| A13 | `total FC` |
+| B13 | `=B12-B11` |
 
-If the target is already a dollar after-tax figure, skip B1/B2 and type it straight into B4.
-Then point the CVP block's `Target OI` at B5, never at B4. That one wrong reference is the
-most expensive mistake available on this topic.
+Leave B5:B8 as separate cells. Problems commonly list four variable components and bury one of them
+in selling expenses, and keeping them apart makes it obvious if you missed one.
 
 ---
 
-## 5. High-low
+## Recipe 3: Step costs (item 16)
 
-| Cell | Type this |
+| Cell | Content |
 |---|---|
-| A1:B1:C1 | `Activity` / `Cost` headers |
-| A2:B2 | high activity / cost at high |
-| A3:B3 | low activity / cost at low |
-| A5:B5 | `Variable rate` / `=(B2-B3)/(A2-A3)` |
-| A6:B6 | `Fixed cost` / `=B3-(B5*A3)` |
-| A7:B7 | `Fixed, check` / `=B2-(B5*A2)` |
+| A1 | `volume` |
+| B1 | volume |
+| A2 | `capacity each` |
+| B2 | capacity per resource |
+| A3 | `cost each` |
+| B3 | cost per resource |
+| A4 | `other fixed` |
+| B4 | other fixed cost |
+| A5 | `VC per unit` |
+| B5 | variable cost per unit |
+| A7 | `resources needed` |
+| B7 | `=ROUNDUP(ROUND(B1/B2,6),0)` |
+| A8 | `step cost` |
+| B8 | `=B7*B3` |
+| A9 | `total cost` |
+| B9 | `=B8+B4+B5*B1` |
+| A11 | `range low` |
+| B11 | `=(B7-1)*B2+1` |
+| A12 | `range high` |
+| B12 | `=B7*B2` |
 
-B6 and B7 must match. They use different data points, so if they disagree your rate is wrong.
-
-**Annual figures:** divide by 12 in the cell, `=345000/12`, rather than in your head. The
-grader never sees it and you keep the audit trail.
+B11 and B12 give you the relevant range to quote in a written answer.
 
 ---
 
-## 6. Regression
+## Recipe 4: Confidence interval on a coefficient (items 5-6)
 
-**Running it.** `Data` tab → `Data Analysis` → `Regression`. Y range is cost, X range is the
-activity. **Untick `Labels` unless your top row really is a header** — leaving it ticked when
-the top row is data corrupts every number in the output.
+For an interval around **fixed cost** or around **variable cost**. Use that coefficient's own
+standard error.
 
-Tick `Confidence Level` and set it to whatever the question asks (it gives 95% for free, so
-type 90 or 80 when asked for those). That saves you building intervals by hand.
-
-**Reading it.** Intercept coefficient is fixed cost; the X coefficient is the variable rate.
-
-**Building an interval by hand,** when the question asks for a confidence level Excel did not
-print, or asks for a prediction interval:
-
-| Cell | Type this |
+| Cell | Content |
 |---|---|
-| A1:B1 | `Intercept` / paste from output |
-| A2:B2 | `Slope` / paste from output |
-| A3:B3 | `Slope SE` / paste from output |
-| A4:B4 | `Regression SE` / paste from output |
-| A5:B5 | `n` / your number |
-| A6:B6 | `Volume` / your number |
-| A7:B7 | `Confidence` / e.g. `0.95` |
-| A9:B9 | `df` / `=B5-2` |
-| A10:B10 | `t` / `=T.INV.2T(1-B7,B9)` |
-| A12:B12 | `Slope CI low` / `=B2-B3*B10` |
-| A13:B13 | `Slope CI high` / `=B2+B3*B10` |
-| A15:B15 | `Point estimate` / `=B1+B2*B6` |
-| A16:B16 | `Predict CI low` / `=B15-B4*B10` |
-| A17:B17 | `Predict CI high` / `=B15+B4*B10` |
+| A1 | `coefficient` |
+| B1 | the printed coefficient |
+| A2 | `its own SE` |
+| B2 | that coefficient's printed standard error |
+| A3 | `t value` |
+| B3 | the t from his table |
+| A5 | `half width` |
+| B5 | `=B3*B2` |
+| A6 | `lower` |
+| B6 | `=B1-B5` |
+| A7 | `upper` |
+| B7 | `=B1+B5` |
 
-`T.INV.2T` is the two-tailed inverse. For 6 df at 95% it returns 2.447, which is the number to
-sanity-check against.
+Set up a t table once, in D1:E4, so you stop second-guessing which number to use:
 
-**The distinction the exam is most likely to test:** rows 12 and 13 use `B3`, the slope's own
-standard error. Rows 16 and 17 use `B4`, the standard error of the whole regression. Using B3
-for a prediction interval is the error.
+| Cell | Content | Cell | Content |
+|---|---|---|---|
+| D1 | `70` | E1 | `1.134` |
+| D2 | `80` | E2 | `1.440` |
+| D3 | `90` | E3 | `1.943` |
+| D4 | `95` | E4 | `2.447` |
+
+Then B3 becomes `=INDEX(E1:E4,MATCH(90,D1:D4,0))`, with 90 replaced by the confidence level asked
+for. Those t values are for **6 degrees of freedom**, that is n = 8. If n differs, df = n - 2 and you
+need his table for that df.
 
 ---
 
-## 7. Multi-product, basket method
+## Recipe 5: Confidence interval on a total cost estimate (items 5-6)
 
-| Cell | Type this |
+Different recipe, because this one uses the **regression's** standard error, not a coefficient's.
+
+| Cell | Content |
 |---|---|
-| B1:C1 | product A / product B headers |
-| A2 | `Units per basket` → B2, C2 |
-| A3 | `Price` → B3, C3 |
-| A4 | `VC per unit` → B4, C4 |
-| A6:B6 | `Fixed cost` / your number |
-| A8:B8 | `Basket revenue` / `=B2*B3+C2*C3` |
-| A9:B9 | `Basket VC` / `=B2*B4+C2*C4` |
-| A10:B10 | `Basket CM` / `=B8-B9` |
-| A11:B11 | `BE baskets` / `=B6/B10` |
-| A13:B13 | `BE units A` / `=ROUNDUP(ROUND(B11*B2,6),0)` |
-| A13:C13 | `BE units B` / `=ROUNDUP(ROUND(B11*C2,6),0)` |
-| A14:B14 | `BE total units` / `=B13+C13` |
+| A1 | `intercept a` |
+| B1 | printed intercept |
+| A2 | `slope b` |
+| B2 | printed slope |
+| A3 | `volume` |
+| B3 | the volume asked about |
+| A4 | `SE regression` |
+| B4 | **Standard Error from the top block** |
+| A5 | `t value` |
+| B5 | the t value |
+| A7 | `point estimate` |
+| B7 | `=B1+B2*B3` |
+| A8 | `half width` |
+| B8 | `=B5*B4` |
+| A9 | `lower` |
+| B9 | `=B7-B8` |
+| A10 | `upper` |
+| B10 | `=B7+B8` |
 
-**B11 has no ROUNDUP and must not get one.** Baskets are a mathematical device. Rounding
-happens in row 13, after unpacking, and it rounds up.
+**Keep recipes 4 and 5 visually apart on the sheet.** Picking the wrong standard error is the trap
+he sets, and two separate blocks make it hard to grab the wrong cell.
 
-**Why the inner `ROUND(...,6)`.** Unpacking often lands on a whole number that floating-point
-arithmetic stores a hair above it. `210000/12.6*3` is 50000.000000000007, and `ROUNDUP` of that
-is 50,001 rather than 50,000. The inner `ROUND` to six decimals kills the artefact without
-touching a genuine fraction like 16,666.67. If a break-even unit count ever comes out exactly
-one higher than you expect, this is why.
+To check a t stat: `=B2/B2se`, that is the coefficient over its own standard error.
 
 ---
 
-## 8. Multi-product, weighted average and revenue
+## Recipe 6: Break-even (items 7-9)
 
-Use when you are handed totals rather than a mix ratio.
-
-| Cell | Type this |
+| Cell | Content |
 |---|---|
-| A1 | `Units` → B1 (A), C1 (B), D1 `=B1+C1` |
-| A2 | `Revenue` → B2, C2, D2 `=B2+C2` |
-| A3 | `Variable cost` → B3, C3, D3 `=B3+C3` |
-| A4:B4 | `Fixed cost` / your number |
-| A6:D6 | `WA price` / `=D2/D1` |
-| A7:D7 | `WA VC per unit` / `=D3/D1` |
-| A8:D8 | `WA CM per unit` / `=D6-D7` |
-| A9:D9 | `CM ratio` / `=1-D3/D2` |
-| A11:D11 | `BE total units` / `=D4/D8` |
-| A12:D12 | `BE revenue` / `=D4/D9` |
-| A14:B14 | `Volume mix A` / `=B1/D1` |
-| A15:B15 | `Revenue mix A` / `=B2/D2` |
-| A17:B17 | `BE units A` / `=ROUNDUP(ROUND(D11*B14,6),0)` |
-| A18:B18 | `BE revenue A` / `=D12*B15` |
+| A1 | `price` |
+| B1 | price |
+| A2 | `VC per unit` |
+| B2 | variable cost per unit |
+| A3 | `total FC` |
+| B3 | total fixed cost |
+| A5 | `CM per unit` |
+| B5 | `=B1-B2` |
+| A6 | `BE units exact` |
+| B6 | `=B3/B5` |
+| A7 | `BE units` |
+| B7 | `=ROUNDUP(ROUND(B6,6),0)` |
+| A8 | `BE revenue` |
+| B8 | `=B6*B1` |
 
-**Rows 14 and 15 are different numbers and that is the trap.** Row 17 must use row 14. Row 18
-must use row 15. Build both mix cells even when the question only asks for one, so you cannot
-grab the wrong one under time pressure.
+**Keep both B6 and B7.** The unrounded B6 is what you use for a margin of safety in dollars; the
+rounded B7 is the answer to a units question.
 
-Cross-check: row 17 × that product's price should equal row 18.
+If the problem gives percentages instead of per-unit figures:
 
----
-
-## 9. Equivalent units
-
-One column per cost category, because the rates differ.
-
-| Cell | Type this |
+| Cell | Content |
 |---|---|
-| B1:C1:D1 | `Materials` / `Labor` / `Overhead` |
-| A2 | `Spend` → B2, C2, D2 |
-| A3 | `% complete on ending` → B3, C3, D3 |
-| A5:B5 | `Units sold` / your number |
-| A6:B6 | `Ending units` / your number |
-| A8 | `Equivalent units` → B8 `=$B$5+$B$6*B3`, drag to D8 |
-| A9 | `Rate` → B9 `=B2/B8`, drag to D9 |
-| A10 | `To income statement` → B10 `=B9*$B$5`, drag to D10 |
-| A11 | `To balance sheet` → B11 `=B9*($B$6*B3)`, drag to D11 |
-| A12 | `Check` → B12 `=B10+B11-B2`, drag to D12 |
-| A14:B14 | `COGS` / `=SUM(B10:D10)` |
-| A15:B15 | `Ending inventory` / `=SUM(B11:D11)` |
-| A16:B16 | `Total check` / `=B14+B15-SUM(B2:D2)` |
-
-**Row 12 and B16 must all be zero.** That check is the single most valuable cell in this
-recipe: it catches a wrong completion percentage, a transposed spend and a blended rate all at
-once. The `$` anchors are what let you type row 8 once and drag it.
-
-Income statement: revenue `=units sold × price`, less B14.
+| A10 | `VC ratio` |
+| B10 | variable cost as a decimal, e.g. 0.62 |
+| A11 | `BE revenue` |
+| B11 | `=B3/(1-B10)` |
 
 ---
 
-## 10. Incremental product line and payback
+## Recipe 7: Target profit, with or without tax (items 7-9)
 
-| Cell | Type this |
+Build on recipe 6. This handles every version he asks.
+
+| Cell | Content |
 |---|---|
-| A1:B1 | `Volume` / your number |
-| A2:B2 | `Price` / your number |
-| A4 | `Variable items, one per row` → B4, B5, B6, B7 as per-unit figures |
-| A9:B9 | `VC per unit` / `=SUM(B4:B7)` |
-| A10:B10 | `CM per unit` / `=B2-B9` |
-| A12 | `Fixed items, one per row` → B12, B13, B14 as monthly figures |
-| A16:B16 | `Fixed total` / `=SUM(B12:B14)` |
-| A18:B18 | `Revenue` / `=B1*B2` |
-| A19:B19 | `Total CM` / `=B10*B1` |
-| A20:B20 | `Operating income` / `=B19-B16` |
-| A22:B22 | `BE units` / `=ROUNDUP(B16/B10,0)` |
-| A23:B23 | `MoS units` / `=B1-B22` |
-| A25:B25 | `Investment` / your number |
-| A26:B26 | `Depreciation` / point at its fixed-cost cell |
-| A27:B27 | `Payback, months` / `=B25/B20` |
-| A28:B28 | `Payback, cash` / `=B25/(B20+B26)` |
+| A13 | `after-tax target` |
+| B13 | after-tax target, or 0 if the target is pretax |
+| A14 | `tax rate` |
+| B14 | tax rate as a decimal, or 0 |
+| A15 | `pretax target given` |
+| B15 | a pretax target if that is what you were given, else 0 |
+| A17 | `pretax target` |
+| B17 | `=IF(B13>0,B13/(1-B14),B15)` |
+| A18 | `units exact` |
+| B18 | `=(B3+B17)/B5` |
+| A19 | `units` |
+| B19 | `=ROUNDUP(ROUND(B18,6),0)` |
+| A20 | `revenue needed` |
+| B20 | `=(B3+B17)/(1-B10)` |
 
-**Build the fixed block so you can switch a cost in or out by deleting one cell.** The hammer
-case turns on exactly this: salary out gives break-even 206, salary in gives 314. Keep salary
-in its own row and the sensitivity is one keystroke.
+B17 does the gross-up for you, which removes the commonest error on the exam. B20 is the revenue
+version, for when variable cost was given as a ratio.
 
-Freight is variable and belongs in rows 4 to 7 even though it sits below gross margin on a
-GAAP statement. Fixed power and depreciation are fixed and belong in rows 12 to 14 even though
-they sit above it.
+**For a return target,** compute the after-tax figure into B13 first:
+
+| Cell | Content |
+|---|---|
+| A22 | `base (equity or assets)` |
+| B22 | equity for ROE, **total assets** for ROA |
+| A23 | `target return %` |
+| B23 | the rate |
+| A24 | `after-tax needed` |
+| B24 | `=B22*B23` |
+
+Then point B13 at B24. Read the question for which base: ROE is equity, ROA is assets.
+
+**For a target stated as a percentage of revenue,** the unknown appears on both sides, so use this
+instead:
+
+| Cell | Content |
+|---|---|
+| A26 | `target % of revenue` |
+| B26 | the rate, e.g. 0.25 |
+| A27 | `units` |
+| B27 | `=ROUNDUP(ROUND(B3/(B5-B26*B1),6),0)` |
+
+That denominator is CM per unit less the share of price the target consumes.
 
 ---
 
-## What not to spend time on
+## Recipe 8: Margin of safety, both denominators (items 7-9)
 
-- Formatting, borders, colours. No points.
-- The professor said he would never ask you to build a T-account.
-- Rounding to match a posted solution. Rounding errors are not penalized.
-- Allocation schedules, unless a question explicitly asks for an allocated view.
+| Cell | Content |
+|---|---|
+| A29 | `current volume` |
+| B29 | current volume |
+| A31 | `MoS units` |
+| B31 | `=B29-B7` |
+| A32 | `MoS dollars` |
+| B32 | `=(B29-B6)*B1` |
+| A33 | `% above break-even` |
+| B33 | `=B31/B7` |
+| A34 | `% sales can fall` |
+| B34 | `=B31/B29` |
+
+**Compute both percentages and label them.** Then read the question once more and pick. B33 answers
+"how far above break-even are we", B34 answers "how far can sales fall". B32 uses the unrounded B6
+because the dollar margin of safety is a straight revenue difference.
+
+---
+
+## Recipe 9: Multi-product basket (items 10-11)
+
+| Cell | Content |
+|---|---|
+| A1 | `product` |
+| B1 | `price` |
+| C1 | `VC` |
+| D1 | `units expected` |
+| A2:D4 | one row per product |
+| E1 | `mix` |
+| E2 | `=D2/MIN($D$2:$D$4)` |
+| | fill E2 down to E4 |
+| A6 | `basket price` |
+| B6 | `=SUMPRODUCT(E2:E4,B2:B4)` |
+| A7 | `basket VC` |
+| B7 | `=SUMPRODUCT(E2:E4,C2:C4)` |
+| A8 | `basket CM` |
+| B8 | `=B6-B7` |
+| A9 | `total FC` |
+| B9 | total fixed cost |
+| A10 | `target profit` |
+| B10 | target, or 0 |
+| A11 | `baskets` |
+| B11 | `=(B9+B10)/B8` |
+| F1 | `BE units` |
+| F2 | `=ROUNDUP(ROUND($B$11*E2,6),0)` |
+| | fill F2 down to F4 |
+| A13 | `total units` |
+| B13 | `=SUM(F2:F4)` |
+
+**Do not round B11.** `SUMPRODUCT` handles any number of products, and column E does not need whole
+numbers for the arithmetic to work, though reducing the mix keeps it readable. Column F unpacks
+first and rounds each product up, which is his order.
+
+For two products, use rows 2:3 and ranges `E2:E3`, `B2:B3`, `C2:C3`.
+
+---
+
+## Recipe 10: Multi-product revenue method (items 10-11)
+
+For a **dollar** answer. Add to recipe 9's table:
+
+| Cell | Content |
+|---|---|
+| G1 | `revenue` |
+| G2 | `=B2*D2`, filled down |
+| H1 | `var cost` |
+| H2 | `=C2*D2`, filled down |
+| A15 | `total revenue` |
+| B15 | `=SUM(G2:G4)` |
+| A16 | `total VC` |
+| B16 | `=SUM(H2:H4)` |
+| A17 | `VC ratio` |
+| B17 | `=B16/B15` |
+| A18 | `BE revenue` |
+| B18 | `=(B9+B10)/(1-B17)` |
+| I1 | `rev share` |
+| I2 | `=G2/$B$15`, filled down |
+| J1 | `BE revenue by product` |
+| J2 | `=I2*$B$18`, filled down |
+
+Column I is the **revenue** mix, which is not the unit mix. Use I for dollar splits and column E for
+unit splits. Confusing the two is the standard error on this item.
+
+---
+
+## Recipe 11: DOL (item 12)
+
+| Cell | Content |
+|---|---|
+| A1 | `price` |
+| B1 | price |
+| A2 | `VC per unit` |
+| B2 | variable cost |
+| A3 | `volume` |
+| B3 | volume |
+| A4 | `total FC` |
+| B4 | total fixed cost |
+| A6 | `total CM` |
+| B6 | `=(B1-B2)*B3` |
+| A7 | `operating profit` |
+| B7 | `=B6-B4` |
+| A8 | `DOL` |
+| B8 | `=B6/B7` |
+| A10 | `% change revenue` |
+| B10 | the change, e.g. 0.15 or -0.20 |
+| A11 | `% change profit` |
+| B11 | `=B8*B10` |
+| A12 | `new profit` |
+| B12 | `=B7*(1+B11)` |
+| A13 | `check directly` |
+| B13 | `=(B1-B2)*B3*(1+B10)-B4` |
+
+**B12 and B13 must agree.** That is the DOL shortcut checked against rebuilding the statement, and it
+confirms you used total contribution margin rather than something else.
+
+If you are given total CM and operating profit directly, DOL is just the one division.
+
+---
+
+## Recipe 12: Planes, units of production (items 14-15)
+
+Two denominators. Build them as two separate cells so you cannot cross them.
+
+| Cell | Content |
+|---|---|
+| A1 | `started` |
+| B1 | units started |
+| A2 | `completed and sold` |
+| B2 | units completed and sold |
+| A3 | `WIP units` |
+| B3 | `=B1-B2` |
+| A4 | `WIP % complete, conversion` |
+| B4 | the percentage, e.g. 0.60 |
+| A6 | `UoP materials` |
+| B6 | `=B2+B3` |
+| A7 | `UoP conversion` |
+| B7 | `=B2+B3*B4` |
+| A9 | `total DM cost` |
+| B9 | total materials spend |
+| A10 | `total DL cost` |
+| B10 | total labor spend |
+| A11 | `total OH cost` |
+| B11 | total overhead spend |
+| A13 | `DM rate` |
+| B13 | `=B9/B6` |
+| A14 | `DL rate` |
+| B14 | `=B10/B7` |
+| A15 | `OH rate` |
+| B15 | `=B11/B7` |
+| A17 | `price` |
+| B17 | price per unit |
+| A18 | `revenue` |
+| B18 | `=B17*B2` |
+| A19 | `COGS` |
+| B19 | `=(B13+B14+B15)*B2` |
+| A20 | `period costs` |
+| B20 | selling and admin total |
+| A21 | `operating profit` |
+| B21 | `=B18-B19-B20` |
+| A23 | `ending inventory` |
+| B23 | `=B13*B3+(B14+B15)*B3*B4` |
+| A25 | `tie-out` |
+| B25 | `=B19+B23-(B9+B10+B11)` |
+
+**B25 must be zero.** Cost of goods sold plus ending inventory has to equal everything spent on
+manufacturing. If it is not zero, you have mixed up a denominator. Selling and admin is excluded
+deliberately, because period costs never enter inventory.
+
+When the problem states costs per unit or per employee rather than as totals, compute the totals into
+B9:B11 first, for example `=16*4` for four folders at $16 each.
+
+---
+
+## A blank-sheet opening sequence
+
+Two minutes at the start of the exam, before you read question 2:
+
+1. In D1:E4, type the t table from recipe 4.
+2. In A1:B8, type recipe 6. Most CVP items reuse it with one input changed.
+3. Leave row 1 of columns G onward clear for the multi-product table.
+
+Then for each question, change inputs rather than rebuilding. Label every cell, because an unlabelled
+sheet is where the wrong-cell errors come from.
+
+**Final reminder:** no GoalSeek, no Solver. Nothing above needs either. The Analysis ToolPak is not
+mentioned in the course logistics either way, so **do not count on it**; every regression recipe here
+works from the printed output block, which is how the exam presents regression anyway.
