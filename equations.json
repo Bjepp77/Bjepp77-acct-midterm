@@ -1,7 +1,7 @@
 {
  "meta": {
   "purpose": "Topic-keyed equations, symbol definitions and conceptual setup steps for the right-hand panel.",
-  "notation": "The professor's own notation throughout: a is fixed, b is variable; fixed cost and profit are never unitized.",
+  "notation": "The professor's own notation throughout: the intercept is fixed cost, the variable rate; fixed cost and profit are never unitized.",
   "sources": "study-guide.md, which was built from his class sessions, practice problems and handouts.",
   "built": "2026-10-22"
  },
@@ -228,7 +228,7 @@
      ]
     },
     {
-     "eq": "Break-even Baskets = Total FC / Basket CM",
+     "eq": "Break-even Baskets = (Total FC + Target Profit) / Basket CM",
      "symbols": [
       "Leave this UNROUNDED"
      ]
@@ -271,7 +271,7 @@
   "Cost behavior": {
    "home": {
     "eq": "TC = VC Rate(Volume) + Total FC",
-    "note": "The same equation rearranged into total cost. a is fixed, b is variable, his letters."
+    "note": "The same equation rearranged into total cost. His words are \"the variable cost rate\" and \"the Y intercept, which is fixed cost\"."
    },
    "equations": [
     {
@@ -311,40 +311,40 @@
   "High-low and mixed costs": {
    "home": {
     "eq": "TC = VC Rate(Volume) + Total FC",
-    "note": "The same equation rearranged into total cost. a is fixed, b is variable, his letters."
+    "note": "The same equation rearranged into total cost. His words are \"the variable cost rate\" and \"the Y intercept, which is fixed cost\"."
    },
    "equations": [
     {
-     "eq": "b = variable rate = (High cost - Low cost) / (High activity - Low activity)",
+     "eq": "Variable rate = (High cost - Low cost) / (High activity - Low activity)",
      "symbols": [
-      "b is variable"
+      "the variable rate"
      ]
     },
     {
-     "eq": "a = total fixed = High cost - b(High activity)",
+     "eq": "Total fixed = High cost - Variable rate(High activity)",
      "symbols": [
-      "a is fixed"
+      "the intercept is fixed cost"
      ]
     },
     {
-     "eq": "Check: a = Low cost - b(Low activity)",
+     "eq": "Check: Total fixed = Low cost - Variable rate(Low activity)",
      "symbols": [
-      "Both points must give the same a"
+      "Both points must give the same fixed cost"
      ]
     }
    ],
    "setup": [
     "Pick the high and low points by ACTIVITY, never by cost. This is the trap he plants most often.",
-    "Subtract to get b, the variable rate per unit of activity.",
-    "Put b back into the HIGH point to get a.",
-    "Check a at the LOW point. If the two disagree, you picked the points by cost.",
+    "Subtract to get the variable rate per unit of activity.",
+    "Put the variable rate back into the HIGH point to get fixed cost.",
+    "Check fixed cost at the LOW point. If the two disagree, you picked the points by cost.",
     "Only two points are used. Every other row is ignored by design."
    ]
   },
   "Regression": {
    "home": {
-    "eq": "Total Cost = a + b(Activity)",
-    "note": "Intercept a is fixed cost, slope b is the variable rate. The same a and b as high-low."
+    "eq": "Total Cost = Intercept + Slope(Activity)",
+    "note": "The intercept is fixed cost, the slope is the variable rate. Excel prints them as \"Intercept\" and the driver's own row. His Sailmaster line reads y = $687.43x + $49,701."
    },
    "equations": [
     {
@@ -387,7 +387,7 @@
    "setup": [
     "Read what the interval is around: a coefficient, or a predicted total cost.",
     "That choice picks the standard error. Using the wrong one is the whole question.",
-    "Get t from his table at n - 2 degrees of freedom: 70% 1.134, 80% 1.440, 90% 1.943, 95% 2.447.",
+    "Get t from his table at n - 2 degrees of freedom. At 6 df, the n = 8 case he hands you: 70% 1.134, 80% 1.440, 90% 1.943, 95% 2.447.",
     "Multiply t by the standard error for the half-width, then add and subtract.",
     "For a total-cost interval, build the point estimate first from the printed coefficients.",
     "Trap: R squared says how much variation is explained, not whether the driver causes the cost.",
@@ -429,8 +429,8 @@
   },
   "Operating leverage": {
    "home": {
-    "eq": "DOL = Total Contribution Margin / Operating Profit",
-    "note": "Dollars over dollars. Never the CM ratio, never a percentage, never revenue."
+    "eq": "Operating leverage = how much of the cost base is FIXED rather than variable",
+    "note": "Operating leverage is the cost structure itself. DOL is one reading taken off it at one volume, and it lives under the DOL topic."
    },
    "equations": [
     {
@@ -446,9 +446,9 @@
      ]
     },
     {
-     "eq": "Indifference volume = Fixed option cost / (VC Rate saved per unit)",
+     "eq": "DOL = Total Contribution Margin / Operating Profit",
      "symbols": [
-      "Where a fixed-cost option and a variable-cost option cost the same"
+      "The number that puts a figure on the structure. Dollars over dollars."
      ]
     }
    ],
@@ -463,7 +463,7 @@
   "Cost accounting (planes)": {
    "home": {
     "eq": "Cost per unit of production = Total cost of that input / Units of production for that input",
-    "note": "His term is \"units of production\". \"Equivalent units\" appears nowhere in his materials."
+    "note": "His slide says \"units of production\". In class he calls the same thing equivalent units, and the practice-problem solution labels it \"Work done\". One idea, three labels."
    },
    "equations": [
     {
@@ -499,7 +499,7 @@
    ],
    "setup": [
     "Separate the inputs: materials on one denominator, labor and overhead on another.",
-    "Count materials units of production: finished plus every unit started.",
+    "Count materials units of production: units sold plus every unit in process at 100 percent.",
     "Count conversion units of production: finished plus partial units at their percent complete.",
     "Divide each total cost by its own denominator.",
     "Split each into expensed and inventory, then check that the two add back to what was spent.",
@@ -509,7 +509,7 @@
   "Units of production (planes)": {
    "home": {
     "eq": "Cost per unit of production = Total cost of that input / Units of production for that input",
-    "note": "His term is \"units of production\". \"Equivalent units\" appears nowhere in his materials."
+    "note": "His slide says \"units of production\". In class he calls the same thing equivalent units, and the practice-problem solution labels it \"Work done\". One idea, three labels."
    },
    "equations": [
     {
@@ -545,7 +545,7 @@
    ],
    "setup": [
     "Separate the inputs: materials on one denominator, labor and overhead on another.",
-    "Count materials units of production: finished plus every unit started.",
+    "Count materials units of production: units sold plus every unit in process at 100 percent.",
     "Count conversion units of production: finished plus partial units at their percent complete.",
     "Divide each total cost by its own denominator.",
     "Split each into expensed and inventory, then check that the two add back to what was spent.",
@@ -587,8 +587,8 @@
   },
   "TenAlpina Case 1 (Giulia and Stanley)": {
    "home": {
-    "eq": "Incremental Profit = Revenue added - Variable Cost added - Fixed Cost added",
-    "note": "The question is always \"what changes if we do this?\". Only what changes is relevant."
+    "eq": "Revenue - Variable Cost - Fixed Cost = Profit",
+    "note": "Case 1 is a cost-structure question, not an incremental one. Ask what each option does to Total FC and to CM per unit, then read break even and leverage off that."
    },
    "equations": [
     {
@@ -684,7 +684,7 @@
    ],
    "setup": [
     "Open with the integrity statement, item 1, worth zero points.",
-    "Work the computational items in blueprint order; they are the 80 points.",
+    "Work the computational items in blueprint order; they are the 65 points.",
     "Leave time for items 17 and 18. The word limits need drafting, not dumping.",
     "Keep Excel blank at the start and build each calculation fresh."
    ]
@@ -716,7 +716,7 @@
    ],
    "setup": [
     "Open with the integrity statement, item 1, worth zero points.",
-    "Work the computational items in blueprint order; they are the 80 points.",
+    "Work the computational items in blueprint order; they are the 65 points.",
     "Leave time for items 17 and 18. The word limits need drafting, not dumping.",
     "Keep Excel blank at the start and build each calculation fresh."
    ]

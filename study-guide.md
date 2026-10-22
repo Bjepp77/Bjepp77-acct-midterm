@@ -311,11 +311,13 @@ selling $2.50.
 ### 3b. High-low method
 
 ```
-b  =  variable rate  =  (High cost - Low cost) / (High activity - Low activity)
-a  =  total fixed    =  High cost - b(High activity)
+Variable rate  =  (High cost - Low cost) / (High activity - Low activity)
+Total fixed    =  High cost - Variable rate(High activity)
 ```
 
-His notation: **a is fixed, b is variable.** Same letters as the regression output.
+His words, not letters: **"the variable cost rate"** and **"the Y intercept, which is fixed cost"**.
+He never writes y = a + bX. His Session 4 regression line reads y = $687.43x + $49,701, and Excel
+prints the two numbers as **Intercept** and the driver's own row.
 
 > **Pick the high and low points by ACTIVITY, not by cost.**
 
@@ -480,8 +482,13 @@ Fixed manufacturing overhead going into inventory is the part people get wrong.
 
 ### 5b. Units of production
 
-His term is **units of production**. He never says "equivalent units". Same idea: partially finished
-work counted as a fraction of a whole unit.
+One idea, three labels. His **Session 2 slide** says **units of production** ("So, units of
+production: DM: 11 planes sold + 4 planes (4 x 100%) in WIP = 15 planes total"). **In class** he
+calls it **equivalent units** ("a concept we're going to call equivalent units, which is just a
+fancy word for a measure of work done", 2026-09-10 transcript, line 8). The **practice-problem
+solution** labels the rows **Work done (DM)** and **Work done (DL/OH)**. All three mean the same
+thing: partially finished work counted as a fraction of a whole unit. Expect any of the three
+wordings on the exam.
 
 **You need separate denominators for materials and for conversion**, because materials usually go in
 at the start and labor goes in gradually.
