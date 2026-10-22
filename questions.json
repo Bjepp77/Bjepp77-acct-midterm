@@ -118,7 +118,7 @@
     {
       "id": "mos-002", "topic": "Margin of safety", "session": 6, "style": "computational MC", "type": "mc",
       "stem": "Same PVC company. The question is: 'How far can sales decline before we reach break-even?' Which calculation answers it?",
-      "choices": ["12,631 / 47,369 = 26.7%", "12,631 / 60,000 = 21.05%", "47,369 / 60,000 = 78.95%", "12,631 × $8.00 = $101,053"],
+      "choices": ["12,631 / 47,369 = 26.7%", "12,631 / 60,000 = 21.05%", "47,369 / 60,000 = 78.95%", "12,631.58 × $8.00 = $101,053"],
       "answer": 1,
       "solution": "<p>Divide margin of safety by <strong>current sales</strong>: 12,631 / 60,000 = <strong>21.05%</strong>.</p><table><tr><th>Divide MoS by</th><th>Question answered</th></tr><tr><td>Break-even</td><td>How far <em>above</em> break-even are we?</td></tr><tr><td>Current sales</td><td>How far can sales <em>decline</em> before break-even?</td></tr></table><p>Same numerator both times. Only the denominator changes. \"Might be nice if these had different names, but they don't.\"</p><p>The professor said he would ask one of these two on the exam.</p>",
       "source": "Session 6, 2026-10-15"
@@ -135,7 +135,7 @@
       "id": "mos-004", "topic": "Margin of safety", "session": 6, "style": "computational MC", "type": "numeric",
       "stem": "Same PVC company (MoS of 12,631 units, price $8.00). What is the margin of safety in sales DOLLARS?",
       "answer": 101053, "tolerance": 60, "answerLabel": "$101,053",
-      "solution": "<ol><li>MoS dollars = MoS units &times; price = 12,631 &times; 8.00 = <strong>$101,053</strong></li></ol><p>Equivalently: current revenue $480,000 &minus; break-even revenue $378,947 = $101,053.</p><p>The dollar value of MoS is the same regardless of which percentage version you later compute.</p>",
+      "solution": "<ol><li>MoS dollars = MoS units &times; price = 12,631.58 &times; 8.00 = <strong>$101,053</strong></li></ol><p>Equivalently: current revenue $480,000 &minus; break-even revenue $378,947 = $101,053.</p><p>Keep the unrounded 12,631.58. The rounded 12,631 &times; 8 is $101,048, five dollars short.</p><p>The dollar value of MoS is the same regardless of which percentage version you later compute.</p>",
       "source": "Session 6, 2026-10-15"
     },
     {
@@ -373,7 +373,7 @@
       "stem": "Scenario 3 treats labor as variable (CM $1.5725/unit, fixed $6,274.25). Scenario 4 treats the same labor as fixed (CM $8.76/unit, fixed $35,024.25). At 4,000 units both give operating income of $15.75. What is the correct conclusion?",
       "choices": ["The labor treatment is irrelevant to the analysis", "Profit is identical, but the risk profiles are completely different", "Scenario 4 is wrong because fixed costs are too high", "The scenarios must contain an arithmetic error"],
       "answer": 1,
-      "solution": "<p>Profit is identical. Risk is not.</p><table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>Total CM</td><td class='num'>$6,290</td><td class='num'>$35,040</td></tr><tr><td>Fixed cost</td><td class='num'>$6,274.25</td><td class='num'>$35,024.25</td></tr><tr><td>Operating income</td><td class='num'>$15.75</td><td class='num'>$15.75</td></tr><tr><td>Break-even units</td><td class='num'>3,990</td><td class='num'>3,998</td></tr><tr><td><strong>DOL</strong></td><td class='num'><strong>399.37</strong></td><td class='num'><strong>2,224.76</strong></td></tr></table><p>\"Who cares if the outcome is the same? Well, it matters\" &mdash; because the moment volume moves, the two structures behave nothing alike. See the next question.</p><p>In class he rounds $15.75 to \"exactly $16.\"</p>",
+      "solution": "<p>Profit is identical. Risk is not.</p><table><tr><th></th><th class='num'>Labor variable</th><th class='num'>Labor fixed</th></tr><tr><td>Total CM</td><td class='num'>$6,290</td><td class='num'>$35,040</td></tr><tr><td>Fixed cost</td><td class='num'>$6,274.25</td><td class='num'>$35,024.25</td></tr><tr><td>Operating income</td><td class='num'>$15.75</td><td class='num'>$15.75</td></tr><tr><td>Break-even units</td><td class='num'>3,990</td><td class='num'>3,998</td></tr><tr><td><strong>DOL</strong></td><td class='num'><strong>399.37</strong></td><td class='num'><strong>2,224.76</strong></td></tr></table><p>\"Who cares if the outcome is the same? Well, it matters\" &mdash; because the moment volume moves, the two structures behave nothing alike. See the next question.</p><p>In class he calls the $15.75 \"16 bucks\" and treats it as a rounding. The DOLs only close on $15.75: 6,290 / 15.75 = 399.37 and 35,040 / 15.75 = 2,224.76. At $16 they would be 393.1 and 2,190.</p>",
       "source": "Session 5, 2026-10-08"
     },
     {

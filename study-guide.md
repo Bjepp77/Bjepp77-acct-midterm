@@ -1012,11 +1012,15 @@ Mix is 12 pitons to 1 hammer, so 350 baskets per month: 4,200 pitons and 350 ham
 |---|---:|
 | VC ratio | 18% |
 | CM ratio | 82.4% |
-| Break-even revenue | 45,096 / 0.8240 = **$54,731** |
+| Break-even revenue | 45,096 / 0.8240 = **$54,731** ‡ |
 | Piton revenue share | 67% |
 | Hammer revenue share | 33% |
 | MoS dollars | 65,450 − 54,731 = $10,719 |
 | MoS percent | 10,719 / 65,450 = **16.38%** |
+
+‡ 45,096 / 0.8240 is $54,728. His $54,731 needs a CM ratio of 82.3942%, so he is carrying
+decimals the slide does not print. A $3 gap on $54,731. Use his figure and do not try to
+rebuild it from 82.4%.
 
 16.35% versus 16.38% is purely the effect of rounding units up. "It's exactly the same."
 
