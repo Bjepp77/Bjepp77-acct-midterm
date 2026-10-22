@@ -36,6 +36,7 @@ h1{font-size:1.3rem;margin:0 0 4px;letter-spacing:-.01em}
 .sub{color:var(--muted);font-size:.86rem;margin:0 0 18px}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+[hidden]{display:none !important}
 button{
   font:inherit;cursor:pointer;border:1px solid var(--line);background:var(--panel);
   color:var(--ink);border-radius:8px;padding:8px 12px;
@@ -50,7 +51,12 @@ select,input[type=text]{
 .badges{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
 .badge{font-size:.72rem;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
   border:1px solid var(--line);border-radius:999px;padding:2px 9px}
-.stem{font-size:1.02rem;margin:0 0 14px;white-space:pre-wrap}
+.stem{font-size:1.02rem;margin:0 0 14px}
+.stem p{margin:0 0 10px}
+.stem p:last-child{margin-bottom:0}
+.stem table{border-collapse:collapse;margin:10px 0}
+.stem th,.stem td{border:1px solid #243041;padding:4px 10px;text-align:left}
+.stem td.num,.stem th.num{text-align:right}
 .choices{display:flex;flex-direction:column;gap:8px}
 .choice{text-align:left;display:flex;gap:10px;align-items:flex-start;padding:10px 12px;white-space:pre-wrap}
 .choice .key{font-weight:600;color:var(--muted);flex:0 0 1.2em}
@@ -299,7 +305,7 @@ function renderCard(){
     (q.style ? "<span class='badge'>" + esc(q.style) + "</span>" : "") +
     "<span class='badge'>" + queue.length + " left</span>" +
     "</div>";
-  h += "<p class='stem'>" + esc(q.stem) + "</p>";
+  h += "<div class='stem'>" + q.stem + "</div>";   /* trusted: authored in questions.json */
   if(q.table) h += q.table;           // trusted: authored in questions.json, not user input
   if(q.type === "mc"){
     h += "<div class='choices' id='choices'>";
@@ -309,13 +315,20 @@ function renderCard(){
     });
     h += "</div>";
   } else {
-    h += "<div class='answerline'>" +
-         "<input type='text' id='numin' inputmode='decimal' placeholder='" +
-         (q.type === "numeric" ? "your number" : "your answer") + "' size='18'>" +
-         "<button class='primary' id='submit'>Submit</button>" +
-         "</div>";
-    if(q.type === "numeric") h += "<div class='hint' style='margin-top:6px'>Digits only is fine. $ and , are ignored.</div>";
-    if(q.type === "short") h += "<div class='hint' style='margin-top:6px'>Write your answer, then compare it against the model answer.</div>";
+    if(q.type === "short" || q.type === "essay"){
+      h += "<textarea class='essay' id='numin' placeholder='your answer'></textarea>";
+      if(q.wordLimit) h += "<div class='wc' id='wc'></div>";
+      h += "<div class='answerline'><button class='primary' id='submit'>Show the model answer</button></div>" +
+           "<div class='hint' style='margin-top:6px'>Write your answer first, then compare it against the model answer." +
+           (q.wordLimit ? " On the exam this item is capped at " + esc(q.wordLimit) + " words." : "") +
+           "</div>";
+    } else {
+      h += "<div class='answerline'>" +
+           "<input type='text' id='numin' inputmode='decimal' placeholder='your number' size='18'>" +
+           "<button class='primary' id='submit'>Submit</button>" +
+           "</div>" +
+           "<div class='hint' style='margin-top:6px'>Digits only is fine. $ and , are ignored.</div>";
+    }
   }
   h += "<div id='after'></div>";
   c.innerHTML = h;
@@ -327,7 +340,11 @@ function renderCard(){
   } else {
     var inp = document.getElementById("numin");
     document.getElementById("submit").addEventListener("click", answerTyped);
-    inp.addEventListener("keydown", function(e){ if(e.key === "Enter") answerTyped(); });
+    if(inp.tagName === "TEXTAREA"){
+      if(q.wordLimit) inp.addEventListener("input", function(){ updateWC(q); });
+    } else {
+      inp.addEventListener("keydown", function(e){ if(e.key === "Enter") answerTyped(); });
+    }
     inp.focus();
   }
 }
