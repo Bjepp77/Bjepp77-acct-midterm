@@ -56,10 +56,12 @@ A Second Chance window of Nov 4 to 8 is on the sheet with a question mark beside
 | `cheat-sheet.md` | A Click Note for the one handwritten sheet: twelve items, nothing obvious. Opens with the AI-policy caution, which is unresolved and needs a question to the professor |
 | `excel-recipes.md` | Twelve cell-by-cell recipes mapped to blueprint items, all solvable on a blank sheet with no GoalSeek and no Solver |
 | `questions.json` | Question bank, 181 questions. Single source of truth |
+| `equations.json` | The equations panel, keyed by topic: the home equation, the other equations with every symbol defined, and the conceptual setup steps. Single source of truth for anything the panel shows |
 | | TenAlpina items carry a `cite` block: transcript file, line, and the quote |
 | `index.html` | Local practice quiz plus a timed mock-exam mode. No external libraries |
 | `questions.js` | Generated from `questions.json` by `build.sh`. Never edit it |
-| `build.sh` | Regenerates `questions.js` and validates the JSON |
+| `equations.js` | Generated from `equations.json` by `build.sh`. Never edit it |
+| `build.sh` | Regenerates both `.js` files and validates the JSON |
 
 ## The bank
 
@@ -98,7 +100,7 @@ By blueprint item:
 
 The quiz is already served continuously at <http://localhost:4181/> by the launchd job
 `com.bjepp.acct-midterm`. Nothing to start. Run `./build.sh` after editing `questions.json`
-so the served copy picks the change up.
+so the served copy picks the change up. The same applies after editing `equations.json`.
 
 To run it standalone instead:
 
@@ -106,8 +108,8 @@ To run it standalone instead:
 ./build.sh && open index.html
 ```
 
-The build exists because `file://` blocks `fetch`. The page tries `questions.json` first and
-falls back to `questions.js`.
+The build exists because `file://` blocks `fetch`. The page tries `questions.json` and
+`equations.json` first and falls back to `questions.js` and `equations.js`.
 
 ## The interface
 
@@ -118,6 +120,20 @@ key. Below 768px it becomes a slide-in drawer behind a Topics button. A three-no
 (Topic, Quiz, Results) shows where you are. Progress bars use a plain label-left,
 value-right pattern: mastery per topic in the rail, position in the current pool on each
 question, answered-so-far during the mock, and the score at the end.
+
+A right-hand panel mirrors the rail and carries the equations for whatever topic you are in.
+It pins the home equation at the top, then lists the other equations for that topic with every
+symbol defined in his notation, then numbered setup steps for that question type: what to find
+first, which equation, and the trap. A collapsed "See more" box holds the step-by-step
+walkthrough for the question on screen, so it never spoils the question unless you open it.
+The panel collapses to an icon strip, remembers that choice, has its own keyboard toggle on the
+right bracket key, and becomes a right-hand drawer below 768px behind an Equations button.
+
+**The panel is hidden outright during the timed mock.** The real exam allows one handwritten
+sheet and nothing else, so practising with the equations on screen would train the wrong thing.
+
+Everything the panel shows comes from `equations.json`, so the equations stay identical
+wherever they appear.
 
 ## Practice mode
 
@@ -175,6 +191,9 @@ answers in the review screen.
   Documented, unresolved, almost certainly a slide typo.
 - **The labor-time allocation split in session 7 (63/37 versus 37/63) is unresolved** in the
   transcript, and is flagged where it is used.
+- **The equations panel is only as good as `equations.json`.** It was written from
+  `study-guide.md`, which was itself built from his sessions, practice problems and handouts.
+  It is a restatement, not a quotation of his slides.
 - Names come from auto-transcription and may be misspelled. The professor is given as
   Steve Smith.
 - **No real quiz items were ever available.** The bank is weighted to the blueprint and to his

@@ -1,0 +1,725 @@
+{
+ "meta": {
+  "purpose": "Topic-keyed equations, symbol definitions and conceptual setup steps for the right-hand panel.",
+  "notation": "The professor's own notation throughout: a is fixed, b is variable; fixed cost and profit are never unitized.",
+  "sources": "study-guide.md, which was built from his class sessions, practice problems and handouts.",
+  "built": "2026-10-22"
+ },
+ "topics": {
+  "CVP basics": {
+   "home": {
+    "eq": "Revenue - Variable Cost - Fixed Cost = Profit",
+    "note": "His \"One\" Formula, also called the Home Equation. Every CVP question is this one equation with a different unknown."
+   },
+   "equations": [
+    {
+     "eq": "Sale Price(Volume) - VC Rate(Volume) - Total FC = Profit",
+     "symbols": [
+      "Sale Price: price per unit",
+      "VC Rate: variable cost per unit",
+      "Total FC: fixed cost in total, never per unit",
+      "Volume: units"
+     ]
+    },
+    {
+     "eq": "CM/unit(Volume) - Total FC = Profit",
+     "symbols": [
+      "CM/unit: Sale Price - VC Rate"
+     ]
+    },
+    {
+     "eq": "Revenue - VC%(Revenue) - Total FC = Profit",
+     "symbols": [
+      "VC%: variable cost as a share of revenue"
+     ]
+    },
+    {
+     "eq": "Break-even Volume = Total FC / CM per unit",
+     "symbols": [
+      "Profit set to zero"
+     ]
+    },
+    {
+     "eq": "Break-even Revenue = Total FC / CM ratio",
+     "symbols": [
+      "CM ratio = 1 - VC ratio"
+     ]
+    },
+    {
+     "eq": "Target Volume = (Total FC + Target Profit) / CM per unit",
+     "symbols": [
+      "Target Profit sits beside fixed cost in the numerator, nothing else changes"
+     ]
+    }
+   ],
+   "setup": [
+    "Read what the question wants: units, revenue, or profit. That picks which form you use.",
+    "List the four inputs: Sale Price, VC Rate, Total FC, Volume. One of them is the unknown.",
+    "Given per-unit figures, work in CM per unit. Given percentages, work in CM ratio.",
+    "Set Profit to zero for break even, or to the target for a target question.",
+    "Solve, then round volumes UP to the next whole unit. You cannot sell part of a unit.",
+    "Trap: never unitize fixed cost or profit. Fixed cost stays a total."
+   ]
+  },
+  "Single-product CVP": {
+   "home": {
+    "eq": "Revenue - Variable Cost - Fixed Cost = Profit",
+    "note": "His \"One\" Formula, also called the Home Equation. Every CVP question is this one equation with a different unknown."
+   },
+   "equations": [
+    {
+     "eq": "Sale Price(Volume) - VC Rate(Volume) - Total FC = Profit",
+     "symbols": [
+      "Sale Price: price per unit",
+      "VC Rate: variable cost per unit",
+      "Total FC: fixed cost in total, never per unit",
+      "Volume: units"
+     ]
+    },
+    {
+     "eq": "CM/unit(Volume) - Total FC = Profit",
+     "symbols": [
+      "CM/unit: Sale Price - VC Rate"
+     ]
+    },
+    {
+     "eq": "Revenue - VC%(Revenue) - Total FC = Profit",
+     "symbols": [
+      "VC%: variable cost as a share of revenue"
+     ]
+    },
+    {
+     "eq": "Break-even Volume = Total FC / CM per unit",
+     "symbols": [
+      "Profit set to zero"
+     ]
+    },
+    {
+     "eq": "Break-even Revenue = Total FC / CM ratio",
+     "symbols": [
+      "CM ratio = 1 - VC ratio"
+     ]
+    },
+    {
+     "eq": "Target Volume = (Total FC + Target Profit) / CM per unit",
+     "symbols": [
+      "Target Profit sits beside fixed cost in the numerator, nothing else changes"
+     ]
+    }
+   ],
+   "setup": [
+    "Read what the question wants: units, revenue, or profit. That picks which form you use.",
+    "List the four inputs: Sale Price, VC Rate, Total FC, Volume. One of them is the unknown.",
+    "Given per-unit figures, work in CM per unit. Given percentages, work in CM ratio.",
+    "Set Profit to zero for break even, or to the target for a target question.",
+    "Solve, then round volumes UP to the next whole unit. You cannot sell part of a unit.",
+    "Trap: never unitize fixed cost or profit. Fixed cost stays a total."
+   ]
+  },
+  "Margin of safety": {
+   "home": {
+    "eq": "Revenue - Variable Cost - Fixed Cost = Profit",
+    "note": "His \"One\" Formula, also called the Home Equation. Every CVP question is this one equation with a different unknown."
+   },
+   "equations": [
+    {
+     "eq": "Margin of Safety = Current Volume - Break-even Volume",
+     "symbols": [
+      "In units or in dollars, same subtraction"
+     ]
+    },
+    {
+     "eq": "MoS dollars = MoS units x Sale Price",
+     "symbols": [
+      "Keep the UNROUNDED break even here"
+     ]
+    },
+    {
+     "eq": "How far above break even = MoS / Break-even Volume",
+     "symbols": [
+      "Denominator is break even"
+     ]
+    },
+    {
+     "eq": "How far can sales fall = MoS / Current Volume",
+     "symbols": [
+      "Denominator is current sales"
+     ]
+    }
+   ],
+   "setup": [
+    "Compute break even first. The margin of safety is a second step, never a first one.",
+    "Decide which percentage the words ask for. He asks for both versions on different questions.",
+    "\"How far can sales fall before we lose money\" divides by CURRENT sales.",
+    "\"How far are we above break even\" divides by BREAK EVEN.",
+    "Trap: for the dollar answer, use the unrounded break-even volume. Rounding first loses dollars."
+   ]
+  },
+  "Taxes and target profit": {
+   "home": {
+    "eq": "Revenue - Variable Cost - Fixed Cost = Profit",
+    "note": "His \"One\" Formula, also called the Home Equation. Every CVP question is this one equation with a different unknown."
+   },
+   "equations": [
+    {
+     "eq": "Operating Income (pretax) = After-tax Net Income / (1 - tax rate)",
+     "symbols": [
+      "Divide, never multiply. You must earn MORE pretax than you keep."
+     ]
+    },
+    {
+     "eq": "Target Volume = (Total FC + Pretax Target) / CM per unit",
+     "symbols": [
+      "Gross up to pretax BEFORE the target enters the equation"
+     ]
+    }
+   ],
+   "setup": [
+    "Spot whether the target is stated after tax. If it is, gross it up first.",
+    "Pretax = After-tax / (1 - t). Do this before touching the CVP equation.",
+    "Put the pretax figure beside Total FC in the numerator.",
+    "Solve for volume and round up.",
+    "Trap: multiplying by (1 - t) instead of dividing is the wrong answer sitting in the options."
+   ]
+  },
+  "Taxes and target return": {
+   "home": {
+    "eq": "Revenue - Variable Cost - Fixed Cost = Profit",
+    "note": "His \"One\" Formula, also called the Home Equation. Every CVP question is this one equation with a different unknown."
+   },
+   "equations": [
+    {
+     "eq": "Operating Income (pretax) = After-tax Net Income / (1 - tax rate)",
+     "symbols": [
+      "Same gross-up"
+     ]
+    },
+    {
+     "eq": "Target Net Income = Equity x Required ROE",
+     "symbols": [
+      "ROE uses EQUITY"
+     ]
+    },
+    {
+     "eq": "Target Net Income = Total Assets x Required ROA",
+     "symbols": [
+      "ROA uses TOTAL ASSETS"
+     ]
+    }
+   ],
+   "setup": [
+    "Read whether the return is on equity or on assets. That picks the base you multiply.",
+    "Multiply the base by the required rate to get the after-tax income the owner wants.",
+    "Gross that up to pretax by dividing by (1 - t).",
+    "Then it is an ordinary target-profit CVP question.",
+    "Trap: using total assets when the question said equity, or the reverse."
+   ]
+  },
+  "Multi-product CVP": {
+   "home": {
+    "eq": "Revenue - Variable Cost - Fixed Cost = Profit",
+    "note": "His \"One\" Formula, also called the Home Equation. Every CVP question is this one equation with a different unknown."
+   },
+   "equations": [
+    {
+     "eq": "Basket method: Basket CM = sum over products of (mix units x CM per unit)",
+     "symbols": [
+      "Mix is the UNIT ratio, for example 12 to 1"
+     ]
+    },
+    {
+     "eq": "Break-even Baskets = Total FC / Basket CM",
+     "symbols": [
+      "Leave this UNROUNDED"
+     ]
+    },
+    {
+     "eq": "Product units = Baskets x that product's mix number",
+     "symbols": [
+      "Unpack FIRST, then round each product up"
+     ]
+    },
+    {
+     "eq": "Weighted average method: Weighted CM = sum of (unit-volume weight x CM per unit)",
+     "symbols": [
+      "Weights are shares of total UNITS"
+     ]
+    },
+    {
+     "eq": "Revenue method: Break-even Revenue = (Total FC + Target Profit) / (1 - VC ratio)",
+     "symbols": [
+      "VC ratio = Total Variable Cost / Total Revenue"
+     ]
+    },
+    {
+     "eq": "Product revenue = Break-even Revenue x that product's REVENUE share",
+     "symbols": [
+      "Revenue share, never the unit mix"
+     ]
+    }
+   ],
+   "setup": [
+    "Identify the mix and whether it is given in units or in revenue. They are different numbers.",
+    "Pick a method. All three agree if you do them right; the basket method is his default.",
+    "Build the basket from the unit mix, then divide Total FC by basket contribution margin.",
+    "Do NOT round the baskets. Baskets are a counting device, not a quantity.",
+    "Unpack to each product, then round each product up.",
+    "Trap: splitting a REVENUE answer by the unit mix. Revenue splits by revenue share.",
+    "There is no single multi-product break even. Change the mix and the answer changes."
+   ]
+  },
+  "Cost behavior": {
+   "home": {
+    "eq": "TC = VC Rate(Volume) + Total FC",
+    "note": "The same equation rearranged into total cost. a is fixed, b is variable, his letters."
+   },
+   "equations": [
+    {
+     "eq": "Total Cost = Variable Cost + Fixed Cost",
+     "symbols": [
+      "Only two behaviours exist in this course"
+     ]
+    },
+    {
+     "eq": "Variable Cost = VC Rate x Volume",
+     "symbols": [
+      "VC Rate is constant per unit, total rises with volume"
+     ]
+    },
+    {
+     "eq": "Total FC is constant in total",
+     "symbols": [
+      "Fixed cost PER UNIT falls as volume rises, which is why he never unitizes it"
+     ]
+    },
+    {
+     "eq": "Rebuilding from a GAAP statement: Total FC = Total Cost - (VC per unit x Volume)",
+     "symbols": [
+      "Cost of goods sold is not variable cost and selling and admin is not fixed cost. Both lines are mixtures."
+     ]
+    }
+   ],
+   "setup": [
+    "Decide what each cost does when VOLUME moves, not where it sits on the income statement.",
+    "Add up every variable cost per unit to get one VC Rate.",
+    "Multiply VC Rate by volume for total variable cost.",
+    "Total cost minus total variable cost leaves Total FC.",
+    "Trap: a GAAP statement cannot be used for CVP as it stands. Rebuild the split first.",
+    "Trap: step costs are fixed within a range and jump between ranges. Work inside the right range."
+   ]
+  },
+  "High-low and mixed costs": {
+   "home": {
+    "eq": "TC = VC Rate(Volume) + Total FC",
+    "note": "The same equation rearranged into total cost. a is fixed, b is variable, his letters."
+   },
+   "equations": [
+    {
+     "eq": "b = variable rate = (High cost - Low cost) / (High activity - Low activity)",
+     "symbols": [
+      "b is variable"
+     ]
+    },
+    {
+     "eq": "a = total fixed = High cost - b(High activity)",
+     "symbols": [
+      "a is fixed"
+     ]
+    },
+    {
+     "eq": "Check: a = Low cost - b(Low activity)",
+     "symbols": [
+      "Both points must give the same a"
+     ]
+    }
+   ],
+   "setup": [
+    "Pick the high and low points by ACTIVITY, never by cost. This is the trap he plants most often.",
+    "Subtract to get b, the variable rate per unit of activity.",
+    "Put b back into the HIGH point to get a.",
+    "Check a at the LOW point. If the two disagree, you picked the points by cost.",
+    "Only two points are used. Every other row is ignored by design."
+   ]
+  },
+  "Regression": {
+   "home": {
+    "eq": "Total Cost = a + b(Activity)",
+    "note": "Intercept a is fixed cost, slope b is the variable rate. The same a and b as high-low."
+   },
+   "equations": [
+    {
+     "eq": "Point estimate = Intercept + Slope x Activity",
+     "symbols": [
+      "Use the PRINTED, rounded coefficients"
+     ]
+    },
+    {
+     "eq": "Interval = Point Estimate +/- ( t x the appropriate standard error )",
+     "symbols": [
+      "Three standard errors exist on the output. Pick the right one."
+     ]
+    },
+    {
+     "eq": "Interval on a COEFFICIENT uses that coefficient's own standard error",
+     "symbols": [
+      "The SE on its row"
+     ]
+    },
+    {
+     "eq": "Interval on TOTAL COST uses the regression's standard error",
+     "symbols": [
+      "The Standard Error in the summary block"
+     ]
+    },
+    {
+     "eq": "t = coefficient / its own standard error",
+     "symbols": [
+      "t at or above 2 is useful, above 3 near certain"
+     ]
+    },
+    {
+     "eq": "Degrees of freedom = n - 2",
+     "symbols": [
+      "8 observations gives df = 6"
+     ]
+    }
+   ],
+   "setup": [
+    "Read what the interval is around: a coefficient, or a predicted total cost.",
+    "That choice picks the standard error. Using the wrong one is the whole question.",
+    "Get t from his table at n - 2 degrees of freedom: 70% 1.134, 80% 1.440, 90% 1.943, 95% 2.447.",
+    "Multiply t by the standard error for the half-width, then add and subtract.",
+    "For a total-cost interval, build the point estimate first from the printed coefficients.",
+    "Trap: R squared says how much variation is explained, not whether the driver causes the cost.",
+    "He says \"confidence interval around this estimate\". He never says \"prediction interval\"."
+   ]
+  },
+  "DOL": {
+   "home": {
+    "eq": "DOL = Total Contribution Margin / Operating Profit",
+    "note": "Dollars over dollars. Never the CM ratio, never a percentage, never revenue."
+   },
+   "equations": [
+    {
+     "eq": "DOL x % change in Revenue = % change in Operating Profit",
+     "symbols": [
+      "The reason DOL is worth knowing"
+     ]
+    },
+    {
+     "eq": "Total CM = Revenue - Total Variable Cost",
+     "symbols": [
+      "Numerator"
+     ]
+    },
+    {
+     "eq": "Operating Profit = Total CM - Total FC",
+     "symbols": [
+      "Denominator"
+     ]
+    }
+   ],
+   "setup": [
+    "Build the full income statement in totals: revenue, total variable cost, total CM, fixed cost, profit.",
+    "Divide total contribution margin by operating profit.",
+    "To answer a sensitivity question, multiply DOL by the percentage change in revenue.",
+    "Trap: DOL is computed at ONE volume. It changes the moment volume changes.",
+    "Nearer break even, DOL grows without limit. Far above it, DOL approaches 1."
+   ]
+  },
+  "Operating leverage": {
+   "home": {
+    "eq": "DOL = Total Contribution Margin / Operating Profit",
+    "note": "Dollars over dollars. Never the CM ratio, never a percentage, never revenue."
+   },
+   "equations": [
+    {
+     "eq": "High leverage = large Total FC, low VC Rate",
+     "symbols": [
+      "Bigger contribution margin, bigger swing"
+     ]
+    },
+    {
+     "eq": "Low leverage = small Total FC, high VC Rate",
+     "symbols": [
+      "Safer, but capped upside"
+     ]
+    },
+    {
+     "eq": "Indifference volume = Fixed option cost / (VC Rate saved per unit)",
+     "symbols": [
+      "Where a fixed-cost option and a variable-cost option cost the same"
+     ]
+    }
+   ],
+   "setup": [
+    "Name which structure each option is: more fixed, or more variable.",
+    "Say what that does to contribution margin per unit and to Total FC.",
+    "State the consequence in both directions: more upside per unit, more downside below break even.",
+    "If the question asks which is better, the honest answer names the volume it depends on.",
+    "Trap: DOL is a point-in-time reading; operating leverage is the cost structure behind it."
+   ]
+  },
+  "Cost accounting (planes)": {
+   "home": {
+    "eq": "Cost per unit of production = Total cost of that input / Units of production for that input",
+    "note": "His term is \"units of production\". \"Equivalent units\" appears nowhere in his materials."
+   },
+   "equations": [
+    {
+     "eq": "Materials units of production = units sold + ALL units in process",
+     "symbols": [
+      "Materials go in at the start, so work in process counts in full"
+     ]
+    },
+    {
+     "eq": "Conversion units of production = units sold + (units in process x percent complete)",
+     "symbols": [
+      "Labor and overhead accrue as work proceeds"
+     ]
+    },
+    {
+     "eq": "Cost expensed = cost per unit x units sold",
+     "symbols": [
+      "Goes to the income statement"
+     ]
+    },
+    {
+     "eq": "Cost in inventory = cost per unit x units of production still in process",
+     "symbols": [
+      "Stays on the balance sheet"
+     ]
+    },
+    {
+     "eq": "Tie-out: expensed + inventory = total spent",
+     "symbols": [
+      "If it does not tie, a denominator is wrong"
+     ]
+    }
+   ],
+   "setup": [
+    "Separate the inputs: materials on one denominator, labor and overhead on another.",
+    "Count materials units of production: finished plus every unit started.",
+    "Count conversion units of production: finished plus partial units at their percent complete.",
+    "Divide each total cost by its own denominator.",
+    "Split each into expensed and inventory, then check that the two add back to what was spent.",
+    "Trap: one denominator for everything. Materials and conversion almost never share one."
+   ]
+  },
+  "Units of production (planes)": {
+   "home": {
+    "eq": "Cost per unit of production = Total cost of that input / Units of production for that input",
+    "note": "His term is \"units of production\". \"Equivalent units\" appears nowhere in his materials."
+   },
+   "equations": [
+    {
+     "eq": "Materials units of production = units sold + ALL units in process",
+     "symbols": [
+      "Materials go in at the start, so work in process counts in full"
+     ]
+    },
+    {
+     "eq": "Conversion units of production = units sold + (units in process x percent complete)",
+     "symbols": [
+      "Labor and overhead accrue as work proceeds"
+     ]
+    },
+    {
+     "eq": "Cost expensed = cost per unit x units sold",
+     "symbols": [
+      "Goes to the income statement"
+     ]
+    },
+    {
+     "eq": "Cost in inventory = cost per unit x units of production still in process",
+     "symbols": [
+      "Stays on the balance sheet"
+     ]
+    },
+    {
+     "eq": "Tie-out: expensed + inventory = total spent",
+     "symbols": [
+      "If it does not tie, a denominator is wrong"
+     ]
+    }
+   ],
+   "setup": [
+    "Separate the inputs: materials on one denominator, labor and overhead on another.",
+    "Count materials units of production: finished plus every unit started.",
+    "Count conversion units of production: finished plus partial units at their percent complete.",
+    "Divide each total cost by its own denominator.",
+    "Split each into expensed and inventory, then check that the two add back to what was spent.",
+    "Trap: one denominator for everything. Materials and conversion almost never share one."
+   ]
+  },
+  "Allocation": {
+   "home": {
+    "eq": "Allocated cost = Allocation rate x Driver quantity",
+    "note": "Allocation moves cost between objects. It creates nothing and destroys nothing."
+   },
+   "equations": [
+    {
+     "eq": "Allocation rate = Total cost in the pool / Total driver quantity",
+     "symbols": [
+      "One rate per pool"
+     ]
+    },
+    {
+     "eq": "Cost object: the thing you are asking \"what does this cost me?\" about",
+     "symbols": [
+      "A product, a client, a line"
+     ]
+    },
+    {
+     "eq": "Driver: the activity that actually causes the cost to move",
+     "symbols": [
+      "Choose it because it drives, not because it is handy"
+     ]
+    }
+   ],
+   "setup": [
+    "Name the cost object and the pool before touching any arithmetic.",
+    "Pick the driver that causes the cost, then compute one rate for the pool.",
+    "Multiply the rate by each object's driver quantity.",
+    "Check that the allocations add back to the pool.",
+    "Trap: an allocated figure is not a relevant cost for a short-term decision. Use incremental for that."
+   ]
+  },
+  "TenAlpina Case 1 (Giulia and Stanley)": {
+   "home": {
+    "eq": "Incremental Profit = Revenue added - Variable Cost added - Fixed Cost added",
+    "note": "The question is always \"what changes if we do this?\". Only what changes is relevant."
+   },
+   "equations": [
+    {
+     "eq": "Outsourced structure: no fixed cost, so break even is ZERO units",
+     "symbols": [
+      "No downside, and no leverage either"
+     ]
+    },
+    {
+     "eq": "Forge structure: fixed cost enters, so break even and leverage both appear",
+     "symbols": [
+      "More upside per unit, real losses below break even"
+     ]
+    },
+    {
+     "eq": "Break even = Total FC / CM per unit",
+     "symbols": [
+      "Same home equation, applied to each future"
+     ]
+    }
+   ],
+   "setup": [
+    "State which cost structure each option is before computing anything.",
+    "Compute break even and margin of safety under each.",
+    "Say what the structure does in BOTH directions: upside and downside.",
+    "End on the judgement the numbers cannot make: how confident is she in the volume?",
+    "Word limits are tight. One clause per idea, no preamble, no restating the question."
+   ]
+  },
+  "TenAlpina Case 2 (hammer line)": {
+   "home": {
+    "eq": "Incremental Profit = Revenue added - Variable Cost added - Fixed Cost added",
+    "note": "The question is always \"what changes if we do this?\". Only what changes is relevant."
+   },
+   "equations": [
+    {
+     "eq": "Incremental operating income = added revenue - added variable cost - added fixed cost",
+     "symbols": [
+      "Discretionary items, such as her own salary, stay OUT of the decision"
+     ]
+    },
+    {
+     "eq": "Payback = Investment / periodic cash or income flow",
+     "symbols": [
+      "A length of time, not a value"
+     ]
+    },
+    {
+     "eq": "Allocated view: gross margin after spreading shared cost on a driver",
+     "symbols": [
+      "Changes appearance, changes no cash and no total profit"
+     ]
+    },
+    {
+     "eq": "Multi-product break even: basket method on the 12 to 1 unit mix",
+     "symbols": [
+      "Then unpack and round each product up"
+     ]
+    }
+   ],
+   "setup": [
+    "Answer the incremental question on incremental numbers only.",
+    "Exclude discretionary costs she does not have to incur; depreciation is not discretionary.",
+    "Then look at the allocated view separately, because appearance matters to outsiders.",
+    "Say what the allocation does NOT change: total profit and cash.",
+    "Trap: \"the allocation is arbitrary so ignore it\" is the wrong answer. He never says ignore it."
+   ]
+  },
+  "Exam logistics": {
+   "home": {
+    "eq": "18 items, 100 points, 2 hours 15 minutes",
+    "note": "Individual. Proctorio. One handwritten 8.5 x 11 sheet. Excel allowed but the workbook must start blank."
+   },
+   "equations": [
+    {
+     "eq": "Not permitted: GoalSeek, Solver, any AI resource",
+     "symbols": [
+      "Named in the logistics sheet"
+     ]
+    },
+    {
+     "eq": "Rounding: break-even and target volumes round UP",
+     "symbols": [
+      "You never lose points for a rounding error"
+     ]
+    },
+    {
+     "eq": "The two case items are capped at 50 and 90 words",
+     "symbols": [
+      "The cap is the hardest part of those items"
+     ]
+    }
+   ],
+   "setup": [
+    "Open with the integrity statement, item 1, worth zero points.",
+    "Work the computational items in blueprint order; they are the 80 points.",
+    "Leave time for items 17 and 18. The word limits need drafting, not dumping.",
+    "Keep Excel blank at the start and build each calculation fresh."
+   ]
+  },
+  "Integrity": {
+   "home": {
+    "eq": "18 items, 100 points, 2 hours 15 minutes",
+    "note": "Individual. Proctorio. One handwritten 8.5 x 11 sheet. Excel allowed but the workbook must start blank."
+   },
+   "equations": [
+    {
+     "eq": "Not permitted: GoalSeek, Solver, any AI resource",
+     "symbols": [
+      "Named in the logistics sheet"
+     ]
+    },
+    {
+     "eq": "Rounding: break-even and target volumes round UP",
+     "symbols": [
+      "You never lose points for a rounding error"
+     ]
+    },
+    {
+     "eq": "The two case items are capped at 50 and 90 words",
+     "symbols": [
+      "The cap is the hardest part of those items"
+     ]
+    }
+   ],
+   "setup": [
+    "Open with the integrity statement, item 1, worth zero points.",
+    "Work the computational items in blueprint order; they are the 80 points.",
+    "Leave time for items 17 and 18. The word limits need drafting, not dumping.",
+    "Keep Excel blank at the start and build each calculation fresh."
+   ]
+  }
+ }
+}

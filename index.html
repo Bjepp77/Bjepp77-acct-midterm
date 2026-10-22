@@ -31,9 +31,9 @@ body{
   font:16px/1.55 ui-sans-serif,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   padding:24px 16px 80px;
 }
-.wrap{max-width:860px;margin:0 auto}
-h1{font-size:1.3rem;margin:0 0 4px;letter-spacing:-.01em}
-.sub{color:var(--muted);font-size:.86rem;margin:0 0 18px}
+.wrap{max-width:1340px;margin:0 auto}
+h1{font-size:1.3rem;margin:0 0 4px;letter-spacing:-.01em;max-width:62ch}
+.sub{color:var(--muted);font-size:.86rem;margin:0 0 18px;max-width:72ch}
 .panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}
 .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 [hidden]{display:none !important}
@@ -106,7 +106,7 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 .itemjump button.cur{background:var(--accent);color:#06210f;border-color:var(--accent)}
 
 /* ---------- app shell: rail + content ---------- */
-.app{display:flex;gap:0;max-width:1180px;margin:0 auto;align-items:flex-start}
+.app{display:flex;gap:0;max-width:1340px;margin:0 auto;align-items:flex-start}
 #rail{
   flex:0 0 232px;position:sticky;top:24px;align-self:flex-start;
   border:1px solid var(--line);border-radius:10px;background:var(--panel);
@@ -115,7 +115,7 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 .app.rail-collapsed #rail{flex-basis:52px}
 #rail .railhead{display:flex;align-items:center;gap:8px;padding:2px 4px 8px}
 #rail .railhead .eyebrow{flex:1;min-width:0;white-space:nowrap;overflow:hidden}
-.eyebrow{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
+.eyebrow{font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600}
 .railrow{
   display:flex;align-items:center;gap:8px;width:100%;height:32px;padding:0 6px;
   border:0;background:none;border-radius:6px;text-align:left;color:var(--ink);
@@ -127,7 +127,7 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 .railrow[aria-current="true"] .ico{color:var(--accent)}
 .railrow .lbl2{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .railrow .cnt{
-  flex:0 0 auto;font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums;
+  flex:0 0 auto;font-size:.75rem;color:var(--muted);font-variant-numeric:tabular-nums;
   border:1px solid var(--line);border-radius:999px;padding:0 6px;line-height:1.5;
 }
 .visually-hidden{position:absolute !important;left:-9999px;top:auto;width:1px;height:1px;
@@ -146,7 +146,7 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 }
 .app.rail-collapsed .railrow:hover::after,
 .app.rail-collapsed .railrow:focus-visible::after{opacity:1}
-#content{flex:1;min-width:0;padding-left:18px}
+#content{flex:1;min-width:0;padding:0 18px;max-width:840px;margin:0 auto}
 #hamburger{display:none}
 #backdrop{display:none}
 
@@ -154,8 +154,8 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 .stepper{display:flex;align-items:center;gap:0;margin:0 0 14px;flex-wrap:wrap}
 .step{display:flex;align-items:center;gap:7px;font-size:.78rem;color:var(--muted)}
 .step .node{
-  width:18px;height:18px;border-radius:999px;border:1.5px solid var(--line);
-  display:grid;place-items:center;font-size:.64rem;font-variant-numeric:tabular-nums;
+  width:20px;height:20px;border-radius:999px;border:1.5px solid var(--line);
+  display:grid;place-items:center;font-size:.7rem;font-variant-numeric:tabular-nums;
 }
 .step.done .node{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
 .step.cur{color:var(--ink);font-weight:600}
@@ -164,10 +164,10 @@ textarea.essay{width:100%;min-height:120px;background:#0d1117;color:inherit;bord
 
 /* ---------- progress bar ---------- */
 .bar{display:flex;align-items:center;gap:10px;margin:8px 0}
-.bar .barlab{font-size:.74rem;color:var(--muted);flex:0 0 auto}
+.bar .barlab{font-size:.78rem;color:var(--muted);flex:0 0 auto}
 .bar .track{flex:1;height:6px;border-radius:999px;background:var(--code);overflow:hidden}
 .bar .fill{height:100%;background:var(--accent);width:0;transition:width 300ms ease}
-.bar .barval{font-size:.74rem;color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto}
+.bar .barval{font-size:.78rem;color:var(--muted);font-variant-numeric:tabular-nums;flex:0 0 auto}
 .railbars{padding:6px 6px 2px}
 .railbars .bar{margin:5px 0}
 .railbars .barlab{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -192,13 +192,74 @@ p.cls{
 
 /* ---------- press feedback, motion, focus ---------- */
 button:active{transform:translateY(1px)}
-button:focus-visible,.railrow:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+button:focus-visible,.railrow:focus-visible,summary:focus-visible,
+a:focus-visible,select:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--accent);outline-offset:2px
+}
+/* no 300ms tap delay on any control */
+button,summary,.railrow,select,label{touch-action:manipulation}
+/* skip link: two rails stand between the keyboard and the question */
+.skip{position:absolute;left:-9999px;top:0;z-index:60;background:var(--accent);color:var(--accent-ink);
+  padding:12px 14px;border-radius:0 0 6px 0;font-size:.86rem;text-decoration:none}
+.skip:focus{left:0}
 .dot{width:7px;height:7px;border-radius:999px;background:var(--accent);display:inline-block;
   animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.25}}
 @media (prefers-reduced-motion: reduce){
   *{transition:none !important;animation:none !important}
 }
+
+/* ---------- right panel: equations for the current topic ---------- */
+#eqp{
+  flex:0 0 272px;position:sticky;top:24px;align-self:flex-start;max-height:calc(100vh - 48px);
+  border:1px solid var(--line);border-radius:10px;background:var(--panel);
+  padding:10px 8px;transition:flex-basis 150ms ease;overflow:auto;
+}
+.app.eq-collapsed #eqp{flex-basis:52px;overflow:hidden}
+.app.eq-collapsed #eqbody{display:none}
+.app.eq-collapsed #eqp .railhead .eyebrow{display:none}
+.app.eq-collapsed #eqp .railhead{justify-content:center;padding:2px 0}
+#eqbody{padding:0 4px 4px}
+.eqhome{
+  border:1px solid var(--accent);border-radius:8px;background:var(--code);
+  padding:8px 10px;margin:2px 0 12px;
+}
+.eqhome .eyebrow{display:block;margin-bottom:5px}
+.eqline{
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.82rem;line-height:1.5;
+  color:var(--ink);word-break:break-word;
+}
+.eqhome .eqnote{font-size:.78rem;color:var(--muted);margin:7px 0 0;line-height:1.45}
+.eqgrp{border-top:1px solid var(--line);margin-top:12px;padding-top:9px}
+.eqitem{margin:0 0 10px}
+.eqitem .sym{margin:5px 0 0;padding-left:0;list-style:none;font-size:.78rem;color:var(--muted)}
+.eqitem .sym li{margin:2px 0;line-height:1.4}
+.eqsteps{margin:6px 0 0;padding-left:18px;font-size:.82rem;color:var(--ink);line-height:1.55}
+.eqsteps li{margin:4px 0}
+#eqp details.eqmore{border:1px solid var(--line);border-radius:8px;margin-top:12px;padding:0}
+#eqp details.eqmore summary{
+  cursor:pointer;padding:8px 10px;font-size:.8rem;font-weight:600;list-style:none;
+  display:flex;align-items:center;gap:7px;
+}
+#eqp details.eqmore summary::-webkit-details-marker{display:none}
+#eqp details.eqmore[open] summary{border-bottom:1px solid var(--line)}
+#eqp details.eqmore .mbody{padding:10px;font-size:.8rem;line-height:1.55;overflow-x:auto}
+#eqp details.eqmore .mbody h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;
+  color:var(--muted);margin:0 0 6px}
+#eqp details.eqmore .mbody table{border-collapse:collapse;font-size:.76rem}
+#eqp details.eqmore .mbody td,#eqp details.eqmore .mbody th{border:1px solid var(--line);padding:3px 5px}
+#eqp .hint{font-size:.8rem}
+#eqopen{display:none}
+#eqbackdrop{display:none}
+/* tooltip on the collapsed toggle, drawn outside the panel */
+.app.eq-collapsed #eqtoggle{position:relative}
+.app.eq-collapsed #eqtoggle::after{
+  content:attr(data-tip);position:absolute;right:40px;top:2px;z-index:40;
+  background:var(--ink);color:var(--bg);font-size:.75rem;padding:3px 8px;border-radius:5px;
+  white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 150ms ease;
+}
+.app.eq-collapsed #eqtoggle:hover::after,
+.app.eq-collapsed #eqtoggle:focus-visible::after{opacity:1}
 
 /* ---------- phone: the rail becomes a drawer ---------- */
 @media (max-width: 767px){
@@ -210,7 +271,7 @@ button:focus-visible,.railrow:focus-visible{outline:2px solid var(--accent);outl
   #content{padding-left:0}
   #hamburger{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px}
   #rail{
-    position:fixed;top:0;left:0;bottom:0;z-index:50;width:272px;flex-basis:272px;
+    position:fixed;top:0;left:0;bottom:0;z-index:50;width:272px;flex-basis:272px;height:100dvh;
     border-radius:0;border-left:0;border-top:0;border-bottom:0;overflow:auto;
     transform:translateX(-100%);transition:transform 150ms ease;
   }
@@ -223,13 +284,38 @@ button:focus-visible,.railrow:focus-visible{outline:2px solid var(--accent);outl
   #backdrop{display:block;position:fixed;inset:0;z-index:49;background:#0009;
     opacity:0;pointer-events:none;transition:opacity 150ms ease}
   .app.drawer-open #backdrop{opacity:1;pointer-events:auto}
+  /* 44px touch targets on every control that is tapped */
+  button,select{min-height:44px}
+  .icobtn{min-width:44px;min-height:44px;display:inline-grid;place-items:center}
+  .railrow{height:44px}
+  .itemjump button{min-width:44px;min-height:44px}
+  #eqp details.eqmore summary{padding:12px 10px}
   #timerbar{gap:8px}
-  .stepper{font-size:.72rem}
+  .stepper{font-size:.78rem}
   .steprule{width:14px;margin:0 6px}
+  /* the equations panel becomes a right-hand drawer */
+  #eqopen{display:inline-flex;align-items:center;gap:8px;margin:0 0 12px 10px}
+  #eqp{
+    position:fixed;top:0;right:0;bottom:0;z-index:50;width:286px;max-width:88vw;flex-basis:286px;
+    max-height:none;height:100dvh;border-radius:0;border-right:0;border-top:0;border-bottom:0;
+    transform:translateX(100%);transition:transform 150ms ease;
+  }
+  .app.eqdrawer-open #eqp{transform:translateX(0)}
+  .app.eq-collapsed #eqp{flex-basis:286px;width:286px;overflow:auto}
+  .app.eq-collapsed #eqbody{display:revert}
+  .app.eq-collapsed #eqp .railhead .eyebrow{display:revert}
+  .app.eq-collapsed #eqp .railhead{justify-content:flex-start;padding:2px 4px 8px}
+  .app.eq-collapsed #eqtoggle::after{content:none}
+  #eqtoggle,#railtoggle{transform:rotate(0deg) !important}
+  #eqbackdrop{display:block;position:fixed;inset:0;z-index:49;background:#0009;
+    width:100vw;max-width:100%;
+    opacity:0;pointer-events:none;transition:opacity 150ms ease}
+  .app.eqdrawer-open #eqbackdrop{opacity:1;pointer-events:auto}
 }
 </style>
 </head>
 <body>
+<a class="skip" href="#content">Skip to the questions</a>
 <div class="wrap">
   <h1>Managerial Accounting: Exam 1 Practice</h1>
   <p class="sub" id="meta">Loading question bank…</p>
@@ -249,8 +335,9 @@ button:focus-visible,.railrow:focus-visible{outline:2px solid var(--accent);outl
     <div class="railbars" id="railbars"></div>
   </aside>
 
-  <main id="content">
+  <main id="content" tabindex="-1">
   <button id="hamburger" aria-label="Open the menu" aria-expanded="false"></button>
+  <button id="eqopen" aria-label="Open the equations panel" aria-expanded="false"></button>
   <div class="stepper" id="stepper" hidden></div>
 
   <div id="loaderr" class="warn" hidden>
@@ -299,6 +386,16 @@ button:focus-visible,.railrow:focus-visible{outline:2px solid var(--accent);outl
 
   <div class="panel" id="stats" hidden></div>
   </main>
+
+  <aside id="eqp" aria-label="Equations and setup for this topic">
+    <div class="railhead">
+      <span class="eyebrow">Equations</span>
+      <button id="eqtoggle" class="icobtn" aria-label="Collapse the equations panel"
+              aria-expanded="true" data-tip="Equations (press ])" title="Toggle equations (press ])"></button>
+    </div>
+    <div id="eqbody"></div>
+  </aside>
+  <button id="eqbackdrop" aria-label="Close the equations panel" tabindex="-1"></button>
 </div>
 </div>
 
@@ -335,16 +432,21 @@ function boot(bank){
   buildMockPicker();
   document.getElementById("controls").hidden = false;
   document.getElementById("hamburger").innerHTML = svg("menu") + "<span>Topics</span>";
+  document.getElementById("eqopen").innerHTML = svg("sigma") + "<span>Equations</span>";
   setRail(loadRail(), false);
+  setEqp(loadEqColl(), false);
   buildRail();
+  loadEquations();
   renderStats();
   updatePoolInfo();
   setStep("topic");
   wireShell();
+  renderEqp();
 }
 
 function wireShell(){
   document.getElementById("railtoggle").addEventListener("click", function(){
+    if(window.innerWidth < 768){ openDrawer(false); return; }   // on phone it is a close button
     var now = document.getElementById("app").classList.contains("rail-collapsed");
     setRail(!now, true);
   });
@@ -352,6 +454,15 @@ function wireShell(){
     openDrawer(!document.getElementById("app").classList.contains("drawer-open"));
   });
   document.getElementById("backdrop").addEventListener("click", function(){ openDrawer(false); });
+  document.getElementById("eqtoggle").addEventListener("click", function(){
+    if(window.innerWidth < 768){ openEqDrawer(false); return; }  // on phone it is a close button
+    var now = document.getElementById("app").classList.contains("eq-collapsed");
+    setEqp(!now, true);
+  });
+  document.getElementById("eqopen").addEventListener("click", function(){
+    openEqDrawer(!document.getElementById("app").classList.contains("eqdrawer-open"));
+  });
+  document.getElementById("eqbackdrop").addEventListener("click", function(){ openEqDrawer(false); });
   document.addEventListener("keydown", function(e){
     if(e.key === "\\" && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
       e.preventDefault();
@@ -361,9 +472,17 @@ function wireShell(){
         setRail(!document.getElementById("app").classList.contains("rail-collapsed"), true);
       }
     }
-    if(e.key === "Escape") openDrawer(false);
+    if(e.key === "]" && !MOCK && !/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName)){
+      e.preventDefault();
+      if(window.innerWidth < 768){
+        openEqDrawer(!document.getElementById("app").classList.contains("eqdrawer-open"));
+      } else {
+        setEqp(!document.getElementById("app").classList.contains("eq-collapsed"), true);
+      }
+    }
+    if(e.key === "Escape"){ openDrawer(false); openEqDrawer(false); }
   });
-  document.getElementById("topic").addEventListener("change", function(){ buildRail(); });
+  document.getElementById("topic").addEventListener("change", function(){ buildRail(); renderEqp(); });
   document.getElementById("mode").addEventListener("change", function(){ buildRail(); });
 }
 function showLoadError(){
@@ -507,6 +626,7 @@ function renderCard(){
     "<span class='badge'>" + (sessionTotal - queue.length) + " of " + sessionTotal + "</span>" +
     "</div>";
   h += bar("This pool", sessionTotal - queue.length, sessionTotal);
+  renderEqp();
   h += "<div class='stem'>" + q.stem + "</div>";   /* trusted: authored in questions.json */
   if(q.table) h += q.table;           // trusted: authored in questions.json, not user input
   if(q.type === "mc"){
@@ -607,6 +727,7 @@ function showSolution(ok, typed){
   h += "<div class='sol'><h3>Worked solution</h3>" + q.solution + "</div>";
   if(q.source) h += "<p class='src'>Source: " + esc(q.source) + "</p>";
   h += citeBlock(q);
+  renderEqp();
 
   if(ok === null){
     h += "<div class='row' style='margin-top:12px'>" +
@@ -685,6 +806,8 @@ function startMock(){
   railForced = !document.getElementById("app").classList.contains("rail-collapsed");
   if(railForced) setRail(true, false);          // focus screen: collapse, never remember
   openDrawer(false);
+  showEqp(false);                               // the real exam allows only the Click Note
+  openEqDrawer(false);
   MOCK.tick = setInterval(mockClock, 1000);
   mockClock();
   renderMockItem();
@@ -941,7 +1064,9 @@ function exitMock(){
   document.getElementById("card").hidden = true;
   document.getElementById("controls").hidden = false;
   if(railForced){ setRail(false, false); railForced = false; }
+  showEqp(true);
   setStep("topic");
+  renderEqp();
   renderStats(); updatePoolInfo(); buildRail();
   window.scrollTo(0,0);
 }
@@ -969,7 +1094,9 @@ var ICON = {
   menu:  '<path d="M3 6h14M3 10h14M3 14h14"/>',
   chev:  '<path d="M12 5l-5 5 5 5"/>',
   tick:  '<path d="M4 10.5l4 4 8-9"/>',
-  cross: '<path d="M5 5l10 10M15 5L5 15"/>'
+  cross: '<path d="M5 5l10 10M15 5L5 15"/>',
+  sigma: '<path d="M14 4H6l5 6-5 6h8"/>',
+  chevr: '<path d="M8 5l5 5-5 5"/>'
 };
 function svg(name, cls){
   return "<svg viewBox='0 0 20 20' width='16' height='16' fill='none' stroke='currentColor' " +
@@ -995,6 +1122,9 @@ function setRail(collapsed, remember){
 function openDrawer(open){
   document.getElementById("app").classList.toggle("drawer-open", open);
   document.getElementById("hamburger").setAttribute("aria-expanded", open ? "true" : "false");
+  if(window.innerWidth < 768){                 // on phone the rail toggle closes the drawer
+    document.getElementById("railtoggle").setAttribute("aria-label", "Close the menu");
+  }
 }
 function countFor(topic, mode){
   return BANK.questions.filter(function(q){
@@ -1149,6 +1279,106 @@ function citeBlock(q){
   });
   h += "</div>";
   return h;
+}
+
+
+/* =======================================================================
+   RIGHT PANEL: equations, symbol definitions and setup steps per topic.
+   Mirrors the left rail: open / icon strip / remembered, drawer on phone,
+   its own key (]). Content follows the CURRENT question's topic, falling
+   back to the topic chosen in the rail. Hidden outright during the mock,
+   because the real exam allows only the handwritten Click Note.
+   ======================================================================= */
+var EQS = null;                       // equations.json, {meta, topics}
+var EQKEY = "acct-midterm-eqp-v1";
+function loadEqColl(){
+  try{ return localStorage.getItem(EQKEY) === "collapsed"; }catch(e){ return false; }
+}
+function saveEqColl(collapsed){
+  try{ localStorage.setItem(EQKEY, collapsed ? "collapsed" : "open"); }catch(e){}
+}
+function setEqp(collapsed, remember){
+  document.getElementById("app").classList.toggle("eq-collapsed", collapsed);
+  var b = document.getElementById("eqtoggle");
+  b.setAttribute("aria-expanded", collapsed ? "false" : "true");
+  b.setAttribute("aria-label", collapsed ? "Expand the equations panel" : "Collapse the equations panel");
+  b.innerHTML = collapsed ? svg("sigma") : svg("chevr");
+  if(remember) saveEqColl(collapsed);
+}
+function openEqDrawer(open){
+  document.getElementById("app").classList.toggle("eqdrawer-open", open);
+  document.getElementById("eqopen").setAttribute("aria-expanded", open ? "true" : "false");
+  if(window.innerWidth < 768){                 // on phone the panel toggle closes the drawer
+    document.getElementById("eqtoggle").setAttribute("aria-label", "Close the equations panel");
+  }
+}
+function showEqp(on){
+  document.getElementById("eqp").hidden = !on;
+  document.getElementById("eqopen").hidden = !on;
+}
+(function loadEquationsSetup(){ window.loadEquations = function(){
+  var done = false;
+  function tryScript(){
+    if(done) return;
+    var s = document.createElement("script");
+    s.src = "equations.js";
+    s.onload = function(){ done = true; EQS = window.EQUATIONS || null; renderEqp(); };
+    s.onerror = function(){ done = true; renderEqp(); };
+    document.head.appendChild(s);
+  }
+  try{
+    fetch("equations.json", {cache:"no-store"})
+      .then(function(r){ if(!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function(j){ done = true; EQS = j; renderEqp(); })
+      .catch(tryScript);
+  }catch(e){ tryScript(); }
+}; })();
+
+function eqTopic(){
+  if(current && current.topic) return current.topic;
+  var t = document.getElementById("topic");
+  return (t && t.value && t.value !== "*") ? t.value : null;
+}
+function renderEqp(){
+  var el = document.getElementById("eqbody");
+  if(!el) return;
+  if(MOCK) return;                              // panel is hidden anyway
+  if(!EQS || !EQS.topics){
+    el.innerHTML = "<p class='hint'>Equations file did not load. Run <code>./build.sh</code> " +
+                   "once, or serve the folder, then reload.</p>";
+    return;
+  }
+  var topic = eqTopic();
+  var blk = topic ? EQS.topics[topic] : null;
+  var h = "";
+  if(!blk){
+    h += "<div class='eqhome'><span class='eyebrow'>Home equation</span>" +
+         "<div class='eqline'>Revenue - Variable Cost - Fixed Cost = Profit</div>" +
+         "<p class='eqnote'>His one formula. Pick a topic, or start a question, and this panel " +
+         "shows that topic's own equations and setup steps.</p></div>";
+    el.innerHTML = h;
+    return;
+  }
+  h += "<div class='eqhome'><span class='eyebrow'>Home equation</span>" +
+       "<div class='eqline'>" + esc(blk.home.eq) + "</div>" +
+       "<p class='eqnote'>" + esc(blk.home.note) + "</p></div>";
+  h += "<div class='eqgrp'><span class='eyebrow'>" + esc(topic) + "</span>";
+  blk.equations.forEach(function(e){
+    h += "<div class='eqitem'><div class='eqline'>" + esc(e.eq) + "</div><ul class='sym'>";
+    e.symbols.forEach(function(sy){ h += "<li>" + esc(sy) + "</li>"; });
+    h += "</ul></div>";
+  });
+  h += "</div>";
+  h += "<div class='eqgrp'><span class='eyebrow'>How to set it up</span><ol class='eqsteps'>";
+  blk.setup.forEach(function(st){ h += "<li>" + esc(st) + "</li>"; });
+  h += "</ol></div>";
+  if(current && current.solution){
+    h += "<details class='eqmore'><summary>" + svg("chevr") +
+         "See more: step by step for this question</summary>" +
+         "<div class='mbody'>" + current.solution + "</div></details>";
+         /* trusted: authored in questions.json, same as the solution panel */
+  }
+  el.innerHTML = h;
 }
 
 function renderStats(){
