@@ -103,6 +103,12 @@ The quiz is already served continuously at <http://localhost:4181/> by the launc
 `com.bjepp.acct-midterm`. Nothing to start. Run `./build.sh` after editing `questions.json`
 so the served copy picks the change up. The same applies after editing `equations.json`.
 
+**Ask Claude box.** `python3 serve.py --port 4183` serves the same page plus an Ask
+Claude box (<http://127.0.0.1:4183/>). It runs `claude -p` with every tool off, the study
+guide and cheat sheet as context, and accepts requests only from the local page. The
+launchd copy on 4181 and GitHub Pages have no `/api/ask`, so the box stays hidden there.
+Study help only: AI is not allowed during the real exam.
+
 To run it standalone instead:
 
 ```bash

@@ -92,6 +92,14 @@ h1{font-size:1.25rem;line-height:1.3;margin:0;letter-spacing:-.02em;max-width:62
   border-bottom:1.5px solid currentColor;transform:rotate(45deg);margin-bottom:3px}
 #metawrap[open]>summary::after{transform:rotate(-135deg);margin-bottom:-3px}
 #metawrap .sub{margin:var(--s1) 0 0}
+/* Ask Claude: shown only when serve.py answers GET /api/ask (never on GitHub Pages) */
+#askwrap{flex-basis:100%}
+#askwrap>summary{font-size:.875rem;color:var(--muted);cursor:pointer}
+#askwrap textarea{width:100%;min-height:72px;font:inherit;background:var(--panel);color:var(--ink);
+  border:1px solid var(--line);border-radius:var(--radius);padding:var(--s1);margin:var(--s1) 0}
+#asklog{display:flex;flex-direction:column;gap:var(--s2);margin-top:var(--s2);max-height:50vh;overflow:auto}
+#asklog .q{font-weight:600}
+#asklog .a{white-space:pre-wrap;background:var(--panel);border:1px solid var(--line);padding:var(--s2)}
 /* study header: what you are doing, how far in, how you are doing */
 #studyhead{margin:0 0 var(--s2);padding:0 0 var(--s1);border-bottom:1px solid var(--line)}
 .shrow{display:flex;align-items:center;gap:var(--s2);flex-wrap:wrap;margin-bottom:var(--s1)}
@@ -401,6 +409,14 @@ button,summary,.railrow,select,label{touch-action:manipulation}
     <h1>Managerial Accounting: Exam 1 Practice</h1>
     <details id="metawrap"><summary>Exam details</summary>
       <p class="sub" id="meta">Loading question bank…</p>
+    </details>
+    <details id="askwrap" hidden><summary>Ask Claude</summary>
+      <p class="hint">Study help only. Not allowed during the real exam.</p>
+      <textarea id="askq" maxlength="4000" aria-label="Your question for Claude"
+                placeholder="Ask about a concept or paste a problem. Ctrl+Enter sends."></textarea>
+      <button class="primary" id="asksend">Ask</button> <button id="askclear">Clear</button>
+      <span class="hint" id="askstate" role="status"></span>
+      <div id="asklog"></div>
     </details>
   </header>
 
@@ -1585,6 +1601,45 @@ function renderStats(){
     "</th><th class='num'>" + tot.wrong + "</th><th class='num'>" +
     (att ? Math.round(100*tot.right/att) : 0) + "%</th><th></th></tr></tfoot></table>";
 }
+</script>
+<script>
+// Ask Claude. serve.py runs `claude -p` with no tools; a static host has no /api/ask,
+// so the box stays hidden there.
+(function(){
+  var wrap = document.getElementById("askwrap"), q = document.getElementById("askq"),
+      send = document.getElementById("asksend"), state = document.getElementById("askstate"),
+      log = document.getElementById("asklog"), history = [];
+  fetch("/api/ask", {cache:"no-store"}).then(function(r){ if (r.ok) wrap.hidden = false; })
+    .catch(function(){});
+  function add(cls, text){
+    var d = document.createElement("div"); d.className = cls; d.textContent = text;
+    log.appendChild(d); d.scrollIntoView({block:"nearest"}); return d;
+  }
+  function go(){
+    var text = q.value.trim();
+    if (!text || send.disabled) return;
+    send.disabled = true; state.textContent = "Thinking…";
+    add("q", text);
+    fetch("/api/ask", {method:"POST", headers:{"Content-Type":"application/json"},
+                       body: JSON.stringify({q:text, history:history})})
+      .then(function(r){ return r.json().then(function(j){ return [r.ok, j]; }); })
+      .then(function(x){
+        if (!x[0]) throw new Error(x[1].error || "request failed");
+        add("a", x[1].answer); history.push({q:text, a:x[1].answer}); q.value = "";
+        state.textContent = "";
+      })
+      .catch(function(e){ state.textContent = "Error: " + e.message; })
+      .then(function(){ send.disabled = false; q.focus(); });
+  }
+  send.addEventListener("click", go);
+  q.addEventListener("keydown", function(e){
+    if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) { e.preventDefault(); go(); }
+    e.stopPropagation();  // keep the quiz's keyboard shortcuts out of the text box
+  });
+  document.getElementById("askclear").addEventListener("click", function(){
+    history = []; log.textContent = ""; state.textContent = "";
+  });
+})();
 </script>
 </body>
 </html>
