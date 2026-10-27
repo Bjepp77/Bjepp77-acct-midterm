@@ -81,7 +81,7 @@
    "session": 3,
    "style": "computational MC",
    "type": "mc",
-   "stem": "Same company. What is break-even in SALES DOLLARS?",
+   "stem": "A company sells 60,000 calculators for $480,000. Variable costs are $252,000 and fixed costs are $180,000. What is break-even in SALES DOLLARS?",
    "choices": [
     "$378,947",
     "$180,000",
@@ -317,7 +317,7 @@
    "session": 6,
    "style": "computational MC",
    "type": "mc",
-   "stem": "Same PVC company. The question is: 'How far can sales decline before we reach break-even?' Which calculation answers it?",
+   "stem": "PVC company: current volume 60,000 units, price $8.00, VC $4.20 per unit, fixed cost $180,000 (break-even 47,369 units; margin of safety 12,631 units). The question is: 'How far can sales decline before we reach break-even?' Which calculation answers it?",
    "choices": [
     "12,631 / 47,369 = 26.7%",
     "12,631 / 60,000 = 21.05%",
@@ -338,7 +338,7 @@
    "session": 6,
    "style": "computational MC",
    "type": "mc",
-   "stem": "Same PVC company. The question is: 'How far ABOVE break-even are we?' What is the answer?",
+   "stem": "PVC company: current volume 60,000 units, price $8.00, VC $4.20 per unit, fixed cost $180,000 (break-even 47,369 units; margin of safety 12,631 units). The question is: 'How far ABOVE break-even are we?' What is the answer?",
    "choices": [
     "21.05%",
     "26.7%",
@@ -1703,7 +1703,7 @@
    "answer": 51.21,
    "tolerance": 0.05,
    "answerLabel": "$51.21",
-   "stem": "Same paper airplane period as the previous question: 23 started, 18 completed and sold, ending work-in-process 60% complete for direct labor and overhead, DM $2.50 per sheet, total DL $64, total OH $207.<br><br><strong>Compute the value of ending inventory.</strong>",
+   "stem": "Paper airplane period: 23 started, 18 completed and sold, ending work-in-process 60% complete for direct labor and overhead, DM $2.50 per sheet, total DL $64, total OH $207.<br><br><strong>Compute the value of ending inventory.</strong>",
    "solution": "<p>Five planes are unfinished. They carry full material cost and 60% of the conversion cost.</p><table><tr><th>Line</th><th>Calculation</th><th class='num'>Amount</th></tr><tr><td>DM in inventory</td><td>5 &times; $2.50</td><td class='num'>$12.50</td></tr><tr><td>DL in inventory</td><td>($64 / 21) &times; (5 &times; 60%)</td><td class='num'>9.14</td></tr><tr><td>OH in inventory</td><td>($207 / 21) &times; (5 &times; 60%)</td><td class='num'>29.57</td></tr><tr><td><strong>Ending inventory balance</strong></td><td></td><td class='num'><strong>$51.21</strong></td></tr></table><p><strong>Check your work.</strong> What went to the income statement plus what sits in inventory must equal what was spent. 45.00 + 54.86 + 177.43 = 277.29 expensed, plus 51.21 in inventory = $328.50, which is 57.50 of materials (23 &times; 2.50) + 64 + 207. If those do not tie, something is wrong.</p>",
    "bpGroup": "14-15",
    "bpOrder": 8
