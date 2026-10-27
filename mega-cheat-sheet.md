@@ -30,7 +30,7 @@ Return target: (1) % x base = after-tax $ (2) / (1-t) (3) into home eq.
 ROE -> EQUITY. ROA -> TOTAL ASSETS. Rest of balance sheet = decoy.
 Target as % of revenue: [CM/u - k(P)]V = FC  (can't add it to FC).
 [P 8, vc 4.20, FC 180k: BE 47,369 u, $378,947; +120k target -> 78,948]
-[tax-003: 500k after tax @30% -> 714,286 pretax]
+[500k after tax @30% -> 714,286 pretax. tax-003: 30% ROE on 300k equity, t 40% -> 150k pretax -> P 50.80]
 
 ### C. Margin of safety [7-9]
 ```
