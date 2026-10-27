@@ -49,7 +49,8 @@ def ask(question, history):
     r = subprocess.run(cmd, input=turns + question, capture_output=True, text=True,
                        timeout=TIMEOUT, cwd=EMPTY)
     if r.returncode != 0:
-        raise RuntimeError((r.stderr or r.stdout).strip()[-300:] or "claude exited %d" % r.returncode)
+        print("claude exited %d: %s" % (r.returncode, (r.stderr or r.stdout).strip()[-300:]), flush=True)
+        raise RuntimeError("claude exited %d" % r.returncode)
     return r.stdout.strip()
 
 
@@ -69,9 +70,16 @@ class Handler(SimpleHTTPRequestHandler):
         self.wfile.write(body)
 
     def do_GET(self):
+        if not self.local():
+            return self.reply(403, {})
         if self.path == "/api/ask":
-            return self.reply(200, {"ok": True}) if self.local() else self.reply(403, {})
+            return self.reply(200, {"ok": True})
         return super().do_GET()
+
+    def do_HEAD(self):
+        if not self.local():
+            return self.reply(403, {})
+        return super().do_HEAD()
 
     def do_POST(self):
         if self.path != "/api/ask":
@@ -82,7 +90,9 @@ class Handler(SimpleHTTPRequestHandler):
         if self.headers.get("Content-Type", "").split(";")[0] != "application/json":
             return self.reply(415, {"error": "send JSON"})
         try:
-            n = int(self.headers.get("Content-Length", "0"))
+            n = int(self.headers.get("Content-Length", ""))
+            if n < 0:
+                raise ValueError("negative Content-Length")
             data = json.loads(self.rfile.read(min(n, 200000)))
             q = str(data.get("q", "")).strip()
             hist = [{"q": str(h["q"])[:MAX_Q], "a": str(h["a"])[:8000]}
@@ -98,7 +108,8 @@ class Handler(SimpleHTTPRequestHandler):
         except subprocess.TimeoutExpired:
             return self.reply(504, {"error": "Claude took too long; try again"})
         except (OSError, RuntimeError) as e:
-            return self.reply(502, {"error": str(e)})
+            print("ask failed: %s" % e, flush=True)
+            return self.reply(502, {"error": "Claude failed; see the server terminal"})
         finally:
             LOCK.release()
 

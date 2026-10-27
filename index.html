@@ -832,7 +832,7 @@ function answerTyped(){
     if(isNaN(v)){ return; }
     answered = true;
     var tol = (typeof q.tolerance === "number") ? q.tolerance : 0.01;
-    var ok = Math.abs(v - q.answer) <= Math.max(tol, Math.abs(q.answer) * 0.001);
+    var ok = Math.abs(v - q.answer) <= tol + 1e-9;   // configured tolerance only; 1e-9 absorbs float error
     score(ok);
     showSolution(ok, raw);
   } else {
@@ -1145,7 +1145,7 @@ function gradeMock(){
       if(isNaN(v)){ got = 0; verdict = "left blank"; }
       else {
         var tol = (typeof q.tolerance === "number") ? q.tolerance : 0.01;
-        var ok = Math.abs(v - q.answer) <= Math.max(tol, Math.abs(q.answer)*0.001);
+        var ok = Math.abs(v - q.answer) <= tol + 1e-9;
         got = ok ? q.points : 0; verdict = ok ? "correct" : "wrong";
       }
     } else {
