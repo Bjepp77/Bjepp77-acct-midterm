@@ -13,18 +13,21 @@ Section numbers match blueprint items. Anchors (in brackets) are worked answers 
 
 ### A. Home equation (everything) [items 3, 7-11]
 ```
-Rev - VC - FC = Profit          P(V) - vc(V) - FC = Profit
-CM/u(V) - FC = Profit           Rev - VC%(Rev) - FC = Profit
-TC = vc(V) + FC                 CM ratio = 1 - VC ratio
+Rev - VC - FC = Profit
+P(V) - vc(V) - FC = Profit
+CM/u(V) - FC = Profit
+Rev - VC%(Rev) - FC = Profit
+TC = vc(V) + FC         CM ratio = 1 - VC ratio
 ```
 Write it, fill 3, solve the 4th. NEVER unitize FC or profit: x back to totals first.
 
 ### B. Single-product CVP [7-9, 15 pts]
 ```
-BE units  = FC / CM/u                  ROUND UP
-BE $      = FC / CM ratio
-Target V  = (FC + Target) / CM/u       ROUND UP
-Pretax    = After-tax / (1 - t)        DIVIDE, never x(1-t)
+BE units = FC / CM/u               ROUND UP
+BE $     = FC / CM ratio
+Target V = (FC + Target) / CM/u    ROUND UP
+Pretax   = After-tax / (1 - t)
+           DIVIDE, never x(1-t)
 ```
 Return target: (1) % x base = after-tax $ (2) / (1-t) (3) into home eq.
 ROE -> EQUITY. ROA -> TOTAL ASSETS. Rest of balance sheet = decoy.
@@ -34,9 +37,11 @@ Target as % of revenue: [CM/u - k(P)]V = FC  (can't add it to FC).
 
 ### C. Margin of safety [7-9]
 ```
-MoS = Current - BE      (units or $)
-"how far ABOVE BE?"        MoS / BE         [12,631/47,369 = 26.7%]
-"how far can sales FALL?"  MoS / CURRENT    [12,631/60,000 = 21.05%]
+MoS = Current - BE   (units or $)
+"how far ABOVE BE?"        MoS / BE
+   [12,631/47,369 = 26.7%]
+"how far can sales FALL?"  MoS / CURRENT
+   [12,631/60,000 = 21.05%]
 ```
 The words pick the denominator.
 
@@ -58,8 +63,10 @@ No unique multi-product BE: new mix = recompute from scratch.
 GAAP (COGS vs S&A) is NOT variable vs fixed. Rebuild: vc/u x V = total VC; total cost - VC = FC.
 [mock-1-04: vc 35 x 24,000 = 840k; 1,292k - 840k = FC 452k]
 ```
-High-low:  b = (Hi$ - Lo$) / (Hi act - Lo act)     pick by ACTIVITY, not cost
-           a = Hi$ - b(Hi act)     CHECK a at the low point too
+High-low (pick by ACTIVITY, not cost):
+  b = (Hi$ - Lo$) / (Hi act - Lo act)
+  a = Hi$ - b(Hi act)
+  CHECK a at the low point too
 ```
 [mock-1-02: b 19.00, a 106,400 both points]
 Step cost: resources = V / capacity, ROUND UP, then total. Never average to a per-unit rate.
@@ -73,10 +80,14 @@ Relevant range: model only valid inside observed data. High-low = 2 points; regr
 | Variable cost | SLOPE (driver) row |
 | Total cost estimate | REGRESSION (top block) |
 ```
-CI = point +/- t(SE)       df = n - 2
-t @ 6 df: 70% 1.134 | 80% 1.440 | 90% 1.943 | 95% 2.447
-t stat = coef / own SE: >=2 useful, >3 near certain. p < .05. Report ADJ R^2.
-Point estimate from PRINTED rounded coefficients, compute it FIRST.
+CI = point +/- t(SE)      df = n - 2
+t @ 6 df: 70% 1.134 | 80% 1.440
+          90% 1.943 | 95% 2.447
+t stat = coef / own SE
+  >=2 useful, >3 near certain. p < .05
+Report ADJ R^2.
+Point estimate from PRINTED rounded coefs,
+  compute it FIRST.
 ```
 [Sailmaster: 95% total @325 = 273,116.04 +/- 2.447(27,771.27) -> 205,159.74 to 341,072.34]
 
@@ -88,22 +99,26 @@ Point estimate from PRINTED rounded coefficients, compute it FIRST.
 Mfg costs (DM, DL, VOH, AND FIXED OH) attach to units -> inventory until sold.
 S&A = period cost, expensed now.
 ```
-Units of production DM   = sold + ALL WIP              (materials in at start)
-Units of production conv = sold + WIP x % complete
-Rate = cost / its own denominator     (two denominators, never one)
-Op profit: revenue - (rates x SOLD units)
-End inventory: DM rate x WIP + conv rates x (WIP x %)
+Units of prod, DM   = sold + ALL WIP
+  (materials in at start)
+Units of prod, conv = sold + WIP x % complete
+Rate = cost / its own denominator
+  (two denominators, never one)
+Op profit = revenue - (rates x SOLD units)
+End inv = DM rate x WIP + conv rates x (WIP x %)
 TIE OUT: expensed + inventory = total spent
 ```
-[23 started, 18 sold, 5 WIP @60%: denominators 23 and 21; profit 262.72; inv 51.21;
- 277.29 + 51.21 = 328.50]
+[23 started, 18 sold, 5 WIP @60%: denominators 23 and 21; profit 262.72; inv 51.21; 277.29 + 51.21 = 328.50]
 Absorption: produce more -> FOH moves to balance sheet -> reported profit rises with no extra sales.
 Same as "equivalent units" / "work done".
 
 ### H. DOL [12, 5 pts]
 ```
-DOL = TOTAL CM $ / Op profit         (not CM ratio, not revenue)
-%chg OP = DOL x %chg Rev             cuts BOTH ways; point-in-time, recompute after V moves
+DOL = TOTAL CM $ / Op profit
+  (not CM ratio, not revenue)
+%chg OP = DOL x %chg Rev
+  cuts BOTH ways; point-in-time,
+  recompute after V moves
 ```
 [mock-1-12: 836k / 308k = 2.71; +/-10% rev -> +/-27.1% OP]
 
