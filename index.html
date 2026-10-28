@@ -808,8 +808,9 @@ function renderCard(){
 
 function parseNum(s){
   var t = String(s).replace(/[$,\s%]/g,"");
-  if(t === "" ) return NaN;
-  return parseFloat(t);
+  if(!/^[+-]?(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?$/.test(t)) return NaN;
+  var n = Number(t);
+  return isFinite(n) ? n : NaN;
 }
 function answerMC(i){
   if(answered) return;

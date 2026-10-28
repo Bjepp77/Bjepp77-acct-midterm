@@ -9,13 +9,17 @@ The study guide and cheat sheet go in as context. GitHub Pages has no /api/ask, 
 box stays hidden there.
 """
 import argparse
+import base64
+import hashlib
 import json
+import re
 import subprocess
 import tempfile
 import threading
 from functools import partial
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
+from urllib.parse import urlsplit
 
 HERE = Path(__file__).resolve().parent
 MAX_Q = 4000
@@ -23,6 +27,20 @@ MAX_TURNS = 3          # earlier question/answer pairs sent with a follow-up
 TIMEOUT = 180
 LOCK = threading.Lock()  # one claude run at a time
 EMPTY = tempfile.mkdtemp(prefix="acct-ask-")  # cwd with no project files or CLAUDE.md
+STATIC_FILES = frozenset({
+    "index.html", "questions.json", "equations.json", "questions.js", "equations.js",
+    "cheat-sheet.md", "study-guide.md", "excel-recipes.md",
+    "mega-cheat-sheet.md", "mega-cheat-sheet.pdf",
+})
+
+# The page has two inline scripts. Hash their exact bytes so CSP can allow them.
+INLINE_SCRIPTS = re.findall(rb"<script>(.*?)</script>",
+                            (HERE / "index.html").read_bytes(), re.DOTALL)
+SCRIPT_HASHES = " ".join("'sha256-%s'" % base64.b64encode(hashlib.sha256(script).digest()).decode()
+                         for script in INLINE_SCRIPTS)
+CSP = ("default-src 'self'; script-src 'self' %s; style-src 'self' 'unsafe-inline'; "
+       "connect-src 'self'; img-src 'self' data:; object-src 'none'; "
+       "base-uri 'none'; frame-ancestors 'none'" % SCRIPT_HASHES)
 
 SYSTEM = ("You are a tutor for a first-year MBA managerial accounting course (MBA 502, "
           "Exam 1: cost behaviour, CVP, job and process costing, cost allocation, Blocher "
@@ -55,6 +73,21 @@ def ask(question, history):
 
 
 class Handler(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        self.send_header("Content-Security-Policy", CSP)
+        self.send_header("X-Content-Type-Options", "nosniff")
+        super().end_headers()
+
+    def send_head(self):
+        path = urlsplit(self.path).path
+        name = "index.html" if path == "/" else path.removeprefix("/")
+        if name not in STATIC_FILES or (Path(self.directory) / name).is_symlink():
+            self.send_error(404, "not found")
+            return None
+        if path == "/":
+            self.path = "/index.html"
+        return super().send_head()
+
     def local(self):
         host = self.headers.get("Host", "")
         ok = {"127.0.0.1:%d" % self.server.server_port, "localhost:%d" % self.server.server_port}
